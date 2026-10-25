@@ -1,0 +1,5 @@
+- Satış ekibi bu ay hedefin yüzde 92’sine ulaştı
+- Yeni stok sistemine geçiş 15 Kasım’da başlayacak
+- Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek
+- Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak
+- Depo vardiyaları kasımdan itibaren yeniden düzenlenecek

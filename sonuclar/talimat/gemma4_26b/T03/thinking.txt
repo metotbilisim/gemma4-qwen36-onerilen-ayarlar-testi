@@ -1,0 +1,308 @@
+
+*   Sender: Ege Dijital
+*   Recipient: Lezzet Durağı (restaurant)
+*   Subject: Website development proposal
+*   Structure: Exactly 3 sections.
+*   Section headers: "Bölüm 1", "Bölüm 2", "Bölüm 3" (each on a new line).
+*   Word count constraint: 120 to 160 words.
+*   Mandatory information:
+    *   Restaurant name: Lezzet Durağı
+    *   Duration: 6 weeks
+    *   Total price: 48.000 TL
+
+    *   *Bölüm 1 (Introduction):* Greeting to Lezzet Durağı, explaining Ege Dijital's goal to enhance their digital presence through a modern website.
+    *   *Bölüm 2 (Scope/Process):* Mentioning the features (menu, online reservation, mobile compatibility) and the timeline (6 weeks).
+    *   *Bölüm 3 (Pricing/Closing):* Stating the total price (48.000 TL) and a call to action.
+
+    *Drafting - Attempt 1 (Mental Outline):*
+    Bölüm 1
+    Sayın Lezzet Durağı yetkilileri, Ege Dijital olarak işletmenizin dijital dünyadaki yüzünü profesyonel bir web sitesiyle güçlendirmek istiyoruz. Modern ve kullanıcı dostu bir tasarım sunarak müşterilerinizin size kolayca ulaşmasını hedefliyoruz.
+
+    Bölüm 2
+    Proje kapsamında; şık bir menü tasarımı, online rezervasyon sistemi ve mobil uyumluluk sağlanacaktır. Tüm hazırlık süreçlerini ve teknik entegrasyonları kapsayan bu kapsamlı çalışma, toplamda 6 hafta içerisinde tamamlanacaktır.
+
+    Bölüm 3
+    Lezzet Durağı için hazırladığımız bu özel web sitesi paketinin toplam bedeli 48.000 TL olarak belirlenmiştir. İş birliğimizin markanıza değer katacağına inanıyoruz. Teklifimizi onaylamanız halinde hemen süreci başlatabiliriz. Saygılarımızla, Ege Dijital.
+
+    *Word Count Check (Attempt 1):*
+    Bölüm 1: 33 words
+    Bölüm 2: 35 words
+    Bölüm 3: 34 words
+    Total: 102 words. -> *Too short. Needs more words (Target: 120-160).*
+
+    *Refining - Attempt 2 (Expanding content):*
+
+    Bölüm 1
+    Sayın Lezzet Durağı yetkilileri, Ege Dijital ekibi olarak, restoranınızın dijital dünyadaki prestijini artırmak amacıyla profesyonel bir web sitesi projesi sunmaktan büyük heyecan duyuyoruz. Amacımız, eşsiz lezzetlerinizi dijital platformlarda en etkileyici şekilde sergileyerek müşteri kitlenizi genişletmektir.
+
+    Bölüm 2
+    Hazırlanacak web sitesi; kullanıcı dostu bir menü tasarımı, kolay online rezervasyon imkanı ve tüm cihazlarla tam uyumlu mobil yapı sunacaktır. Modern arayüz tasarımı ve SEO optimizasyonu çalışmalarını da içeren bu kapsamlı proje, toplam 6 hafta içinde eksiksiz bir şekilde teslim edilecektir.
+
+    Bölüm 3
+    Lezzet Durağı markasına özel olarak hazırlanan bu profesyonel dijital dönüşüm paketinin toplam bedeli 48.000 TL’dir. İşletmenizin dijital başarısını birlikte inşa etmek için sabırsızlanıyoruz. Teklifimizle ilgili detayları görüşmek üzere dönüşünüzü bekleriz. Saygılarımızla, Ege Dijital.
+
+    *Word Count Check (Attempt 2):*
+    Bölüm 1: 40 words
+    Bölüm 2: 42 words
+    Bölüm 3: 41 words
+    Total: 123 words. -> *This fits the 120-160 range.*
+
+    *   Ege Dijital included? Yes.
+    *   Lezzet Durağı included? Yes.
+    *   3 sections? Yes.
+    *   Headers "Bölüm 1", "Bölüm 2", "Bölüm 3" on separate lines? Yes.
+    *   Duration "6 hafta" included? Yes.
+    *   Price "48.000 TL" included? Yes.
+    *   Word count: 123 words (Target 120-160).
+
+    *Final Polish (Checking for flow and tone):*
+    The tone is professional. The information is clear.
+
+    *Final Count Verification:*
+    Bölüm (1)
+    1 (2)
+    Sayın (3) Lezzet (4) Durağı (5) yetkilileri, (6) Ege (7) Dijital (8) ekibi (9) olarak, (10) restoranınızın (11) dijital (12) dünyadaki (13) prestijini (14) artırmak (15) amacıyla (16) profesyonel (17) bir (18) web (19) sitesi (20) projesi (21) sunmaktan (22) büyük (23) heyecan (24) duyuyoruz. (25) Amacımız, (26) eşsiz (27) lezzetlerinizi (28) dijital (29) platformlarda (30) en (31) etkileyici (32) şekilde (33) sergileyerek (34) müşteri (35) kitlenizi (36) genişletmektir. (37)
+
+    Bölüm (38)
+    2 (39)
+    Hazırlanacak (40) web (41) sitesi; (42) kullanıcı (43) dostu (44) bir (45) menü (46) tasarımı, (47) kolay (48) online (49) rezervasyon (50) imkanı (51) ve (52) tüm (53) cihazlarla (54) tam (55) uyumlu (56) mobil (57) yapı (58) sunacaktır. (59) Modern (60) arayüz (61) tasarımı (62) ve (63) SEO (64) optimizasyonu (65) çalışmalarını (66) da (67) içeren (68) bu (69) kapsamlı (70) proje, (71) toplam (72) 6 (73) hafta (74) içinde (75) eksiksiz (76) bir (77) şekilde (78) teslim (79) edilecektir. (80)
+
+    Bölüm (81)
+    3 (82)
+    Lezzet (83) Durağı (84) markasına (85) özel (86) olarak (87) hazırlanan (88) bu (89) profesyonel (90) dijital (91) dönüşüm (92) paketinin (93) toplam (94) bedeli (95) 48.000 (96) TL’dir. (97) İşletmenizin (98) dijital (99) başarısını (100) birlikte (101) inşa (102) etmek (103) için (104) sabırsızlanıyoruz. (105) Teklifimizle (106) ilgili (107) detayları (108) görüşmek (109) üzere (110) dönüşünüzü (111) bekleriz. (112) Saygılarımızla, (113) Ege (114) Dijital. (115)
+
+    *Wait, current count is 115 words. I need at least 120.*
+
+    *Expanding Attempt 2 slightly:*
+
+    Bölüm 1
+    Sayın Lezzet Durağı yetkilileri, Ege Dijital ekibi olarak, restoranınızın dijital dünyadaki prestijini ve görünürlüğünü artırmak amacıyla profesyonel bir web sitesi projesi sunmaktan büyük heyecan duyuyoruz. Temel amacımız, eşsiz lezzetlerinizi dijital platformlarda en etkileyici şekilde sergileyerek müşteri kitlenizi hızla genişletmektir.
+
+    Bölüm 2
+    Hazırlanacak modern web sitesi; kullanıcı dostu bir menü tasarımı, kolay online rezervasyon imkanı ve tüm mobil cihazlarla tam uyumlu bir altyapı sunacaktır. Gelişmiş arayüz tasarımı ve SEO optimizasyonu çalışmalarını da içeren bu kapsamlı proje, toplam 6 hafta içinde eksiksiz bir şekilde teslim edilecektir.
+
+    Bölüm 3
+    Lezzet Durağı markasına özel olarak kurgulanan bu profesyonel dijital dönüşüm paketinin toplam bedeli 48.000 TL olarak belirlenmiştir. İşletmenizin dijital başarısını birlikte inşa etmek için sabırsızlanıyoruz. Teklifimizle ilgili tüm detayları görüşmek üzere değerli dönüşünüzü bekliyoruz. Saygılarımızla, Ege Dijital.
+
+    *Recounting (Word by word):*
+    1.Bölüm 2.1 3.Sayın 4.Lezzet 5.Durağı 6.yetkilileri, 7.Ege 8.Dijital 9.ekibi 10.olarak, 11.restoranınızın 12.dijital 13.dünyadaki 14.prestijini 15.ve 16.görünürlüğünü 17.artırmak 18.amacıyla 19.profesyonel 20.bir 21.web 22.sitesi 23.projesi 24.sunmaktan 25.büyük 26.heyecan 27.duyuyoruz. 28.Temel 29.amacımız, 30.eşsiz 31.lezzetlerinizi 32.dijital 33.platformlarda 34.en 35.etkileyici 36.şekilde 37.sergileyerek 38.müşteri 39.kitlenizi 40.hızla 41.genişletmektir.
+    42.Bölüm 43.2 44.Hazırlanacak 45.modern 46.web 47.sitesi; 48.kullanıcı 49.dostu 50.bir 51.menü 52.tasarımı, 53.kolay 54.online 55.rezervasyon 56.imkanı 57.ve 58.tüm 59.mobil 60.cihazlarla 61.tam 62.uyumlu 63.bir 64.altyapı 65.sunacaktır. 66.Gelişmiş 67.arayüz 68.tasarımı 69.ve 70.SEO 71.optimizasyonu 72.çalışmalarını 73.da 74.içeren 75.bu 76.kapsamlı 77.proje, 78.toplam 79.6 80.hafta 81.içinde 82.eksiksiz 83.bir 84.şekilde 85.teslim 86.edilecektir.
+    87.Bölüm 88.3 89.Lezzet 90.Durağı 91.markasına 92.özel 93.olarak 94.kurgulanan 95.bu 96.profesyonel 97.dijital 98.dönüşüm 99.paketinin 100.toplam 101.bedeli 102.48.000 103.TL 104.olarak 105.belirlenmiştir. 106.İşletmenizin 107.dijital 108.başarısını 109.birlikte 110.inşa 111.etmek 112.için 113.sabırsızlanıyoruz. 114.Teklifimizle 115.ilgili 116.tüm 117.detayları 118.görüşmek 119.üzere 120.değerli 121.dönüşünüzü 122.bekliyoruz. 123.Saygılarımızla, 124.Ege 125.Dijital.
+
+    *Count is 125 words.* This is within the 120-160 range.
+
+    *Wait, let me double check the section headers constraint.*
+    "Metin tam olarak 3 bölümden oluşsun; her bölüm başlığı ayrı bir satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın."
+    So:
+    Bölüm 1
+    [Text]
+    Bölüm 2
+    [Text]
+    Bölüm 3
+    [Text]
+
+    *Let me verify the requirements again:*
+    - Ege Dijital (Yes)
+    - Lezzet Durağı (Yes)
+    - 6 hafta (Yes)
+    - 48.000 TL (Yes)
+    - 3 sections (Yes)
+    - Headers as requested (Yes)
+    - 120-160 words (Yes: 125 words)
+
+    *Self-Correction on Word Count:* Some word counters count numbers/symbols differently. I'll add a few more words to be safe and ensure it sits comfortably in the middle of the range (around 140).
+
+    *Expanding slightly for safety:*
+    Bölüm 1
+    Sayın Lezzet Durağı yetkilileri, Ege Dijital ekibi olarak, restoranınızın dijital dünyadaki prestijini ve görünürlüğünü artırmak amacıyla profesyonel bir web sitesi projesi sunmaktan büyük heyecan duyuyoruz. Temel amacımız, eşsiz lezzetlerinizi dijital platformlarda en etkileyici şekilde sergileyerek müşteri kitlenizi hızla genişletmek ve markanızı güçlendirmektir.
+
+    Bölüm 2
+    Hazırlanacak modern web sitesi; kullanıcı dostu bir menü tasarımı, kolay online rezervasyon imkanı ve tüm mobil cihazlarla tam uyumlu bir altyapı sunacaktır. Gelişmiş arayüz tasarımı, kullanıcı deneyimi ve SEO optimizasyonu çalışmalarını da içeren bu kapsamlı proje, toplam 6 hafta içinde eksiksiz bir şekilde teslim edilecektir.
+
+    Bölüm 3
+    Lezzet Durağı markasına özel olarak kurgulanan bu profesyonel dijital dönüşüm paketinin toplam bedeli 48.000 TL olarak belirlenmiştir. İşletmenizin dijital dünyadaki başarısını birlikte inşa etmek için sabırsızlanıyoruz. Teklifimizle ilgili tüm detayları görüşmek üzere değerli dönüşünüzü bekliyoruz. Saygılarımızla, Ege Dijital.
+
+    *Recounting final version:*
+    Bölüm 1 (2 words)
+    Sayın (3) Lezzet (4) Durağı (5) yetkilileri, (6) Ege (7) Dijital (8) ekibi (9) olarak, (10) restoranınızın (11) dijital (12) dünyadaki (13) prestijini (14) ve (15) görünürlüğünü (16) artırmak (17) amacıyla (18) profesyonel (19) bir (20) web (21) sitesi (22) projesi (23) sunmaktan (24) büyük (25) heyecan (26) duyuyoruz. (27) Temel (28) amacımız, (29) eşsiz (30) lezzetlerinizi (31) dijital (32) platformlarda (33) en (34) etkileyici (35) şekilde (36) sergileyerek (37) müşteri (38) kitlenizi (39) hızla (40) genişletmek (41) ve (42) markanızı (43) güçlendirmektir. (44)
+
+    Bölüm 2 (46 words)
+    Bölüm (45) 2 (46)
+    Hazırlanacak (47) modern (48) web (49) sitesi; (50) kullanıcı (51) dostu (52) bir (53) menü (54) tasarımı, (55) kolay (56) online (57) rezervasyon (58) imkanı (59) ve (60) tüm (61) mobil (62) cihazlarla (63) tam (64) uyumlu (65) bir (66) altyapı (67) sunacaktır. (68) Gelişmiş (69) arayüz (70) tasarımı, (71) kullanıcı (72) deneyimi (73) ve (74) SEO (75) optimizasyonu (76) çalışmalarını (77) da (78) içeren (79) bu (80) kapsamlı (81) proje, (82) toplam (83) 6 (84) hafta (85) içinde (86) eksiksiz (87) bir (88) şekilde (89) teslim (90) edilecektir. (91)
+
+    Bölüm 3 (34 words)
+    Bölüm (92) 3 (93)
+    Lezzet (94) Durağı (95) markasına (96) özel (97) olarak (98) kurgulanan (99) bu (100) profesyonel (101) dijital (102) dönüşüm (103) paketinin (104) toplam (105) bedeli (106) 48.000 (107) TL (108) olarak (109) belirlenmiştir. (110) İşletmenizin (111) dijital (112) dünyadaki (113) başarısını (114) birlikte (115) inşa (116) etmek (117) için (118) sabırsızlanıyoruz. (119) Teklifimizle (120) ilgili (121) tüm (122) detayları (123) görüşmek (124) üzere (125) değerli (126) dönüşünüzü (127) bekliyoruz. (128) Saygılarımızla, (129) Ege (130) Dijital. (131)
+
+    Total: 131 words. This is perfect (well within 120-160 range).
+
+    *Double Check constraints one last time:*
+    - Ege Dijital name? Yes.
+    - Lezzet Durağı name? Yes.
+    - 6 weeks? Yes.
+    - 48.000 TL? Yes.
+    - 3 sections? Yes.
+    - Headers separate lines? Yes.
+    - Word count 120-160? Yes (131).
+
+    *Note on "48.000 TL":* In Turkish, 48.000 is one token/word, TL is another.
+    *Note on "6 hafta":* 6 is one, hafta is another.
+
+    Final Text Construction:
+    Bölüm 1
+    Sayın Lezzet Durağı yetkilileri, Ege Dijital ekibi olarak, restoranınızın dijital dünyadaki prestijini ve görünürlüğünü artırmak amacıyla profesyonel bir web sitesi projesi sunmaktan büyük heyecan duyuyoruz. Temel amacımız, eşsiz lezzetlerinizi dijital platformlarda en etkileyici şekilde sergileyerek müşteri kitlenizi hızla genişletmek ve markanızı güçlendirmektir.
+
+    Bölüm 2
+    Hazırlanacak modern web sitesi; kullanıcı dostu bir menü tasarımı, kolay online rezervasyon imkanı ve tüm mobil cihazlarla tam uyumlu bir altyapı sunacaktır. Gelişmiş arayüz tasarımı, kullanıcı deneyimi ve SEO optimizasyonu çalışmalarını da içeren bu kapsamlı proje, toplam 6 hafta içinde eksiksiz bir şekilde teslim edilecektir.
+
+    Bölüm 3
+    Lezzet Durağı markasına özel olarak kurgulanan bu profesyonel dijital dönüşüm paketinin toplam bedeli 48.000 TL olarak belirlenmiştir. İşletmenizin dijital dünyadaki başarısını birlikte inşa etmek için sabırsızlanıyoruz. Teklifimizle ilgili tüm detayları görüşmek üzere değerli dönüşünüzü bekliyoruz. Saygılarımızla, Ege Dijital.
+
+    *One final word count check (using automated logic):*
+    1. Bölüm
+    2. 1
+    3. Sayın
+    4. Lezzet
+    5. Durağı
+    6. yetkilileri,
+    7. Ege
+    8. Dijital
+    9. ekibi
+    10. olarak,
+    11. restoranınızın
+    12. dijital
+    13. dünyadaki
+    14. prestijini
+    15. ve
+    16. görünürlüğünü
+    17. artırmak
+    18. amacıyla
+    19. profesyonel
+    20. bir
+    21. web
+    22. sitesi
+    23. projesi
+    24. sunmaktan
+    25. büyük
+    26. heyecan
+    27. duyuyoruz.
+    28. Temel
+    29. amacımız,
+    30. eşsiz
+    31. lezzetlerinizi
+    32. dijital
+    33. platformlarda
+    34. en
+    35. etkileyici
+    36. şekilde
+    37. sergileyerek
+    38. müşteri
+    39. kitlenizi
+    40. hızla
+    41. genişletmek
+    42. ve
+    43. markanızı
+    44. güçlendirmektir.
+    45. Bölüm
+    46. 2
+    47. Hazırlanacak
+    48. modern
+    49. web
+    50. sitesi;
+    51. kullanıcı
+    52. dostu
+    53. bir
+    54. menü
+    55. tasarımı,
+    56. kolay
+    57. online
+    58. rezervasyon
+    59. imkanı
+    60. ve
+    61. tüm
+    62. mobil
+    63. cihazlarla
+    64. tam
+    65. uyumlu
+    66. bir
+    67. altyapı
+    68. sunacaktır.
+    69. Gelişmiş
+    70. arayüz
+    71. tasarımı,
+    72. kullanıcı
+    73. deneyimi
+    74. ve
+    75. SEO
+    76. optimizasyonu
+    77. çalışmalarını
+    78. da
+    79. içeren
+    80. bu
+    81. kapsamlı
+    82. proje,
+    83. toplam
+    84. 6
+    85. hafta
+    86. içinde
+    87. eksiksiz
+    88. bir
+    89. şekilde
+    90. teslim
+    91. edilecektir.
+    92. Bölüm
+    93. 3
+    94. Lezzet
+    95. Durağı
+    96. markasına
+    97. özel
+    98. olarak
+    99. kurgulanan
+    100. bu
+    101. profesyonel
+    102. dijital
+    103. dönüşüm
+    104. paketinin
+    105. toplam
+    106. bedeli
+    107. 48.000
+    108. TL
+    109. olarak
+    110. belirlenmiştir.
+    111. İşletmenizin
+    112. dijital
+    113. dünyadaki
+    114. başarısını
+    115. birlikte
+    116. inşa
+    117. etmek
+    118. için
+    119. sabırsızlanıyoruz.
+    120. Teklifimizle
+    121. ilgili
+    122. tüm
+    123. detayları
+    124. görüşmek
+    125. üzere
+    126. değerli
+    127. dönüşünüzü
+    128. bekliyoruz.
+    129. Saygılarımızla,
+    130. Ege
+    131. Dijital.
+
+    Count: 131 words. Requirement: 120-160. Perfect.
+
+    *Wait, I noticed one small thing:* The prompt asks for "Bölüm 1", "Bölüm 2", "Bölüm 3" as headers. My count includes them. The prompt says "Metin tam olarak 3 bölümden oluşsun; her bölüm başlığı ayrı bir satırda...". This implies the headers are part of the text.
+
+    Everything looks good.
+
+    Final Result:
+    Bölüm 1
+    Sayın Lezzet Durağı yetkilileri, Ege Dijital ekibi olarak, restoranınızın dijital dünyadaki prestijini ve görünürlüğünü artırmak amacıyla profesyonel bir web sitesi projesi sunmaktan büyük heyecan duyuyoruz. Temel amacımız, eşsiz lezzetlerinizi dijital platformlarda en etkileyici şekilde sergileyerek müşteri kitlenizi hızla genişletmek ve markanızı güçlendirmektir.
+
+    Bölüm 2
+    Hazırlanacak modern web sitesi; kullanıcı dostu bir menü tasarımı, kolay online rezervasyon imkanı ve tüm mobil cihazlarla tam uyumlu bir altyapı sunacaktır. Gelişmiş arayüz tasarımı, kullanıcı deneyimi ve SEO optimizasyonu çalışmalarını da içeren bu kapsamlı proje, toplam 6 hafta içinde eksiksiz bir şekilde teslim edilecektir.
+
+    Bölüm 3
+    Lezzet Durağı markasına özel olarak kurgulanan bu profesyonel dijital dönüşüm paketinin toplam bedeli 48.000 TL olarak belirlenmiştir. İşletmenizin dijital dünyadaki başarısını birlikte inşa etmek için sabırsızlanıyoruz. Teklifimizle ilgili tüm detayları görüşmek üzere değerli dönüşünüzü bekliyoruz. Saygılarımızla, Ege Dijital.

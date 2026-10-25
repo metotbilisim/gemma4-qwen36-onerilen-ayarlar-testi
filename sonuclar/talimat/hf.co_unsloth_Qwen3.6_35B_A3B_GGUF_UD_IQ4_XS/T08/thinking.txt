@@ -1,0 +1,120 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Product:** Natural soap (doğal içerikli sabun)
+   - **Task:** Write a short product introduction (kısa ürün tanıtımı)
+   - **Constraint 1:** The entire response must be enclosed in double quotation marks (first and last characters must be ")
+   - **Constraint 2:** Word count must be between 30 and 40 words (metin 30 ile 40 kelime arasında olsun)
+   - **Required Information:** 
+     - Brand: Defne Atölyesi
+     - Weight: 120 gram
+     - Content: %100 plant-based (yüzde 100 bitkisel)
+
+2.  **Deconstruct Constraints:**
+   - Must start with " and end with "
+   - Word count: 30-40 Turkish words
+   - Include exact/near-exact required info: "Defne Atölyesi", "120 gram", "yüzde 100 bitkisel" (or equivalent phrasing that clearly conveys the meaning, but I'll stick closely to the prompt)
+   - Language: Turkish
+
+3.  **Draft Generation (Mental Refinement):**
+   Let's count words carefully. Turkish word boundaries are separated by spaces. Punctuation attached to words doesn't change word count typically, but I'll be precise.
+
+   Draft:
+   "Defne Atölyesi’nin doğal içerikli sabunuyla cildinize hak ettiği bakımı sunun. Yüzde 100 bitkisel formülüyle yumuşacık ve parlak bir görünüm sağlar. 120 gram paketimizle günlük kullanımınıza harika bir başlangıç yapın. Doğanın力量ını hissederek her sabah taze uyanın."
+   Wait, "Doğanın力量ını" has Chinese characters by mistake. Let's fix that and count words properly.
+
+   Corrected Turkish draft:
+   "Defne Atölyesi’nin doğal içerikli sabunuyla cildinize hak ettiği bakımı sunun. Yüzde 100 bitkisel formülüyle yumuşacık ve sağlıklı bir görünüm sağlar. 120 gram paketimizle rutininize doğanın huzurunu katın. Her yıkamada eşsiz aromayı hissedin."
+   Let's count words:
+   Defne (1) Atölyesi’nin’inki? No, it's one word with apostrophe. I'll count it as 1.
+   Let's list them: 
+   1. Defne
+   2. Atölyesi’nin
+   3. doğal
+   4. içerikli
+   5. sabunuyla
+   6. cildinize
+   7. hak
+   8. ettiği
+   9. bakımı
+   10. sunun.
+   11. Yüzde
+   12. 100
+   13. bitkisel
+   14. formülüyle
+   15. yumuşacık
+   16. ve
+   17. sağlıklı
+   18. bir
+   19. görünüm
+   20. sağlar.
+   21. 120
+   22. gram
+   23. paketimizle
+   24. rutininize
+   25. doğanın
+   26. huzurunu
+   27. katın.
+   28. Her
+   29. yıkamada
+   30. eşsiz
+   31. aromayı
+   32. hissedin.
+   That's 32 words. Good. But let's verify exact wording matches constraints. The prompt says "yüzde 100 bitkisel". I have "Yüzde 100 bitkisel". Weight: "120 gram". Brand: "Defne Atölyesi". All present.
+   Let's count again carefully. Turkish word count rules: hyphens/apostrophes usually keep it as one word. Numbers count as words if separated by spaces. I'll adjust to be safely within 30-40.
+
+   Let's count exactly: 
+   "Defne Atölyesi’nin doğal sabun koleksiyonundan ilham aldık. Yüzde 100 bitkisel içerik, cildinizi korurken yumuşatır. Her biri özenle hazırlanan 120 gram bar sabunu, günlük bakım rutininize doğallığı kazandırıyor. Arındırıcı etkisini deneyimleyin."
+   Words: 
+   Defne (1) Atölyesi’nin(2) doğal(3) sabun(4) koleksiyonundan(5) ilham(6) aldık.(7) Yüzde(8) 100(9) bitkisel(10) içerik,(11) cildinizi(12) korurken(13) yumuşatır.(14) Her(15) biri(16) özenle(17) hazırlanan(18) 120(19) gram(20) bar(21) sabunu,(22) günlük(23) bakım(24) rutininize(25) doğallığı(26) kazandırıyor.(27) Arındırıcı(28) etkisini(29) deneyimleyin.(30)
+   Exactly 30 words. I'll add two more to be safely in the middle (35).
+   Let's adjust:
+   "Defne Atölyesi’nin doğal sabun serisi, cildiniz için saf bir dokunuş sunar. Yüzde 100 bitkisel özler sayesinde yumuşak ve sağlıklı hale gelir. Her biri özenle üretilen 120 gram kalıp formu, günlük bakımınıza doğallığı taşır. Hissetmeyi deneyimleyin."
+   Count: 
+   Defne(1) Atölyesi’nin(2) doğal(3) sabun(4) serisi,(5) cildiniz(6) için(7) saf(8) bir(9) dokunuş(10) sunar.(11) Yüzde(12) 100(13) bitkisel(14) özler(15) sayesinde(16) yumuşak(17) ve(18) sağlıklı(19) hale(20) gelir.(21) Her(22) biri(23) özenle(24) üretilen(25) 120(26) gram(27) kalıp(28) formu,(29) günlük(30) bakımınıza(31) doğallığı(32) taşır.(33) Hissetmeyi(34) deneyimleyin.(35)
+   35 words. Perfect. Contains all required info. Starts and ends with ". Let's verify exact phrasing: "Defne Atölyesi" (check), "120 gram" (check), "yüzde 100 bitkisel" (I wrote "Yüzde 100 bitkisel özler sayesinde", which includes the exact phrase. I'll adjust to exactly match "yüzde 100 bitkisel" if needed, but it's fine. To be safe, I'll write it exactly: "içeriği yüzde 100 bitkisel")
+   Let's rewrite slightly to ensure exact match and precise count:
+   "Defne Atölyesi’nin doğal ürün yelpazesinde yer alan bu özel sabun, cildinize nefes aldırıyor. İçeriği yüzde 100 bitkisel olarak hazırlanmış ve yumuşak bir yapı sunuyor. 120 gram paketiyle günlük bakım rutininize harika bir tamamlayıcıdır. Doğanın gücünü keşfedin."
+   Count: 
+   Defne(1) Atölyesi’nin(2) doğal(3) ürün(4) yelpazesinde(5) yer(6) alan(7) bu(8) özel(9) sabun,(10) cildinize(11) nefes(12) aldırıyor.(13) İçeriği(14) yüzde(15) 100(16) bitkisel(17) olarak(18) hazırlanmış(19) ve(20) yumuşak(21) bir(22) yapı(23) sunuyor.(24) 120(25) gram(26) paketiyle(27) günlük(28) bakım(29) rutininize(30) harika(31) bir(32) tamamlayıcıdır.(33) Doğanın(34) gücünü(35) keşfedin.(36)
+   36 words. Matches all constraints. Starts with ", ends with ". All required info present exactly or very closely. I'll adjust "yüzde 100 bitkisel" to exactly match prompt casing if needed, but case doesn't strictly matter. I'll keep it natural.
+   Let's count again carefully: 
+   Defne (1) Atölyesi’nin (2) doğal (3) ürün (4) yelpazesinde (5) yer (6) alan (7) bu (8) özel (9) sabun, (10) cildinize (11) nefes (12) aldırıyor. (13) İçeriği (14) yüzde (15) 100 (16) bitkisel (17) olarak (18) hazırlanmış (19) ve (20) yumuşak (21) bir (22) yapı (23) sunuyor. (24) 120 (25) gram (26) paketiyle (27) günlük (28) bakım (29) rutininize (30) harika (31) bir (32) tamamlayıcıdır. (33) Doğanın (34) gücünü (35) keşfedin. (36)
+   Perfect. 36 words. Within 30-40. All constraints met.
+   One minor thing: The prompt says "yüzde 100 bitkisel". I have "yüzde 100 bitkisel". Good.
+   The entire response must be enclosed in double quotes. I will output exactly that string.
+   Final check of the text:
+   "Defne Atölyesi’nin doğal ürün yelpazesinde yer alan bu özel sabun, cildinize nefes aldırıyor. İçeriği yüzde 100 bitkisel olarak hazırlanmış ve yumuşak bir yapı sunuyor. 120 gram paketiyle günlük bakım rutininize harika bir tamamlayıcıdır. Doğanın gücünü keşfedin."
+   Word count: 36. Starts with ", ends with ". Contains Defne Atölyesi, 120 gram, yüzde 100 bitkisel. Turkish language. Short product intro. All constraints satisfied.
+   I will output exactly this. No extra text. All good. 
+   One thing: Turkish punctuation sometimes affects word count tools differently, but standard is space-separated tokens. I'll stick with it. It's solid.
+   Output matches exactly.✅
+   Proceed. 
+   Self-Correction/Verification during thought: 
+   Let's count manually again to be absolutely sure.
+   "Defne (1) Atölyesi’nin (2) doğal (3) ürün (4) yelpazesinde (5) yer (6) alan (7) bu (8) özel (9) sabun, (10) cildinize (11) nefes (12) aldırıyor. (13) İçeriği (14) yüzde (15) 100 (16) bitkisel (17) olarak (18) hazırlanmış (19) ve (20) yumuşak (21) bir (22) yapı (23) sunuyor. (24) 120 (25) gram (26) paketiyle (27) günlük (28) bakım (29) rutininize (30) harika (31) bir (32) tamamlayıcıdır. (33) Doğanın (34) gücünü (35) keşfedin. (36)"
+   Exactly 36. Between 30 and 40. 
+   Contains: Defne Atölyesi, yüzde 100 bitkisel, 120 gram.
+   Enclosed in double quotes at start and end.
+   All constraints met. Output matches.✅
+   Ready. 
+   Output generation. 
+   [Output matches the final string]✅
+   *(Self-Correction/Refinement during counting)*: Wait, sometimes numbers like "100" and "120" might be counted as separate words or parts of compound words. In Turkish NLP, they are usually separate tokens. Even if counted differently, it's safely in the 30-40 range. I'll adjust slightly to avoid ambiguity: replace numbers with words? No, prompt says "ağırlık 120 gram, içerik yüzde 100 bitkisel". I'll keep them as is. It's fine.
+   Final text: "Defne Atölyesi’nin doğal ürün yelpazesinde yer alan bu özel sabun, cildinize nefes aldırıyor. İçeriği yüzde 100 bitkisel olarak hazırlanmış ve yumuşak bir yapı sunuyor. 120 gram paketiyle günlük bakım rutininize harika bir tamamlayıcıdır. Doğanın gücünü keşfedin."
+   Matches all constraints. Output matches exactly.✅
+   Proceeds. 
+   [Output Generation] -> *Proceeds*
+   *(Note: I will make sure the output is exactly the quoted string, nothing else.)*
+   All good. 
+   Output: "Defne Atölyesi’nin doğal ürün yelpazesinde yer alan bu özel sabun, cildinize nefes aldırıyor. İçeriği yüzde 100 bitkisel olarak hazırlanmış ve yumuşak bir yapı sunuyor. 120 gram paketiyle günlük bakım rutininize harika bir tamamlayıcıdır. Doğanın gücünü keşfedin." (36 words) -> Perfect. 
+   Final Check of the prompt: "Cevabın tamamı çift tırnak işareti içinde olsun (ilk karakter ve son karakter çift tırnak olsun)." -> Checked.
+   "Metin 30 ile 40 kelime arasında olsun." -> Checked.
+   "Şu bilgiler geçsin: marka Defne Atölyesi, ağırlık 120 gram, içerik yüzde 100 bitkisel." -> Checked.
+   All constraints satisfied. Output matches.✅
+   [Output Generation] (proceeds)
+   *(Self-Correction/Verification during thought)*: I'll count words one more time carefully. Turkish word boundary rules: apostrophes don't split words. So "Atölyesi’nin" is 1. Numbers are separate. 
+   Defne(1) Atölyesi’nin(2) doğal(3) ürün(4) yelpazesinde(5) yer(6) alan(7) bu(8) özel(9) sabun,(10) cildinize(11) nefes(12) aldırıyor.(13) İçeriği(14) yüzde(15) 100(16) bitkisel(17) olarak(18) hazırlanmış(19) ve(20) yumuşak(21) bir(22) yapı(23) sunuyor.(24) 120(25) gram(26) paketiyle(27) günlük(28) bakım(29) rutininize(30) harika(31) bir(32) tamamlayıcıdır.(33) Doğanın(34) gücünü(35) keşfedin.(36)
+   Exactly 36. Good.
+   Output matches.✅
+   [Final Output Generation] -> *Proceeds*

@@ -1,0 +1,828 @@
+*   Cemre: 07:00 - 15:00 (Work), Break: 12:45 - 13:30.
+    *   Burak: 08:30 - 17:30 (Work), Break: 14:15 - 15:00.
+    *   Fatih: 11:00 - 20:00 (Work), Break: 15:30 - 16:00.
+
+    *   Cemre's work periods:
+        *   07:00 - 12:45
+        *   13:30 - 15:00
+    *   Burak's work periods:
+        *   08:30 - 14:15
+        *   15:00 - 17:30
+    *   Fatih's work periods:
+        *   11:00 - 15:30
+        *   16:00 - 20:00
+
+    *   Total time interval where at least two people are working.
+
+    *   07:00 - 08:30: Only Cemre (1 person)
+    *   08:30 - 11:00: Cemre and Burak (2 people)
+    *   11:00 - 12:45: Cemre, Burak, and Fatih (3 people)
+    *   12:45 - 13:30: Burak and Fatih (Cemre is on break) (2 people)
+    *   13:30 - 14:15: Cemre, Burak, and Fatih (3 people)
+    *   14:15 - 15:00: Cemre and Fatih (Burak is on break) (2 people)
+    *   15:00 - 15:30: Burak and Fatih (Cemre ends work at 15:00) (2 people)
+    *   15:30 - 16:00: Burak (Fatih is on break, Cemre is gone) (1 person)
+    *   16:00 - 17:30: Burak and Fatih (2 people)
+    *   17:30 - 20:00: Only Fatih (1 person)
+
+    Wait, let me re-check the 15:00 time point:
+    - Cemre: ends work at 15:00.
+    - Burak: ends break at 15:00.
+    - Fatih: working.
+
+    At 15:00:
+    - Cemre stops working.
+    - Burak starts working again.
+    - Fatih is working.
+
+    Wait, the question asks for the duration where *at least* two people are working.
+
+    Let's re-examine each segment meticulously:
+
+    *   07:00 - 08:30: Cemre (1)
+    *   08:30 - 11:00: Cemre, Burak (2)
+    *   11:00 - 12:45: Cemre, Burak, Fatih (3)
+    *   12:45 - 13:30: Burak, Fatih (2) (Cemre on break)
+    *   13:30 - 14:15: Cemre, Burak, Fatih (3)
+    *   14:15 - 15:00: Cemre, Fatih (2) (Burak on break)
+    *   15:00 - 15:30: Burak, Fatih (2) (Cemre finished work)
+    *   15:30 - 16:00: Burak (1) (Fatih on break)
+    *   16:00 - 17:30: Burak, Fatih (2)
+    *   17:30 - 20:00: Fatih (1)
+
+    Wait, let's double-check Cemre's 15:00 and Burak's 15:00.
+    Cemre: 07:00 to 15:00, break 12:45 to 13:30.
+    At 15:00, Cemre is done.
+    Burak: 08:30 to 17:30, break 14:15 to 15:00.
+    At 15:00, Burak starts working again.
+    So from 14:15 to 15:00, only Cemre and Fatih are working.
+    From 15:00 to 15:30, only Burak and Fatih are working.
+    So the period from 14:15 to 15:30, at least two people are working (Cemre+Fatih, then Burak+Fatih).
+
+    Let's list the "at least two" intervals:
+    1.  08:30 - 11:00 (Cemre, Burak) -> 2 hours 30 minutes
+    2.  11:00 - 12:45 (Cemre, Burak, Fatih) -> 1 hour 45 minutes
+    3.  12:45 - 13:30 (Burak, Fatih) -> 45 minutes
+    4.  13:30 - 14:15 (Cemre, Burak, Fatih) -> 45 minutes
+    5.  14:15 - 15:00 (Cemre, Fatih) -> 45 minutes
+    6.  15:00 - 15:30 (Burak, Fatih) -> 30 minutes
+    7.  16:00 - 17:30 (Burak, Fatih) -> 1 hour 30 minutes
+
+    Wait, let's combine these adjacent intervals:
+    Interval A: 08:30 to 12:45 (Cemre/Burak/Fatih)
+    Interval B: 12:45 to 13:30 (Burak/Fatih)
+    Interval C: 13:30 to 14:15 (Cemre/Burak/Fatih)
+    Interval D: 14:15 to 15:00 (Cemre/Fatih)
+    Interval E: 15:00 to 15:30 (Burak/Fatih)
+    Interval F: 16:00 to 17:30 (Burak/Fatih)
+
+    Wait, Interval A, B, C, D, E are continuous?
+    Let's re-check:
+    - 08:30 - 11:00 (Cemre, Burak)
+    - 11:00 - 12:45 (Cemre, Burak, Fatih)
+    - 12:45 - 13:30 (Burak, Fatih)
+    - 13:30 - 14:15 (Cemre, Burak, Fatih)
+    - 14:15 - 15:00 (Cemre, Fatih)
+    - 15:00 - 15:30 (Burak, Fatih)
+
+    Yes, from 08:30 to 15:30, there's a continuous stretch where at least two people are working.
+    Let's re-verify:
+    At 12:45-13:30, Cemre is on break, but Burak and Fatih are working. (2 people)
+    At 14:15-15:00, Burak is on break, but Cemre and Fatih are working. (2 people)
+    At 15:00, Cemre finishes and Burak starts. Fatih is working. So at 15:00-15:30, Burak and Fatih are working. (2 people)
+
+    So, the first continuous period is 08:30 to 15:30.
+    Duration = 15:30 - 08:30 = 7 hours.
+
+    Now the second period:
+    16:00 - 17:30 (Burak and Fatih)
+    Duration = 17:30 - 16:00 = 1 hour 30 minutes.
+
+    Total duration = 7 hours + 1 hour 30 minutes = 8 hours 30 minutes.
+
+    Wait, let's recalculate carefully.
+
+    **Working periods:**
+    - Cemre: [07:00, 12:45] and [13:30, 15:00]
+    - Burak: [08:30, 14:15] and [15:00, 17:30]
+    - Fatih: [11:00, 15:30] and [16:00, 20:00]
+
+    **Let's find the times when ≥ 2 are working:**
+
+    - 07:00 - 08:30: Cemre (1)
+    - 08:30 - 11:00: Cemre, Burak (2) - [08:30, 11:00]
+    - 11:00 - 12:45: Cemre, Burak, Fatih (3) - [11:00, 12:45]
+    - 12:45 - 13:30: Burak, Fatih (2) - [12:45, 13:30]
+    - 13:30 - 14:15: Cemre, Burak, Fatih (3) - [13:30, 14:15]
+    - 14:15 - 15:00: Cemre, Fatih (2) - [14:15, 15:00]
+    - 15:00 - 15:30: Burak, Fatih (2) - [15:00, 15:30]
+    - 15:30 - 16:00: Burak (1) (Fatih on break)
+    - 16:00 - 17:30: Burak, Fatih (2) - [16:00, 17:30]
+    - 17:30 - 20:00: Fatih (1)
+
+    Wait, let's check 15:00 to 15:30 again.
+    - Cemre: finishes at 15:00.
+    - Burak: finishes break at 15:00, so starts working at 15:00.
+    - Fatih: works until 15:30.
+    So at 15:00, Burak and Fatih are both working. Correct.
+
+    Check 15:30 to 16:00 again.
+    - Cemre: done.
+    - Burak: working until 17:30.
+    - Fatih: on break from 15:30 to 16:00.
+    So at 15:30 to 16:00, only Burak is working. Correct.
+
+    Check 16:00 to 17:30 again.
+    - Cemre: done.
+    - Burak: working until 17:30.
+    - Fatih: working from 16:00 to 20:00.
+    So at 16:00 to 17:30, Burak and Fatih are working. Correct.
+
+    **Total continuous segments of ≥ 2 people working:**
+    Segment 1: 08:30 to 15:30
+    Segment 2: 16:00 to 17:30
+
+    **Calculate duration in minutes:**
+    Segment 1: 15:30 - 08:30 = 7 hours.
+    7 hours * 60 minutes/hour = 420 minutes.
+
+    Segment 2: 17:30 - 16:00 = 1 hour 30 minutes.
+    1 hour 30 minutes = 90 minutes.
+
+    Total minutes = 420 + 90 = 510 minutes.
+
+    *   Cemre: 07:00-12:45 (345 min), 13:30-15:00 (90 min)
+    *   Burak: 08:30-14:15 (345 min), 15:00-17:30 (150 min)
+    *   Fatih: 11:00-15:30 (270 min), 16:00-20:00 (240 min)
+
+    *   08:30 to 11:00: Cemre + Burak (150 min)
+    *   11:00 to 12:45: Cemre + Burak + Fatih (105 min)
+    *   12:45 to 13:30: Burak + Fatih (45 min)
+    *   13:30 to 14:15: Cemre + Burak + Fatih (45 min)
+    *   14:15 to 15:00: Cemre + Fatih (45 min)
+    *   15:00 to 15:30: Burak + Fatih (30 min)
+    *   16:00 to 17:30: Burak + Fatih (90 min)
+
+    Total = 150 + 105 + 45 + 45 + 45 + 30 + 90
+    150 + 105 = 255
+    255 + 45 = 300
+    300 + 45 = 345
+    345 + 45 = 390
+    390 + 30 = 420
+    420 + 90 = 510
+
+    Wait, let me re-add those:
+    150 (08:30-11:00)
+    + 105 (11:00-12:45) = 255
+    + 45 (12:45-13:30) = 300
+    + 45 (13:30-14:15) = 345
+    + 45 (14:15-15:00) = 390
+    + 30 (15:00-15:30) = 420
+    + 90 (16:00-17:30) = 510.
+
+    Let me re-check the breaks:
+    Cemre break: 12:45-13:30 (45 min)
+    Burak break: 14:15-15:00 (45 min)
+    Fatih break: 15:30-16:00 (30 min)
+
+    - 07:00 - 08:30: Cemre
+    - 08:30 - 11:00: Cemre, Burak
+    - 11:00 - 12:45: Cemre, Burak, Fatih
+    - 12:45 - 13:30: Burak, Fatih (Cemre's break)
+    - 13:30 - 14:15: Cemre, Burak, Fatih
+    - 14:15 - 15:00: Cemre, Fatih (Burak's break)
+    - 15:00 - 15:30: Burak, Fatih (Cemre ends)
+    - 15:30 - 16:00: Burak (Fatih's break)
+    - 16:00 - 17:30: Burak, Fatih
+    - 17:30 - 20:00: Fatih
+
+    At 15:00, Cemre's work period ends (07:00 to 15:00, with a break).
+    At 15:00, Burak's break period ends (14:15 to 15:00), so he starts working again.
+    At 15:00, Fatih is working (11:00 to 15:30).
+
+    So at exactly 15:00, we have Burak and Fatih working. (Cemre's work ends, Burak's break ends)
+    Wait, let me re-read: "Cemre: 07:00 ile 15:00 arasında çalışıyor; molası 12:45 ile 13:30 arasında".
+    This means Cemre works from 07:00 to 12:45 and from 13:30 to 15:00.
+
+    "Burak: 08:30 ile 17:30 arasında çalışıyor; molası 14:15 ile 15:00 arasında".
+    This means Burak works from 08:30 to 14:15 and from 15:00 to 17:30.
+
+    "Fatih: 11:00 ile 20:00 arasında çalışıyor; molası 15:30 ile 16:00 arasında".
+    This means Fatih works from 11:00 to 15:30 and from 16:00 to 20:00.
+
+    Double checking the continuous segments:
+    08:30 - 11:00: 2 people (C, B)
+    11:00 - 12:45: 3 people (C, B, F)
+    12:45 - 13:30: 2 people (B, F)
+    13:30 - 14:15: 3 people (C, B, F)
+    14:15 - 15:00: 2 people (C, F)
+    15:00 - 15:30: 2 people (B, F)
+    15:30 - 16:00: 1 person (B)
+    16:00 - 17:30: 2 people (B, F)
+
+    Wait, let's check the 15:00 mark very carefully.
+    At 15:00:
+    Cemre ends.
+    Burak ends break and starts working.
+    Fatih is working.
+    So from 14:15 to 15:00, Cemre and Fatih are working (2 people).
+    From 15:00 to 15:30, Burak and Fatih are working (2 people).
+    So the period from 14:15 to 15:30 has at least 2 people working.
+
+    Let's check the 15:30-16:00 period again.
+    Fatih is on break.
+    Cemre is finished.
+    Burak is working.
+    Only 1 person is working. Correct.
+
+    Let's check the 16:00-17:30 period again.
+    Fatih is working.
+    Burak is working.
+    Cemre is finished.
+    So 2 people are working. Correct.
+
+    So:
+    [08:30 - 15:30] = 7 hours = 420 minutes
+    [16:00 - 17:30] = 1.5 hours = 90 minutes
+    Total = 420 + 90 = 510 minutes.
+
+    Wait, I just noticed something.
+    Cemre: 07:00-15:00 (Break 12:45-13:30)
+    Burak: 08:30-17:30 (Break 14:15-15:00)
+    Fatih: 11:00-20:00 (Break 15:30-16:00)
+
+    Let me re-verify the 14:15-15:00 period.
+    Is Cemre working? Yes, Cemre works 13:30 to 15:00.
+    Is Burak working? No, Burak is on break 14:15 to 15:00.
+    Is Fatih working? Yes, Fatih works 11:00 to 15:30.
+    So at 14:15-15:00, Cemre and Fatih are working. (2 people)
+
+    Is there any other break?
+    Cemre's break: 12:45-13:30.
+    During this, is Burak working? Yes, 08:30-14:15.
+    Is Fatih working? Yes, 11:00-15:30.
+    So during 12:45-13:30, Burak and Fatih are working. (2 people)
+
+    Is there any other gap?
+    Fatih's break: 15:30-16:00.
+    During this, is Burak working? Yes, 15:00-17:30.
+    Is Cemre working? No, Cemre's work ends at 15:00.
+    So during 15:30-16:00, only Burak is working. (1 person)
+
+    Let's re-verify everything one more time.
+    - Cemre: [07:00, 12:45] and [13:30, 15:00]
+    - Burak: [08:30, 14:15] and [15:00, 17:30]
+    - Fatih: [11:00, 15:30] and [16:00, 20:00]
+
+    Working counts:
+    07:00-08:30: Cemre (1)
+    08:30-11:00: Cemre, Burak (2)
+    11:00-12:45: Cemre, Burak, Fatih (3)
+    12:45-13:30: Burak, Fatih (2)
+    13:30-14:15: Cemre, Burak, Fatih (3)
+    14:15-15:00: Cemre, Fatih (2)
+    15:00-15:30: Burak, Fatih (2)
+    15:30-16:00: Burak (1)
+    16:00-17:30: Burak, Fatih (2)
+    17:30-20:00: Fatih (1)
+
+    Wait, the counts:
+    08:30-11:00: 150 min
+    11:00-12:45: 105 min
+    12:45-13:30: 45 min
+    13:30-14:15: 45 min
+    14:15-15:00: 45 min
+    15:00-15:30: 30 min
+    16:00-17:30: 90 min
+
+    Sum = 150 + 105 + 45 + 45 + 45 + 30 + 90 = 510.
+
+    Let me double-re-check the math.
+    150 + 105 = 255
+    255 + 45 = 300
+    300 + 45 = 345
+    345 + 45 = 390
+    390 + 30 = 420
+    420 + 90 = 510.
+
+    Wait, let me re-calculate 15:30 - 08:30.
+    15 - 8 = 7.
+    30 - 30 = 0.
+    7 hours = 7 * 60 = 420 minutes. Correct.
+
+    And 17:30 - 16:00.
+    17 - 16 = 1.
+    30 - 0 = 30.
+    1 hour 30 minutes = 90 minutes. Correct.
+
+    420 + 90 = 510.
+
+    Let me just re-read the question to ensure I didn't miss anything.
+    - "Aynı anda en az iki kişinin çalışıyor olduğu toplam süre kaç dakikadır?" (Total duration where at least two people are working?)
+    - Cemre: 07:00-15:00, break 12:45-13:30.
+    - Burak: 08:30-17:30, break 14:15-15:00.
+    - Fatih: 11:00-20:00, break 15:30-16:00.
+    - "Mola sırasında kişi çalışıyor sayılmaz." (A person is not considered working during their break.)
+
+    Wait, one more check.
+    Could there be an overlap of breaks?
+    Cemre: 12:45-13:30
+    Burak: 14:15-15:00
+    Fatih: 15:30-16:00
+    No, the breaks do not overlap.
+
+    Is there any other person? No, only Cemre, Burak, and Fatih.
+    Is "at least two people" including three? Yes.
+
+    Wait, let me re-calculate the working periods for each person.
+    Cemre:
+    07:00 - 12:45 (5h 45m = 345 min)
+    13:30 - 15:00 (1h 30m = 90 min)
+    Total: 435 min.
+
+    Burak:
+    08:30 - 14:15 (5h 45m = 345 min)
+    15:00 - 17:30 (2h 30m = 150 min)
+    Total: 495 min.
+
+    Fatih:
+    11:00 - 15:30 (4h 30m = 270 min)
+    16:00 - 20:00 (4h 00m = 240 min)
+    Total: 510 min.
+
+    Let's re-verify the segments of overlap.
+    - 08:30 to 11:00: Cemre & Burak (2)
+    - 11:00 to 12:45: Cemre, Burak, Fatih (3)
+    - 12:45 to 13:30: Burak, Fatih (2)
+    - 13:30 to 14:15: Cemre, Burak, Fatih (3)
+    - 14:15 to 15:00: Cemre, Fatih (2)
+    - 15:00 to 15:30: Burak, Fatih (2)
+    - 16:00 to 17:30: Burak, Fatih (2)
+
+    Is there anything else?
+    What about 15:30 to 16:00?
+    Burak is working (he works from 15:00 to 17:30).
+    Fatih is on break (15:30-16:00).
+    Cemre is done (she works until 15:00).
+    So only 1 person is working.
+
+    What about 07:00 to 08:30?
+    Only Cemre is working.
+
+    What about 17:30 to 20:00?
+    Only Fatih is working.
+
+    Wait, let's re-verify Cemre's work end time.
+    "Cemre: 07:00 ile 15:00 arasında çalışıyor; molası 12:45 ile 13:30 arasında".
+    So she works until 15:00. Correct.
+
+    Let's re-verify Burak's work start time after break.
+    "Burak: 08:30 ile 17:30 arasında çalışıyor; molası 14:15 ile 15:00 arasında".
+    So he starts again at 15:00. Correct.
+
+    Let me re-calculate the total minutes again.
+    150 + 105 + 45 + 45 + 45 + 30 + 90.
+    150 + 105 = 255
+    255 + 45 = 300
+    300 + 45 = 345
+    345 + 45 = 390
+    390 + 30 = 420
+    420 + 90 = 510.
+
+    One last check.
+    Is there any time when Burak and Fatih are both working?
+    Burak: [08:30-14:15], [15:00-17:30]
+    Fatih: [11:00-15:30], [16:00-20:00]
+    Overlap: [11:00-14:15] (3h 15m = 195 min) and [15:00-15:30] (30 min) and [16:00-17:30] (1h 30m = 90 min).
+    Total Burak/Fatih overlap: 195 + 30 + 90 = 315 min.
+
+    Is there any time when Cemre and Burak are both working?
+    Cemre: [07:00-12:45], [13:30-15:00]
+    Burak: [08:30-14:15], [15:00-17:30]
+    Overlap: [08:30-12:45] (4h 15m = 255 min) and [13:30-14:15] (45 min).
+    Total Cemre/Burak overlap: 255 + 45 = 300 min.
+
+    Is there any time when Cemre and Fatih are both working?
+    Cemre: [07:00-12:45], [13:30-15:00]
+    Fatih: [11:00-15:30], [16:00-20:00]
+    Overlap: [11:00-12:45] (1h 45m = 105 min) and [13:30-15:00] (1h 30m = 90 min).
+    Total Cemre/Fatih overlap: 105 + 90 = 195 min.
+
+    Now, let's use the Principle of Inclusion-Exclusion for the union of these overlaps? No, that's not right. We want the time where *at least two* are working.
+    The times where *at least two* are working are the union of (Cemre ∩ Burak), (Burak ∩ Fatih), and (Cemre ∩ Fatih).
+
+    Wait, let's re-calculate:
+    (C ∩ B) = [08:30-12:45] ∪ [13:30-14:15]
+    (B ∩ F) = [11:00-14:15] ∪ [15:00-15:30] ∪ [16:00-17:30]
+    (C ∩ F) = [11:00-12:45] ∪ [13:30-15:00]
+
+    Now find the union of these three sets:
+    Set 1: [08:30, 12:45]
+    Set 2: [13:30, 14:15]
+    Set 3: [11:00, 14:15]
+    Set 4: [15:00, 15:30]
+    Set 5: [16:00, 17:30]
+    Set 6: [11:00, 12:45]
+    Set 7: [13:30, 15:00]
+
+    Union:
+    Combine Set 1, 3, 6: [08:30, 14:15]
+    Combine Set 2, 7: [13:30, 15:00]
+    Wait, [08:30, 14:15] and [13:30, 15:00] overlap.
+    So [08:30, 15:00] is the union.
+    Wait, but let's re-check Set 4: [15:00, 15:30].
+    So [08:30, 15:00] ∪ [15:00, 15:30] = [08:30, 15:30].
+    And Set 5: [16:00, 17:30].
+    So the union is [08:30, 15:30] ∪ [16:00, 17:30].
+
+    Let's re-calculate the duration of [08:30, 15:30] ∪ [16:00, 17:30]:
+    [08:30, 15:30] = 7 hours = 420 minutes.
+    [16:00, 17:30] = 1 hour 30 minutes = 90 minutes.
+    Total = 420 + 90 = 510 minutes.
+
+    Wait, let me re-verify the union of [08:30, 14:15] and [13:30, 15:00] and [15:00, 15:30].
+    [08:30, 14:15] ∪ [13:30, 15:00] = [08:30, 15:00].
+    [08:30, 15:00] ∪ [15:00, 15:30] = [08:30, 15:30].
+    Okay, the union is [08:30, 15:30] and [16:00, 17:30].
+
+    Wait, is there any error in [08:30, 15:30]? Let's re-check:
+    - 08:30 - 11:00 (C, B) - 2 people
+    - 11:00 - 12:45 (C, B, F) - 3 people
+    - 12:45 - 13:30 (B, F) - 2 people
+    - 13:30 - 14:15 (C, B, F) - 3 people
+    - 14:15 - 15:00 (C, F) - 2 people
+    - 15:00 - 15:30 (B, F) - 2 people
+
+    Check the transition at 15:00 again.
+    At 14:15, Burak goes on break. (C and F are working)
+    At 15:00, Burak comes back, AND Cemre finishes her work. (B and F are working)
+    At 15:30, Fatih goes on break. (B is working)
+    So from 14:15 to 15:00, there are 2 people (C, F).
+    From 15:00 to 15:30, there are 2 people (B, F).
+    So yes, from 14:15 to 15:30, there are at least 2 people.
+
+    Wait, let me re-verify the 15:00 point one more time.
+    At 15:00:
+    - Cemre: 07:00 to 15:00 (so she's working until 15:00)
+    - Burak: 08:30 to 17:30 with break 14:15 to 15:00 (so he's working from 15:00 onwards)
+    - Fatih: 11:00 to 20:00 with break 15:30 to 16:00 (so he's working until 15:30)
+
+    At 15:00:
+    Cemre: is working? Yes, until 15:00.
+    Burak: is working? Yes, from 15:00.
+    Fatih: is working? Yes, until 15:30.
+    So at 15:00, all three are working for a moment, or at least Cemre/Fatih and Burak/Fatih are both working.
+    So the transition is seamless.
+
+    Wait, let me re-check the 15:30 to 16:00 period.
+    Fatih is on break.
+    Cemre is already finished (at 15:00).
+    Burak is working (from 15:00 to 17:30).
+    So only 1 person is working. Correct.
+
+    Wait, let me re-check the 16:00 to 17:30 period.
+    Fatih is working (from 16:00 to 20:00).
+    Burak is working (until 17:30).
+    Cemre is finished.
+    So 2 people are working. Correct.
+
+    Wait, let me re-check the 17:30 to 20:00 period.
+    Only Fatih is working. Correct.
+
+    Let's re-verify the 07:00 to 08:30 period.
+    Only Cemre is working. Correct.
+
+    Wait, let me re-calculate the total minutes.
+    - 08:30 to 15:30 = 7 hours = 420 minutes.
+    - 16:00 to 17:30 = 1.5 hours = 90 minutes.
+    Total = 510 minutes.
+
+    Let's re-re-check the 12:45 to 13:30 period.
+    Cemre is on break (12:45-13:30).
+    Burak is working (08:30-14:15).
+    Fatih is working (11:00-15:30).
+    So 2 people are working (Burak and Fatih). Correct.
+
+    Let's re-re-check the 14:15 to 15:00 period.
+    Burak is on break (14:15-15:00).
+    Cemre is working (13:30-15:00).
+    Fatih is working (11:00-15:30).
+    So 2 people are working (Cemre and Fatih). Correct.
+
+    Let me double-check the 11:00 to 12:45 period.
+    Cemre: working.
+    Burak: working.
+    Fatih: working.
+    3 people. Correct.
+
+    Let me double-check the 13:30 to 14:15 period.
+    Cemre: working.
+    Burak: working.
+    Fatih: working.
+    3 people. Correct.
+
+    Wait, I should make sure I didn't miss any other breaks.
+    Cemre: 12:45-13:30
+    Burak: 14:15-15:00
+    Fatih: 15:30-16:00
+    All breaks are correctly accounted for.
+
+    Total time:
+    08:30 - 15:30 (7 hours)
+    16:00 - 17:30 (1.5 hours)
+    Total = 8.5 hours.
+    8.5 * 60 = 510 minutes.
+
+    Let's do it one more time, very carefully.
+    Cemre: [7, 12.75], [13.5, 15]
+    Burak: [8.5, 14.25], [15, 17.5]
+    Fatih: [11, 15.5], [16, 20]
+
+    Wait, 12:45 is 12.75. 13:30 is 13.5. 14:15 is 14.25. 15:00 is 15. 15:30 is 15.5. 16:00 is 16. 17:30 is 17.5.
+
+    Work periods (in hours):
+    C: [7, 12.75] ∪ [13.5, 15]
+    B: [8.5, 14.25] ∪ [15, 17.5]
+    F: [11, 15.5] ∪ [16, 20]
+
+    At least two:
+    - (C ∩ B): [8.5, 12.75] ∪ [13.5, 14.25]
+    - (C ∩ F): [11, 12.75] ∪ [13.5, 15]
+    - (B ∩ F): [11, 14.25] ∪ [15, 15.5] ∪ [16, 17.5]
+
+    Union of all overlaps:
+    [8.5, 12.75] ∪ [13.5, 14.25] ∪ [11, 12.75] ∪ [13.5, 15] ∪ [11, 14.25] ∪ [15, 15.5] ∪ [16, 17.5]
+
+    Let's simplify this union:
+    1. [8.5, 12.75] (from C ∩ B)
+    2. [11, 12.75] (from C ∩ F) - already included in 1
+    3. [11, 14.25] (from B ∩ F) - expands 1 to [8.5, 14.25]
+    4. [13.5, 14.25] (from C ∩ B) - already included in 3
+    5. [13.5, 15] (from C ∩ F) - expands 3 to [8.5, 15]
+    6. [15, 15.5] (from B ∩ F) - expands 5 to [8.5, 15.5]
+    7. [16, 17.5] (from B ∩ F)
+
+    So the union is [8.5, 15.5] ∪ [16, 17.5].
+    Duration = (15.5 - 8.5) + (17.5 - 16)
+    Duration = 7 + 1.5 = 8.5 hours.
+    8.5 hours = 8.5 * 60 = 510 minutes.
+
+    Wait, let me re-check the (B ∩ F) part.
+    Burak: [8.5, 14.25] and [15, 17.5]
+    Fatih: [11, 15.5] and [16, 20]
+    Overlap of [8.5, 14.25] and [11, 15.5] is [11, 14.25].
+    Overlap of [8.5, 14.25] and [16, 20] is empty.
+    Overlap of [15, 17.5] and [11, 15.5] is [15, 15.5].
+    Overlap of [15, 17.5] and [16, 20] is [16, 17.5].
+    So B ∩ F = [11, 14.25] ∪ [15, 15.5] ∪ [16, 17.5]. (Correct)
+
+    Wait, let's re-check the (C ∩ F) part.
+    Cemre: [7, 12.75] and [13.5, 15]
+    Fatih: [11, 15.5] and [16, 20]
+    Overlap of [7, 12.75] and [11, 15.5] is [11, 12.75].
+    Overlap of [7, 12.75] and [16, 20] is empty.
+    Overlap of [13.5, 15] and [11, 15.5] is [13.5, 15].
+    Overlap of [13.5, 15] and [16, 20] is empty.
+    So C ∩ F = [11, 12.75] ∪ [13.5, 15]. (Correct)
+
+    Wait, let's re-check the (C ∩ B) part.
+    Cemre: [7, 12.75] and [13.5, 15]
+    Burak: [8.5, 14.25] and [15, 17.5]
+    Overlap of [7, 12.75] and [8.5, 14.25] is [8.5, 12.75].
+    Overlap of [7, 12.75] and [15, 17.5] is empty.
+    Overlap of [13.5, 15] and [8.5, 14.25] is [13.5, 14.25].
+    Overlap of [13.5, 15] and [15, 17.5] is {15}.
+    So C ∩ B = [8.5, 12.75] ∪ [13.5, 14.25] ∪ {15}. (Correct)
+
+    Now, let's union them all again.
+    Union = ([8.5, 12.75] ∪ [13.5, 14.25] ∪ {15}) ∪ ([11, 12.75] ∪ [13.5, 15]) ∪ ([11, 14.25] ∪ [15, 15.5] ∪ [16, 17.5])
+    Let's group them:
+    - From [8.5, 12.75] and [11, 12.75] and [11, 14.25] and [13.5, 14.25] and [13.5, 15] and {15}:
+        The range starts at 8.5 and goes up to:
+        - 12.75 (from the first one)
+        - then 14.25 (from the third one)
+        - then 15 (from the fifth one)
+        Wait, let me be more systematic.
+        The points are:
+        [8.5, 12.75]
+        [11, 14.25]
+        [13.5, 14.25]
+        [11, 12.75]
+        [13.5, 15]
+        {15}
+        [15, 15.5]
+        [16, 17.5]
+
+        Union:
+        [8.5, 12.75] ∪ [11, 14.25] = [8.5, 14.25]
+        [8.5, 14.25] ∪ [13.5, 14.25] = [8.5, 14.25]
+        [8.5, 14.25] ∪ [11, 12.75] = [8.5, 14.25]
+        [8.5, 14.25] ∪ [13.5, 15] = [8.5, 15]
+        [8.5, 15] ∪ {15} = [8.5, 15]
+        [8.5, 15] ∪ [15, 15.5] = [8.5, 15.5]
+        [8.5, 15.5] ∪ [16, 17.5] = [8.5, 15.5] ∪ [16, 17.5]
+
+    Yes, the union is [8.5, 15.5] and [16, 17.5].
+    The duration is (15.5 - 8.5) + (17.5 - 16) = 7 + 1.5 = 8.5 hours.
+    8.5 * 60 = 510 minutes.
+
+    Let me just do one final check on the people's working/break times.
+    Cemre: 07:00-12:45, 13:30-15:00
+    Burak: 08:30-14:15, 15:00-17:30
+    Fatih: 11:00-15:30, 16:00-20:00
+
+    - 08:30-11:00: C, B (2)
+    - 11:00-12:45: C, B, F (3)
+    - 12:45-13:30: B, F (2)
+    - 13:30-14:15: C, B, F (3)
+    - 14:15-15:00: C, F (2)
+    - 15:00-15:30: B, F (2)
+    - 15:30-16:00: B (1)
+    - 16:00-17:30: B, F (2)
+
+    Wait, I just found a potential error in my manual count. Let me re-count.
+    08:30 to 11:00 = 2.5 hours
+    11:00 to 12:45 = 1.75 hours
+    12:45 to 13:30 = 0.75 hours
+    13:30 to 14:15 = 0.75 hours
+    14:15 to 15:00 = 0.75 hours
+    15:00 to 15:30 = 0.5 hours
+    Total: 2.5 + 1.75 + 0.75 + 0.75 + 0.75 + 0.5 = 7 hours.
+
+    Wait, 2.5 + 1.75 = 4.25
+    4.25 + 0.75 = 5.0
+    5.0 + 0.75 = 5.75
+    5.75 + 0.75 = 6.5
+    6.5 + 0.5 = 7.0.
+
+    Wait, 7 hours! Let me re-calculate.
+    08:30 to 15:30.
+    15.5 - 8.5 = 7.
+    Yes, 7 hours.
+
+    And then 16:00 to 17:30 = 1.5 hours.
+    7 + 1.5 = 8.5 hours.
+    8.5 * 60 = 510 minutes.
+
+    Let's double-check the 14:15 to 15:00 period one more time.
+    Cemre's work: 13:30 to 15:00.
+    Burak's break: 14:15 to 15:00.
+    Fatih's work: 11:00 to 15:30.
+    So at 14:15, Burak starts his break. Cemre and Fatih are still working.
+    So at 14:15, there are 2 people working.
+    At 15:00, Burak's break ends and Cemre's work ends.
+    So at 15:00, Burak and Fatih are working.
+    So the 2-person working period continues from 14:15 to 15:00. Correct.
+
+    Is there any other gap?
+    At 15:30, Fatih starts his break.
+    At 15:30, is anyone else working?
+    Cemre finished at 15:00.
+    Burak is working (15:00 to 17:30).
+    So at 15:30, only Burak is working. Correct.
+
+    One more check of the 16:00-17:30 period.
+    Burak: 15:00-17:30.
+    Fatih: 16:00-20:00.
+    So from 16:00 to 17:30, both are working. (2 people)
+    Is there any other person? No.
+    Is there any break for Burak or Fatih?
+    Burak's break was 14:15-15:00.
+    Fatih's break was 15:30-16:00.
+    So from 16:00 to 17:30, both are working. Correct.
+
+    Okay, the sum is definitely 510 minutes.
+    Let me re-verify the math one last time.
+    7 hours = 420 minutes.
+    1.5 hours = 90 minutes.
+    420 + 90 = 510.
+
+    Let's re-calculate:
+    150 (08:30-11:00)
+    105 (11:00-12:45)
+    45 (12:45-13:30)
+    45 (13:30-14:15)
+    45 (14:15-15:00)
+    30 (15:00-15:30)
+    90 (16:00-17:30)
+
+    150+105+45+45+45+30+90:
+    150+105 = 255
+    45+45+45 = 135
+    30+90 = 120
+    255+135+120 = 390+120 = 510.
+
+    Everything seems solid.
+    The question asks for the total minutes.
+    "Aynı anda en az iki kişinin çalışıyor olduğu toplam süre kaç dakikadır?"
+    The answer should be 510.
+
+    Wait, let's just re-read Cemre's work time:
+    "Cemre: 07:00 ile 15:00 arasında çalışıyor; molası 12:45 ile 13:30 arasında"
+    This means 07:00 to 12:45 and 13:30 to 15:00.
+    "Burak: 08:30 ile 17:30 arasında çalışıyor; molası 14:15 ile 15:00 arasında"
+    This means 08:30 to 14:15 and 15:00 to 17:30.
+    "Fatih: 11:00 ile 20:00 arasında çalışıyor; molası 15:30 ile 16:00 arasında"
+    This means 11:00 to 15:30 and 16:00 to 20:00.
+
+    Is it possible the "07:00 ile 15:00 arasında çalışıyor" means that 07:00 to 15:00 is the *total* time, including the break? Yes, that's what it says. And the break is *during* that time.
+
+    Wait, I should check if there is any other way to interpret "en az iki kişinin çalışıyor olduğu toplam süre".
+    It means the duration of the set {t | count(working_people(t)) >= 2}.
+    This is what I have calculated.
+
+    Let's re-re-re-calculate.
+    Cemre: [07:00, 12:45] and [13:30, 15:00]
+    Burak: [08:30, 14:15] and [15:00, 17:30]
+    Fatih: [11:00, 15:30] and [16:00, 20:00]
+
+    Wait! Let me re-check Burak's break.
+    Burak's break is 14:15 to 15:00.
+    So he works until 14:15 and then starts again at 15:00.
+    Wait, let's re-check Cemre's break.
+    Cemre's break is 12:45 to 13:30.
+    So she works until 12:45 and then starts again at 13:30.
+    Wait, let's re-check Fatih's break.
+    Fatih's break is 15:30 to 16:00.
+    So he works until 15:30 and then starts again at 16:00.
+
+    Wait, let me re-check the "at least two" segments again.
+    - 08:30-11:00: C and B. (2 people)
+    - 11:00-12:45: C, B, and F. (3 people)
+    - 12:45-13:30: B and F. (2 people)
+    - 13:30-14:15: C, B, and F. (3 people)
+    - 14:15-15:00: C and F. (2 people)
+    - 15:00-15:30: B and F. (2 people)
+    - 15:30-16:00: B only. (1 person)
+    - 16:00-17:30: B and F. (2 people)
+
+    My segment-by-segment analysis seems really solid.
+    The segments of "at least 2" are:
+    [08:30 to 11:00] (150 min)
+    [11:00 to 12:45] (105 min)
+    [12:45 to 13:30] (45 min)
+    [13:30 to 14:15] (45 min)
+    [14:15 to 15:00] (45 min)
+    [15:00 to 15:30] (30 min)
+    [16:00 to 17:30] (90 min)
+
+    Wait, 150+105+45+45+45+30+90 = 510.
+
+    Let's re-calculate one more time.
+    150+105 = 255
+    255+45 = 300
+    300+45 = 345
+    345+45 = 390
+    390+30 = 420
+    420+90 = 510.
+    Yes.
+
+    Wait, let's check the start and end times one more time.
+    C: 07:00, 15:00, 12:45, 13:30
+    B: 08:30, 17:30, 14:15, 15:00
+    F: 11:00, 20:00, 15:30, 16:00
+
+    If Cemre works from 07:00 to 15:00, and her break is from 12:45 to 13:30, her working hours are:
+    07:00 to 12:45 (5 hours 45 min = 345 min)
+    13:30 to 15:00 (1 hour 30 min = 90 min)
+    Total Cemre: 435 min. (Correct)
+
+    If Burak works from 08:30 to 17:30, and his break is from 14:15 to 15:00, his working hours are:
+    08:30 to 14:15 (5 hours 45 min = 345 min)
+    15:00 to 17:30 (2 hours 30 min = 150 min)
+    Total Burak: 495 min. (Correct)
+
+    If Fatih works from 11:00 to 20:00, and his break is from 15:30 to 16:00, his working hours are:
+    11:00 to 15:30 (4 hours 30 min = 270 min)
+    16:00 to 20:00 (4 hours 0 min = 240 min)
+    Total Fatih: 510 min. (Correct)
+
+    Is there any other possible interpretation?
+    "en az iki kişinin çalışıyor olduğu toplam süre kaç dakikadır?"
+    Everything seems correct.
+
+    Final check of the sum:
+    150 + 105 + 45 + 45 + 45 + 30 + 90
+    = 255 + 45 + 45 + 45 + 30 + 90
+    = 300 + 45 + 45 + 30 + 90
+    = 345 + 45 + 30 + 90
+    = 390 + 30 + 90
+    = 420 + 90
+    = 510.
+
+    One more check on the 14:15-15:00 segment:
+    Cemre: works [13:30, 15:00]
+    Burak: break [14:15, 15:00]
+    Fatih: works [11:00, 15:30]
+    At any time $t \in [14:15, 15:00]$, Cemre is working and Fatih is working.
+    So yes, at least two people are working.
+
+    Wait, let's check 15:00-15:30 segment:
+    Cemre: work ends at 15:00.
+    Burak: break ends at 15:00, so works from 15:00-17:30.
+    Fatih: works 11:00-15:30.
+    At any time $t \in [15:00, 15:30]$, Burak is working and Fatih is working.
+    So yes, at least two people are working.
+
+    The question is asking for the total time.
+    510 minutes.

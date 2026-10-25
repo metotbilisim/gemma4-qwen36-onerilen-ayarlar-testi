@@ -1,0 +1,483 @@
+
+*   Sender: Mavi Tur Seyahat (implied as the sender's organization).
+*   Recipient: Selin Aras (Corporate Client).
+*   Subject: Request for a short meeting.
+*   Constraint 1: Length must be between 60 and 80 words.
+*   Constraint 2: Must end with a question (last character must be '?').
+*   Constraint 3: Must include specific details: Meeting day = Thursday (Perşembe), Time = 14:30.
+*   Language: Turkish.
+
+    Sayın Selin Aras, Mavi Tur Seyahat olarak sizinle yeni projelerimizi ve iş birliği fırsatlarını değerlendirmek istiyoruz. Bu kapsamda, kısa bir görüşme gerçekleştirmek adına size bir teklif sunmak isteriz. Eğer takviminiz uygunsa, önümüzdeki Perşembe günü saat 14:30'da sizi ziyaret etmeyi veya çevrim içi bir toplantı yapmayı planlıyoruz. Konuyla ilgili geri dönüşünüzü bekliyoruz. Bu saat dilimi sizin için uygun mudur?
+
+    *   Sayın (1) Selin (2) Aras, (3) Mavi (4) Tur (5) Seyahat (6) olarak (7) sizinle (8) yeni (9) projelerimizi (10) ve (11) iş (12) birliği (13) fırsatlarını (14) değerlendirmek (15) istiyoruz. (16) Bu (17) kapsamda, (18) kısa (19) bir (20) görüşme (21) gerçekleştirmek (22) adına (23) size (24) bir (25) teklif (26) sunmak (27) isteriz. (28) Eğer (29) takviminiz (30) uygunsa, (31) önümüzdeki (32) Perşembe (33) günü (34) saat (35) 14:30'da (36) sizi (37) ziyaret (38) etmeyi (39) veya (40) çevrim (41) içi (42) bir (43) toplantı (44) yapmayı (45) planlıyoruz. (46) Konuyla (47) ilgili (48) geri (49) dönüşünüzü (50) bekliyoruz. (51) Bu (52) saat (53) dilimi (54) sizin (55) için (56) uygun (57) mudur? (58)
+
+    *Count: 58 words.* (Need to increase to 60-80 range).
+
+    Sayın Selin Aras, Mavi Tur Seyahat ekibi olarak, mevcut iş birliğimizi güçlendirmek ve yeni dönem planlarımızı paylaşmak amacıyla sizinle kısa bir toplantı gerçekleştirmeyi çok isteriz. Ajandanızın yoğunluğunu biliyoruz, bu nedenle görüşmeyi mümkün olduğunca verimli tutmayı hedefliyoruz. Eğer sizin için de uygunsa, önümüzdeki Perşembe günü saat 14:30’da kısa bir online görüşme yapabilir miyiz?
+
+    *Word Count check:*
+    1. Sayın
+    2. Selin
+    3. Aras,
+    4. Mavi
+    5. Tur
+    6. Seyahat
+    7. ekibi
+    8. olarak,
+    9. mevcut
+    10. iş
+    11. birliğimizi
+    12. güçlendirmek
+    13. ve
+    14. yeni
+    15. dönem
+    16. planlarımızı
+    17. paylaşmak
+    18. amacıyla
+    19. sizinle
+    20. kısa
+    21. bir
+    22. toplantı
+    23. gerçekleştirmeyi
+    24. çok
+    25. isteriz.
+    26. Ajandanızın
+    27. yoğunluğunu
+    28. biliyoruz,
+    29. bu
+    30. nedenle
+    31. görüşmeyi
+    32. mümkün
+    33. olduğunca
+    34. verimli
+    35. tutmayı
+    36. hedefliyoruz.
+    37. Eğer
+    38. sizin
+    39. için
+    40. de
+    41. uygunsa,
+    42. önümüzdeki
+    43. Perşembe
+    44. günü
+    45. saat
+    46. 14:30’da
+    47. kısa
+    48. bir
+    49. online
+    50. görüşme
+    51. yapabilir
+    52. miyiz?
+
+    *Count: 52 words.* Still too short. Need more padding.
+
+    Sayın Selin Aras, Mavi Tur Seyahat olarak, mevcut iş birliğimizi daha da ileriye taşımak ve önümüzdeki döneme dair yeni stratejilerimizi sizlerle paylaşmak amacıyla kısa bir görüşme talep ediyoruz. Ajandanızın yoğunluğunun farkındayız, bu sebeple toplantımızı oldukça kısa ve öz tutmayı planlıyoruz. Eğer takviminiz elveriyorsa, önümüzdeki Perşembe günü saat 14:30’da planladığımız bu toplantı sizin için de uygun mudur?
+
+    *Word Count check:*
+    1. Sayın
+    2. Selin
+    3. Aras,
+    4. Mavi
+    5. Tur
+    6. Seyahat
+    7. olarak,
+    8. mevcut
+    9. iş
+    10. birliğimizi
+    11. daha
+    12. da
+    13. ileriye
+    14. taşımak
+    15. ve
+    16. önümüzdeki
+    17. döneme
+    18. dair
+    19. yeni
+    20. stratejilerimizi
+    21. sizlerle
+    22. paylaşmak
+    23. amacıyla
+    24. kısa
+    25. bir
+    26. görüşme
+    27. talep
+    28. ediyoruz.
+    29. Ajandanızın
+    30. yoğunluğunun
+    31. farkındayız,
+    32. bu
+    33. sebeple
+    34. toplantımızı
+    35. oldukça
+    36. kısa
+    37. ve
+    38. öz
+    39. tutmayı
+    40. planlıyoruz.
+    41. Eğer
+    42. takviminiz
+    43. elveriyorsa,
+    44. önümüzdeki
+    45. Perşembe
+    46. günü
+    47. saat
+    48. 14:30’da
+    49. planladığımız
+    50. bu
+    51. toplantı
+    52. sizin
+    53. için
+    54. de
+    55. uygun
+    56. mudur?
+
+    *Count: 56 words.* Still short. I need 4-24 more words.
+
+    Sayın Selin Aras, Mavi Tur Seyahat olarak, mevcut kurumsal iş birliğimizi daha da ileriye taşımak ve önümüzdeki dönemdeki projelerimizi sizlerle detaylıca paylaşmak amacıyla kısa bir toplantı talep ediyoruz. Ajandanızın oldukça yoğun olduğunun farkındayız, bu sebeple görüşmemizi çok verimli ve kısa tutmayı hedefliyoruz. Eğer takviminiz uygunsa, önümüzdeki Perşembe günü saat 14:30’da gerçekleştireceğimiz bu görüşme sizin için de uygun mudur?
+
+    *Word Count Check:*
+    1. Sayın
+    2. Selin
+    3. Aras,
+    4. Mavi
+    5. Tur
+    6. Seyahat
+    7. olarak,
+    8. mevcut
+    9. kurumsal
+    10. iş
+    11. birliğimizi
+    12. daha
+    13. da
+    14. ileriye
+    15. taşımak
+    16. ve
+    17. önümüzdeki
+    18. dönemdeki
+    19. projelerimizi
+    20. sizlerle
+    21. detaylıca
+    22. paylaşmak
+    23. amacıyla
+    24. kısa
+    25. bir
+    26. toplantı
+    27. talep
+    28. ediyoruz.
+    29. Ajandanızın
+    30. oldukça
+    31. yoğun
+    32. olduğunun
+    33. farkındayız,
+    34. bu
+    35. sebeple
+    36. görüşmemizi
+    37. çok
+    38. verimli
+    39. ve
+    40. kısa
+    41. tutmayı
+    42. hedefliyoruz.
+    43. Eğer
+    44. takviminiz
+    45. uygunsa,
+    46. önümüzdeki
+    47. Perşembe
+    48. günü
+    49. saat
+    50. 14:30’da
+    51. gerçekleştireceğimiz
+    52. bu
+    53. görüşme
+    54. sizin
+    55. için
+    56. de
+    57. uygun
+    58. mudur?
+
+    *Count: 58 words.* Getting closer. Let's add a sentence or expand phrases.
+
+    *Expansion:*
+    Sayın Selin Aras, Mavi Tur Seyahat ekibi olarak, mevcut kurumsal iş birliğimizi daha da ileriye taşımak ve önümüzdeki dönemdeki yeni projelerimizi sizlerle detaylıca paylaşmak amacıyla kısa bir toplantı talep ediyoruz. Ajandanızın oldukça yoğun olduğunun farkındayız, bu sebeple planlayacağımız görüşmeyi çok verimli ve kısa tutmayı hedefliyoruz. Eğer takviminiz elveriyorsa, önümüzdeki Perşembe günü saat 14:30’da gerçekleştireceğimiz bu görüşme sizin için de uygun mudur?
+
+    *Word Count Check:*
+    1. Sayın
+    2. Selin
+    3. Aras,
+    4. Mavi
+    5. Tur
+    6. Seyahat
+    7. ekibi
+    8. olarak,
+    9. mevcut
+    10. kurumsal
+    11. iş
+    12. birliğimizi
+    13. daha
+    14. da
+    15. ileriye
+    16. taşımak
+    17. ve
+    18. önümüzdeki
+    19. dönemdeki
+    20. yeni
+    21. projelerimizi
+    22. sizlerle
+    23. detaylıca
+    24. paylaşmak
+    25. amacıyla
+    26. kısa
+    27. bir
+    28. toplantı
+    29. talep
+    30. ediyoruz.
+    31. Ajandanızın
+    32. oldukça
+    33. yoğun
+    34. olduğunun
+    35. farkındayız,
+    36. bu
+    37. sebeple
+    38. planlayacağımız
+    39. görüşmeyi
+    40. çok
+    41. verimli
+    42. ve
+    43. kısa
+    44. tutmayı
+    45. hedefliyoruz.
+    46. Eğer
+    47. takviminiz
+    48. elveriyorsa,
+    49. önümüzdeki
+    50. Perşembe
+    51. günü
+    52. saat
+    53. 14:30’da
+    54. gerçekleştireceğimiz
+    55. bu
+    56. görüşme
+    57. sizin
+    58. için
+    59. de
+    60. uygun
+    61. mudur?
+
+    *Total Word Count: 61 words.*
+    Perfect. It is between 60 and 80 words. It ends with a question. It includes Perşembe and 14:30.
+
+    *Wait, let me recount carefully to be 100% sure.*
+    1-Sayın 2-Selin 3-Aras, 4-Mavi 5-Tur 6-Seyahat 7-ekibi 8-olarak, 9-mevcut 10-kurumsal 11-iş 12-birliğimizi 13-daha 14-da 15-ileriye 16-taşımak 17-ve 18-önümüzdeki 19-dönemdeki 20-yeni 21-projelerimizi 22-sizlerle 23-detaylıca 24-paylaşmak 25-amacıyla 26-kısa 27-bir 28-toplantı 29-talep 30-ediyoruz. 31-Ajandanızın 32-oldukça 33-yoğun 34-olduğunun 35-farkındayız, 36-bu 37-sebeple 38-planlayacağımız 39-görüşmeyi 40-çok 41-verimli 42-ve 43-kısa 44-tutmayı 45-hedefliyoruz. 46-Eğer 47-takviminiz 48-elveriyorsa, 49-önümüzdeki 50-Perşembe 51-günü 52-saat 53-14:30’da 54-gerçekleştireceğimiz 55-bu 56-görüşme 57-sizin 58-için 59-de 60-uygun 61-mudur?
+
+    Total count = 61.
+
+    - Recipient: Selin Aras (Check)
+    - Sender identity: Mavi Tur Seyahat (Check)
+    - Subject: Short meeting request (Check)
+    - Length: 61 words (Within 60-80 range) (Check)
+    - Ending: Ends with question (Check)
+    - Last character: '?' (Check)
+    - Day: Perşembe (Check)
+    - Time: 14:30 (Check)
+
+    Text:
+    Sayın Selin Aras, Mavi Tur Seyahat ekibi olarak, mevcut kurumsal iş birliğimizi daha da ileriye taşımak ve önümüzdeki dönemdeki yeni projelerimizi sizlerle detaylıca paylaşmak amacıyla kısa bir toplantı talep ediyoruz. Ajandanızın oldukça yoğun olduğunun farkındayız, bu sebeple planlayacağımız görüşmeyi çok verimli ve kısa tutmayı hedefliyoruz. Eğer takviminiz elveriyorsa, önümüzdeki Perşembe günü saat 14:30’da gerçekleştireceğimiz bu görüşme sizin için de uygun mudur?
+
+    *Self-Correction during final review:* I should ensure I don't count the punctuation marks as separate words, which standard word counters don't do.
+
+    Word count verification:
+    1 Sayın
+    2 Selin
+    3 Aras,
+    4 Mavi
+    5 Tur
+    6 Seyahat
+    7 ekibi
+    8 olarak,
+    9 mevcut
+    10 kurumsal
+    11 iş
+    12 birliğimizi
+    13 daha
+    14 da
+    15 ileriye
+    16 taşımak
+    17 ve
+    18 önümüzdeki
+    19 dönemdeki
+    20 yeni
+    21 projelerimizi
+    22 sizlerle
+    23 detaylıca
+    24 paylaşmak
+    25 amacıyla
+    26 kısa
+    27 bir
+    28 toplantı
+    29 talep
+    30 ediyoruz.
+    31 Ajandanızın
+    32 oldukça
+    33 yoğun
+    34 olduğunun
+    35 farkındayız,
+    36 bu
+    37 sebeple
+    38 planlayacağımız
+    39 görüşmeyi
+    40 çok
+    41 verimli
+    42 ve
+    43 kısa
+    44 tutmayı
+    45 hedefliyoruz.
+    46 Eğer
+    47 takviminiz
+    48 elveriyorsa,
+    49 önümüzdeki
+    50 Perşembe
+    51 günü
+    52 saat
+    53 14:30’da
+    54 gerçekleştireceğimiz
+    55 bu
+    56 görüşme
+    57 sizin
+    58 için
+    59 de
+    60 uygun
+    61 mudur?
+
+    Wait, a potential issue: In Turkish, "14:30'da" is one word. "Selin Aras" is two words. Let's make sure I'm safe in the 60-80 zone. If I count more conservatively, I might hit 60 exactly. If I add a few more words to be safe, I can hit 65-70.
+
+    *Revised version for safety:*
+    Sayın Selin Aras, Mavi Tur Seyahat ekibi olarak, mevcut kurumsal iş birliğimizi daha da ileriye taşımak ve önümüzdeki dönemdeki yeni projelerimizi sizlerle detaylıca paylaşmak amacıyla kısa bir toplantı talep ediyoruz. Ajandanızın oldukça yoğun olduğunun farkındayız, bu sebeple planlayacağımız görüşmeyi çok verimli ve kısa tutmayı hedefliyoruz. Eğer takviminiz elveriyorsa, önümüzdeki Perşembe günü saat 14:30’da gerçekleştirmeyi planladığımız bu kısa görüşme sizin için de uygun mudur?
+
+    Count:
+    1 Sayın
+    2 Selin
+    3 Aras,
+    4 Mavi
+    5 Tur
+    6 Seyahat
+    7 ekibi
+    8 olarak,
+    9 mevcut
+    10 kurumsal
+    11 iş
+    12 birliğimizi
+    13 daha
+    14 da
+    15 ileriye
+    16 taşımak
+    17 ve
+    18 önümüzdeki
+    19 dönemdeki
+    20 yeni
+    21 projelerimizi
+    22 sizlerle
+    23 detaylıca
+    24 paylaşmak
+    25 amacıyla
+    26 kısa
+    27 bir
+    28 toplantı
+    29 talep
+    30 ediyoruz.
+    31 Ajandanızın
+    32 oldukça
+    33 yoğun
+    34 olduğunun
+    35 farkındayız,
+    36 bu
+    37 sebeple
+    38 planlayacağımız
+    39 görüşmeyi
+    40 çok
+    41 verimli
+    42 ve
+    43 kısa
+    44 tutmayı
+    45 hedefliyoruz.
+    46 Eğer
+    47 takviminiz
+    48 elveriyorsa,
+    49 önümüzdeki
+    50 Perşembe
+    51 günü
+    52 saat
+    53 14:30’da
+    54 gerçekleştirmeyi
+    55 planladığımız
+    56 bu
+    57 kısa
+    58 görüşme
+    59 sizin
+    60 için
+    61 de
+    62 uygun
+    63 mudur?
+
+    63 words. This is a very safe number between 60 and 80.
+
+    *Final Polish Check:*
+    - "Mavi Tur Seyahat adına" implies the sender is from the company.
+    - Recipient "Selin Aras" is addressed.
+    - Perşembe, 14:30 included.
+    - Ends with a question.
+    - Length is 63 words.
+
+    Let's do one final check.
+    "Sayın Selin Aras, Mavi Tur Seyahat ekibi olarak, mevcut kurumsal iş birliğimizi daha da ileriye taşımak ve önümüzdeki dönemdeki yeni projelerimizi sizlerle detaylıca paylaşmak amacıyla kısa bir toplantı talep ediyoruz. Ajandanızın oldukça yoğun olduğunun farkındayız, bu sebeple planlayacağımız görüşmeyi çok verimli ve kısa tutmayı hedefliyoruz. Eğer takviminiz elveriyorsa, önümüzdeki Perşembe günü saat 14:30’da gerçekleştirmeyi planladığımız bu kısa görüşme sizin için de uygun mudur?"
+
+    Word count:
+    1.Sayın 2.Selin 3.Aras, 4.Mavi 5.Tur 6.Seyahat 7.ekibi 8.olarak, 9.mevcut 10.kurumsal 11.iş 12.birliğimizi 13.daha 14.da 15.ileriye 16.taşımak 17.ve 18.önümüzdeki 19.dönemdeki 20.yeni 21.projelerimizi 22.sizlerle 23.detaylıca 24.paylaşmak 25.amacıyla 26.kısa 27.bir 28.toplantı 29.talep 30.ediyoruz. 31.Ajandanızın 32.oldukça 33.yoğun 34.olduğunun 35.farkındayız, 36.bu 37.sebeple 38.planlayacağımız 39.görüşmeyi 40.çok 41.verimli 42.ve 43.kısa 44.tutmayı 45.hedefliyoruz. 46.Eğer 47.takviminiz 48.elveriyorsa, 49.önümüzdeki 50.Perşembe 51.günü 52.saat 53.14:30’da 54.gerçekleştirmeyi 55.planladığımız 56.bu 57.kısa 58.görüşme 59.sizin 60.için 61.de 62.uygun 63.mudur?
+
+    Perfect. 63 words.
+
+    Wait, the prompt says "Mavi Tur Seyahat adına... yaz". I should present just the text.
+
+    Check punctuation:
+    "14:30’da" -> one word.
+    "uygun mudur?" -> last char is ?.
+
+    Ready.
+
+    One more count just to be absolutely paranoid.
+    Sayın(1) Selin(2) Aras,(3) Mavi(4) Tur(5) Seyahat(6) ekibi(7) olarak,(8) mevcut(9) kurumsal(10) iş(11) birliğimizi(12) daha(13) da(14) ileriye(15) taşımak(16) ve(17) önümüzdeki(18) dönemdeki(19) yeni(20) projelerimizi(21) sizlerle(22) detaylıca(23) paylaşmak(24) amacıyla(25) kısa(26) bir(27) toplantı(28) talep(29) ediyoruz.(30) Ajandanızın(31) oldukça(32) yoğun(33) olduğunun(34) farkındayız,(35) bu(36) sebeple(37) planlayacağımız(38) görüşmeyi(39) çok(40) verimli(41) ve(42) kısa(43) tutmayı(44) hedefliyoruz.(45) Eğer(46) takviminiz(47) elveriyorsa,(48) önümüzdeki(49) Perşembe(50) günü(51) saat(52) 14:30’da(53) gerçekleştirmeyi(54) planladığımız(55) bu(56) kısa(57) görüşme(58) sizin(59) için(60) de(61) uygun(62) mudur?(63)
+
+    Note: In some word counters, "14:30'da" might be treated as one or two. Even if it's one, I'm at 63. If it's two, I'm at 64. Both are in 60-80.
+
+    Final Text:
+    Sayın Selin Aras, Mavi Tur Seyahat ekibi olarak, mevcut kurumsal iş birliğimizi daha da ileriye taşımak ve önümüzdeki dönemdeki yeni projelerimizi sizlerle detaylıca paylaşmak amacıyla kısa bir toplantı talep ediyoruz. Ajandanızın oldukça yoğun olduğunun farkındayız, bu sebeple planlayacağımız görüşmeyi çok verimli ve kısa tutmayı hedefliyoruz. Eğer takviminiz elveriyorsa, önümüzdeki Perşembe günü saat 14:30’da gerçekleştirmeyi planladığımız bu kısa görüşme sizin için de uygun mudur?
+
+    *Wait*, I'll check if "Mavi Tur Seyahat adına" means the email should start with "Sayın Selin Aras". Yes, typically an email starts with the recipient.
+
+    Final check on "Perşembe" and "14:30". Yes.
+    Final check on length. Yes.
+    Final check on ending. Yes.
+
+    One last thing: The prompt says "Metin 60 ile 80 kelime arasında olsun". I have 63. If I make it slightly longer, it's safer against different tokenization methods.
+
+    Let's add "Geri dönüşünüzü bekliyoruz." somewhere? No, that would add words. Let's add "değerlendirmek için" or something.
+
+    Current:
+    Sayın Selin Aras, Mavi Tur Seyahat ekibi olarak, mevcut kurumsal iş birliğimizi daha da ileriye taşımak ve önümüzdeki dönemdeki yeni projelerimizi sizlerle detaylıca paylaşmak amacıyla kısa bir toplantı talep ediyoruz. Ajandanızın oldukça yoğun olduğunun farkındayız, bu sebeple planlayacağımız görüşmeyi çok verimli ve kısa tutmayı hedefliyoruz. Eğer takviminiz elveriyorsa, önümüzdeki Perşembe günü saat 14:30’da gerçekleştirmeyi planladığımız bu kısa görüşme sizin için de uygun mudur?
+
+    Actually, 63 is a solid number. I'll stick with this.
+
+    Final check:
+    - Mavi Tur Seyahat (included)
+    - Selin Aras (included)
+    - Perşembe (included)
+    - 14:30 (included)
+    - 60-80 words (63 words)
+    - Ends with '?' (included)
+
+    Word count breakdown (manual):
+    1.Sayın 2.Selin 3.Aras, 4.Mavi 5.Tur 6.Seyahat 7.ekibi 8.olarak, 9.mevcut 10.kurumsal 11.iş 12.birliğimizi 13.daha 14.da 15.ileriye 16.taşımak 17.ve 18.önümüzdeki 19.dönemdeki 20.yeni 21.projelerimizi 22.sizlerle 23.detaylıca 24.paylaşmak 25.amacıyla 26.kısa 27.bir 28.toplantı 29.talep 30.ediyoruz. 31.Ajandanızın 32.oldukça 33.yoğun 34.olduğunun 35.farkındayız, 36.bu 37.sebeple 38.planlayacağımız 39.görüşmeyi 40.çok 41.verimli 42.ve 43.kısa 44.tutmayı 45.hedefliyoruz. 46.Eğer 47.takviminiz 48.elveriyorsa, 49.önümüzdeki 50.Perşembe 51.günü 52.saat 53.14:30’da 54.gerçekleştirmeyi 55.planladığımız 56.bu 57.kısa 58.görüşme 59.sizin 60.için 61.de 62.uygun 63.mudur?
+
+    Wait, I just noticed a potential trap. If the user wants the *email* to be 60-80 words, I shouldn't include "Konu:" or anything unless it's part of the text. I will provide just the body text of the email.
+
+    Let's verify if "14:30'da" might be split. In Turkish, it's one word.
+    Total: 63 words. This is safe.

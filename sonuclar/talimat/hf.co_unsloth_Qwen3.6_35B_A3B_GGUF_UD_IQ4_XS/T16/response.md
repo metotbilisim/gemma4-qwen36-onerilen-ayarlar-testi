@@ -1,0 +1,5 @@
+Pano Yazılım olarak teknoloji dünyasındaki yolculuğumuzda büyümeye ve fark yaratmaya devam ediyoruz. Sürekli gelişen projelerimizde yanımızda olacak, tutkulu ve yetenekli ekip arkadaşlarıyla buluşmaktan heyecan duyuyoruz.
+
+İstanbul ofisimizdeki dinamik çalışmalarda görev almak üzere 4 yazılım geliştirici aranıyor. Kodlama tutkunuzu gerçek dünya çözümlerine dönüştüreceğiniz, sürekli öğrenme ve inovasyon odaklı bir ortamda profesyonel olarak kendinizi geliştirebilirsiniz.
+
+Kendinizi sürekli geliştirmeye açık, takım çalışmasına yatkın ve yeni teknolojilere merak salmış yazılımcıları aramızda görmekten mutluluk duyarız. Detaylı pozisyon tanımı ve başvuru süreci için profildeki bağlantımızı takip edebilir veya doğrudan mesaj gönderebilirsiniz; bu yenilikçi ekibin bir parçası olmak ister misiniz?

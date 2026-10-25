@@ -1,0 +1,1 @@
+"Defne Atölyesi’nin yüzde 100 bitkisel içeriğe sahip bu eşsiz sabunu, cildinize doğanın tüm saflığını sunuyor. 120 gram ağırlığındaki bu özel ürün, banyo rutinlerinizi tazelerken cildinizi derinlemesine besleyerek size her kullanımda yumuşacık ve sağlıklı bir dokunuş sağlar."

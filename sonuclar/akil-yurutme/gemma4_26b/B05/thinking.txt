@@ -1,0 +1,263 @@
+*   Order Approval Date: 23.09.2027 (Thursday)
+    *   Approval Day rule: Does not count.
+    *   Production Duration: 11 business days (starting after approval).
+    *   Production Completion: Ends on the 11th business day.
+    *   Shipping Start: The day after production ends (1st shipping day).
+    *   Shipping Duration: 5 calendar days.
+    *   Delivery Day: The 5th day of shipping.
+    *   Delivery Exception: If the delivery day is a Saturday, Sunday, or a holiday, delivery occurs on the next business day.
+    *   Business Days: Monday-Friday.
+    *   Holidays: 05.10.2027, 06.10.2027, 17.10.2027, 20.10.2027, 23.10.2027.
+
+    *   Start: After 23.09.2027 (Thursday).
+    *   Day 1: 24.09.2027 (Friday)
+    *   (Weekend: 25.09.2027 Sat, 26.09.2027 Sun)
+    *   Day 2: 27.09.2027 (Monday)
+    *   Day 3: 28.09.2027 (Tuesday)
+    *   Day 4: 29.09.2027 (Wednesday)
+    *   Day 5: 30.09.2027 (Thursday)
+    *   Day 6: 01.10.2027 (Friday)
+    *   (Weekend: 02.10.2027 Sat, 03.10.2027 Sun)
+    *   Day 7: 04.10.2027 (Monday)
+    *   (Holiday: 05.10.2027 Tuesday)
+    *   (Holiday: 06.10.2027 Wednesday)
+    *   Day 8: 07.10.2027 (Thursday)
+    *   Day 9: 08.10.2027 (Friday)
+    *   (Weekend: 09.10.2027 Sat, 10.10.2027 Sun)
+    *   Day 10: 11.10.2027 (Monday)
+    *   Day 11: 12.10.2027 (Tuesday)
+
+    *Production ends on 12.10.2027 (Tuesday).*
+
+    *   Shipping 1st day: Day after production ends -> 13.10.2027 (Wednesday).
+    *   Duration: 5 calendar days.
+    *   Day 1: 13.10.2027 (Wednesday)
+    *   Day 2: 14.10.2027 (Thursday)
+    *   Day 3: 15.10.2027 (Friday)
+    *   Day 4: 16.10.2027 (Saturday)
+    *   Day 5: 17.10.2027 (Sunday)
+
+    *Delivery is scheduled for 17.10.2027.*
+
+    *   Scheduled delivery day: 17.10.2027 (Sunday).
+    *   Check if 17.10.2027 is a Saturday, Sunday, or holiday:
+        *   It is a Sunday.
+        *   It is also listed as a holiday (17.10.2027).
+    *   Rule: "If the delivery day is Saturday, Sunday, or a holiday, delivery occurs on the next business day."
+    *   Next Business Day calculation:
+        *   18.10.2027 (Monday): Is it a holiday? (Holidays are 05.10, 06.10, 17.10, 20.10, 23.10). No.
+        *   18.10.2027 is a Monday. It is a business day.
+
+    *Wait, let me double-check the holidays:*
+    05.10 (Tue)
+    06.10 (Wed)
+    17.10 (Sun)
+    20.10 (Wed)
+    23.10 (Sat)
+
+    *   Approval: 23.09.2027 (Thu).
+    *   Production (11 business days):
+        1. Fri 24.09
+        (Sat 25.09, Sun 26.09)
+        2. Mon 27.09
+        3. Tue 28.09
+        4. Wed 29.09
+        5. Thu 30.09
+        6. Fri 01.10
+        (Sat 02.10, Sun 03.10)
+        7. Mon 04.10
+        (Tue 05.10 - Holiday)
+        (Wed 06.10 - Holiday)
+        8. Thu 07.10
+        9. Fri 08.10
+        (Sat 09.10, Sun 10.10)
+        10. Mon 11.10
+        11. Tue 12.10
+    *   Production ends: 12.10.2027 (Tue).
+    *   Shipping (5 calendar days, starting day after production):
+        1. Wed 13.10
+        2. Thu 14.10
+        3. Fri 15.10
+        4. Sat 16.10
+        5. Sun 17.10
+    *   Scheduled Delivery: 17.10.2027 (Sun).
+    *   17.10.2027 is a Sunday and a Holiday.
+    *   Next business day: 18.10.2027 (Mon).
+
+    *   Approval: 23.09.2027 (Thu)
+    *   Prod 1: 24.09 (Fri)
+    *   Prod 2: 27.09 (Mon)
+    *   Prod 3: 28.09 (Tue)
+    *   Prod 4: 29.09 (Wed)
+    *   Prod 5: 30.09 (Thu)
+    *   Prod 6: 01.10 (Fri)
+    *   Prod 7: 04.10 (Mon)
+    *   (Holidays 05.10 & 06.10 skipped)
+    *   Prod 8: 07.10 (Thu)
+    *   Prod 9: 08.10 (Fri)
+    *   Prod 10: 11.10 (Mon)
+    *   Prod 11: 12.10 (Tue)
+    *   Shipping Start: 13.10 (Wed)
+    *   Shipping Days: 13.10 (1), 14.10 (2), 15.10 (3), 16.10 (4), 17.10 (5)
+    *   Delivery Day: 17.10.2027 (Sun)
+    *   Since 17.10.2027 is a Sunday (and a holiday), delivery moves to the next business day: 18.10.2027 (Monday).
+
+    *   23.09.2027 (Thu)
+    *   24.09 (Fri) - 1
+    *   25.09 (Sat)
+    *   26.09 (Sun)
+    *   27.09 (Mon) - 2
+    *   28.09 (Tue) - 3
+    *   29.09 (Wed) - 4
+    *   30.09 (Thu) - 5
+    *   01.10 (Fri) - 6
+    *   02.10 (Sat)
+    *   03.10 (Sun)
+    *   04.10 (Mon) - 7
+    *   05.10 (Tue) - HOLIDAY
+    *   06.10 (Wed) - HOLIDAY
+    *   07.10 (Thu) - 8
+    *   08.10 (Fri) - 9
+    *   09.10 (Sat)
+    *   10.10 (Sun)
+    *   11.10 (Mon) - 10
+    *   12.10 (Tue) - 11
+    *   13.10 (Wed) - Shipping 1
+    *   14.10 (Thu) - Shipping 2
+    *   15.10 (Fri) - Shipping 3
+    *   16.10 (Sat) - Shipping 4
+    *   17.10 (Sun) - Shipping 5
+    *   Delivery: 17.10.2027 is Sunday and Holiday.
+    *   Next business day: 18.10.2027 (Monday).
+
+    Wait, let me check the holidays again: 05.10.2027, 06.10.2027, 17.10.2027, 20.10.2027, 23.10.2027.
+    Is 18.10.2027 a holiday? No.
+    Is 18.10.2027 a business day (Mon-Fri)? Yes.
+
+    *Final conclusion seems solid: 18.10.2027.*
+
+    *   "Onay günü sayılmaz." (Approval day 23.09 doesn't count - Done)
+    *   "Üretim... 11 iş günü sürer ve 11. iş gününün sonunda biter." (Done)
+    *   "Üretimin bittiği günün ertesi, kargonun 1. günüdür." (Prod ends 12.10, shipping 1st day 13.10 - Done)
+    *   "Kargo 5 takvim günü sürer ve 5. günde teslim edilir." (13, 14, 15, 16, 17 - Done)
+    *   "Teslim günü cumartesi, pazar ya da tatil olursa teslim, o günden sonraki ilk iş gününe kalır." (17.10 is Sunday and holiday, so next business day - Done)
+    *   "İş günleri pazartesi-cuma arasıdır; tatil günleri: 05.10.2027, 06.10.2027, 17.10.2027, 20.10.2027, 23.10.2027." (Done)
+
+    *Check if I missed anything:*
+    Approval: 23.09 (Thu)
+    1st business day: 24.09 (Fri)
+    2nd: 27.09 (Mon)
+    3rd: 28.09 (Tue)
+    4th: 29.09 (Wed)
+    5th: 30.09 (Thu)
+    6th: 01.10 (Fri)
+    7th: 04.10 (Mon)
+    (Skip 05.10, 06.10)
+    8th: 07.10 (Thu)
+    9th: 08.10 (Fri)
+    10th: 11.10 (Mon)
+    11th: 12.10 (Tue)
+    End of production: 12.10 (Tue)
+    Shipping 1st day: 13.10 (Wed)
+    Shipping 5th day: 17.10 (Sun)
+    17.10 is Sunday (not a business day) and also a holiday.
+    Next business day: 18.10 (Mon).
+
+    One more check on the production end: "11. iş gününün sonunda biter." So production ends on 12.10.
+    "Üretimin bittiği günün ertesi, kargonun 1. günüdür."
+    So, 13.10 is the 1st day of shipping.
+    13.10 (1), 14.10 (2), 15.10 (3), 16.10 (4), 17.10 (5).
+    Everything looks correct.
+
+    Wait, if 17.10.2027 is the delivery day and it's a Sunday, we look for the next business day.
+    18.10.2027 (Monday).
+    Is Monday, 18.10.2027 a holiday? No.
+    Is Monday, 18.10.2027 a business day? Yes.
+
+    Let me double-check the holidays again: 05.10, 06.10, 17.10, 20.10, 23.10.
+    17.10 is a holiday.
+    20.10 is a holiday.
+    23.10 is a holiday.
+
+    The delivery day (17th) is a holiday and a Sunday. The next business day is 18.10 (Monday).
+
+    Is there any ambiguity in "Üretimin bittiği günün ertesi, kargonun 1. günüdür"?
+    No, it's clear. If production ends on 12.10, 13.10 is Day 1 of shipping.
+
+    Is there any ambiguity in "5. günde teslim edilir"?
+    If shipping starts on 13.10 (Day 1), then:
+    Day 1: 13.10
+    Day 2: 14.10
+    Day 3: 15.10
+    Day 4: 16.10
+    Day 5: 17.10
+    Delivery is on 17.10.
+
+    Let's re-verify the production count.
+    23.09 (Thu) - Approval
+    24.09 (Fri) - 1
+    25.09 (Sat) - X
+    26.09 (Sun) - X
+    27.09 (Mon) - 2
+    28.09 (Tue) - 3
+    29.09 (Wed) - 4
+    30.09 (Thu) - 5
+    01.10 (Fri) - 6
+    02.10 (Sat) - X
+    03.10 (Sun) - X
+    04.10 (Mon) - 7
+    05.10 (Tue) - Holiday
+    06.10 (Wed) - Holiday
+    07.10 (Thu) - 8
+    08.10 (Fri) - 9
+    09.10 (Sat) - X
+    10.10 (Sun) - X
+    11.10 (Mon) - 10
+    12.10 (Tue) - 11
+    Production ends on 12.10. Correct.
+
+    Shipping starts 13.10.
+    5 days of shipping: 13, 14, 15, 16, 17. Correct.
+    17.10 is Sunday and Holiday. Correct.
+    Next business day after 17.10 is 18.10. Correct.
+
+    Final verification of dates and days of week:
+    23.09.2027 is a Thursday?
+    Let's check:
+    Jan 1, 2027 is a Friday.
+    September 2027:
+    Jan: 31 days
+    Feb: 28 days
+    Mar: 31 days
+    Apr: 30 days
+    May: 31 days
+    Jun: 30 days
+    Jul: 31 days
+    Aug: 31 days
+    Total: 31+28+31+30+31+30+31+31 = 243 days.
+    September 23rd: 243 + 23 = 266 days.
+    266 mod 7 = 0.
+    If Jan 1 (Day 1) is Friday, then Day 266 is...?
+    1-Fri, 2-Sat, 3-Sun, 4-Mon, 5-Tue, 6-Wed, 7-Thu.
+    266 mod 7 = 0 means it's the 7th day of the week, which is Thursday. (Wait, 266 / 7 = 38 remainder 0).
+    If the remainder is 1, it's Friday. If the remainder is 0, it's Thursday.
+    Yes, 23.09.2027 is a Thursday.
+
+    Check 17.10.2027:
+    266 (to 23.09) + 7 (to 30.09) + 17 = 290 days.
+    290 mod 7 = 3.
+    If 1-Fri, 2-Sat, 3-Sun...
+    290 / 7 = 41 remainder 3.
+    Remainder 3 = Sunday.
+    Correct.
+
+    Check 18.10.2027:
+    Monday. Correct.
+
+    Check 20.10.2027:
+    Wednesday. (18-Mon, 19-Tue, 20-Wed). Correct.
+
+    Check 23.10.2027:
+    Saturday. (20-Wed, 21-Thu, 22-Fri, 23-Sat). Correct.
+
+    Everything is consistent.

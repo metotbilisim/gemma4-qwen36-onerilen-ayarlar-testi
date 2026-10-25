@@ -1,0 +1,12 @@
+✔ money.format (0.4891ms)
+✔ simple order totals (1.0088ms)
+✔ percentage coupon is applied before VAT (BUG-101) (0.2282ms)
+✔ failed order leaves stock untouched (BUG-102) (0.3497ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 63.1487

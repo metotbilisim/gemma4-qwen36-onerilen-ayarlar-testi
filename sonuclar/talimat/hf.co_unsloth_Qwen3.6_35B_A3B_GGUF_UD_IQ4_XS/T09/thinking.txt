@@ -1,0 +1,93 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Company:** Mutlu Gıda
+   - **Audience:** Employees (çalışanlar)
+   - **Purpose:** Bayram tatili duyurusu (Holiday announcement)
+   - **Length:** 4 to 5 sentences exactly
+   - **Ending phrase:** Must end with "İyi bayramlar dileriz."
+   - **Key information to include:** 
+     - Tatil başlangıcı: 28 Mayıs
+     - İşe dönüş/işbaşı: 2 Haziran
+
+2.  **Deconstruct Constraints:**
+   - Must be exactly 4 or 5 sentences.
+   - Must include: Mutlu Gıda, bayram tatili, 28 Mayıs başlangıç, 2 Haziran işbaşı.
+   - Must end with: "İyi bayramlar dileriz."
+   - Language: Turkish
+
+3.  **Draft - Sentence by Sentence (Mental Refinement):**
+   *Sentence 1:* Mutlu Gıda ailesi olarak yaklaşan bayram tatili nedeniyle çalışma takvimimizde bazı değişiklikler yapılmıştır. 
+   *Sentence 2:* Bayram tatilimiz 28 Mayıs Çarşamba günü başlayacak olup, tüm çalışanlarımız bu günden itibaren resmi izinli sayılacaktır.
+   *Sentence 3:* İşe dönüşümüz ise 2 Haziran Salı günü gerçekleştirilecek ve normal çalışma saatlerimiz o gün tekrar başlayacaktır.
+   *Sentence 4:* Tatil sürecinde ailenizle huzurla geçireceğiniz bu güzel zaman dilimini siz de birlikte kutluyor, tüm çalışanlarımıza İyi bayramlar dileriz.
+
+   Wait, let's count sentences and check constraints:
+   1. Mutlu Gıda ailesi olarak yaklaşan bayram tatili nedeniyle çalışma takvimimizde bazı değişiklikler yapılmıştır. (1)
+   2. Bayram tatilimiz 28 Mayıs Çarşamba günü başlayacak olup, tüm çalışanlarımız bu günden itibaren resmi izinli sayılacaktır. (2)
+   3. İşe dönüşümüz ise 2 Haziran Salı günü gerçekleştirilecek ve normal çalışma saatlerimiz o gün tekrar başlayacaktır. (3)
+   4. Tatil sürecinde ailenizle huzurla geçireceğiniz bu güzel zaman dilimini siz de birlikte kutluyor, tüm çalışanlarımıza İyi bayramlar dileriz. (4) - Wait, this ends with "İyi bayramlar dileriz." but the constraint says it must end exactly with that phrase. I'll adjust sentence 4 to ensure it's exactly the ending phrase without extra words, or make it the final standalone sentence if needed, but the constraint says "ifadesiyle bitsin" (must end with the expression). So the last sentence should be exactly that, or the text should end with it.
+
+   Let's count carefully. I need exactly 4 or 5 sentences in total.
+   Let's draft exactly 4 sentences:
+   Mutlu Gıda çalışanlarımız, bayram tatili sürecinde çalışma takvimimizde yapılan değişiklikleri not etmenizi rica ederiz. Tatilimiz 28 Mayıs günü başlayacak olup, tüm birimler o günden itibaren resmen kapalı olacaktır. Normal çalışma düzenimiz ise 2 Haziran Salı günü yeniden başlayacak ve işbaşınızın ardından sizi aramızda görmekten memnuniyet duyacağız. İyi bayramlar dileriz.
+
+   Count: 
+   1. Mutlu Gıda çalışanlarımız, bayram tatili sürecinde çalışma takvimimizde yapılan değişiklikleri not etmenizi rica ederiz.
+   2. Tatilimiz 28 Mayıs günü başlayacak olup, tüm birimler o günden itibaren resmen kapalı olacaktır.
+   3. Normal çalışma düzenimiz ise 2 Haziran Salı günü yeniden başlayacak ve işbaşınızın ardından sizi aramızda görmekten memnuniyet duyacağız.
+   4. İyi bayramlar dileriz.
+   Total: 4 sentences. Ends with "İyi bayramlar dileriz." Includes all required info. Matches constraints.
+
+   Let's verify each constraint:
+   - Mutlu Gıda çalışanlarına gönderilecek bayram tatili duyurusu mu? Yes, tone and content match.
+   - 4 ile 5 cümle arasında olsun? Exactly 4 sentences. (Punctuation defines sentences: periods, question marks, exclamation marks). I'll make sure only 4 periods/exclamation/question marks that end sentences.
+   - “İyi bayramlar dileriz.” ifadesiyle bitsin? Yes, last sentence is exactly that.
+   - Tatil 28 Mayıs’ta başlıyor? Yes.
+   - 2 Haziran’da işbaşı yapılacak? Yes.
+
+   One minor adjustment: Ensure the dates match exactly as requested or naturally fit. "28 Mayıs’ta başlıyor" -> I'll phrase it closer to the prompt: "Tatilimiz 28 Mayıs'ta başlayacaktır." and "2 Haziran'da işbaşımızı yeniden yapacağız." Let's keep it professional.
+
+   Revised draft (exactly 4 sentences):
+   Mutlu Gıda ailesi olarak bayram tatilinde çalışma düzenimizde yapılan değişiklikleri sizinle paylaşmaktan mutluluk duyuyoruz. Tatil sürecimiz 28 Mayıs'ta başlayacak olup, tüm çalışanlarımız bu günden itibaren resmi izinli sayılacaktır. İşbaşımız ise 2 Haziran'da gerçekleştirilecek ve normal mesai saatlerimiz o gün yeniden başlayacaktır. İyi bayramlar dileriz.
+
+   Sentence count check:
+   1. Mutlu Gıda ailesi olarak bayram tatilinde çalışma düzenimizde yapılan değişiklikleri sizinle paylaşmaktan mutluluk duyuyoruz.
+   2. Tatil sürecimiz 28 Mayıs'ta başlayacak olup, tüm çalışanlarımız bu günden itibaren resmi izinli sayılacaktır.
+   3. İşbaşımız ise 2 Haziran'da gerçekleştirilecek ve normal mesai saatlerimiz o gün yeniden başlayacaktır.
+   4. İyi bayramlar dileriz.
+   Exactly 4 sentences. Ends with the exact phrase. Contains all required info. Tone is appropriate for an internal company announcement.
+
+   All constraints met. Ready to output. I will double-check punctuation to ensure no hidden sentence boundaries. Only periods are used. The prompt says "4 ile 5 cümle arasında olsun", so 4 or 5 is fine. I'll stick with 4.
+
+   One thing: "İyi bayramlar dileriz." has a period at the end in the prompt? The prompt says: “İyi bayramlar dileriz.” ifadesiyle bitsin. So I will end with exactly that, including the period if it's part of the sentence structure, but typically the closing quote isn't needed. I'll just write: İyi bayramlar dileriz.
+
+   Final check of the text:
+   Mutlu Gıda ailesi olarak bayram tatilinde çalışma düzenimizde yapılan değişiklikleri sizinle paylaşmaktan mutluluk duyuyoruz. Tatil sürecimiz 28 Mayıs'ta başlayacak olup, tüm çalışanlarımız bu günden itibaren resmi izinli sayılacaktır. İşbaşımız ise 2 Haziran'da gerçekleştirilecek ve normal mesai saatlerimiz o gün yeniden başlayacaktır. İyi bayramlar dileriz.
+
+   Matches all criteria. Output matches this exactly.✅
+   Note: I'll make sure the Turkish grammar and tone are natural for a corporate announcement. The phrasing is professional and clear. Sentence count is strictly 4. Ends exactly with the required phrase. Contains both dates. Mentions Mutlu Gıda and employees implicitly/explicitly. All good. 
+   Proceeds. 
+   Output generation. 
+   [Self-Correction/Refinement during thought]
+   Wait, let's count sentences carefully. Sometimes Turkish uses commas or semicolons that might be misinterpreted, but periods are clear. I have exactly 4 periods. That's 4 sentences. Perfect.
+   The prompt says "Mutlu Gıda çalışanlarına gönderilecek bayram tatili duyurusunu yaz." So it should read like a full notice. 
+   I'll keep it as is. It's concise and meets all constraints. 
+   Output matches the refined draft.✅
+   Final Text:
+   Mutlu Gıda ailesi olarak bayram tatilinde çalışma düzenimizde yapılan değişiklikleri sizinle paylaşmaktan mutluluk duyuyoruz. Tatil sürecimiz 28 Mayıs'ta başlayacak olup, tüm çalışanlarımız bu günden itibaren resmi izinli sayılacaktır. İşbaşımız ise 2 Haziran'da gerçekleştirilecek ve normal mesai saatlerimiz o gün yeniden başlayacaktır. İyi bayramlar dileriz. 
+   All constraints verified. Ready. 
+   Output matches response. 
+   [Done] 
+   *Self-Correction/Verification during generation prep*: 
+   Let's count sentences explicitly:
+   1. Mutlu Gıda ailesi olarak bayram tatilinde çalışma düzenimizde yapılan değişiklikleri sizinle paylaşmaktan mutluluk duyuyoruz.
+   2. Tatil sürecimiz 28 Mayıs'ta başlayacak olup, tüm çalışanlarımız bu günden itibaren resmi izinli sayılacaktır.
+   3. İşbaşımız ise 2 Haziran'da gerçekleştirilecek ve normal mesai saatlerimiz o gün yeniden başlayacaktır.
+   4. İyi bayramlar dileriz.
+   Exactly 4. Ends with "İyi bayramlar dileriz." Contains 28 Mayıs başlangıç, 2 Haziran işbaşı. Mentions Mutlu Gıda. Appropriate tone. All constraints satisfied. No extra fluff. Proceeds. 
+   Output matches. 
+   [Final Check of the Prompt]: "Duyuru 4 ile 5 cümle arasında olsun" -> 4 is within range. “İyi bayramlar dileriz.” ifadesiyle bitsin. -> Checked. Şu bilgiler duyuruda geçsin: tatil 28 Mayıs’ta başlıyor, 2 Haziran’da işbaşı yapılacak. -> Checked. Mutlu Gıda çalışanlarına gönderilecek bayram tatili duyurusunu yaz. -> Checked.
+   All good.✅
+   Output generation. 
+   *(Proceeds)*

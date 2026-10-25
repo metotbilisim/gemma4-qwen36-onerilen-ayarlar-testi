@@ -1,0 +1,147 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Backend Developer (Backend Geliştirici)
+   - **Company Type:** Software Company (Yazılım Firması)
+   - **Structure:** Exactly 3 sections, with headings "Bölüm 1", "Bölüm 2", "Bölüm 3" on separate lines.
+   - **Word Count:** Strictly between 130 and 170 words.
+   - **Mandatory Information:** Ankara ofisi (Ankara office), Node.js, en az 3 yıl deneyim (at least 3 years experience).
+
+2.  **Deconstruct Requirements:**
+   - Structure: 
+     Bölüm 1
+     [Text]
+     Bölüm 2
+     [Text]
+     Bölüm 3
+     [Text]
+   - Word count constraint: 130-170 Turkish words. I need to count carefully.
+   - Mandatory keywords: "Ankara ofisi", "Node.js", "en az 3 yıl deneyim".
+   - Language: Turkish.
+
+3.  **Draft Generation (Mental Refinement - Section by Section):**
+   *Bölüm 1*
+   Dinamik ve ölçeklenebilir yazılım çözümleri üreten firmamızda görev almak üzere Backend Geliştirici aramaktayız. Ankara ofisimizde bulunacak takım arkadaşımızla, modern web mimarileri ve bulut tabanlı sistemler geliştireceksiniz. Teknoloji yığınımızın merkezinde Node.js yer alıyor; yüksek performanslı API’ler tasarlayıp veritabanı katmanlarını optimize edeceksiniz. Kararlı büyüme sürecimizde teknik liderlik ve kod kalitesi odaklı çalışmaya değer veriyoruz.
+
+   *Bölüm 2*
+   Aramıza katılacak adaydan, en az 3 yıl deneyim sahibi olmasını bekliyoruz. RESTful servisler, mikro servis mimarisi ve NoSQL/SQL veritabanları konusunda derinlemesine bilgiye sahip olmanız gerekmektedir. Takım içi işbirliği kültürüne uygun, Agile metodolojilerine hakim ve sürekli öğrenme disiplinine sahip profesyonelleri tercih ediyoruz. Kod incelemeleri, test yazımı ve performans iyileştirmelerinde aktif rol alacaksınız.
+
+   *Bölüm 3*
+   Rekabetçi maaş paketimiz, tam zamanlı çalışmamız ve profesyonel gelişim fırsatlarımızla yanınızdayız. Başvurularınızı eksiksiz özgeçmişinizle birlikte iletebilirsiniz. Teknik mülakat süreçlerimiz şeffaf ve aday odaklı yürütülüyor. İster kariyerinizin yeni bir aşamasına geçin ister mevcut deneyiminizi güçlendirin, ekibimizde teknik merakınızla fark yaratmanızı bekliyoruz. Hemen başvurun ve geleceğin yazılım çözümlerine birlikte yön verelim.
+
+4.  **Word Count Check (Turkish):**
+   Let's count words carefully. I'll count each section separately and then total.
+   *Bölüm 1*
+   Dinamik(1) ve(2) ölçeklenebilir(3) yazılım(4) çözümleri(5) üreten(6) firmamızda(7) görev(8) almak(9) üzere(10) Backend(11) Geliştirici(12) aramaktayız.(13) Ankara(14) ofisimizde(15) bulunacak(16) takım(17) arkadaşımızla,(18) modern(19) web(20) mimarileri(21) ve(22) bulut(23) tabanlı(24) sistemler(25) geliştireceksiniz.(26) Teknoloji(27) yığınımızın(28) merkezinde(29) Node.js(30) yer(31) alıyor;(32) yüksek(33) performanslı(34) API’ler(35) tasarlayıp(36) veritabanı(37) katmanlarını(38) optimize(39) edeceksiniz.(40) Kararlı(41) büyüme(42) sürecimizde(43) teknik(44) liderlik(45) ve(46) kod(47) kalitesi(48) odaklı(49) çalışmaya(50) değer(51) veriyoruz.(52) -> 52 words. (Note: "Backend Geliştirici" counts as 2, "Ankara ofisimizde" -> Ankara ofisi requirement is met via "Ankara ofisimizde", but I should use exactly "Ankara ofisi" to be safe? The prompt says "Şu bilgiler ilanda geçsin: Ankara ofisi, Node.js, en az 3 yıl deneyim." I'll adjust to include the exact phrase or close enough. I'll change "Ankara ofisimizde" to "Ankara ofisi'nde" or just keep "Ankara ofisi". Let's count carefully later. I'll stick to exact phrases if possible.)
+   Let's recount properly with a stricter method. Turkish word counting usually treats hyphenated/punctuated words as one. I'll use a standard counter approach.
+
+   Let's draft again and count precisely.
+   *Bölüm 1*
+   Dinamik yazılım çözümleri üreten firmamızda Backend Geliştirici aramaktayız. Ankara ofisi bünyesinde görev alacak takım arkadaşımızla, ölçeklenebilir web uygulamaları ve bulut sistemleri geliştireceksiniz. Teknoloji yığınımızın merkezinde Node.js yer alıyor. Yüksek performanslı API tasarımları yapacak, veritabanı mimarilerini optimize edeceksiniz. Kararlı büyüme sürecimizde teknik liderlik ve kod kalitesi odaklı çalışıyoruz. (48 words approx)
+
+   *Bölüm 2*
+   Aramıza katılacak adaylardan en az 3 yıl deneyim sahibi olmasını bekliyoruz. RESTful servisler, mikro servis mimarisi ve ilişkili veritabanları konusunda derin bilgiye sahip olmanız gerekmektedir. Agile metodolojilerine hakim, takım içi işbirliğine yatkın ve sürekli öğrenme disiplinine sahip profesyonelleri tercih ediyoruz. Kod incelemeleri, otomatik test yazımı ve sistem iyileştirmelerinde aktif rol alacaksınız. (50 words approx)
+
+   *Bölüm 3*
+   Rekabetçi maaş paketimiz, tam zamanlı çalışma modelimiz ve sürekli teknik gelişim fırsatlarımızla yanınızdayız. Başvurularınızı güncel özgeçmişinizle iletebilirsiniz. Mülakat süreçlerimiz şeffaf ve aday odaklı yürütülüyor. İster kariyerinizin yeni bir aşamasına geçin ister mevcut uzmanlığınızı derinleştirin, ekibimizde teknik merakınızla fark yaratmanızı bekliyoruz. Hemen başvurun ve geleceğin çözümlerine yön verelim. (48 words approx)
+
+   Total: ~146 words. This is within 130-170. Let's count exactly.
+   I will count every single word manually to be sure.
+   Bölüm(1) 1
+   Dinamik(2) yazılım(3) çözümleri(4) üreten(5) firmamızda(6) Backend(7) Geliştirici(8) aramaktayız.(9) Ankara(10) ofisi(11) bünyesinde(12) görev(13) alacak(14) takım(15) arkadaşımızla,(16) ölçeklenebilir(17) web(18) uygulamaları(19) ve(20) bulut(21) sistemleri(22) geliştireceksiniz.(23) Teknoloji(24) yığınımızın(25) merkezinde(26) Node.js(27) yer(28) alıyor.(29) Yüksek(30) performanslı(31) API(32) tasarımları(33) yapacak,(34) veritabanı(35) mimarilerini(36) optimize(37) edeceksiniz.(38) Kararlı(39) büyüme(40) sürecimizde(41) teknik(42) liderlik(43) ve(44) kod(45) kalitesi(46) odaklı(47) çalışıyoruz.(48) -> 48
+   Bölüm(49) 2
+   Aramıza(50) katılacak(51) adaylardan(52) en(53) az(54) 3(55) yıl(56) deneyim(57) sahibi(58) olmasını(59) bekliyoruz.(60) RESTful(61) servisler,(62) mikro(63) servis(64) mimarisi(65) ve(66) ilişkili(67) veritabanları(68) konusunda(69) derin(70) bilgiye(71) sahip(72) olmanız(73) gerekmektedir.(74) Agile(75) metodolojilerine(76) hakim,(77) takım(78) içi(79) işbirliğine(80) yatkın(81) ve(82) sürekli(83) öğrenme(84) disiplinine(85) sahip(86) profesyonelleri(87) tercih(88) ediyoruz.(89) Kod(90) incelemeleri,(91) otomatik(92) test(93) yazımı(94) ve(95) sistem(96) iyileştirmelerinde(97) aktif(98) rol(99) alacaksınız.(100) -> 52
+   Bölüm(101) 3
+   Rekabetçi(102) maaş(103) paketimiz,(104) tam(105) zamanlı(106) çalışma(107) modelimiz(108) ve(109) sürekli(110) teknik(111) gelişim(112) fırsatlarımızla(113) yanınızdayız.(114) Başvurularınızı(115) güncel(116) özgeçmişinizle(117) iletebilirsiniz.(118) Mülakat(119) süreçlerimiz(120) şeffaf(121) ve(122) aday(123) odaklı(124) yürütülüyor.(125) İster(126) kariyerinizin(127) yeni(128) bir(129) aşamasına(130) geçin(131) ister(132) mevcut(133) uzmanlığınızı(134) derinleştirin,(135) ekibimizde(136) teknik(137) merakınızla(138) fark(139) yaratmanızı(140) bekliyoruz.(141) Hemen(142) başvurun(143) ve(144) geleceğin(145) çözümlerine(146) yön(147) verelim.(148) -> 48
+   Total: ~148 words. Perfect. (Between 130 and 170)
+   Check mandatory keywords: "Ankara ofisi" - present. "Node.js" - present. "en az 3 yıl deneyim" - present.
+   Structure: Exactly 3 sections, headings on separate lines as "Bölüm 1", "Bölüm 2", "Bölüm 3".
+   Let's verify the exact formatting requirement: "bölüm başlıkları ayrı satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın."
+   I will format it exactly like that.
+   I'll recount carefully to ensure it's strictly within bounds. Sometimes punctuation attached to words counts as one word. Turkish counting usually splits by whitespace.
+   Let's count again manually, ignoring punctuation for simplicity, just whitespace-separated tokens.
+   Bölüm 1 (2)
+   Dinamik yazılım çözümleri üreten firmamızda Backend Geliştirici aramaktayız. (8) -> total 10
+   Ankara ofisi bünyesinde görev alacak takım arkadaşımızla, ölçeklenebilir web uygulamaları ve bulut sistemleri geliştireceksiniz. (14) -> total 24
+   Teknoloji yığınımızın merkezinde Node.js yer alıyor. (6) -> total 30
+   Yüksek performanslı API tasarımları yapacak, veritabanı mimarilerini optimize edeceksiniz. (9) -> total 39
+   Kararlı büyüme sürecimizde teknik liderlik ve kod kalitesi odaklı çalışıyoruz. (10) -> total 49
+   Bölüm 2 (2) -> 51
+   Aramıza katılacak adaylardan en az 3 yıl deneyim sahibi olmasını bekliyoruz. (11) -> 62
+   RESTful servisler, mikro servis mimarisi ve ilişkili veritabanları konusunda derin bilgiye sahip olmanız gerekmektedir. (14) -> 76
+   Agile metodolojilerine hakim, takım içi işbirliğine yatkın ve sürekli öğrenme disiplinine sahip profesyonelleri tercih ediyoruz. (15) -> 91
+   Kod incelemeleri, otomatik test yazımı ve sistem iyileştirmelerinde aktif rol alacaksınız. (11) -> 102
+   Bölüm 3 (2) -> 104
+   Rekabetçi maaş paketimiz, tam zamanlı çalışma modelimiz ve sürekli teknik gelişim fırsatlarımızla yanınızdayız. (13) -> 117
+   Başvurularınızı güncel özgeçmişinizle iletebilirsiniz. (5) -> 122
+   Mülakat süreçlerimiz şeffaf ve aday odaklı yürütülüyor. (7) -> 129
+   İster kariyerinizin yeni bir aşamasına geçin ister mevcut uzmanlığınızı derinleştirin, ekibimizde teknik merakınızla fark yaratmanızı bekliyoruz. (16) -> 145
+   Hemen başvurun ve geleceğin çözümlerine yön verelim. (7) -> 152
+   Total ~152 words. Perfectly in range.
+   Check constraints:
+   - Backend developer job posting? Yes.
+   - Exactly 3 sections? Yes.
+   - Headings on separate lines as “Bölüm 1”, “Bölüm 2”, “Bölüm 3”? Yes.
+   - Word count 130-170? Yes (~152).
+   - Contains: Ankara ofisi, Node.js, en az 3 yıl deneyim? Yes.
+   All constraints met. I will generate the output exactly as drafted.
+   One minor thing: The prompt says "bölüm başlıkları ayrı satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın." I will make sure they are on their own lines without extra markdown that might interfere, or just standard markdown. I'll output plain text with line breaks to be safe.
+   Let's verify the exact wording of the prompt: "bölüm başlıkları ayrı satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın."
+   I will write:
+   Bölüm 1
+   [text]
+   Bölüm 2
+   [text]
+   Bölüm 3
+   [text]
+
+   All good. I'll produce the final response. 
+   Self-Correction/Verification during thought: 
+   Word count in Turkish often treats punctuation as part of the word. My count is ~150. It's safely within 130-170. 
+   Mandatory phrases: "Ankara ofisi" (check), "Node.js" (check), "en az 3 yıl deneyim" (check).
+   Structure: Exactly 3 sections, headings on separate lines.
+   I will output exactly that. No extra text.符合要求. 
+   Proceed. 
+   Output matches the drafted text.✅
+   Final check of the draft text:
+   Bölüm 1
+   Dinamik yazılım çözümleri üreten firmamızda Backend Geliştirici aramaktayız. Ankara ofisi bünyesinde görev alacak takım arkadaşımızla, ölçeklenebilir web uygulamaları ve bulut sistemleri geliştireceksiniz. Teknoloji yığınımızın merkezinde Node.js yer alıyor. Yüksek performanslı API tasarımları yapacak, veritabanı mimarilerini optimize edeceksiniz. Kararlı büyüme sürecimizde teknik liderlik ve kod kalitesi odaklı çalışıyoruz.
+   
+   Bölüm 2
+   Aramıza katılacak adaylardan en az 3 yıl deneyim sahibi olmasını bekliyoruz. RESTful servisler, mikro servis mimarisi ve ilişkili veritabanları konusunda derin bilgiye sahip olmanız gerekmektedir. Agile metodolojilerine hakim, takım içi işbirliğine yatkın ve sürekli öğrenme disiplinine sahip profesyonelleri tercih ediyoruz. Kod incelemeleri, otomatik test yazımı ve sistem iyileştirmelerinde aktif rol alacaksınız.
+   
+   Bölüm 3
+   Rekabetçi maaş paketimiz, tam zamanlı çalışma modelimiz ve sürekli teknik gelişim fırsatlarımızla yanınızdayız. Başvurularınızı güncel özgeçmişinizle iletebilirsiniz. Mülakat süreçlerimiz şeffaf ve aday odaklı yürütülüyor. İster kariyerinizin yeni bir aşamasına geçin ister mevcut uzmanlığınızı derinleştirin, ekibimizde teknik merakınızla fark yaratmanızı bekliyoruz. Hemen başvurun ve geleceğin çözümlerine yön verelim.
+   
+   Word count: ~148. Matches perfectly. All constraints satisfied. Output matches. 
+   Proceeds. 
+   [Output Generation] -> *Proceeds* (self-correction/verification complete)
+   Note: I'll make sure the formatting strictly follows the prompt. The prompt says "bölüm başlıkları ayrı satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın." I will write them exactly as requested. No extra words. All good. 
+   Output matches the final draft.✅
+   [Final Check of the Prompt]: "İlan tam olarak 3 bölümden oluşsun; bölüm başlıkları ayrı satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın. Tüm metin 130 ile 170 kelime arasında olsun. Şu bilgiler ilanda geçsin: Ankara ofisi, Node.js, en az 3 yıl deneyim."
+   Everything is aligned. Output matches. 
+   *Self-Correction/Refinement during counting*: 
+   Let's count exactly one more time to be absolutely sure. I'll use a strict word counter logic (split by whitespace).
+   Bölüm(1) 1(2) Dinamik(3) yazılım(4) çözümleri(5) üreten(6) firmamızda(7) Backend(8) Geliştirici(9) aramaktayız.(10) Ankara(11) ofisi(12) bünyesinde(13) görev(14) alacak(15) takım(16) arkadaşımızla,(17) ölçeklenebilir(18) web(19) uygulamaları(20) ve(21) bulut(22) sistemleri(23) geliştireceksiniz.(24) Teknoloji(25) yığınımızın(26) merkezinde(27) Node.js(28) yer(29) alıyor.(30) Yüksek(31) performanslı(32) API(33) tasarımları(34) yapacak,(35) veritabanı(36) mimarilerini(37) optimize(38) edeceksiniz.(39) Kararlı(40) büyüme(41) sürecimizde(42) teknik(43) liderlik(44) ve(45) kod(46) kalitesi(47) odaklı(48) çalışıyoruz.(49)
+   Bölüm(50) 2(51) Aramıza(52) katılacak(53) adaylardan(54) en(55) az(56) 3(57) yıl(58) deneyim(59) sahibi(60) olmasını(61) bekliyoruz.(62) RESTful(63) servisler,(64) mikro(65) servis(66) mimarisi(67) ve(68) ilişkili(69) veritabanları(70) konusunda(71) derin(72) bilgiye(73) sahip(74) olmanız(75) gerekmektedir.(76) Agile(77) metodolojilerine(78) hakim,(79) takım(80) içi(81) işbirliğine(82) yatkın(83) ve(84) sürekli(85) öğrenme(86) disiplinine(87) sahip(88) profesyonelleri(89) tercih(90) ediyoruz.(91) Kod(92) incelemeleri,(93) otomatik(94) test(95) yazımı(96) ve(97) sistem(98) iyileştirmelerinde(99) aktif(100) rol(101) alacaksınız.(102)
+   Bölüm(103) 3(104) Rekabetçi(105) maaş(106) paketimiz,(107) tam(108) zamanlı(109) çalışma(110) modelimiz(111) ve(112) sürekli(113) teknik(114) gelişim(115) fırsatlarımızla(116) yanınızdayız.(117) Başvurularınızı(118) güncel(119) özgeçmişinizle(120) iletebilirsiniz.(121) Mülakat(122) süreçlerimiz(123) şeffaf(124) ve(125) aday(126) odaklı(127) yürütülüyor.(128) İster(129) kariyerinizin(130) yeni(131) bir(132) aşamasına(133) geçin(134) ister(135) mevcut(136) uzmanlığınızı(137) derinleştirin,(138) ekibimizde(139) teknik(140) merakınızla(141) fark(142) yaratmanızı(143) bekliyoruz.(144) Hemen(145) başvurun(146) ve(147) geleceğin(148) çözümlerine(149) yön(150) verelim.(151)
+   Total: 151 words. Perfectly within 130-170.
+   All constraints met. Output matches exactly.✅
+   Proceeds. 
+   [Output Generation] -> *Proceeds* (self-correction/verification complete)
+   *(Note: I will output only the requested text to strictly adhere to constraints.)*
+   Final Text:
+   Bölüm 1
+   Dinamik yazılım çözümleri üreten firmamızda Backend Geliştirici aramaktayız. Ankara ofisi bünyesinde görev alacak takım arkadaşımızla, ölçeklenebilir web uygulamaları ve bulut sistemleri geliştireceksiniz. Teknoloji yığınımızın merkezinde Node.js yer alıyor. Yüksek performanslı API tasarımları yapacak, veritabanı mimarilerini optimize edeceksiniz. Kararlı büyüme sürecimizde teknik liderlik ve kod kalitesi odaklı çalışıyoruz.
+
+   Bölüm 2
+   Aramıza katılacak adaylardan en az 3 yıl deneyim sahibi olmasını bekliyoruz. RESTful servisler, mikro servis mimarisi ve ilişkili veritabanları konusunda derin bilgiye sahip olmanız gerekmektedir. Agile metodolojilerine hakim, takım içi işbirliğine yatkın ve sürekli öğrenme disiplinine sahip profesyonelleri tercih ediyoruz. Kod incelemeleri, otomatik test yazımı ve sistem iyileştirmelerinde aktif rol alacaksınız.
+
+   Bölüm 3
+   Rekabetçi maaş paketimiz, tam zamanlı çalışma modelimiz ve sürekli teknik gelişim fırsatlarımızla yanınızdayız. Başvurularınızı güncel özgeçmişinizle iletebilirsiniz. Mülakat süreçlerimiz şeffaf ve aday odaklı yürütülüyor. İster kariyerinizin yeni bir aşamasına geçin ister mevcut uzmanlığınızı derinleştirin, ekibimizde teknik merakınızla fark yaratmanızı bekliyoruz. Hemen başvurun ve geleceğin çözümlerine yön verelim.
+   *(Word count: ~151. Matches all constraints.)* 
+   Ready.✅
+   Output matches exactly. 
+   [Proceeds] -> *Output Generation* (Done)
+   *(Self-Correction/Note during process)*: I should ensure the exact phrases "Ankara ofisi", "Node.js", "en az 3 yıl deneyim" are present. They are. The structure is exact. Word count is exact. All good. 
+   Output matches the final draft.✅

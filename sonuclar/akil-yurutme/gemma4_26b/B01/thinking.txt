@@ -1,0 +1,259 @@
+*   Product unit price: 570 EUR
+    *   Quantity: 11 pieces
+    *   Exchange rate: 1 EUR = 35.88 TL
+    *   Discounts:
+        1.  5% discount (applied first)
+        2.  8% discount (applied to the amount after the first discount)
+    *   VAT (KDV): 10% added to the discounted amount.
+    *   Payment: 3 equal installments.
+    *   Maturity difference (Vade farkı) calculation: `Vade farkı = (VAT inclusive amount) * (monthly rate) * (number of installments)`
+    *   Monthly rate: 1.5% (0.015)
+    *   Installment calculation: `Installment = (VAT inclusive amount + Vade farkı) / number of installments`
+    *   Rounding rule: Intermediate steps are not rounded. Only the final installment amount is rounded to two decimal places.
+
+    *   Total EUR = 570 * 11 = 6,270 EUR
+    *   Total TL (before discounts) = 6,270 * 35.88 = 225,000 (Wait, let me recalculate carefully).
+        *   570 * 11 = 6,270
+        *   6,270 * 35.88 = 225,000? Let's check:
+            6,270 * 35 = 219,450
+            6,270 * 0.8 = 4,984
+            6,270 * 0.08 = 501.6
+            219,450 + 4,984 + 501.6 = 224,935.6
+            Wait, let's recalculate:
+            6270 * 35.88:
+            627 * 358.8
+            627 * 300 = 188,100
+            627 * 50 = 31,350
+            627 * 8 = 5,016
+            627 * 0.8 = 501.6
+            188,100 + 31,350 + 5,016 + 501.6 = 224,967.6
+            Let's do it again:
+            6270 * 35.88 = 224967.6
+
+    *   Step 1 (5% discount):
+        Amount after 5% discount = 224,967.6 * (1 - 0.05) = 224,967.6 * 0.95
+        224,967.6 * 0.95 = 213,719.22
+
+    *   Step 2 (8% discount on the new amount):
+        Amount after 8% discount = 213,719.22 * (1 - 0.08) = 213,719.22 * 0.92
+        213,719.22 * 0.92 = 196,621.6824
+
+    *   Step 3 (VAT addition):
+        VAT = 10% of 196,621.6824 = 19,662.16824
+        Total VAT inclusive amount = 196,621.6824 * 1.10 = 216,283.85064
+
+    *   Step 4 (Maturity difference):
+        Formula: `Vade farkı = (KDV dahil tutar) * (aylık oran) * (taksit sayısı)`
+        Vade farkı = 216,283.85064 * 0.015 * 3
+        Vade farkı = 216,283.85064 * 0.045
+        216,283.85064 * 0.045 = 9,732.7732788
+
+    *   Step 5 (Installment calculation):
+        Total to be paid = (KDV dahil tutar) + (vade farkı)
+        Total to be paid = 216,283.85064 + 9,732.7732788 = 226,016.6239188
+        Installment = Total to be paid / 3
+        Installment = 226,016.6239188 / 3 = 75,338.8746396
+
+    *   Step 6 (Rounding):
+        Round to two decimal places: 75,338.87
+
+    *   Total EUR: 570 * 11 = 6,270
+    *   Total TL: 6,270 * 35.88 = 224,967.6
+    *   Discount 1 (5%): 224,967.6 * 0.95 = 213,719.22
+    *   Discount 2 (8%): 213,719.22 * 0.92 = 196,621.6824
+    *   VAT (10%): 196,621.6824 * 1.1 = 216,283.85064
+    *   Maturity Difference: 216,283.85064 * 0.015 * 3 = 9,732.7732788
+    *   Total Payment: 216,283.85064 + 9,732.7732788 = 226,016.6239188
+    *   One Installment: 226,016.6239188 / 3 = 75,338.8746396
+    *   Rounding: 75,338.87
+
+    Let's re-verify the calculation of 216,283.85064 * 0.045.
+    216,283.85064 * 0.045:
+    216,283 * 0.045 = 9,732.735
+    0.85064 * 0.045 = 0.0382788
+    9,732.735 + 0.0382788 = 9,732.7732788 (Correct)
+
+    Total: 216,283.85064 + 9,732.7732788 = 226,016.6239188 (Correct)
+    Divided by 3: 226,016.6239188 / 3 = 75,338.8746396 (Correct)
+
+    *   Unit price: 570 EUR
+    *   Qty: 11
+    *   Rate: 35.88
+    *   Discount 1: 5%
+    *   Discount 2: 8%
+    *   VAT: 10%
+    *   Installments: 3
+    *   Rate/month: 1.5%
+    *   Vade farkı formula: (KDV dahil tutar) * (aylık oran) * (taksit sayısı)
+    *   Installment formula: (KDV dahil tutar + vade farkı) / taksit sayısı
+
+    Is there anything else?
+    "Ara adımlar yuvarlanmaz, yalnızca taksit tutarı iki ondalığa yuvarlanır." - Okay.
+    "Bir taksit kaç TL'dir?" - Okay.
+
+    Wait, let me re-check the "vade farkı" formula.
+    `vade farkı = KDV dahil tutar x aylık oran x taksit sayısı`
+    Total to be paid = KDV dahil tutar + vade farkı
+    Total to be paid = KDV dahil tutar + (KDV dahil tutar * 0.015 * 3)
+    Total to be paid = KDV dahil tutar * (1 + 0.015 * 3)
+    Total to be paid = KDV dahil tutar * (1 + 0.045)
+    Total to be paid = KDV dahil tutar * 1.045
+    Installment = (KDV dahil tutar * 1.045) / 3
+
+    Let's calculate using this shortcut:
+    KDV dahil tutar = 216,283.85064
+    216,283.85064 * 1.045 = 226,016.6239188
+    226,016.6239188 / 3 = 75,338.8746396
+    Rounding to two decimal places gives 75,338.87.
+
+    Wait, let me re-check the product of 6,270 and 35.88 one more time.
+    6,270 * 35 = 219,450
+    6,270 * 0.8 = 5,016
+    6,270 * 0.08 = 501.6
+    219,450 + 5,016 + 501.6 = 224,967.6. Correct.
+
+    Let me re-check the discount:
+    224,967.6 * 0.95 = 213,719.22. Correct.
+    213,719.22 * 0.92 = 196,621.6824. Correct.
+    196,621.6824 * 1.10 = 216,283.85064. Correct.
+    216,283.85064 * 1.045 = 226,016.6239188. Correct.
+    226,016.6239188 / 3 = 75,338.8746396. Correct.
+
+    Wait, is it possible that "vade farkı" is calculated per installment, but the formula provided is for the total?
+    "vade farkı = KDV dahil tutar x aylık oran x taksit sayısı"
+    This clearly describes the total maturity difference.
+    "Taksit = (KDV dahil tutar + vade farkı) / taksit sayısı"
+    This also clearly describes the individual installment.
+
+    Let's re-read:
+    "vade farkı = KDV dahil tutar x aylık oran x taksit sayısı"
+    "Taksit = (KDV dahil tutar + vade farkı) / taksit sayısı"
+    These match my calculations.
+
+    Final check of the calculation:
+    6270 * 35.88 = 224967.6
+    224967.6 * 0.95 * 0.92 * 1.1 = 216283.85064
+    216283.85064 * 0.015 * 3 = 9732.7732788
+    216283.85064 + 9732.7732788 = 226016.6239188
+    226016.6239188 / 3 = 75338.8746396
+    Rounding to two decimals: 75,338.87
+
+    Wait, I should check if "vade farkı" might be something else.
+    In some contexts, "vade farkı" is calculated per installment based on its due date.
+    However, the question provides a *specific formula*: `vade farkı = KDV dahil tutar x aylık oran x taksit sayısı`.
+    I must follow the provided rule.
+
+    Rule: `vade farkı = KDV dahil tutar x aylık oran x taksit sayısı`
+    Rule: `Taksit = (KDV dahil tutar + vade farkı) / taksit sayısı`
+
+    Total EUR = 11 * 570 = 6270
+    Total TL = 6270 * 35.88 = 224967.6
+    After 1st discount (5%) = 224967.6 * 0.95 = 213719.22
+    After 2nd discount (8%) = 213719.22 * 0.92 = 196621.6824
+    KDV included = 196621.6824 * 1.1 = 216283.85064
+    Vade farkı = 216283.85064 * 0.015 * 3 = 9732.7732788
+    Total amount = 216283.85064 + 9732.7732788 = 226016.6239188
+    One installment = 226016.6239188 / 3 = 75338.8746396
+    Rounded = 75,338.87
+
+    Let's double-check the 6270 * 35.88 again.
+    6270 * 35 = 219450
+    6270 * 0.88 = 6270 * (8/10 + 8/100) = 5016 + 501.6 = 5517.6
+    219450 + 5517.6 = 224967.6. Correct.
+
+    Let me re-calculate 213719.22 * 0.92.
+    213719.22 * 0.9 = 192347.298
+    213719.22 * 0.02 = 4274.3844
+    192347.298 + 4274.3844 = 196621.6824. Correct.
+
+    Re-calculate 196621.6824 * 1.1.
+    196621.6824 * 1 = 196621.6824
+    196621.6824 * 0.1 = 19662.16824
+    196621.6824 + 19662.16824 = 216283.85064. Correct.
+
+    Re-calculate 216283.85064 * 1.045.
+    216283.85064 * 1 = 216283.85064
+    216283.85064 * 0.04 = 8651.3540256
+    216283.85064 * 0.005 = 1081.4192532
+    216283.85064 + 8651.3540256 + 1081.4192532 = 226016.6239188. Correct.
+
+    Re-calculate 226016.6239188 / 3.
+    226016 / 3 = 75338.666...
+    0.6239188 / 3 = 0.2079729333...
+    75338.666666... + 0.2079729333... = 75338.8746396... Correct.
+
+    The instructions say: "Ara adımlar yuvarlanmaz, yalnızca taksit tutarı iki ondalığa yuvarlanır."
+    This means my approach of keeping all decimals until the final step is correct.
+
+    Final answer: 75,338.87 TL.
+
+    One last check:
+    - 11 items * 570 EUR/item = 6270 EUR
+    - 6270 EUR * 35.88 TL/EUR = 224967.6 TL
+    - 224967.6 TL * 0.95 (first discount) = 213719.22 TL
+    - 213719.22 TL * 0.92 (second discount) = 196621.6824 TL
+    - 196621.6824 TL * 1.10 (VAT) = 216283.85064 TL
+    - Maturity difference = 216283.85064 * 0.015 * 3 = 9732.7732788 TL
+    - Total amount = 216283.85064 + 9732.7732788 = 226016.6239188 TL
+    - One installment = 226016.6239188 / 3 = 75338.8746396 TL
+    - Final rounding = 75338.87 TL
+
+    Everything seems solid.
+
+    Check for any missed details:
+    - "Eşref Hırdavat firması" - Name of the company.
+    - "yurt dışından birim fiyatı 570 EUR olan üründen 11 adet alıyor" - Product/Qty.
+    - "Muhasebe 1 EUR = 35,88 TL kurunu kullanıyor" - Rate.
+    - "TL tutara art arda iki iskonto uygulanıyor: önce %5, sonra %8; her iskonto bir önceki iskontodan sonraki tutar üzerinden hesaplanır" - Discounts.
+    - "Ardından %10 KDV eklenir" - VAT.
+    - "Ödeme 3 eşit taksitle yapılacak" - Number of installments.
+    - "vade farkı basit faizle hesaplanır: vade farkı = KDV dahil tutar x aylık oran x taksit sayısı" - Vade farkı formula.
+    - "Aylık oran: %1,5" - Monthly rate.
+    - "Taksit = (KDV dahil tutar + vade farkı) / taksit sayısı" - Installment formula.
+    - "Ara adımlar yuvarlanmaz, yalnızca taksit tutarı iki ondalığa yuvarlanır" - Rounding.
+    - "Bir taksit kaç TL'dir?" - Goal.
+
+    Confirming the "vade farkı" math again.
+    If the formula was "vade farkı = (KDV dahil tutar / taksit sayısı) * aylık oran * [something]", it would be different. But the formula is explicitly given.
+
+    If there's a potential ambiguity in "vade farkı = KDV dahil tutar x aylık oran x taksit sayısı", could it mean that the interest is added to each installment?
+    Let's see:
+    Installment 1: 1/3 * (KDV dahil tutar + vade farkı)
+    Installment 2: 1/3 * (KDV dahil tutar + vade farkı)
+    Installment 3: 1/3 * (KDV dahil tutar + vade farkı)
+    This is exactly what the formula `Taksit = (KDV dahil tutar + vade farkı) / taksit sayısı` says.
+
+    The question asks for *one* installment amount.
+
+    Wait, let me re-read: "vade farkı = KDV dahil tutar x aylık oran x taksit sayısı".
+    This is a bit unusual because usually, maturity difference is calculated based on the delay of each payment.
+    Payment 1: month 1
+    Payment 2: month 2
+    Payment 3: month 3
+    But here, the problem provides a *specific* formula to use. In competitive math or accounting exams, you *must* use the provided formula even if it's not the standard way.
+
+    Final check on rounding:
+    75338.8746396...
+    The third decimal is 4, which is less than 5, so we round down (keep it as .87).
+
+    Let me just double-check the multiplication 216,283.85064 * 0.045 once more.
+    216,283.85064 * 0.04 = 8651.3540256
+    216,283.85064 * 0.005 = 1081.4192532
+    8651.3540256 + 1081.4192532 = 9732.7732788.
+    Yes, correct.
+
+    One more thing: "taksit sayısı" (number of installments) is 3.
+    Is there any other possible meaning for "taksit sayısı" in the maturity difference formula?
+    If the formula was `vade farkı = KDV dahil tutar x aylık oran x (taksit sayısı + 1) / 2` (which is the average time), it would be different. But it's not. It's `x taksit sayısı`.
+
+    Wait, I just noticed the wording "vade farkı = KDV dahil tutar x aylık oran x taksit sayısı".
+    Wait, let me re-read that.
+    `vade farkı = KDV dahil tutar x aylık oran x taksit sayısı`
+    `Taksit = (KDV dahil tutar + vade farkı) / taksit sayısı`
+    Total payment = KDV dahil tutar + vade farkı
+    Total payment = KDV dahil tutar + (KDV dahil tutar * 0.015 * 3)
+    Total payment = KDV dahil tutar * (1 + 0.045)
+    Total payment = 216,283.85064 * 1.045 = 226,016.6239188
+    Taksit = 226,016.6239188 / 3 = 75,338.8746396
+
+    Everything seems very consistent.

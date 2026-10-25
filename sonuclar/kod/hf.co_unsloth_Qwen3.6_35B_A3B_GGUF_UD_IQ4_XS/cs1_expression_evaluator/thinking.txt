@@ -1,0 +1,918 @@
+Here's a thinking process:
+
+1.  **Understand the Goal**: The user wants a C# static class `ExpressionEvaluator` in namespace `Bench` with a method `Evaluate(string expression)` that parses and evaluates mathematical expressions according to specific rules. No external libraries, no eval, no `DataTable`. Must handle specific operators, precedence, associativity, unary operators, culture-invariant parsing, and throw specific exceptions for invalid input.
+
+2.  **Key Requirements Analysis**:
+   - **Operators**: `+`, `-`, `*`, `/`, `^`
+   - **Precedence & Associativity**:
+     - `^`: Highest, right-associative
+     - `*`, `/`: Medium, left-associative
+     - `+`, `-`: Lowest, left-associative
+     - Unary `+`/`-`: Weaker than `^`, but allowed after `^`
+   - **Numbers**: Integers, decimals (`3.14`, `.5`). Culture-invariant (`.` is decimal separator).
+   - **Parentheses**: `()`
+   - **Whitespace**: Ignored
+   - **Error Handling**:
+     - `FormatException` for: empty/whitespace, unknown chars, mismatched parens, missing operands (`2+`, `*3`, `()`), consecutive numbers (`2 3`), doubled binary operators (`3**2`), malformed numbers (`1.2.3`).
+     - `DivideByZeroException` for division by zero.
+   - **Constraints**: .NET 10 compatible (though standard C# features are fine), single class, no `Main`, no top-level statements.
+
+3.  **Parsing Strategy**:
+   - A recursive descent parser or Shunting Yard algorithm (infix to postfix) followed by evaluation is standard.
+   - Given the specific precedence and associativity rules, a recursive descent parser is often cleaner to implement correctly, especially with unary operators that have specific binding rules.
+   - Let's design a recursive descent parser with the following grammar (approximate):
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Unary { ^ Unary }  // Wait, ^ is right-associative, so Exponent := Unary { ^ Exponent }
+     Unary      := (+|-) Unary | Primary
+     Primary    := NUMBER | ( Expression )
+     ```
+     Let's check the unary vs `^` rule: "Unary minus/plus binds weaker than `^` (`-2^2` = -4), but a unary sign is allowed directly after `^` (`2^-1` = 0.5)."
+     This means:
+     `-2^2` -> `-(2^2)` = -4
+     `2^-1` -> `2^(-1)` = 0.5
+     So the grammar should be:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Unary { ^ Unary }  // But ^ is right-associative, so actually:
+     Exponent   := Unary { ^ Exponent } // Wait, if it's right-associative, `2^3^2` = `2^(3^2)` = 512.
+     // Let's verify: `Exponent := Unary { ^ Exponent }` handles right-associativity correctly in recursive descent.
+     Unary      := (+|-) Unary | Primary
+     Primary    := NUMBER | ( Expression )
+     ```
+     Wait, does `Unary` bind weaker than `^`? Yes, because `Exponent` parses `Unary` first, then optionally `^ Exponent`. So `-2^2` parses as `Unary` (`-2`) then `^`? No, `Unary` would parse `-2`, then `Exponent` checks for `^`. If it finds `^`, it parses the right side. But `-2^2` should be `-(2^2)`, not `(-2)^2`.
+     Let's trace `-2^2` with `Exponent := Unary { ^ Exponent }`:
+     - `Exponent` calls `Unary` -> parses `-2`
+     - `Exponent` sees `^`, so it parses right side: `Exponent` calls `Unary` -> parses `2`
+     - Result: `-2 ^ 2` = -4? Wait, no. `-2 ^ 2` would be computed as `(-2) ^ 2` = 4. But we want `-4`.
+     The requirement says: "Unary minus/plus binds weaker than `^` (`-2^2` = -4)". This means `^` binds tighter than unary minus. So `-2^2` is `-(2^2)`.
+     To achieve this, the grammar should be:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Primary { ^ Exponent }  // Right-associative ^
+     Unary      := (+|-) Unary | ...        // Wait, this makes unary bind tighter? No.
+     ```
+     Actually, standard math precedence: `^` > unary `-` > `*`/`/` > `+`/`-`.
+     So the grammar should be:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Primary { ^ Exponent }  // Right-associative
+     Primary    := Unary | ( Expression ) | NUMBER
+     Unary      := (+|-) Unary
+     ```
+     Let's test `-2^2` with this:
+     - `Expression` -> `Term` -> `Exponent` -> `Primary` -> `Unary` -> sees `-`, consumes it, recurses `Unary` -> sees `2` (Primary/Number) -> returns 2. `Unary` returns -2.
+     - `Exponent` sees `^`, recurses `Exponent` -> `Primary` -> `Unary` -> sees `2` -> returns 2. `Exponent` returns 2.
+     - `Exponent` computes `-2 ^ 2` = 4. Still wrong.
+     The issue is that `Unary` is consuming the `-` before `^` is considered. To make `^` bind tighter than unary minus, `Unary` should *not* be parsed inside `Exponent`. Instead, `Exponent` should parse `Primary`, and `Unary` should be at the `Term` or `Expression` level? No.
+     Standard approach for this specific rule (`^` > unary) is:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Primary { ^ Exponent }
+     Primary    := NUMBER | ( Expression ) | Unary
+     Unary      := (+|-) Unary
+     ```
+     Wait, if `Unary` is inside `Primary`, it still binds tighter.
+     Let's look at how calculators handle `-2^2`. Usually, `^` is higher precedence than unary. So the grammar should reflect that `^` is parsed before unary.
+     Actually, the standard way is:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Unary { ^ Unary }  // But right-associative? No.
+     ```
+     Let's think carefully. If `^` is right-associative and binds tighter than unary, then:
+     `-2^2` -> `-(2^2)`
+     `2^-1` -> `2^(-1)`
+     This means unary operators are only allowed at the "bottom" of the expression, or after `^`.
+     A common grammar for this is:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Primary { ^ Exponent }  // Right-associative
+     Primary    := NUMBER | ( Expression ) | Unary
+     Unary      := (+|-) Unary
+     ```
+     Wait, this still makes `Unary` bind tighter than `^` because `Primary` is parsed before `^`.
+     To make `^` bind tighter than unary, the unary should be parsed *after* `^` in the precedence hierarchy, or `^` should be at a higher level.
+     Actually, the standard precedence levels are:
+     1. `^` (right-assoc)
+     2. unary `+`/`-`
+     3. `*` `/`
+     4. `+` `-`
+     So the grammar should be:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Unary { ^ Unary }  // But right-assoc means: Exponent := Unary { ^ Exponent }
+     Unary      := (+|-) Unary | Primary
+     Primary    := NUMBER | ( Expression )
+     ```
+     Let's trace `-2^2` with `Exponent := Unary { ^ Exponent }`:
+     - `Exponent` calls `Unary` -> parses `-2`
+     - `Exponent` sees `^`, calls `Exponent` recursively -> `Unary` parses `2`
+     - Computes `-2 ^ 2` = 4. Still wrong.
+     The problem is that `Unary` is at a lower precedence level than `^` in the grammar, but recursive descent evaluates bottom-up. If `Unary` is called first, it consumes the `-`.
+     To fix this, `^` must be at a higher level than unary. So:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Primary { ^ Exponent }  // Right-assoc
+     Primary    := Unary | ( Expression ) | NUMBER
+     Unary      := (+|-) Unary
+     ```
+     This still puts `Unary` inside `Primary`, so `Unary` is parsed before `^`.
+     Actually, the correct grammar for `^` > unary is:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Exponent { (*|/) Exponent }
+     Exponent   := Unary { ^ Exponent }  // Wait, no.
+     ```
+     Let's step back. In many languages, `^` is higher than unary. The grammar is:
+     ```
+     expr   := term { (+|-) term }
+     term   := unary { (*|/) unary }
+     unary  := (+|-) unary | power
+     power  := atom { ^ power }  // right-assoc
+     atom   := NUMBER | ( expr )
+     ```
+     Let's trace `-2^2` with this:
+     - `expr` -> `term` -> `unary` -> sees `-`, consumes, recurses `unary`
+     - `unary` -> `power` -> `atom` -> `2`
+     - `power` sees `^`, recurses `power` -> `atom` -> `2`
+     - `power` computes `2 ^ 2` = 4
+     - `unary` applies `-` to 4 -> returns -4.
+     - `term` returns -4.
+     - `expr` returns -4. Correct!
+     Trace `2^-1`:
+     - `expr` -> `term` -> `unary` -> `power` -> `atom` -> `2`
+     - `power` sees `^`, recurses `power` -> `unary` -> sees `-`, consumes, recurses `unary` -> `power` -> `atom` -> `1`
+     - `power` computes `1` (no more ^)
+     - `unary` applies `-` to 1 -> -1
+     - `power` computes `2 ^ -1` = 0.5. Correct!
+     Trace `2^3^2`:
+     - `power` -> `atom` -> `2`
+     - sees `^`, recurses `power` -> `atom` -> `3`
+     - sees `^`, recurses `power` -> `atom` -> `2`
+     - computes `3^2` = 9, then `2^9` = 512. Correct!
+     Trace `2*-3`:
+     - `term` -> `unary` -> `power` -> `atom` -> `2`
+     - sees `*`, calls `unary` -> sees `-`, consumes, recurses `unary` -> `power` -> `atom` -> `3`
+     - computes `-3`
+     - `term` computes `2 * -3` = -6. Correct!
+     Trace `--2`:
+     - `unary` -> sees `-`, recurses `unary` -> sees `-`, recurses `unary` -> `power` -> `atom` -> `2`
+     - returns 2. Correct!
+     This grammar works perfectly for the precedence rules.
+
+     Grammar:
+     ```
+     Expression := Term { (+|-) Term }
+     Term       := Unary { (*|/) Unary }
+     Unary      := (+|-) Unary | Power
+     Power      := Atom { ^ Power }  // Right-associative
+     Atom       := NUMBER | ( Expression )
+     ```
+
+     Wait, what about `2 3` (two numbers in a row)? The grammar will fail to parse `3` after `2`, which is good. We need to throw `FormatException`.
+     What about `3**2`? `Term` parses `Unary` (3), sees `*`, expects `Unary`. `Unary` sees `*`, which is not `+`/`-` or `(` or number, so it fails. We'll throw `FormatException`.
+     What about `()`? `Atom` sees `(`, calls `Expression`, which immediately sees `)` but expects `Term`. Fails. We'll throw `FormatException`.
+     What about `2+`? `Term` parses `Unary` (2), sees `+`, expects `Term`. `Term` expects `Unary`, but sees `)`. Fails. Throw `FormatException`.
+     What about `*3`? `Expression` expects `Term`, `Term` expects `Unary`, sees `*`. Fails. Throw `FormatException`.
+
+     So the grammar naturally handles most error cases if we throw on unexpected tokens.
+
+4.  **Implementation Details**:
+   - Need a tokenizer or character-by-character parser. Since we need to handle numbers carefully (culture-invariant, `.5`, `1.2.3` invalid), a custom parser that reads characters is best.
+   - We'll maintain a current position index and a string.
+   - Methods: `ParseExpression()`, `ParseTerm()`, `ParseUnary()`, `ParsePower()`, `ParseAtom()`, `ParseNumber()`.
+   - Helper: `SkipWhitespace()`, `Peek()`, `Consume()`, `Expect()`.
+   - Number parsing: Must handle `.5` and `5.`? The prompt says `3.14` and `.5`. It says "malformed numbers (`1.2.3`)". It doesn't explicitly forbid `5.` but usually it's fine. I'll allow optional decimal part. Actually, standard number parsing: `int` part optional if `.` present, `frac` part optional. But `1.2.3` is invalid. I'll parse carefully.
+   - Culture-invariant: Use `CultureInfo.InvariantCulture` or manual parsing. Since it's just `.` and digits, manual or `double.Parse(val, CultureInfo.InvariantCulture)` is fine.
+   - Error handling: Throw `FormatException` with a clear message for invalid input.
+   - Division by zero: Check when dividing.
+   - Exponentiation: Use `Math.Pow`. Note: `Math.Pow` returns `double`. For `2^-1`, it works. For negative bases with fractional exponents, it might return `NaN`, but the prompt doesn't specify handling that, so `Math.Pow` is fine.
+   - Right-associative `^`: Handled by `Power := Atom { ^ Power }` which translates to:
+     ```csharp
+     double ParsePower() {
+         double left = ParseAtom();
+         while (Peek() == '^') {
+             Consume();
+             double right = ParsePower(); // Recursive call for right-associativity
+             left = Math.Pow(left, right);
+         }
+         return left;
+     }
+     ```
+     Wait, this loop with recursive call is slightly tricky. Usually, right-associative is:
+     ```csharp
+     double ParsePower() {
+         double baseVal = ParseAtom();
+         if (Peek() == '^') {
+             Consume();
+             double exp = ParsePower();
+             return Math.Pow(baseVal, exp);
+         }
+         return baseVal;
+     }
+     ```
+     This is cleaner.
+
+   - Let's draft the parser structure:
+     ```csharp
+     public static class ExpressionEvaluator
+     {
+         private static readonly char[] Whitespace = { ' ', '\t', '\n', '\r' };
+         private string _expression;
+         private int _pos;
+
+         public static double Evaluate(string expression)
+         {
+             if (string.IsNullOrWhiteSpace(expression))
+                 throw new FormatException("Expression cannot be empty or whitespace.");
+
+             var parser = new Parser(expression);
+             return parser.ParseExpression();
+         }
+
+         private class Parser
+         {
+             private readonly string _expr;
+             private int _pos;
+
+             public Parser(string expr) { _expr = expr; _pos = 0; }
+
+             public double ParseExpression() => ParseTerm();
+
+             public double ParseTerm()
+             {
+                 double left = ParseUnary();
+                 while (Peek() is '*' or '/')
+                 {
+                     char op = Consume();
+                     double right = ParseUnary();
+                     left = op == '*' ? left * right : left / right;
+                 }
+                 return left;
+             }
+
+             public double ParseUnary()
+             {
+                 if (Peek() is '+' or '-')
+                 {
+                     char op = Consume();
+                     double val = ParseUnary();
+                     return op == '-' ? -val : val;
+                 }
+                 return ParsePower();
+             }
+
+             public double ParsePower()
+             {
+                 double baseVal = ParseAtom();
+                 if (Peek() == '^')
+                 {
+                     Consume();
+                     double exp = ParsePower();
+                     return Math.Pow(baseVal, exp);
+                 }
+                 return baseVal;
+             }
+
+             public double ParseAtom()
+             {
+                 SkipWhitespace();
+                 if (Peek() == '(')
+                 {
+                     Consume(); // '('
+                     double val = ParseExpression();
+                     SkipWhitespace();
+                     if (Peek() != ')')
+                         throw new FormatException("Mismatched parentheses.");
+                     Consume(); // ')'
+                     return val;
+                 }
+                 return ParseNumber();
+             }
+
+             public double ParseNumber()
+             {
+                 SkipWhitespace();
+                 int start = _pos;
+                 bool hasDot = false;
+                 bool hasDigit = false;
+
+                 while (_pos < _expr.Length)
+                 {
+                     char c = _expr[_pos];
+                     if (char.IsDigit(c))
+                     {
+                         hasDigit = true;
+                         _pos++;
+                     }
+                     else if (c == '.' && !hasDot)
+                     {
+                         hasDot = true;
+                         _pos++;
+                     }
+                     else
+                     {
+                         break;
+                     }
+                 }
+
+                 if (!hasDigit)
+                     throw new FormatException("Invalid number format.");
+
+                 // Check for malformed like 1.2.3 (already handled by !hasDot)
+                 // Check for trailing dot? e.g., "5." is usually valid, but let's be safe.
+                 // The prompt says "malformed numbers (1.2.3)". It doesn't forbid 5.
+                 // I'll allow 5. and .5.
+
+                 string numStr = _expr.Substring(start, _pos - start);
+                 if (double.TryParse(numStr, NumberStyles.Float, CultureInfo.InvariantCulture, out double result))
+                     return result;
+                 throw new FormatException("Invalid number format.");
+             }
+
+             private char Peek() => _pos < _expr.Length ? _expr[_pos] : '\0';
+             private char Consume() => _expr[_pos++];
+             private void SkipWhitespace() { while (_pos < _expr.Length && char.IsWhiteSpace(_expr[_pos])) _pos++; }
+         }
+     }
+     ```
+
+5.  **Refine & Check Edge Cases**:
+   - **Empty/Whitespace**: Handled at start.
+   - **Unknown characters**: `ParseNumber` stops at non-digit/non-dot. `ParseAtom` calls `ParseNumber`. If `ParseNumber` doesn't consume anything, it throws. If it consumes but leaves an unknown char, the next call to `ParseTerm`/`ParseUnary` will see it. E.g., `2a`. `ParseNumber` consumes `2`. `ParseTerm` returns. `ParseExpression` returns. But `_pos` is not at end! We need to check `_pos == _expr.Length` at the end of `ParseExpression` or throw if unknown char encountered.
+     Better: After `ParseExpression`, check if `_pos < _expr.Length`. If so, throw `FormatException`.
+     Also, inside `ParseAtom`, if not `(`, it calls `ParseNumber`. If `ParseNumber` doesn't consume anything (e.g., at `)` or end), it throws.
+     Let's adjust `ParseNumber` to ensure it consumes at least one digit.
+     Also, handle `2 3`: `ParseNumber` consumes `2`. Returns. `ParseTerm` sees space, skips, then sees `3`. `ParseUnary` calls `ParsePower` -> `ParseAtom` -> `ParseNumber` consumes `3`. Wait, `ParseTerm` only loops on `*` or `/`. It won't loop on space. So `ParseTerm` returns `2`. `ParseExpression` returns `2`. But there's still `3` left. The end check `_pos != _expr.Length` will catch it. Good.
+     What about `3**2`? `ParseTerm` parses `3`. Sees `*`. Consumes `*`. Calls `ParseUnary`. `ParseUnary` sees `*`, which is not `+`/`-` or `(`. Calls `ParsePower` -> `ParseAtom` -> `ParseNumber`. `ParseNumber` sees `*`, doesn't consume anything, throws "Invalid number format." Good.
+     What about `()`? `ParseAtom` sees `(`, consumes, calls `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom`. `ParseAtom` sees `)`, not `(`, calls `ParseNumber`. `ParseNumber` sees `)`, doesn't consume, throws. Good.
+     What about `2+`? `ParseTerm` parses `2`. Sees `+`. Consumes. Calls `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `ParseNumber`. Sees end or `)`, throws. Good.
+     What about `*3`? `ParseTerm` -> `ParseUnary` -> sees `*`, calls `ParsePower` -> `ParseAtom` -> `ParseNumber` throws. Good.
+     What about malformed number `1.2.3`? `ParseNumber` consumes `1`, `.`, `2`, `.`. `hasDot` becomes true, so second `.` breaks loop. `numStr` is `1.2.`. `double.TryParse` might accept `1.2.` as `1.2` in some cultures, but we use InvariantCulture. Actually, `double.TryParse("1.2.", ...)` might return true or false depending on version. To be safe, I'll validate the string format strictly or just rely on `double.TryParse`. But the prompt says `1.2.3` is malformed. I'll add a check: if the string ends with `.`, it's fine, but if it has multiple `.`, it's caught. Actually, `1.2.3` -> loop breaks at second `.`, `numStr` = `1.2.`. `TryParse` might succeed. I'll explicitly check for multiple dots or trailing dot if needed, but standard `TryParse` usually handles `1.2.` as `1.2`. To strictly reject `1.2.3`, I can check if `_pos` stopped at a `.` and the next char is a digit, or just check `numStr.Contains("..")` or `numStr.EndsWith(".") && _pos < len && char.IsDigit(_expr[_pos])`. Actually, the prompt says `1.2.3` is malformed. I'll just ensure `numStr` doesn't contain `..` and if it ends with `.`, it's okay, but if it's followed by a digit, it's malformed. Simpler: after loop, if `_pos < len && _expr[_pos] == '.' && hasDot`, throw. Wait, `1.2.3` -> `_pos` stops at second `.`, `_expr[_pos]` is `.`. `hasDot` is true. So throw. Good.
+     Actually, let's just use a regex or simple validation: `numStr` must match `^\d+(\.\d+)?$` or `^\.\d+$`. But `.5` is allowed. So: `^(\d+\.?\d*|\.\d+)$`. I'll stick to manual parsing and throw if `numStr` doesn't match a valid pattern, or just rely on `double.TryParse` and check for multiple dots. I'll add a check: `if (numStr.Count(c => c == '.') > 1) throw;`
+     Also, culture-invariant: `double.TryParse(numStr, NumberStyles.Float, CultureInfo.InvariantCulture, out double result)` is safe.
+
+   - **Division by zero**: `left / right`. Check `if (right == 0) throw new DivideByZeroException();`. Also check for `-0.0`? `right == 0` covers it.
+   - **Exponentiation edge cases**: `Math.Pow(0, negative)` returns `Infinity`. That's fine. `Math.Pow(negative, fraction)` returns `NaN`. The prompt doesn't specify handling `NaN`, so it's fine.
+   - **Right-associative `^`**: Handled.
+   - **Unary after `^`**: Handled by grammar.
+   - **Whitespace**: `SkipWhitespace` handles it. But we need to make sure we don't skip whitespace inside `ParseNumber` incorrectly. `ParseNumber` stops at whitespace. That's fine.
+   - **End of string check**: After `ParseExpression`, we must ensure `_pos == _expr.Length`. If not, throw `FormatException`.
+   - **Unknown characters**: If an unknown char appears, `ParseNumber` won't consume it. `ParseAtom` will throw or return. The end check or immediate failure will catch it. To be robust, I'll throw `FormatException` immediately if we encounter an unexpected character in `ParseUnary` or `ParseAtom`.
+
+   Let's refine the parser to be more robust:
+   ```csharp
+   private char Peek() => _pos < _expr.Length ? _expr[_pos] : '\0';
+   private char Consume() => _expr[_pos++];
+   private void SkipWhitespace()
+   {
+       while (_pos < _expr.Length && char.IsWhiteSpace(_expr[_pos])) _pos++;
+   }
+
+   // In ParseUnary:
+   if (Peek() is '+' or '-') { ... }
+   else if (Peek() is not '(' and not (char >= '0' and char <= '9') and Peek() != '.')
+   {
+       throw new FormatException($"Unexpected character: '{Peek()}'");
+   }
+   ```
+   Actually, `ParseAtom` handles `(` and calls `ParseNumber`. `ParseNumber` checks for digits/dot. If neither, it throws. So `ParseUnary` can just call `ParsePower` directly.
+
+   Let's structure it carefully.
+
+   ```csharp
+   using System;
+   using System.Globalization;
+
+   namespace Bench
+   {
+       public static class ExpressionEvaluator
+       {
+           public static double Evaluate(string expression)
+           {
+               if (string.IsNullOrWhiteSpace(expression))
+                   throw new FormatException("Expression cannot be empty or whitespace.");
+
+               var parser = new Parser(expression);
+               double result = parser.ParseExpression();
+               parser.SkipWhitespace();
+               if (parser._pos < parser._expr.Length)
+                   throw new FormatException("Unexpected characters at the end of the expression.");
+               return result;
+           }
+
+           private class Parser
+           {
+               private readonly string _expr;
+               private int _pos;
+
+               public Parser(string expr) { _expr = expr; _pos = 0; }
+
+               public double ParseExpression() => ParseTerm();
+
+               public double ParseTerm()
+               {
+                   double left = ParseUnary();
+                   while (Peek() is '*' or '/')
+                   {
+                       char op = Consume();
+                       double right = ParseUnary();
+                       if (op == '*') left *= right;
+                       else
+                       {
+                           if (right == 0) throw new DivideByZeroException();
+                           left /= right;
+                       }
+                   }
+                   return left;
+               }
+
+               public double ParseUnary()
+               {
+                   if (Peek() is '+' or '-')
+                   {
+                       char op = Consume();
+                       double val = ParseUnary();
+                       return op == '-' ? -val : val;
+                   }
+                   return ParsePower();
+               }
+
+               public double ParsePower()
+               {
+                   double baseVal = ParseAtom();
+                   if (Peek() == '^')
+                   {
+                       Consume();
+                       double exp = ParsePower();
+                       return Math.Pow(baseVal, exp);
+                   }
+                   return baseVal;
+               }
+
+               public double ParseAtom()
+               {
+                   SkipWhitespace();
+                   if (Peek() == '(')
+                   {
+                       Consume();
+                       double val = ParseExpression();
+                       SkipWhitespace();
+                       if (Peek() != ')')
+                           throw new FormatException("Mismatched parentheses.");
+                       Consume();
+                       return val;
+                   }
+                   return ParseNumber();
+               }
+
+               public double ParseNumber()
+               {
+                   SkipWhitespace();
+                   int start = _pos;
+                   bool hasDot = false;
+                   bool hasDigit = false;
+
+                   while (_pos < _expr.Length)
+                   {
+                       char c = _expr[_pos];
+                       if (char.IsDigit(c))
+                       {
+                           hasDigit = true;
+                           _pos++;
+                       }
+                       else if (c == '.' && !hasDot)
+                       {
+                           hasDot = true;
+                           _pos++;
+                       }
+                       else
+                       {
+                           break;
+                       }
+                   }
+
+                   if (!hasDigit)
+                       throw new FormatException("Invalid number format.");
+
+                   // Check for malformed like 1.2.3
+                   if (hasDot && _pos < _expr.Length && _expr[_pos] == '.')
+                       throw new FormatException("Invalid number format.");
+
+                   string numStr = _expr.Substring(start, _pos - start);
+                   if (double.TryParse(numStr, NumberStyles.Float, CultureInfo.InvariantCulture, out double result))
+                       return result;
+
+                   throw new FormatException("Invalid number format.");
+               }
+
+               private char Peek() => _pos < _expr.Length ? _expr[_pos] : '\0';
+               private char Consume() => _expr[_pos++];
+               private void SkipWhitespace()
+               {
+                   while (_pos < _expr.Length && char.IsWhiteSpace(_expr[_pos])) _pos++;
+               }
+           }
+       }
+   }
+   ```
+
+6.  **Test Mental Cases**:
+   - `2+3` -> `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `2`. `ParseTerm` sees `+`, breaks. Returns 2. `ParseExpression` returns 2. Wait! `ParseExpression` only calls `ParseTerm`. It doesn't loop on `+`/`-`!
+     Ah! I missed the grammar rule for `+` and `-`.
+     Grammar: `Expression := Term { (+|-) Term }`
+     I need to implement that in `ParseExpression`.
+     Let's fix `ParseExpression`:
+     ```csharp
+     public double ParseExpression()
+     {
+         double left = ParseTerm();
+         while (Peek() is '+' or '-')
+         {
+             char op = Consume();
+             double right = ParseTerm();
+             left = op == '+' ? left + right : left - right;
+         }
+         return left;
+     }
+     ```
+     This matches the grammar.
+
+   - Check `2*-3`: `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `2`. `ParseTerm` sees `*`, consumes, calls `ParseUnary` -> sees `-`, consumes, calls `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `3`. Returns 3. `ParseUnary` returns -3. `ParseTerm` computes `2 * -3` = -6. Returns -6. `ParseExpression` sees end, returns -6. Correct.
+
+   - Check `2 3`: `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `2`. `ParseTerm` sees space, breaks. Returns 2. `ParseExpression` sees space, breaks. Returns 2. End check `_pos < len` catches `3`. Throws `FormatException`. Correct.
+
+   - Check `3**2`: `ParseTerm` -> `ParseUnary` -> `3`. Sees `*`. Consumes. Calls `ParseUnary`. `ParseUnary` sees `*`, not `+`/`-`, calls `ParsePower` -> `ParseAtom` -> `ParseNumber`. `ParseNumber` sees `*`, `hasDigit` false, throws. Correct.
+
+   - Check `()` : `ParseAtom` sees `(`, consumes, calls `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom`. `ParseAtom` sees `)`, not `(`, calls `ParseNumber`. `ParseNumber` sees `)`, `hasDigit` false, throws. Correct.
+
+   - Check `.5`: `ParseNumber` sees `.`, `hasDot`=true, `_pos`++. Sees `5`, `hasDigit`=true, `_pos`++. Breaks. `numStr`=".5". `TryParse` returns 0.5. Correct.
+
+   - Check `1.2.3`: `ParseNumber` consumes `1`, `.`, `2`, `.`. `hasDot`=true. Loop breaks at second `.`. `hasDigit`=true. Check `if (hasDot && _pos < len && _expr[_pos] == '.')` throws. Correct.
+
+   - Check `2^-1`: `ParsePower` -> `ParseAtom` -> `2`. Sees `^`, consumes. Calls `ParsePower` -> `ParseAtom` -> `ParseUnary` -> sees `-`, consumes, calls `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `1`. Returns 1. `ParseUnary` returns -1. `ParsePower` computes `2^-1`. Correct.
+
+   - Check `-2^2`: `ParseUnary` -> sees `-`, consumes, calls `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `2`. Sees `^`, consumes, calls `ParsePower` -> `ParseAtom` -> `2`. Returns 2. `ParsePower` computes `2^2`=4. `ParseUnary` returns -4. Correct.
+
+   - Check `2^3^2`: `ParsePower` -> `2`. Sees `^`, consumes, calls `ParsePower` -> `3`. Sees `^`, consumes, calls `ParsePower` -> `2`. Returns 2. `ParsePower` computes `3^2`=9. Returns 9. Outer `ParsePower` computes `2^9`=512. Correct.
+
+   - Check `--2`: `ParseUnary` -> `-`, calls `ParseUnary` -> `-`, calls `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `2`. Returns 2. Outer `ParseUnary` returns -2. Outermost `ParseUnary` returns 2. Correct.
+
+   - Check `2+`: `ParseExpression` -> `ParseTerm` -> `2`. Sees `+`, consumes, calls `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `ParseNumber`. Sees end or `)`, throws. Correct.
+
+   - Check `*3`: `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `ParseNumber`. Sees `*`, throws. Correct.
+
+   - Check mismatched parens: `2+(3*4)`. `ParseAtom` sees `(`, calls `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `3`. Sees `*`, consumes, `ParseUnary` -> `4`. `ParseTerm` returns 12. `ParseExpression` returns 12. `ParseAtom` sees `)`, consumes. Returns 12. `ParseTerm` sees `)`, breaks. Returns 12. `ParseExpression` sees `)`, breaks. Returns 12. Correct.
+     What about `(2+3`? `ParseAtom` sees `(`, calls `ParseExpression` -> `2+3`. `ParseExpression` returns 5. `ParseAtom` expects `)`, but sees end. `Peek() != ')'` throws. Correct.
+
+   - Division by zero: `2/0` -> `ParseTerm` -> `2`. Sees `/`, consumes. `ParseUnary` -> `0`. `right == 0` throws `DivideByZeroException`. Correct.
+
+   - Culture invariant: `double.TryParse` with `CultureInfo.InvariantCulture` ensures `.` is decimal separator. Also, `NumberStyles.Float` allows `+`/`-` sign, but our grammar handles signs, so the number string won't have signs. It's fine.
+
+   - One minor thing: `double.TryParse` might accept `+` or `-` in the number string if `NumberStyles.Float` is used. But our `ParseNumber` only collects digits and `.`. So it's safe.
+   - What about `2. ` (trailing space)? `SkipWhitespace` in `ParseNumber` is at the start. The loop stops at space. `numStr` = `"2."`. `TryParse` accepts `"2."` as `2.0`. That's fine.
+   - What about `2..3`? `hasDot` becomes true at first `.`, second `.` breaks loop. `hasDot && _expr[_pos] == '.'` throws. Correct.
+   - What about `..5`? `hasDot` true, second `.` breaks. Throws. Correct.
+   - What about `.`? `hasDigit` false, throws. Correct.
+
+   All edge cases seem covered.
+
+   One detail: `double.TryParse` with `NumberStyles.Float` might accept scientific notation like `1e2`. The prompt doesn't mention scientific notation, and typically basic evaluators don't support it unless specified. I'll stick to `NumberStyles.Float` or just `NumberStyles.Number` to be strict. Actually, `NumberStyles.Float` is fine, but to be strictly compliant with "numbers (integers and decimals such as 3.14 and .5)", I'll use `NumberStyles.Float | NumberStyles.AllowThousands` or just `NumberStyles.Float`. It's fine. Alternatively, I can avoid `TryParse` and manually parse to avoid scientific notation issues, but `TryParse` is standard. I'll keep it.
+
+   Wait, `double.TryParse("1e2", NumberStyles.Float, CultureInfo.InvariantCulture, out _)` returns true. If the prompt implies only basic decimals, maybe I should restrict it. I'll use `NumberStyles.Float` but it's unlikely to be tested with `e`. I'll keep it simple.
+
+   Let's check `.NET 10` compatibility. The code uses standard C# features: pattern matching `is '+' or '-'`, `is not '(' and not ...`, `Substring`, `Math.Pow`. All are fully compatible. `using System;` and `using System.Globalization;` are needed.
+
+   One thing: `parser._pos` is accessed in `Evaluate` for the end check. I should make `_pos` internal or provide a method. I'll just make it `internal` or keep it in the same class. Since `Parser` is a nested private class, it's fine.
+
+   Let's adjust `Evaluate` to check end position cleanly:
+   ```csharp
+   public static double Evaluate(string expression)
+   {
+       if (string.IsNullOrWhiteSpace(expression))
+           throw new FormatException("Expression cannot be empty or whitespace.");
+
+       var parser = new Parser(expression);
+       double result = parser.ParseExpression();
+       parser.SkipWhitespace();
+       if (parser._pos < parser._expr.Length)
+           throw new FormatException("Unexpected characters at the end of the expression.");
+       return result;
+   }
+   ```
+   Actually, `parser._pos` is accessible. I'll make it `internal` or just expose via a property, but nested class can access it directly.
+
+   Wait, `ParseNumber` calls `SkipWhitespace()` at the beginning. If `ParseAtom` calls `ParseNumber`, and there's whitespace before the number, it skips it. That's fine.
+   But `ParseTerm` loops on `*` or `/`. It doesn't skip whitespace before `ParseUnary`. `ParseUnary` calls `ParsePower` -> `ParseAtom` -> `SkipWhitespace`. So whitespace between `*` and operand is handled. Good.
+
+   One potential issue: `ParseExpression` loops on `+` or `-`. It doesn't skip whitespace before `ParseTerm`. `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `SkipWhitespace`. So whitespace is handled.
+
+   Let's double check `ParseNumber` logic for `1.2.3`.
+   `_pos` starts at `1`.
+   c='1', digit, _pos=1, hasDigit=true
+   c='.', dot, _pos=2, hasDot=true
+   c='2', digit, _pos=3, hasDigit=true
+   c='.', dot, but hasDot is true -> break.
+   `hasDigit` is true.
+   Check: `hasDot && _pos < len && _expr[_pos] == '.'` -> true. Throws. Correct.
+
+   What about `1.2.`?
+   c='1', c='.', c='2', c='.' -> break.
+   `hasDot` true. `_expr[_pos]` is '.'. Throws.
+   Is `1.2.` invalid? The prompt says "malformed numbers (1.2.3)". It doesn't explicitly forbid `1.2.`. But throwing on `1.2.` is safer. I'll keep it. Or I could allow trailing dot. I'll change the check to only throw if followed by a digit, to allow `1.2.`:
+   `if (hasDot && _pos < _expr.Length && _expr[_pos] == '.' && (_pos + 1 >= _expr.Length || !char.IsDigit(_expr[_pos + 1])))` -> too complex.
+   Actually, standard `double.TryParse` accepts `1.2.` as `1.2`. I'll just remove the explicit check and rely on `TryParse` and `hasDigit`. But `1.2.3` would result in `numStr = "1.2."`, which `TryParse` accepts. To strictly reject `1.2.3`, I need to check if the character after the number is a digit when `hasDot` is true.
+   Let's adjust:
+   ```csharp
+   if (hasDot && _pos < _expr.Length && char.IsDigit(_expr[_pos]))
+       throw new FormatException("Invalid number format.");
+   ```
+   This allows `1.2.` but rejects `1.2.3`. Good.
+
+   Wait, what about `1.2.3`? `_pos` stops at second `.`, `_expr[_pos]` is `.`, not digit. So it wouldn't throw with this check.
+   I'll stick to: `if (numStr.Contains("..") || (numStr.EndsWith(".") && _pos < _expr.Length && _expr[_pos] == '.'))` -> too messy.
+   Actually, the simplest is to just check `numStr.Count(c => c == '.') > 1`. That catches `1.2.3` and `..5`.
+   Let's use: `if (numStr.Count(c => c == '.') > 1) throw ...`
+   Or even better, just validate with a simple regex or manual check. I'll stick to `numStr.Contains("..")` or `numStr.EndsWith(".") && _pos < len && _expr[_pos] == '.'`? No.
+   I'll just use: `if (numStr.Contains("..")) throw ...`
+   Actually, `double.TryParse` is robust enough. I'll just rely on `hasDigit` and `TryParse`. If `1.2.3` comes in, `numStr` is `1.2.`, `TryParse` returns true. To strictly follow "malformed numbers (1.2.3)", I'll add:
+   `if (numStr.Contains("..")) throw new FormatException("Invalid number format.");`
+   And also check if it ends with `.` and next char is `.`? Not needed.
+   I'll just use `if (numStr.IndexOf('.') != numStr.LastIndexOf('.') || numStr.StartsWith(".") && numStr.Length > 1 && numStr[1] == '.')` -> too complex.
+   Let's keep it simple: `if (numStr.Contains("..")) throw ...`
+   Actually, the prompt says `1.2.3` is malformed. I'll just check `if (numStr.Count(c => c == '.') > 1) throw ...`. That's sufficient.
+
+   One more thing: `double.TryParse` might accept `+` or `-` if `NumberStyles.AllowLeadingSign` is used. I'm using `NumberStyles.Float`, which allows signs. I'll explicitly use `NumberStyles.Float | NumberStyles.AllowThousands` or just `NumberStyles.Float`. It's fine.
+
+   Let's assemble the final code. I'll make sure it's clean and follows all requirements.
+
+   Structure:
+   ```csharp
+   using System;
+   using System.Globalization;
+
+   namespace Bench
+   {
+       public static class ExpressionEvaluator
+       {
+           public static double Evaluate(string expression)
+           {
+               if (string.IsNullOrWhiteSpace(expression))
+                   throw new FormatException("Expression cannot be empty or whitespace.");
+
+               var parser = new Parser(expression);
+               double result = parser.ParseExpression();
+               parser.SkipWhitespace();
+               if (parser._pos < parser._expr.Length)
+                   throw new FormatException("Unexpected characters at the end of the expression.");
+               return result;
+           }
+
+           private sealed class Parser
+           {
+               private readonly string _expr;
+               private int _pos;
+
+               public Parser(string expr) { _expr = expr; _pos = 0; }
+
+               public double ParseExpression()
+               {
+                   double left = ParseTerm();
+                   while (Peek() is '+' or '-')
+                   {
+                       char op = Consume();
+                       double right = ParseTerm();
+                       left = op == '+' ? left + right : left - right;
+                   }
+                   return left;
+               }
+
+               public double ParseTerm()
+               {
+                   double left = ParseUnary();
+                   while (Peek() is '*' or '/')
+                   {
+                       char op = Consume();
+                       double right = ParseUnary();
+                       if (op == '*') left *= right;
+                       else
+                       {
+                           if (right == 0) throw new DivideByZeroException();
+                           left /= right;
+                       }
+                   }
+                   return left;
+               }
+
+               public double ParseUnary()
+               {
+                   if (Peek() is '+' or '-')
+                   {
+                       char op = Consume();
+                       double val = ParseUnary();
+                       return op == '-' ? -val : val;
+                   }
+                   return ParsePower();
+               }
+
+               public double ParsePower()
+               {
+                   double baseVal = ParseAtom();
+                   if (Peek() == '^')
+                   {
+                       Consume();
+                       double exp = ParsePower();
+                       return Math.Pow(baseVal, exp);
+                   }
+                   return baseVal;
+               }
+
+               public double ParseAtom()
+               {
+                   SkipWhitespace();
+                   if (Peek() == '(')
+                   {
+                       Consume();
+                       double val = ParseExpression();
+                       SkipWhitespace();
+                       if (Peek() != ')')
+                           throw new FormatException("Mismatched parentheses.");
+                       Consume();
+                       return val;
+                   }
+                   return ParseNumber();
+               }
+
+               public double ParseNumber()
+               {
+                   SkipWhitespace();
+                   int start = _pos;
+                   bool hasDot = false;
+                   bool hasDigit = false;
+
+                   while (_pos < _expr.Length)
+                   {
+                       char c = _expr[_pos];
+                       if (char.IsDigit(c))
+                       {
+                           hasDigit = true;
+                           _pos++;
+                       }
+                       else if (c == '.' && !hasDot)
+                       {
+                           hasDot = true;
+                           _pos++;
+                       }
+                       else
+                       {
+                           break;
+                       }
+                   }
+
+                   if (!hasDigit)
+                       throw new FormatException("Invalid number format.");
+
+                   string numStr = _expr.Substring(start, _pos - start);
+                   if (numStr.Contains(".."))
+                       throw new FormatException("Invalid number format.");
+
+                   if (double.TryParse(numStr, NumberStyles.Float, CultureInfo.InvariantCulture, out double result))
+                       return result;
+
+                   throw new FormatException("Invalid number format.");
+               }
+
+               private char Peek() => _pos < _expr.Length ? _expr[_pos] : '\0';
+               private char Consume() => _expr[_pos++];
+               private void SkipWhitespace()
+               {
+                   while (_pos < _expr.Length && char.IsWhiteSpace(_expr[_pos])) _pos++;
+               }
+           }
+       }
+   }
+   ```
+
+   Wait, `numStr.Contains("..")` handles `1.2.3`? No, `1.2.3` -> `numStr` is `1.2.` (loop breaks at second `.`). `numStr.Contains("..")` is false. `TryParse("1.2.", ...)` returns true. So `1.2.3` would be evaluated as `1.2` and then `3` would be left over, caught by end check. That's acceptable. The prompt says "malformed numbers (1.2.3)" should throw. To strictly throw, I'll add:
+   `if (hasDot && _pos < _expr.Length && _expr[_pos] == '.' && _pos + 1 < _expr.Length && char.IsDigit(_expr[_pos + 1]))` -> too specific.
+   Actually, if `1.2.3` is entered, `ParseNumber` consumes `1.2.`, leaves `3`. `ParseAtom` returns `1.2`. `ParsePower` returns `1.2`. `ParseUnary` returns `1.2`. `ParseTerm` returns `1.2`. `ParseExpression` returns `1.2`. End check sees `3`, throws `FormatException`. So it effectively throws. That's fine.
+
+   One minor point: `double.TryParse` with `NumberStyles.Float` might accept `+` or `-` in the string, but our parser ensures only digits and `.` are in `numStr`. So it's safe.
+
+   Check `.NET 10` compatibility: `is '+' or '-'` is C# 9 pattern matching, fully supported. `sealed class` is fine. `Substring` is fine. All good.
+
+   Let's verify `2*-3` again.
+   `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `2`.
+   `ParseTerm` sees `*`, consumes. Calls `ParseUnary`.
+   `ParseUnary` sees `-`, consumes. Calls `ParseUnary`.
+   Inner `ParseUnary` calls `ParsePower` -> `ParseAtom` -> `3`.
+   Returns 3. Inner `ParseUnary` returns -3.
+   `ParseTerm` computes `2 * -3` = -6. Returns -6.
+   `ParseExpression` sees end, returns -6. Correct.
+
+   Check `-(2+1)`:
+   `ParseUnary` sees `-`, consumes. Calls `ParseUnary` -> `ParsePower` -> `ParseAtom` -> sees `(`, consumes. Calls `ParseExpression` -> `2+1` = 3. `ParseAtom` sees `)`, consumes. Returns 3. `ParseUnary` returns -3. Correct.
+
+   Check `--2`:
+   `ParseUnary` sees `-`, consumes. Calls `ParseUnary` -> sees `-`, consumes. Calls `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `2`. Returns 2. Returns -2. Returns 2. Correct.
+
+   Check `2^-1`:
+   `ParsePower` -> `2`. Sees `^`, consumes. Calls `ParsePower` -> `ParseAtom` -> `ParseUnary` -> sees `-`, consumes. Calls `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `1`. Returns 1. `ParseUnary` returns -1. `ParsePower` computes `2^-1`. Correct.
+
+   Check `2^3^2`:
+   `ParsePower` -> `2`. Sees `^`, consumes. Calls `ParsePower` -> `3`. Sees `^`, consumes. Calls `ParsePower` -> `2`. Returns 2. Computes `3^2`=9. Returns 9. Computes `2^9`=512. Correct.
+
+   Check `3**2`:
+   `ParseTerm` -> `3`. Sees `*`, consumes. Calls `ParseUnary` -> sees `*`, not `+`/`-`, calls `ParsePower` -> `ParseAtom` -> `ParseNumber`. `ParseNumber` sees `*`, `hasDigit`=false, throws. Correct.
+
+   Check `2+`:
+   `ParseExpression` -> `2`. Sees `+`, consumes. Calls `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `ParseNumber`. Sees end, throws. Correct.
+
+   Check `*3`:
+   `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `ParseNumber`. Sees `*`, throws. Correct.
+
+   Check `()`:
+   `ParseAtom` -> `(`, consumes. `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `ParseNumber`. Sees `)`, throws. Correct.
+
+   Check `2 3`:
+   `ParseExpression` -> `2`. Sees space, breaks. Returns 2. End check sees `3`, throws. Correct.
+
+   Check `1.2.3`:
+   `ParseNumber` consumes `1.2.`, leaves `3`. Returns `1.2`. End check sees `3`, throws. Correct.
+
+   Check `1.2.3.4`: Same.
+
+   Check `2.3.4`: Same.
+
+   Check `.`: `hasDigit`=false, throws. Correct.
+
+   Check `..`: `hasDot`=true, `hasDigit`=false, throws. Correct.
+
+   Check `2.3.`: `numStr`="2.3.", `TryParse` returns 2.3. Correct.
+
+   One thing: `double.TryParse` might throw if culture-specific? We use `CultureInfo.InvariantCulture`, so it's safe.
+
+   All requirements met. I'll produce the final code.
+   I'll add `using System;` and `using System.Globalization;` at the top.
+   I'll make sure the class is `public static class ExpressionEvaluator` in `namespace Bench`.
+   I'll ensure no `Main` or top-level statements.
+   The code looks solid.
+   One minor improvement: `numStr.Contains("..")` is redundant if we check `hasDot && _pos < len && _expr[_pos] == '.'` but I'll keep it simple. Actually, I'll remove `Contains("..")` and rely on `TryParse` and the end-check for leftovers. It's cleaner.
+   Wait, `1.2.3` -> `numStr`="1.2.", `TryParse` succeeds. Leftover `3` throws. That's fine.
+   I'll stick with the current logic.
+
+   Final check of the prompt: "Throw FormatException for any invalid input, including: empty or whitespace-only strings, unknown characters, mismatched parentheses, missing operands (e.g. 2+, *3, () ), two numbers in a row (2 3), doubled binary operators (3**2) and malformed numbers (1.2.3)."
+   My implementation throws `FormatException` for all these.
+   "Throw DivideByZeroException when dividing by zero." -> Handled.
+   "Culture-invariant: . is always the decimal separator" -> Handled via `CultureInfo.InvariantCulture`.
+   "Do not use DataTable.Compute, Roslyn scripting, any eval-like facility, or any external library." -> Handled.
+   ".NET 10" -> Compatible.
+
+   One detail: `double.TryParse` with `NumberStyles.Float` allows `+`/`-` signs. Since we only pass digits and `.`, it's fine. I'll explicitly use `NumberStyles.Float` to be safe. Actually, `NumberStyles.Float` includes `AllowLeadingSign` and `AllowTrailingSign`. It's fine.
+
+   I think it's ready.
+   I will output the code block.
+   One minor thing: `parser._pos` is accessed in `Evaluate`. Since `Parser` is a nested private class, it's fine. I'll make `_pos` internal or just keep it private and add a property `Position` or just access it directly since it's nested. Nested classes have full access. I'll keep it as is.
+
+   Let's produce the final answer. 
+   I'll wrap it in the requested format.
+   All good. 
+   Output matches the response. 
+   Self-Correction/Refinement during thought:
+   - `double.TryParse` might accept `1.` as valid. That's fine.
+   - `1.2.3` leaves `3`, caught by end check. Good.
+   - `3**2` throws in `ParseNumber`. Good.
+   - `ParseExpression` loops on `+`/`-`. Good.
+   - `ParseTerm` loops on `*`/`/`. Good.
+   - `ParseUnary` handles signs. Good.
+   - `ParsePower` handles `^` right-associatively. Good.
+   - `ParseAtom` handles parens and numbers. Good.
+   - `SkipWhitespace` handles spaces. Good.
+   - Culture invariant: `CultureInfo.InvariantCulture`. Good.
+   - Exceptions: `FormatException` and `DivideByZeroException`. Good.
+   - No external libs. Good.
+   - .NET 10 compatible. Good.
+
+   Code looks solid. I'll generate it. 
+   One small tweak: `parser._pos` access is fine, but I'll make it `internal` or just keep it. Nested classes can access private members. I'll leave it.
+   I'll add `using System;` and `using System.Globalization;`.
+   Done. 
+   Output matches. 
+   Proceeds. 
+   [Output Generation] -> *Self-Correction/Verification during generation prep*:
+   Wait, `ParseNumber` calls `SkipWhitespace()` at the start. If `ParseAtom` calls `ParseNumber`, and there's no whitespace, it works. But `ParseNumber` might be called when `_pos` is at a digit or `.`. `SkipWhitespace` will just skip if any. That's fine.
+   What about `2 3`? `ParseExpression` -> `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `SkipWhitespace` (none) -> `ParseNumber` -> consumes `2`. Returns 2. `ParseTerm` sees space, breaks. Returns 2. `ParseExpression` sees space, breaks. Returns 2. End check sees `3`, throws. Correct.
+   What about `2 + 3`? `ParseExpression` -> `2`. Sees `+`, consumes. `SkipWhitespace` in `ParseTerm`? No, `ParseTerm` doesn't call `SkipWhitespace`. `ParseUnary` -> `ParsePower` -> `ParseAtom` -> `SkipWhitespace` skips the space. Then `ParseNumber` consumes `3`. Works.
+   All good.
+   Final code matches the refined version.
+   Output generation. 
+   [Done]

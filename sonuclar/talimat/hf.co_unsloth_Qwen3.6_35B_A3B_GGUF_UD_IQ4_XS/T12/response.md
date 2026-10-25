@@ -1,0 +1,5 @@
+Akın Yayıncılık müşteri memnuniyeti ekibi olarak yazdığınız şikayet mesajınızı dikkatle inceledik. Hizmetlerimiz hakkında gösterdiğiniz ilgiye teşekkür ederiz. Abonelik süreçlerinizde karşılaştığınız durum siz değerli müşterilerimiz için her zaman önceliğimiz olmaktadır.
+
+Yapılan sistem incelemesi sonucunda abonelik yenileme işlemlerinizin 3 Nisan ve 17 Nisan tarihlerinde gerçekleştiğini tespit ettik. İki ayrı tahsilat işlemi de 149 TL tutarlarında başarıyla gerçekleştirildi. Bu durum teknik altyapımızda zaman zaman yaşanan senkronizasyon gecikmelerinden kaynaklanmaktadır.
+
+Müşteri hizmetlerimiz sürecin detaylarını sizinle paylaşmak için en kısa sürede sizi aramaktadır. Süreç içinde oluşabilecek herhangi bir aksaklık konusunda önlemlerimizi artırmaktayız. Sağladığınız geri bildirimler hizmet kalitemizi yükseltmemize katkı sağlayacaktır.

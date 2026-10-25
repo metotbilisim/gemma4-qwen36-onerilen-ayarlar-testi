@@ -1,0 +1,659 @@
+The user wants a PHP 8.4 implementation of a `final class RomanNumerals` with three static methods: `toRoman`, `fromRoman`, and `add`.
+The class should be in the global namespace (no namespace).
+The file must start with `<?php`.
+No output, no test/demo code.
+
+Let's break down the requirements:
+
+1. `toRoman(int $n): string`
+   - Converts integer 1..3999 to standard subtractive Roman numeral.
+   - Throws `\InvalidArgumentException` for out of range.
+   - Standard subtractive form rules:
+     - I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000
+     - IV = 4, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900
+   - Implementation: Use a mapping of values to symbols in descending order, subtract largest possible values.
+
+2. `fromRoman(string $s): int`
+   - Converts canonical Roman numeral string back to integer.
+   - Must accept ONLY canonical numerals (exactly what `toRoman` produces).
+   - Throws `\InvalidArgumentException` for:
+     - empty string
+     - lowercase letters
+     - surrounding whitespace
+     - other characters
+     - non-canonical forms: "IIII", "VV", "IC", "IIV", "XM", "MMMM", "VX", "LC", "DM", etc.
+   - This implies strict validation. The easiest way is to convert the string to integer using `fromRoman`, then convert that integer back to string using `toRoman`, and compare. If they match, it's canonical. If not, throw exception.
+   - Wait, the requirement says "exactly the strings `toRoman` can produce". So the validation approach of `toRoman(fromRoman($s)) === $s` is perfect and covers all non-canonical forms automatically.
+   - But I need to implement `fromRoman` carefully to parse Roman numerals correctly, then validate.
+   - Actually, I can parse it first, then check if the parsed value is within 1..3999, then check if `toRoman($value) === $s`. If not, throw exception.
+   - Parsing rules for Roman to int:
+     - Iterate through characters, if current value < next value, subtract current, else add.
+     - But I need to be careful about invalid characters and structure.
+     - Actually, regex validation might be stricter, but the round-trip check is simpler and robust.
+     - Let's implement a parser that sums values, checking for valid characters. If invalid char, throw.
+     - Then check range 1..3999.
+     - Then check `toRoman($num) === $s`. If not, throw `\InvalidArgumentException`.
+     - This covers all non-canonical forms.
+
+3. `add(string $a, string $b): string`
+   - Adds two Roman numerals.
+   - Throws if either invalid or sum out of range (1..3999).
+   - Implementation: `$numA = self::fromRoman($a); $numB = self::fromRoman($b); $sum = $numA + $numB; if ($sum < 1 || $sum > 3999) throw ...; return self::toRoman($sum);`
+
+Let's refine `fromRoman`:
+```php
+public static function fromRoman(string $s): int {
+    if ($s === '') {
+        throw new \InvalidArgumentException('Empty string');
+    }
+    // Check for invalid characters first? Or let parsing handle it?
+    // Better to validate strictly.
+    if (!preg_match('/^[IVXLCDM]+$/', $s)) {
+        throw new \InvalidArgumentException('Invalid characters');
+    }
+    
+    $num = 0;
+    $prev = 0;
+    $map = ['I' => 1, 'V' => 5, 'X' => 10, 'L' => 50, 'C' => 100, 'D' => 500, 'M' => 1000];
+    
+    for ($i = strlen($s) - 1; $i >= 0; $i--) {
+        $val = $map[$s[$i]];
+        if ($val < $prev) {
+            $num -= $val;
+        } else {
+            $num += $val;
+        }
+        $prev = $val;
+    }
+    
+    if ($num < 1 || $num > 3999) {
+        throw new \InvalidArgumentException('Out of range');
+    }
+    
+    if (self::toRoman($num) !== $s) {
+        throw new \InvalidArgumentException('Non-canonical form');
+    }
+    
+    return $num;
+}
+```
+Wait, `toRoman` is a static method, so `self::toRoman($num)` works.
+But `fromRoman` calls `toRoman`. That's fine.
+One thing: `toRoman` might be called before `fromRoman` is defined? In PHP, static methods can call each other regardless of order in the class.
+But wait, `toRoman` is defined first in the prompt order, but order in class doesn't matter.
+
+Let's double check `toRoman` implementation:
+```php
+public static function toRoman(int $n): string {
+    if ($n < 1 || $n > 3999) {
+        throw new \InvalidArgumentException('Number out of range');
+    }
+    $values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    $numerals = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+    $result = '';
+    for ($i = 0; $i < count($values); $i++) {
+        while ($n >= $values[$i]) {
+            $result .= $numerals[$i];
+            $n -= $values[$i];
+        }
+    }
+    return $result;
+}
+```
+This is standard and correct.
+
+Now, `fromRoman` needs to handle whitespace. The prompt says "surrounding whitespace" should throw. So trimming is not allowed, or we should explicitly check for it. Actually, `preg_match('/^[IVXLCDM]+$/', $s)` already rejects whitespace. So that's covered.
+What about lowercase? `preg_match` rejects lowercase. Covered.
+What about other characters? Covered.
+What about non-canonical like "IIII"? The round-trip check `self::toRoman($num) !== $s` will catch it because `toRoman(4)` returns "IV", not "IIII". So "IIII" will throw. Same for "VV", "IC", etc.
+Wait, "IC" would parse to 99? Let's trace: I(1) C(100). Reverse: C(100) -> num=100, prev=100. I(1) < prev -> num=99. `toRoman(99)` is "XCIX". "IC" !== "XCIX", so throws. Correct.
+"XM" -> 990? X(10) M(1000) -> M=1000, X=990. `toRoman(990)` is "CMXC". Throws. Correct.
+"MMMM" -> 4000. Range check throws. Correct.
+"VX" -> 5? V(5) X(10) -> X=10, V=5. Wait, reverse: X(10) -> num=10, prev=10. V(5) < prev -> num=5. `toRoman(5)` is "V". "VX" !== "V", throws. Correct.
+"LC" -> 40? L(50) C(100) -> C=100, L=50. Reverse: C=100, L=50 < 100 -> num=50. Wait, L=50, C=100. Reverse: C=100, L=50. 50 < 100 -> num -= 50 => 50. `toRoman(50)` is "L". "LC" !== "L", throws. Correct.
+"DM" -> 400? D=500, M=1000. Reverse: M=1000, D=500 < 1000 -> num=500. Wait, D=500, M=1000. Reverse: M=1000, D=500. 500 < 1000 -> num -= 500 => 500. `toRoman(500)` is "D". "DM" !== "D", throws. Correct.
+
+Wait, my reverse parsing logic:
+```php
+    for ($i = strlen($s) - 1; $i >= 0; $i--) {
+        $val = $map[$s[$i]];
+        if ($val < $prev) {
+            $num -= $val;
+        } else {
+            $num += $val;
+        }
+        $prev = $val;
+    }
+```
+For "IV": i=1, s[1]='V', val=5, prev=0. 5 >= 0 -> num=5, prev=5.
+i=0, s[0]='I', val=1, prev=5. 1 < 5 -> num=5-1=4, prev=1.
+Returns 4. Correct.
+
+For "IX": i=1, 'X'=10 -> num=10, prev=10.
+i=0, 'I'=1 < 10 -> num=9. Correct.
+
+For "MCMXCIV" (1994):
+V:5 -> num=5, prev=5
+I:1<5 -> num=4, prev=1
+C:100>1 -> num=104, prev=100
+X:10<100 -> num=94, prev=10
+M:1000>10 -> num=1094, prev=1000
+C:100<1000 -> num=994, prev=100
+M:1000>100 -> num=1994, prev=1000
+Returns 1994. Correct.
+
+What about invalid sequences like "IIV"?
+IIV: V=5 -> num=5, prev=5
+I=1<5 -> num=4, prev=1
+I=1>=1 -> num=5, prev=1
+Returns 5. `toRoman(5)` is "V". "IIV" !== "V", throws. Correct.
+
+What about "MIM"? (2009 is MMIX)
+MIM: M=1000 -> num=1000, prev=1000
+I=1<1000 -> num=999, prev=1
+M=1000>1 -> num=1999, prev=1000
+Returns 1999. `toRoman(1999)` is "MCMXCIX". "MIM" !== "MCMXCIX", throws. Correct.
+
+The round-trip check is very robust for canonical forms.
+
+One detail: `fromRoman` should throw `\InvalidArgumentException` for invalid input. I'll make sure the exception message is descriptive or just generic. The prompt says "throws `\InvalidArgumentException`".
+
+Let's consider performance or edge cases. PHP 8.4 allows typed properties, but we don't need them. We'll use `final class RomanNumerals`.
+The prompt says "no namespace".
+The file must start with `<?php`.
+It must not print anything.
+Return complete file in a single code block.
+
+Let's write out the full class.
+
+```php
+<?php
+
+final class RomanNumerals
+{
+    private const MAP = [
+        'I' => 1,
+        'V' => 5,
+        'X' => 10,
+        'L' => 50,
+        'C' => 100,
+        'D' => 500,
+        'M' => 1000,
+    ];
+
+    private const TROMAN_VALUES = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    private const TROMAN_SYMBOLS = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+
+    public static function toRoman(int $n): string
+    {
+        if ($n < 1 || $n > 3999) {
+            throw new \InvalidArgumentException('Number must be between 1 and 3999');
+        }
+
+        $result = '';
+        for ($i = 0; $i < count(self::TROMAN_VALUES); $i++) {
+            while ($n >= self::TROMAN_VALUES[$i]) {
+                $result .= self::TROMAN_SYMBOLS[$i];
+                $n -= self::TROMAN_VALUES[$i];
+            }
+        }
+        return $result;
+    }
+
+    public static function fromRoman(string $s): int
+    {
+        if ($s === '') {
+            throw new \InvalidArgumentException('String cannot be empty');
+        }
+
+        if (!preg_match('/^[IVXLCDM]+$/', $s)) {
+            throw new \InvalidArgumentException('Invalid characters in Roman numeral string');
+        }
+
+        $num = 0;
+        $prev = 0;
+        $len = strlen($s);
+        
+        for ($i = $len - 1; $i >= 0; $i--) {
+            $val = self::MAP[$s[$i]];
+            if ($val < $prev) {
+                $num -= $val;
+            } else {
+                $num += $val;
+            }
+            $prev = $val;
+        }
+
+        if ($num < 1 || $num > 3999) {
+            throw new \InvalidArgumentException('Parsed number out of range');
+        }
+
+        if (self::toRoman($num) !== $s) {
+            throw new \InvalidArgumentException('Non-canonical Roman numeral form');
+        }
+
+        return $num;
+    }
+
+    public static function add(string $a, string $b): string
+    {
+        $numA = self::fromRoman($a);
+        $numB = self::fromRoman($b);
+        $sum = $numA + $numB;
+
+        if ($sum < 1 || $sum > 3999) {
+            throw new \InvalidArgumentException('Sum is out of range (1..3999)');
+        }
+
+        return self::toRoman($sum);
+    }
+}
+```
+
+Wait, should I use `self::MAP` or just inline? Constants are fine.
+Is `preg_match` available? Yes, standard PHP.
+Does `fromRoman` need to handle whitespace explicitly? The regex `^[IVXLCDM]+$` already rejects whitespace, so surrounding whitespace will throw. That's correct.
+What about lowercase? Regex rejects lowercase. Correct.
+What about "IIII"? Regex accepts it. Parsing gives 4. `toRoman(4)` is "IV". "IV" !== "IIII", throws. Correct.
+What about "VX"? Regex accepts. Parsing gives 5. `toRoman(5)` is "V". "V" !== "VX", throws. Correct.
+What about "LC"? Regex accepts. Parsing gives 50. `toRoman(50)` is "L". "L" !== "LC", throws. Correct.
+What about "DM"? Regex accepts. Parsing gives 500. `toRoman(500)` is "D". "D" !== "DM", throws. Correct.
+What about "MMMM"? Regex accepts. Parsing gives 4000. Range check throws. Correct.
+What about "IIV"? Regex accepts. Parsing gives 5. `toRoman(5)` is "V". "V" !== "IIV", throws. Correct.
+What about "IC"? Regex accepts. Parsing gives 99. `toRoman(99)` is "XCIX". "XCIX" !== "IC", throws. Correct.
+
+All non-canonical forms listed are caught.
+The round-trip validation is a standard and robust way to ensure canonical form.
+
+One minor point: `preg_match` might be considered slightly heavy, but for this task it's perfectly fine and safe. Alternatively, I could iterate and check `ctype_alpha` or similar, but regex is concise.
+Actually, I can just check if `$s` contains only valid chars by `strspn($s, 'IVXLCDM') === strlen($s)`. That's faster and doesn't require regex. But regex is fine. I'll stick with regex or `strspn`. `strspn` is simpler.
+Let's use `strspn` to avoid regex overhead, though it doesn't matter much.
+Actually, `preg_match('/^[IVXLCDM]+$/', $s)` is very clear. I'll keep it.
+
+Wait, PHP 8.4 features? The prompt says "PHP 8.4 code", but doesn't require using any specific new features. Standard PHP 7.4/8.0+ code is fine. I'll just make sure it's compatible. `final class` is fine. `throw new \InvalidArgumentException` is fine.
+
+Let's double check the `fromRoman` logic for "MCMXCIV" -> 1994.
+It works.
+What about "MMMCMXCIX" -> 3999.
+Works.
+What about "I" -> 1.
+Works.
+
+One thing: `fromRoman` calls `self::toRoman($num)`. This is fine.
+But `toRoman` is defined before `fromRoman` in my code, so forward references aren't an issue in PHP classes.
+
+Is there any case where `fromRoman` might accept a non-canonical form that happens to round-trip correctly? No, by definition, `toRoman` produces exactly the canonical forms. So if `toRoman(fromRoman($s)) === $s`, then `$s` is canonical.
+
+Wait, what about "IIII"? `fromRoman` parses it as 4. `toRoman(4)` is "IV". "IV" !== "IIII", throws. Correct.
+What about "VIV"? Parses as 9? V(5) I(1) V(5). Reverse: V=5, I=1<5 -> num=4, V=5>=1 -> num=9. `toRoman(9)` is "IX". "IX" !== "VIV", throws. Correct.
+What about "ICM"? Parses as 909? ICM -> M=1000, C=100<1000 -> num=900, I=1<900 -> num=899? Wait.
+Reverse: M=1000 -> num=1000, prev=1000
+C=100 < 1000 -> num=900, prev=100
+I=1 < 100 -> num=899, prev=1
+Returns 899. `toRoman(899)` is "DCCCXCIX". Throws. Correct.
+
+The validation is solid.
+
+Let's consider `add` method. It calls `fromRoman` twice, then checks sum range, then calls `toRoman`. This covers all requirements.
+
+One detail: `fromRoman` throws `\InvalidArgumentException`. The prompt says "throws `\InvalidArgumentException`". I'll make sure the exception is thrown with a message, though message content isn't strictly specified.
+
+Should I add `declare(strict_types=1);`? It's good practice but not required. I'll omit it to keep it simple, or include it. The prompt doesn't specify. I'll stick to standard.
+
+Wait, the prompt says "PHP 8.4 code". Maybe I should use named arguments or match expressions? Not necessary. I'll just write clean modern PHP.
+
+Let's verify the exact wording: "The file must start with `<?php`. It must not print anything and must not contain test or demo code. Return the complete file in a single ```php code block."
+
+I will produce exactly that.
+
+One minor thing: `strspn` vs `preg_match`. I'll use `preg_match` for clarity. Actually, `ctype_alpha` is not suitable. I'll stick with `preg_match`.
+
+Wait, `fromRoman` might be called with a string that has whitespace. The regex `^[IVXLCDM]+$` will fail, throwing exception. That's correct.
+What about empty string? Handled.
+What about non-canonical like "IIII"? Handled.
+What about "MMMM"? Handled by range check.
+What about "VX"? Handled by round-trip.
+All good.
+
+Let's quickly manually trace `fromRoman("IIII")`:
+regex passes.
+loop: I=1, I=1, I=1, I=1. num=4.
+range check passes.
+toRoman(4) = "IV". "IV" !== "IIII" -> throws. Correct.
+
+Trace `fromRoman("VX")`:
+regex passes.
+loop: X=10, V=5. num=5.
+range check passes.
+toRoman(5) = "V". "V" !== "VX" -> throws. Correct.
+
+Trace `fromRoman("IC")`:
+regex passes.
+loop: C=100, I=1. num=99.
+range check passes.
+toRoman(99) = "XCIX". "XCIX" !== "IC" -> throws. Correct.
+
+Trace `fromRoman("IIV")`:
+regex passes.
+loop: V=5, I=1, I=1. num=5.
+range check passes.
+toRoman(5) = "V". "V" !== "IIV" -> throws. Correct.
+
+Trace `fromRoman("XM")`:
+regex passes.
+loop: M=1000, X=10. num=990.
+range check passes.
+toRoman(990) = "CMXC". "CMXC" !== "XM" -> throws. Correct.
+
+Trace `fromRoman("MMMM")`:
+regex passes.
+loop: M=1000*4. num=4000.
+range check fails -> throws. Correct.
+
+Trace `fromRoman("VX")`:
+Already checked.
+
+Trace `fromRoman("LC")`:
+regex passes.
+loop: C=100, L=50. num=50.
+range check passes.
+toRoman(50) = "L". "L" !== "LC" -> throws. Correct.
+
+Trace `fromRoman("DM")`:
+regex passes.
+loop: M=1000, D=500. num=500.
+range check passes.
+toRoman(500) = "D". "D" !== "DM" -> throws. Correct.
+
+All examples from prompt are correctly rejected.
+
+One thing: `fromRoman` might parse invalid sequences that happen to sum to a valid canonical form? E.g., "IIII" sums to 4, but round-trip catches it. What about "IIV" sums to 5, round-trip catches it. What about "VIV" sums to 9, round-trip catches it. What about "IM" (1000-1=999)? "IM" -> M=1000, I=1 -> num=999. `toRoman(999)` is "CMXCIX". "CMXCIX" !== "IM" -> throws. Correct.
+What about "XM" (990)? Already checked.
+What about "IC" (99)? Already checked.
+What about "VX" (5)? Already checked.
+What about "LC" (50)? Already checked.
+What about "DM" (500)? Already checked.
+It seems the round-trip check is foolproof for canonical forms.
+
+Is there any case where a non-canonical string parses to a number whose canonical form is the same string? By definition, no. The canonical form is unique. So if `$s` is not canonical, `toRoman(fromRoman($s))` will produce the canonical version, which differs from `$s`. So the check is mathematically sound.
+
+One minor point: `fromRoman` might parse something like "MCMXCIV" correctly. `toRoman(1994)` is "MCMXCIV". They match. Returns 1994. Correct.
+
+The code looks solid.
+
+Let's assemble the final code.
+
+```php
+<?php
+
+final class RomanNumerals
+{
+    private const MAP = [
+        'I' => 1,
+        'V' => 5,
+        'X' => 10,
+        'L' => 50,
+        'C' => 100,
+        'D' => 500,
+        'M' => 1000,
+    ];
+
+    private const TROMAN_VALUES = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    private const TROMAN_SYMBOLS = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+
+    public static function toRoman(int $n): string
+    {
+        if ($n < 1 || $n > 3999) {
+            throw new \InvalidArgumentException('Number must be between 1 and 3999');
+        }
+
+        $result = '';
+        for ($i = 0; $i < count(self::TROMAN_VALUES); $i++) {
+            while ($n >= self::TROMAN_VALUES[$i]) {
+                $result .= self::TROMAN_SYMBOLS[$i];
+                $n -= self::TROMAN_VALUES[$i];
+            }
+        }
+        return $result;
+    }
+
+    public static function fromRoman(string $s): int
+    {
+        if ($s === '') {
+            throw new \InvalidArgumentException('String cannot be empty');
+        }
+
+        if (!preg_match('/^[IVXLCDM]+$/', $s)) {
+            throw new \InvalidArgumentException('Invalid characters in Roman numeral string');
+        }
+
+        $num = 0;
+        $prev = 0;
+        $len = strlen($s);
+        
+        for ($i = $len - 1; $i >= 0; $i--) {
+            $val = self::MAP[$s[$i]];
+            if ($val < $prev) {
+                $num -= $val;
+            } else {
+                $num += $val;
+            }
+            $prev = $val;
+        }
+
+        if ($num < 1 || $num > 3999) {
+            throw new \InvalidArgumentException('Parsed number out of range');
+        }
+
+        if (self::toRoman($num) !== $s) {
+            throw new \InvalidArgumentException('Non-canonical Roman numeral form');
+        }
+
+        return $num;
+    }
+
+    public static function add(string $a, string $b): string
+    {
+        $numA = self::fromRoman($a);
+        $numB = self::fromRoman($b);
+        $sum = $numA + $numB;
+
+        if ($sum < 1 || $sum > 3999) {
+            throw new \InvalidArgumentException('Sum is out of range (1..3999)');
+        }
+
+        return self::toRoman($sum);
+    }
+}
+```
+
+Wait, should I consider using `str_contains` or other PHP 8 features? Not needed. The code is compatible with PHP 8.4.
+One thing: `preg_match` might be slower, but it's fine. I'll keep it.
+Actually, `strspn($s, 'IVXLCDM') === strlen($s)` is faster and doesn't require regex. I'll use that to be more "native" and avoid regex overhead, though it's negligible. But regex is fine. I'll stick with regex for readability. Actually, `preg_match` is perfectly standard.
+
+Let's double check the `fromRoman` regex. `^[IVXLCDM]+$` ensures only uppercase Roman chars. It rejects whitespace, lowercase, other chars. Correct.
+
+One detail: `fromRoman` might be called with a string that has leading/trailing whitespace. The regex rejects it. The prompt says "surrounding whitespace" should throw. So rejecting it is correct.
+
+Is there any edge case where `fromRoman` should accept whitespace and trim it? The prompt says "surrounding whitespace... throws \InvalidArgumentException". So we must NOT trim. Correct.
+
+All requirements met.
+
+Final check of the prompt: "Write PHP 8.4 code containing a `final class RomanNumerals` (no namespace) with these static methods: ..."
+"The file must start with `<?php`. It must not print anything and must not contain test or demo code. Return the complete file in a single ```php code block."
+
+Everything matches.
+
+One minor improvement: I'll add `declare(strict_types=1);` at the top? The prompt says "The file must start with `<?php`." So I'll put `<?php` first, then maybe `declare`. Or just `<?php\n\nfinal class...`. I'll stick to `<?php\n\nfinal class...`.
+
+I will output exactly the code block.
+All good.
+Proceed. 
+Let's quickly verify `toRoman` for 1994 -> MCMXCIV. Correct.
+`fromRoman` for "MCMXCIV" -> 1994. Correct.
+`add("X", "XX")` -> 30 -> "XXX". Correct.
+`add("MMMCMXCIX", "I")` -> 4000 -> throws. Correct.
+`add("I", "I")` -> 2 -> "II". Correct.
+
+The code is ready.
+I will produce the response. 
+One thing: `preg_match` might not be available in some restricted environments, but it's standard PHP. I'll keep it. Alternatively, I can use a simple loop to validate characters to avoid regex dependency, but it's unnecessary. I'll stick with regex.
+
+Actually, to be extremely robust and avoid regex, I can do:
+```php
+        $validChars = 'IVXLCDM';
+        if (strspn($s, $validChars) !== strlen($s)) {
+            throw new \InvalidArgumentException('Invalid characters in Roman numeral string');
+        }
+```
+This is cleaner and faster. I'll use this instead of regex. It's more "PHP-native".
+
+Revised `fromRoman`:
+```php
+    public static function fromRoman(string $s): int
+    {
+        if ($s === '') {
+            throw new \InvalidArgumentException('String cannot be empty');
+        }
+
+        if (strspn($s, 'IVXLCDM') !== strlen($s)) {
+            throw new \InvalidArgumentException('Invalid characters in Roman numeral string');
+        }
+
+        $num = 0;
+        $prev = 0;
+        $len = strlen($s);
+        
+        for ($i = $len - 1; $i >= 0; $i--) {
+            $val = self::MAP[$s[$i]];
+            if ($val < $prev) {
+                $num -= $val;
+            } else {
+                $num += $val;
+            }
+            $prev = $val;
+        }
+
+        if ($num < 1 || $num > 3999) {
+            throw new \InvalidArgumentException('Parsed number out of range');
+        }
+
+        if (self::toRoman($num) !== $s) {
+            throw new \InvalidArgumentException('Non-canonical Roman numeral form');
+        }
+
+        return $num;
+    }
+```
+This is better.
+
+Final code structure:
+```php
+<?php
+
+final class RomanNumerals
+{
+    private const MAP = [
+        'I' => 1, 'V' => 5, 'X' => 10, 'L' => 50,
+        'C' => 100, 'D' => 500, 'M' => 1000,
+    ];
+
+    private const TROMAN_VALUES = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    private const TROMAN_SYMBOLS = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+
+    public static function toRoman(int $n): string
+    {
+        if ($n < 1 || $n > 3999) {
+            throw new \InvalidArgumentException('Number must be between 1 and 3999');
+        }
+
+        $result = '';
+        for ($i = 0; $i < count(self::TROMAN_VALUES); $i++) {
+            while ($n >= self::TROMAN_VALUES[$i]) {
+                $result .= self::TROMAN_SYMBOLS[$i];
+                $n -= self::TROMAN_VALUES[$i];
+            }
+        }
+        return $result;
+    }
+
+    public static function fromRoman(string $s): int
+    {
+        if ($s === '') {
+            throw new \InvalidArgumentException('String cannot be empty');
+        }
+
+        if (strspn($s, 'IVXLCDM') !== strlen($s)) {
+            throw new \InvalidArgumentException('Invalid characters in Roman numeral string');
+        }
+
+        $num = 0;
+        $prev = 0;
+        $len = strlen($s);
+        
+        for ($i = $len - 1; $i >= 0; $i--) {
+            $val = self::MAP[$s[$i]];
+            if ($val < $prev) {
+                $num -= $val;
+            } else {
+                $num += $val;
+            }
+            $prev = $val;
+        }
+
+        if ($num < 1 || $num > 3999) {
+            throw new \InvalidArgumentException('Parsed number out of range');
+        }
+
+        if (self::toRoman($num) !== $s) {
+            throw new \InvalidArgumentException('Non-canonical Roman numeral form');
+        }
+
+        return $num;
+    }
+
+    public static function add(string $a, string $b): string
+    {
+        $numA = self::fromRoman($a);
+        $numB = self::fromRoman($b);
+        $sum = $numA + $numB;
+
+        if ($sum < 1 || $sum > 3999) {
+            throw new \InvalidArgumentException('Sum is out of range (1..3999)');
+        }
+
+        return self::toRoman($sum);
+    }
+}
+```
+This looks solid and meets all constraints. I will output this.
+One minor point: `strspn` is available in all PHP versions. It's fine.
+The code is ready.
+Output matches request.
+Proceeds. 
+Self-Correction/Verification during thought:
+Wait, `strspn($s, 'IVXLCDM')` checks if all characters are in that set. Yes.
+Does `fromRoman` need to handle lowercase? `strspn` will reject lowercase, which is correct per prompt ("lowercase letters... throws").
+Does it handle whitespace? `strspn` will reject whitespace, correct.
+Does it handle other chars? `strspn` will reject, correct.
+All good.
+
+Final check of the prompt: "The file must start with `<?php`." -> Checked.
+"no namespace" -> Checked.
+"final class RomanNumerals" -> Checked.
+Static methods -> Checked.
+Throws `\InvalidArgumentException` -> Checked.
+Return complete file in single code block -> Checked.
+
+Ready.✅
+Output matches the refined code. 
+Proceeds. 
+[Output Generation] -> *produces the code block*
+All steps verified. No extra fluff. Matches constraints exactly. PHP 8.4 compatible (though uses standard features, which is fine). `final class` used. Static methods used. Exceptions used. Range checks used. Canonical validation used. `add` uses `fromRoman` and `toRoman`. All good. 
+One thing: `strspn` might be considered less readable than regex by some, but it's perfectly valid PHP. I'll stick with it. Alternatively, I could use `preg_match` for broader familiarity, but `strspn` is fine. I'll keep `strspn`. Actually, `preg_match('/^[IVXLCDM]+$/', $s)` is more explicit about "only these chars". I'll switch back to `preg_match` just to be safe and clear, as performance difference is negligible. Actually, `strspn` is fine. I'll leave it. It doesn't matter much.
+
+I will generate the response now. 
+All good. 
+Output matches the refined code. 
+Done. 
+[Output Generation]

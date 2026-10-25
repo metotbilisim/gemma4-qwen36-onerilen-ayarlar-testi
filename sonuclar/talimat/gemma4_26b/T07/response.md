@@ -1,0 +1,3 @@
+Kahve tutkunlarının evdeki en büyük yardımcısı olacak KD-38 modeli, taze kahve kokusunu her sabah mutfağınıza taşımak için özel olarak tasarlandı. İçerisindeki yüksek kaliteli 38 mm çelik öğütücü sayesinde çekirdeklerinizi her seferinde ideal hassasiyette öğütürken, oldukça sessiz bir çalışma performansı sunarak sabah mahmurluğunuzu bozmaz.
+
+Kullanım kolaylığı ve dayanıklılığı ön planda tutan bu cihaz, konforlu ve sessiz bir kahve hazırlama süreci vaat eder. Üstelik, uzun süreli kullanım güveni sağlamak adına ürünümüz 2 yıl garanti kapsamında sunulmaktadır. Siz de mutfağınızda sessiz bir profesyonel arıyorsanız, KD-38 ile tanışmanın tam zamanı.

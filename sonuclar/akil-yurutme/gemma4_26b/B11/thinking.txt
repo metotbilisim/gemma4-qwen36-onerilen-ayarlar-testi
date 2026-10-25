@@ -1,0 +1,593 @@
+*   7 customers: Hakan (H), Deniz (D), Burak (B), Selin (S), Cemre (C), Ayşe (A), Oya (O).
+    *   Queue positions: 1, 2, 3, 4, 5, 6, 7.
+    *   Group 1: Positions 1, 2, 3.
+    *   Group 2: Positions 4, 5, 6, 7.
+
+    1.  Burak and Selin have exactly two people between them (|B-S| = 3).
+    2.  Cemre is not first and not last (C ≠ 1, C ≠ 7).
+    3.  If Ayşe is in Group 1 (A ∈ {1, 2, 3}), then Oya is in Group 2 (O ∈ {4, 5, 6, 7}).
+    4.  Ayşe is between Deniz and Oya (D < A < O or O < A < D).
+    5.  Burak and Ayşe are both before Cemre (B < C and A < C).
+    6.  Hakan is immediately after Ayşe (H = A + 1).
+    7.  Selin and Cemre have exactly one person between them (|S-C| = 2).
+
+    *   From (5): B < C and A < C.
+    *   From (2): C ≠ 1 and C ≠ 7.
+    *   From (6): H = A + 1.
+    *   From (4): D < A < O or O < A < D.
+    *   Combining (4), (5), (6):
+        *   Case 4a: D < A < O. Since H = A + 1, the sequence is D...A, H...O (not necessarily continuous, but A and H are adjacent).
+        *   Case 4b: O < A < D. Since H = A + 1, the sequence is O...A, H...D.
+    *   Combining (5) and (6): A < C and H = A + 1. This implies A < C and A + 1 < C (since H is after A, H could be before or after C, but A must be before C).
+    *   Wait, (5) says: B < C and A < C.
+
+    *   Let's look at the positions of B, S, C, A, H:
+        *   |B - S| = 3 (Clue 1)
+        *   |S - C| = 2 (Clue 7)
+        *   B < C (Clue 5)
+        *   A < C (Clue 5)
+        *   H = A + 1 (Clue 6)
+        *   C ≠ 1, 7 (Clue 2)
+
+    *   Let's test possible positions for B and S:
+        *   If B = 1, S = 4.
+        *   If B = 2, S = 5.
+        *   If B = 3, S = 6.
+        *   If B = 4, S = 1.
+        *   If B = 4, S = 7.
+        *   If B = 5, S = 2.
+        *   If B = 6, S = 3.
+        *   If B = 7, S = 4.
+
+    *   Now use Clue 7 (|S - C| = 2):
+        *   If S = 4, C could be 2 or 6.
+        *   If S = 5, C could be 3 or 7 (but C ≠ 7, so C = 3).
+        *   If S = 6, C could be 4.
+        *   If S = 1, C could be 3.
+        *   If S = 7, C could be 5.
+        *   If S = 2, C could be 4.
+        *   If S = 3, C could be 1 or 5 (but C ≠ 1, so C = 5).
+        *   If S = 4, C could be 2 or 6.
+
+    *   Let's combine this with B < C (Clue 5):
+        *   If B=1, S=4, C=2 or 6. (If C=2, B < C (1 < 2) is OK. If C=6, B < C (1 < 6) is OK.)
+        *   If B=2, S=5, C=3. (B < C (2 < 3) is OK.)
+        *   If B=3, S=6, C=4. (B < C (3 < 4) is OK.)
+        *   If B=4, S=1, C=3. (B < C (4 < 3) is NOT OK.)
+        *   If B=4, S=7, C=5. (B < C (4 < 5) is OK.)
+        *   If B=5, S=2, C=4. (B < C (5 < 4) is NOT OK.)
+        *   If B=6, S=3, C=5. (B < C (6 < 5) is NOT OK.)
+        *   If B=7, S=4, C=2 or 6. (B < C (7 < 2/6) is NOT OK.)
+
+    *   Let's re-examine the remaining possibilities for (B, S, C):
+        1.  B=1, S=4, C=2
+        2.  B=1, S=4, C=6
+        3.  B=2, S=5, C=3
+        4.  B=3, S=6, C=4
+        5.  B=4, S=7, C=5
+
+    *   Now use Clue 5 (A < C) and Clue 6 (H = A + 1):
+        *   Case 1 (B=1, S=4, C=2): A must be < 2, so A=1. But B=1, so this is impossible.
+        *   Case 2 (B=1, S=4, C=6): A must be < 6. H = A + 1.
+        *   Case 3 (B=2, S=5, C=3): A must be < 3. A could be 1. If A=1, H=2. But B=2, so impossible.
+        *   Case 4 (B=3, S=6, C=4): A must be < 4. A could be 1 or 2.
+            *   If A=1, H=2.
+            *   If A=2, H=3. But B=3, so impossible.
+        *   Case 5 (B=4, S=7, C=5): A must be < 5. A could be 1, 2, or 3.
+            *   If A=1, H=2.
+            *   If A=2, H=3.
+            *   If A=3, H=4. But B=4, so impossible.
+
+    *   Let's refine Cases 2, 4, 5:
+        *   **Case 2: B=1, S=4, C=6**
+            A must be < 6, H = A + 1.
+            Available positions: {2, 3, 5, 7}
+            Possible (A, H) pairs:
+            - If A=2, H=3. Remaining: {5, 7}. (D, O) = {5, 7}.
+                Check Clue 4: Ayşe is between Deniz and Oya (D < A < O or O < A < D).
+                If A=2, D and O must be one on each side (one < 2, one > 2).
+                D or O must be 1. But B=1. Impossible.
+            - If A=5, H=6 (No, C=6).
+            - Wait, if A=2, H=3, D or O must be 1. But B=1. Impossible.
+            - Let's check if A can be anything else. A < 6.
+            - If A=3, H=4. But S=4. Impossible.
+            - If A=4, H=5. But S=4. Impossible.
+            - If A=5, H=6. But C=6. Impossible.
+            *Conclusion for Case 2:* Only remaining possibility for (A, H) was (2, 3), but it failed Clue 4.
+
+        *   **Case 4: B=3, S=6, C=4**
+            A must be < 4. Available positions: {1, 2, 5, 7}
+            Possible (A, H) pairs:
+            - If A=1, H=2. Remaining: {5, 7}. (D, O) = {5, 7}.
+                Check Clue 4 (A is between D and O):
+                A=1. D and O must be on either side of 1. This is impossible as no one is < 1.
+            - If A=2, H=3. But B=3. Impossible.
+            - Wait, if A=1, then H=2. Then A is 1. Clue 4 says A is between D and O. That means one is < 1 and one is > 1. Impossible.
+
+        *   **Case 5: B=4, S=7, C=5**
+            A must be < 5. Available positions: {1, 2, 3, 6}
+            Possible (A, H) pairs:
+            - If A=1, H=2. Remaining: {3, 6}. (D, O) = {3, 6}.
+                Check Clue 4 (A is between D and O):
+                A=1. Impossible.
+            - If A=2, H=3. Remaining: {1, 6}. (D, O) = {1, 6}.
+                Check Clue 4: A=2, D/O = 1, O/D = 6. This works! (1 < 2 < 6).
+                Let's check Clue 3: If Ayşe is in Group 1 (A=2), then Oya is in Group 2 (O=4,5,6,7).
+                If A=2, then Oya must be 6. So D=1.
+                Let's re-verify Case 5 with A=2, H=3, B=4, C=5, S=7, D=1, O=6:
+                1: Deniz (D)
+                2: Ayşe (A)
+                3: Hakan (H)
+                4: Burak (B)
+                5: Cemre (C)
+                6: Oya (O)
+                7: Selin (S)
+
+                Let's check all clues for this sequence (D, A, H, B, C, O, S):
+                1. Burak (4) and Selin (7) between them: |4-7|=3 (exactly two people: 5, 6). OK.
+                2. Cemre (5) is not 1 or 7. OK.
+                3. Ayşe (2) is in Group 1. Is Oya (6) in Group 2? Yes. OK.
+                4. Ayşe (2) is between Deniz (1) and Oya (6). OK.
+                5. Burak (4) and Ayşe (2) are before Cemre (5). OK.
+                6. Hakan (3) is immediately after Ayşe (2). OK.
+                7. Selin (7) and Cemre (5) have exactly one person (6) between them. OK.
+
+                Wait, there's one more possibility for Case 5 (A=2, H=3, B=4, C=5, S=7, D=1, O=6):
+                Is there another?
+                In Case 5 (B=4, S=7, C=5), A could be 3?
+                - If A=3, H=4. But B=4. Impossible.
+
+            Wait, let's re-check Case 5 (B=4, S=7, C=5) again.
+            If A=2, H=3:
+            Positions: 1=?, 2=A, 3=H, 4=B, 5=C, 6=?, 7=S
+            Remaining: {1, 6} for {D, O}.
+            If D=1, O=6: (D, A, H, B, C, O, S)
+                - Clue 4: A(2) is between D(1) and O(6). (1 < 2 < 6) - YES.
+                - Clue 3: A is in Group 1 (2), O is in Group 2 (6). - YES.
+            If D=6, O=1: (O, A, H, B, C, D, S)
+                - Clue 4: A(2) is between O(1) and D(6). (1 < 2 < 6) - YES.
+                - Clue 3: A is in Group 1 (2), O is in Group 2? No, O=1 is in Group 1. - NO.
+                (Clue 3 says: "Ayşe birinci gruptaysa Oya ikinci gruptadır.")
+
+            Wait, let's re-verify Case 5: (B=4, S=7, C=5, A=2, H=3, D=1, O=6)
+            1. Deniz
+            2. Ayşe
+            3. Hakan
+            4. Burak
+            5. Cemre
+            6. Oya
+            7. Selin
+
+            Is there any other? Let's double-check Case 2 (B=1, S=4, C=6).
+            A < 6, H=A+1.
+            Remaining positions: {2, 3, 5, 7}.
+            If A=2, H=3:
+                Remaining: {5, 7} for {D, O}.
+                Clue 4: A(2) between D and O. One must be < 2, one must be > 2.
+                But the available positions are 5 and 7. Neither is < 2. So A cannot be 2.
+            If A=5, H=6. But C=6. Impossible.
+
+            Let's re-double-check Case 4 (B=3, S=6, C=4).
+            A < 4, H=A+1.
+            Remaining positions: {1, 2, 5, 7}.
+            If A=1, H=2:
+                Remaining: {5, 7} for {D, O}.
+                Clue 4: A(1) between D and O. Requires one < 1. Impossible.
+            If A=2, H=3. But B=3. Impossible.
+
+            Let's re-check Case 3 (B=2, S=5, C=3).
+            A < 3, H=A+1.
+            Remaining: {1, 4, 6, 7}.
+            If A=1, H=2. But B=2. Impossible.
+
+            Let's re-check Case 1 (B=1, S=4, C=2).
+            A < 2, H=A+1.
+            A must be 1. But B=1. Impossible.
+
+            Is there any other Case? Let me re-list (B, S, C) possibilities more carefully.
+            Clue 1: |B-S| = 3
+            Clue 7: |S-C| = 2
+            Clue 5: B < C and A < C
+            Clue 2: C ≠ 1, 7
+
+            Wait, I should list all (B, S) pairs and then all possible C:
+            1. B=1, S=4: C can be 2 or 6.
+               If C=2: B<C (1<2) OK. (Case 1)
+               If C=6: B<C (1<6) OK. (Case 2)
+            2. B=2, S=5: C can be 3 or 7.
+               If C=3: B<C (2<3) OK. (Case 3)
+               If C=7: C cannot be 7.
+            3. B=3, S=6: C can be 4 or 8.
+               If C=4: B<C (3<4) OK. (Case 4)
+            4. B=4, S=1: C can be 3.
+               If C=3: B<C (4<3) NO.
+            5. B=4, S=7: C can be 5 or 9.
+               If C=5: B<C (4<5) OK. (Case 5)
+            6. B=5, S=2: C can be 4.
+               If C=4: B<C (5<4) NO.
+            7. B=6, S=3: C can be 1 or 5.
+               If C=1: C cannot be 1.
+               If C=5: B<C (6<5) NO.
+            8. B=7, S=4: C can be 2 or 6.
+               If C=2: B<C (7<2) NO.
+               If C=6: B<C (7<6) NO.
+
+            Okay, so my cases (1, 2, 3, 4, 5) were correct. Let's re-re-check them.
+            Case 1: B=1, S=4, C=2. A < C means A < 2. So A=1. But B=1. NO.
+            Case 2: B=1, S=4, C=6. A < C means A < 6. H = A + 1.
+               Available: {2, 3, 5, 7}.
+               (A,H) could be (2,3). Then {D,O} = {5,7}. Clue 4: A(2) is between D and O? No (both > 2).
+               (A,H) could be (5,6). But C=6. NO.
+               (A,H) could be (7,8). NO.
+            Case 3: B=2, S=5, C=3. A < C means A < 3. H = A + 1.
+               Available: {1, 4, 6, 7}.
+               (A,H) could be (1,2). But B=2. NO.
+            Case 4: B=3, S=6, C=4. A < C means A < 4. H = A + 1.
+               Available: {1, 2, 5, 7}.
+               (A,H) could be (1,2). Then {D,O} = {5,7}. Clue 4: A(1) is between D and O? No.
+               (A,H) could be (2,3). But B=3. NO.
+            Case 5: B=4, S=7, C=5. A < C means A < 5. H = A + 1.
+               Available: {1, 2, 3, 6}.
+               (A,H) could be (1,2). Then {D,O} = {3,6}. Clue 4: A(1) is between D and O? No.
+               (A,H) could be (2,3). Then {D,O} = {1,6}. Clue 4: A(2) is between D(1) and O(6). YES.
+                   Check Clue 3: If A is in Group 1 (A=2), Oya is in Group 2 (O=6). YES.
+                   Sequence: D=1, A=2, H=3, B=4, C=5, O=6, S=7.
+               (A,H) could be (3,4). But B=4. NO.
+
+            Wait, let's check if A could be in Group 2 (A > 3).
+            If A is in Group 2, then Clue 3 (If A in Group 1, then O in Group 2) is automatically satisfied (the "if" part is false).
+            Let's re-examine Case 2: B=1, S=4, C=6. A could be 5.
+               If A=5, H=6. But C=6. NO.
+            Let's re-examine Case 4: B=3, S=6, C=4. A could be 5 or 7.
+               If A=5, H=6. But S=6. NO.
+               If A=7, H=8. NO.
+            Let's re-examine Case 5: B=4, S=7, C=5. A could be 6.
+               If A=6, H=7. But S=7. NO.
+
+            Wait, I should also check if O could be before A in Case 5.
+            Case 5: B=4, S=7, C=5, A=2, H=3, {D,O} = {1,6}.
+            If O=1, D=6:
+               Clue 4: A(2) is between O(1) and D(6). YES.
+               Clue 3: If A is in Group 1 (A=2), then O is in Group 2 (O must be 4, 5, 6, or 7).
+               But O=1, so O is in Group 1. This violates Clue 3.
+            So the only valid sequence is (D, A, H, B, C, O, S).
+
+    *   1: Deniz
+    *   2: Ayşe
+    *   3: Hakan
+    *   4: Burak
+    *   5: Cemre
+    *   6: Oya
+    *   7: Selin
+
+    *Check all clues again:*
+    - Burak (4) and Selin (7) have two people between them (5, 6). (Correct)
+    - Cemre (5) is not 1 or 7. (Correct)
+    - Ayşe (2) is in Group 1. Is Oya (6) in Group 2? Yes. (Correct)
+    - Ayşe (2) is between Deniz (1) and Oya (6). (Correct)
+    - Burak (4) and Ayşe (2) are both before Cemre (5). (Correct)
+    - Hakan (3) is immediately after Ayşe (2). (Correct)
+    - Selin (7) and Cemre (5) have one person between them (6). (Correct)
+
+    The question asks: "3. sırada kim var?" (Who is in the 3rd position?)
+    The 3rd person is Hakan.
+
+    - Burak (B) and Selin (S): |B-S|=3. (Possible: 1&4, 2&5, 3&6, 4&7, 4&1, 5&2, 6&3, 7&4)
+    - Cemre (C): C ≠ 1, 7.
+    - Ayşe (A) in {1, 2, 3} ⇒ Oya (O) in {4, 5, 6, 7}.
+    - A is between D and O: (D < A < O) or (O < A < D).
+    - B < C and A < C.
+    - H = A + 1.
+    - |S-C| = 2.
+
+    *Self-Correction/Double Check:*
+    Wait, let me re-verify Case 5 (B=4, S=7, C=5, A=2, H=3, D=1, O=6):
+    B=4, S=7, C=5: |4-7|=3 (Check), |7-5|=2 (Check), B<C (4<5) (Check).
+    A=2, H=3: H=A+1 (Check).
+    A<C (2<5) (Check).
+    D=1, A=2, O=6: 1 < 2 < 6 (Check).
+    A=2 (Group 1), O=6 (Group 2) (Check).
+    C=5 (Not 1 or 7) (Check).
+    All clues are satisfied.
+
+    Let's see if any other sequence could exist.
+    Is there any other possible A/H combination in Case 5?
+    In Case 5, B=4, S=7, C=5.
+    A can be 1, 2, 3.
+    - If A=1, H=2.
+      Available: {3, 6}. (D, O) = {3, 6}.
+      Is A(1) between D and O? No.
+    - If A=2, H=3.
+      Available: {1, 6}. (D, O) = {1, 6}.
+      Is A(2) between D and O? Yes (1 < 2 < 6).
+      If D=1, O=6: A(2) is in Group 1, O(6) is in Group 2. (OK)
+      If D=6, O=1: A(2) is in Group 1, O(1) is in Group 1. (Violates Clue 3)
+    - If A=3, H=4. But B=4. (No)
+
+    Wait, what if B=1, S=4, C=6 (Case 2)?
+    A < 6, H=A+1.
+    Available: {2, 3, 5, 7}.
+    - If A=2, H=3.
+      Available: {5, 7}. (D, O) = {5, 7}.
+      Is A(2) between D and O? No.
+    - If A=3, H=4. But S=4. (No)
+    - If A=5, H=6. But C=6. (No)
+
+    What if B=3, S=6, C=4 (Case 4)?
+    A < 4, H=A+1.
+    Available: {1, 2, 5, 7}.
+    - If A=1, H=2.
+      Available: {5, 7}. (D, O) = {5, 7}.
+      Is A(1) between D and O? No.
+    - If A=2, H=3. But B=3. (No)
+
+    What if B=2, S=5, C=3 (Case 3)?
+    A < 3, H=A+1.
+    Available: {1, 4, 6, 7}.
+    - If A=1, H=2. But B=2. (No)
+
+    Wait, let me check if A could be 4 or more (not in Group 1).
+    If A is in Group 2 (A=4, 5, 6, 7), Clue 3 is automatically satisfied.
+    In Case 2 (B=1, S=4, C=6), A can be 5.
+      If A=5, H=6. But C=6. (No)
+    In Case 4 (B=3, S=6, C=4), A can be 5 or 7.
+      If A=5, H=6. But S=6. (No)
+      If A=7, H=8. (No)
+    In Case 5 (B=4, S=7, C=5), A can be 6.
+      If A=6, H=7. But S=7. (No)
+
+    Wait, I should also check if I missed any (B, S, C) combinations.
+    - B=1, S=4, C=2 (Case 1 - Rejected)
+    - B=1, S=4, C=6 (Case 2 - Rejected)
+    - B=2, S=5, C=3 (Case 3 - Rejected)
+    - B=2, S=5, C=7 (Rejected, C≠7)
+    - B=3, S=6, C=4 (Case 4 - Rejected)
+    - B=3, S=6, C=8 (Rejected, only 7 people)
+    - B=4, S=1, C=3 (Rejected, B<C must be 4<3, no)
+    - B=4, S=7, C=5 (Case 5 - YES)
+    - B=5, S=2, C=4 (Rejected, B<C must be 5<4, no)
+    - B=5, S=2, C=0 (No)
+    - B=6, S=3, C=5 (Rejected, B<C must be 6<5, no)
+    - B=6, S=3, C=1 (Rejected, C≠1)
+    - B=7, S=4, C=2 (Rejected, B<C must be 7<2, no)
+    - B=7, S=4, C=6 (Rejected, B<C must be 7<6, no)
+
+    One more thing: Clue 4 says: "Ayşe, Deniz ile Oya arasında çağrılıyor; hangisinin önce çağrıldığı belli değil."
+    This means D < A < O or O < A < D.
+    In my successful case (D, A, H, B, C, O, S), 1 < 2 < 6. This works perfectly.
+
+    Wait, let me re-verify |S-C|=2 one more time.
+    S=7, C=5. |7-5|=2. Correct.
+    Wait, I just noticed something. Clue 7: "Selin ile Cemre arasında tam olarak bir kişi var."
+    This means if S is 7, Cemre must be 5. Correct.
+
+    Let's re-verify |B-S|=3.
+    B=4, S=7. |4-7|=3. Correct. (Two people between them: 5 and 6).
+
+    Let's re-verify Clue 5: "Burak ve Ayşe, ikisi de Cemre'den önce çağrılıyor."
+    Burak is 4, Ayşe is 2, Cemre is 5.
+    Both 4 and 2 are less than 5. Correct.
+
+    Let's re-verify Clue 6: "Hakan, Ayşe'den hemen sonra çağrılıyor."
+    Ayşe is 2, Hakan is 3. Correct.
+
+    Let's re-verify Clue 2: "Cemre, kuyruğun ne başında ne de sonunda."
+    Cemre is 5. Correct.
+
+    Wait, did I check all (A, H) pairs for Case 5 (B=4, S=7, C=5)?
+    A < 5.
+    - A=1, H=2. (D, O) = {3, 6}. A(1) is NOT between 3 and 6.
+    - A=2, H=3. (D, O) = {1, 6}. A(2) is between 1 and 6.
+      - If D=1, O=6: A(2) is in Group 1, O(6) is in Group 2. (OK)
+      - If D=6, O=1: A(2) is in Group 1, O(1) is in Group 1. (No)
+    - A=3, H=4. But B=4. (No)
+    - A=4, H=5. But C=5. (No)
+
+    Is there any other possible value for A?
+    What if A is in Group 2?
+    In Case 5 (B=4, S=7, C=5), A could be 6. But then H=7, and S=7. (No)
+
+    Let me re-check Clue 1: "Burak ile Selin arasında tam olarak iki kişi var."
+    If B=4 and S=7, the people between them are 5 and 6. That is exactly two people. Correct.
+
+    Let's re-check the names.
+    Hakan, Deniz, Burak, Selin, Cemre, Ayşe, Oya. (7 names)
+    1: Deniz
+    2: Ayşe
+    3: Hakan
+    4: Burak
+    5: Cemre
+    6: Oya
+    7: Selin
+
+    Wait, let me just re-verify if any other (B, S) could work.
+    Could B be 1 and S be 4? (Case 2)
+    B=1, S=4. |1-4|=3. Correct.
+    |S-C|=2 means C=2 or C=6.
+    If C=2, B<C (1<2). A<C means A=1. But B=1. (No)
+    If C=6, B<C (1<6). A<C means A can be 2, 3, 4, 5.
+    - A=2, H=3. {D,O}={5,7}. A(2) is between 5 and 7? No.
+    - A=3, H=4. But S=4. (No)
+    - A=4, H=5. But S=4. (No)
+    - A=5, H=6. But C=6. (No)
+
+    Could B be 2 and S be 5? (Case 3)
+    B=2, S=5. |2-5|=3. Correct.
+    |S-C|=2 means C=3 or C=7.
+    C=7 is not allowed.
+    If C=3, B<C (2<3). A<C means A=1 or A=2.
+    - A=1, H=2. But B=2. (No)
+    - A=2, H=3. But B=2. (No)
+
+    Could B be 3 and S be 6? (Case 4)
+    B=3, S=6. |3-6|=3. Correct.
+    |S-C|=2 means C=4 or C=8.
+    C=8 is impossible.
+    If C=4, B<C (3<4). A<C means A=1, 2, or 3.
+    - A=1, H=2. {D,O}={5,7}. A(1) is between 5 and 7? No.
+    - A=2, H=3. But B=3. (No)
+    - A=3, H=4. But B=3. (No)
+
+    Wait! Let me re-check Case 5 (B=4, S=7, C=5) one more time.
+    Wait, I said A could be 1, 2, 3.
+    If A=1, H=2.
+    Remaining: {3, 6}.
+    If A=1, it's not between 3 and 6.
+    If A=2, H=3.
+    Remaining: {1, 6}.
+    If A=2, it's between 1 and 6. (D,O) = (1,6) or (6,1).
+    If D=1, O=6: A in Group 1 (2), O in Group 2 (6). (OK)
+    If D=6, O=1: A in Group 1 (2), O in Group 1 (1). (NO - violates Clue 3)
+    If A=3, H=4. But B=4. (No)
+
+    Is there any other?
+    What if B and S were swapped? (Clue 1: B and S have 2 people between them).
+    If S=1, B=4.
+    |S-C|=2 means C=3.
+    B<C: 4<3. (No)
+
+    If S=2, B=5.
+    |S-C|=2 means C=4.
+    B<C: 5<4. (No)
+
+    If S=3, B=6.
+    |S-C|=2 means C=5 or C=1.
+    C=1 is not allowed.
+    If C=5, B<C: 6<5. (No)
+
+    If S=4, B=7.
+    |S-C|=2 means C=2 or C=6.
+    If C=2, B<C: 7<2. (No)
+    If C=6, B<C: 7<6. (No)
+
+    If S=4, B=1. (This was my Case 1 & 2)
+    If S=5, B=2. (This was my Case 3)
+    If S=6, B=3. (This was my Case 4)
+    If S=7, B=4. (This was my Case 5)
+
+    Okay, let's double-check Clue 3 again.
+    "Ayşe birinci gruptaysa Oya ikinci gruptadır."
+    If Ayşe is 2 (Group 1), Oya must be 4, 5, 6, or 7 (Group 2).
+    In my sequence (D=1, A=2, H=3, B=4, C=5, O=6, S=7), Oya is 6.
+    So this is perfectly fine.
+
+    Wait, is there any other possible position for Cemre?
+    In Case 5, B=4, S=7, C=5.
+    Wait, I assumed |S-C|=2 means S-C=2 or C-S=2.
+    If S=7, C must be 5. (7-2=5)
+    If S=4, C can be 2 or 6. (4-2=2, 4+2=6)
+    If S=1, C must be 3. (1+2=3)
+    If S=2, C can be 4. (2+2=4)
+    If S=3, C can be 5 or 1. (3+2=5, 3-2=1)
+    If S=5, C can be 3 or 7. (5-2=3, 5+2=7)
+    If S=6, C must be 4. (6-2=4)
+
+    Let's re-verify my B/S/C combinations.
+    1. B=1, S=4, C=2 or 6. (Checked)
+    2. B=2, S=5, C=3 (7 is not allowed). (Checked)
+    3. B=3, S=6, C=4. (Checked)
+    4. B=4, S=1, C=3. (B<C fails)
+    5. B=4, S=7, C=5. (Checked)
+    6. B=5, S=2, C=4. (B<C fails)
+    7. B=6, S=3, C=1 or 5. (C=1 not allowed, B<C fails for 5)
+    8. B=7, S=4, C=2 or 6. (B<C fails)
+
+    Wait! Let me re-check Case 2: B=1, S=4, C=6.
+    A must be < 6 and H=A+1.
+    Available positions for {A, H, D, O}: {2, 3, 5, 7}.
+    If A=2, H=3, then {D, O} = {5, 7}. (A=2 is not between 5 and 7).
+    If A=5, H=6 (No, C=6).
+    Wait, what if A=3, H=4 (No, S=4).
+    What if A=4? (No, S=4).
+    What if A=1? (No, B=1).
+    What if A=2, H=3 and D/O are not 5/7?
+    Wait, if B=1, S=4, C=6, then the remaining positions are {2, 3, 5, 7}.
+    If A is 2, then H is 3.
+    The remaining positions are 5 and 7.
+    D and O must be 5 and 7.
+    Is A (2) between D (5) and O (7)? No.
+    Is A (2) between D (7) and O (5)? No.
+
+    What if A is in Group 2? (A=4, 5, 6, 7)
+    In Case 2, A can only be 5 (since 4 and 6 are taken).
+    If A=5, H=6. But C=6. (No)
+    In Case 4 (B=3, S=6, C=4), A could be 5 or 7.
+    If A=5, H=6. But S=6. (No)
+    If A=7, H=8. (No)
+    In Case 5 (B=4, S=7, C=5), A could be 6.
+    If A=6, H=7. But S=7. (No)
+
+    Everything seems to point to Hakan.
+    Wait, let me re-read: "Ayşe, Deniz ile Oya arasında çağrılıyor; hangisinin önce çağrıldığı belli değil."
+    This means A is between D and O.
+    My sequence: D(1), A(2), H(3), B(4), C(5), O(6), S(7).
+    A is 2, D is 1, O is 6.
+    1 < 2 < 6. (Correct)
+    Hakan is 3.
+
+    Final check of the sequence:
+    1. Deniz
+    2. Ayşe
+    3. Hakan
+    4. Burak
+    5. Cemre
+    6. Oya
+    7. Selin
+
+    Clues:
+    - B(4) and S(7) have 2 people between them (5,6). OK.
+    - C(5) is not 1 or 7. OK.
+    - A(2) is in Group 1, O(6) is in Group 2. OK.
+    - A(2) is between D(1) and O(6). OK.
+    - B(4) and A(2) are before C(5). OK.
+    - H(3) is after A(2). OK.
+    - S(7) and C(5) have 1 person between them (6). OK.
+
+    Wait, is it possible that A is not in Group 1?
+    If A was in Group 2, say A=4.
+    If A=4, H=5.
+    But then B and A must be before C.
+    If A=4 and B is also < C, then C must be at least 5.
+    If C=5, then |S-C|=2 means S=3 or S=7.
+    If S=7, then |B-S|=3 means B=4.
+    But A=4 and B=4. (No)
+    If S=3, then |B-S|=3 means B=6.
+    If B=6, B<C is 6<5 (No).
+
+    If A=5, H=6.
+    Then B and A are < C. So C must be 7.
+    But C cannot be 7.
+
+    If A=6, H=7.
+    Then B and A are < C. So C must be 8 (impossible).
+
+    If A=2, H=3, B=4, C=5, S=7, D=1, O=6. (This is my sequence)
+    Is there any other for A=2, H=3, B=4, C=5, S=7?
+    The only other possibility was D=6, O=1.
+    But if O=1, then O is in Group 1.
+    Clue 3 says: If A is in Group 1 (2 is in Group 1), then O must be in Group 2.
+    So O cannot be 1.
+    Thus, D must be 1 and O must be 6.
+
+    Wait, let me double-check if I missed anything.
+    "Ayşe, Deniz ile Oya arasında çağrılıyor; hangisinin önce çağrıldığı belli değil."
+    Does "hangisinin önce çağrıldığı belli değil" imply that both (D < A < O) and (O < A < D) must be possible?
+    No, it usually means that the clue itself doesn't specify the order, and you have to figure it out.
+
+    Wait, let me re-check Clue 4: "Ayşe, Deniz ile Oya arasında çağrılıyor; hangisinin önce çağrıldığı belli değil."
+    Does this mean the information *provided* doesn't tell us if it's D-A-O or O-A-D?
+    Yes, that's a common way to phrase these puzzles. It means you don't *know* from that clue alone, but you'll find out from the other clues.
+
+    Let me just re-verify everything one more time.
+    B=4, S=7, C=5, A=2, H=3, D=1, O=6.
+    All conditions:
+    1. |B-S| = |4-7| = 3 (Exactly two people between them: 5, 6). OK.
+    2. C=5 (Not 1 or 7). OK.
+    3. A=2 (In Group 1), O=6 (In Group 2). OK.
+    4. A=2 is between D=1 and O=6. OK.
+    5. B=4 and A=2 are both < C=5. OK.
+    6. H=3 is A+1 = 2+1. OK.
+    7. |S-C| = |7-5| = 2 (Exactly one person between them: 6). OK.
+
+    Everything is solid.
+    3rd person is Hakan.

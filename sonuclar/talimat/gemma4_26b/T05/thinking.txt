@@ -1,0 +1,316 @@
+
+*   Task: Summarize the meeting notes.
+    *   Format Constraints:
+        *   Exactly 5 bullet points.
+        *   Each point on a new line.
+        *   Start each point with a bullet mark (-, *, •, or 1.).
+        *   **Constraint: No commas (,) allowed in the entire text.**
+        *   **Constraint: Percentage, date, and customer count must be included exactly as they are.**
+
+    *   Note 1: Satış ekibi bu ay hedefin yüzde 92’sine ulaştı. (Sales team reached 92% of the target this month.)
+    *   Note 2: Yeni stok sistemine geçiş 15 Kasım’da başlayacak. (Transition to new stock system starts Nov 15.)
+    *   Note 3: Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek. (Customer survey will be sent to 1200 customers next week.)
+    *   Note 4: Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak. (Accounting will link supplier payments to a weekly schedule.)
+    *   Note 5: Depo vardiyaları kasımdan itibaren yeniden düzenlenecek. (Warehouse shifts will be rearranged from November.)
+
+    *   *Point 1 (Percentage):* Satış ekibi bu ay hedefin yüzde 92’sine ulaştı (No comma needed).
+    *   *Point 2 (Date):* Yeni stok sistemine geçiş 15 Kasım’da başlayacak (No comma needed).
+    *   *Point 3 (Customer Count):* Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek (No comma needed).
+    *   *Point 4 (Accounting):* Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak (No comma needed).
+    *   *Point 5 (Warehouse):* Depo vardiyaları kasımdan itibaren yeniden düzenlenecek (No comma needed).
+
+    *   5 points? Yes.
+    *   Separate lines? Yes.
+    *   Bullet marks? Yes.
+    *   No commas?
+        1. Satış ekibi bu ay hedefin yüzde 92’sine ulaştı (No comma)
+        2. Yeni stok sistemine geçiş 15 Kasım’da başlayacak (No comma)
+        3. Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek (No comma)
+        4. Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak (No comma)
+        5. Depo vardiyaları kasımdan itibaren yeniden düzenlenecek (No comma)
+    *   Percentage (yüzde 92) included? Yes.
+    *   Date (15 Kasım) included? Yes.
+    *   Customer count (1200) included? Yes.
+
+    - Satış ekibi bu ay hedefin yüzde 92’sine ulaştı
+    - Yeni stok sistemine geçiş 15 Kasım’da başlayacak
+    - Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek
+    - Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak
+    - Depo vardiyaları kasımdan itibaren yeniden düzenlenecek
+
+    *Self-Correction during final check:*
+    The prompt says "Notlardaki yüzde değeri, tarih ve müşteri sayısı özette aynen geçsin."
+    Percentage: yüzde 92
+    Date: 15 Kasım
+    Customer count: 1200
+
+    Everything looks perfect.
+
+    Wait, let me double-check if any of my drafted lines have hidden commas or if I used them naturally in thought but removed them.
+    Line 1: Satış ekibi bu ay hedefin yüzde 92’sine ulaştı (OK)
+    Line 2: Yeni stok sistemine geçiş 15 Kasım’da başlayacak (OK)
+    Line 3: Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek (OK)
+    Line 4: Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak (OK)
+    Line 5: Depo vardiyaları kasımdan itibaren yeniden düzenlenecek (OK)
+
+    One detail: "ayrı satırda ve bir madde işaretiyle (-, *, • ya da 1.) başlasın".
+    I will use "-".
+
+    Final Result:
+    - Satış ekibi bu ay hedefin yüzde 92’sine ulaştı
+    - Yeni stok sistemine geçiş 15 Kasım’da başlayacak
+    - Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek
+    - Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak
+    - Depo vardiyaları kasımdan itibaren yeniden düzenlenecek
+
+    Let's check for commas one last time. No commas.
+    Let's check for 5 items. 1, 2, 3, 4, 5.
+    Let's check if 92, 15 Kasım, 1200 are there. Yes.
+
+    Wait, does the user want a *summary* or just the notes rewritten? A summary usually condenses, but since I must keep specific values and there are only 5 notes provided and I need 5 items, the most logical "summary" is to present each point as a concise statement.
+
+    Let's refine the content to make it a "summary" style:
+    - Satış ekibi hedefin yüzde 92’sine ulaştı
+    - Stok sistemi geçişi 15 Kasım’da başlayacak
+    - 1200 müşteriye anket gönderilecek
+    - Muhasebe ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda yeniden düzenlenecek
+
+    Actually, the prompt doesn't forbid just using the sentences as they are, but a summary is requested. Let's go with the slightly condensed version but ensuring no commas.
+
+    *Version 2 (Condensed):*
+    - Satış ekibi hedefin yüzde 92’sine ulaştı
+    - Yeni stok geçişi 15 Kasım’da yapılacak
+    - 1200 müşteriye anket gönderilecek
+    - Tedarikçi ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda düzenlenecek
+
+    Let's check constraints again:
+    - 5 items? Yes.
+    - Separate lines? Yes.
+    - Bullet marks? Yes.
+    - No commas? Yes.
+    - % value (yüzde 92)? Yes.
+    - Date (15 Kasım)? Yes.
+    - Customer count (1200)? Yes.
+
+    Wait, looking at the notes again:
+    "Satış ekibi bu ay hedefin yüzde 92’sine ulaştı."
+    "Yeni stok sistemine geçiş 15 Kasım’da başlayacak."
+    "Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek."
+    "Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak."
+    "Depo vardiyaları kasımdan itibaren yeniden düzenlenecek."
+
+    If I provide these exactly, it's safer regarding "aynen geçsin" (passing exactly).
+
+    - Satış ekibi bu ay hedefin yüzde 92’sine ulaştı
+    - Yeni stok sistemine geçiş 15 Kasım’da başlayacak
+    - Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek
+    - Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak
+    - Depo vardiyaları kasımdan itibaren yeniden düzenlenecek
+
+    Wait, I need to make sure I don't accidentally use a comma in a list or anywhere. The input has no commas. My output has no commas.
+
+    Final check of the input's numbers/values:
+    - yüzde 92
+    - 15 Kasım
+    - 1200
+
+    Input:
+    1. Satış ekibi bu ay hedefin yüzde 92’sine ulaştı.
+    2. Yeni stok sistemine geçiş 15 Kasım’da başlayacak.
+    3. Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek.
+    4. Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak.
+    5. Depo vardiyaları kasımdan itibaren yeniden düzenlenecek.
+
+    The request asks to "summarize". But since there are 5 notes and 5 items requested, it's essentially a reformatting task.
+
+    - Satış ekibi hedefin yüzde 92’sine ulaştı
+    - Yeni stok sistemi 15 Kasım’da başlıyor
+    - 1200 müşteriye anket gönderilecek
+    - Ödemeler haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda düzenlenecek
+
+    Actually, the instruction "Notlardaki yüzde değeri, tarih ve müşteri sayısı özette aynen geçsin" is crucial.
+
+    Let's use the simplest version that fits all criteria.
+
+    - Satış ekibi hedefin yüzde 92’sine ulaştı
+    - Yeni stok sistemi 15 Kasım’da başlayacak
+    - 1200 müşteriye anket gönderilecek
+    - Muhasebe ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda yeniden düzenlenecek
+
+    Checking for commas again. None.
+    Checking for 5 items. 1, 2, 3, 4, 5.
+    Checking for values. yüzde 92, 15 Kasım, 1200.
+
+    Wait, the prompt asks for "özet" (summary). A summary shouldn't just be the notes. However, with the strict constraints, the notes are already very brief.
+
+    Let's try:
+    - Satış hedefi yüzde 92 seviyesinde gerçekleşti
+    - Stok sistemi geçişi 15 Kasım’da başlayacak
+    - 1200 müşteriye anket gönderilecek
+    - Ödemeler haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda yeniden düzenlenecek
+
+    Let's re-verify: "Notlardaki yüzde değeri, tarih ve müşteri sayısı özette aynen geçsin."
+    % value: "yüzde 92" (Must be exact)
+    Date: "15 Kasım" (Must be exact)
+    Customer count: "1200" (Must be exact)
+
+    Draft:
+    - Satış hedefinin yüzde 92’sine ulaşıldı
+    - Yeni stok geçişi 15 Kasım’da başlayacak
+    - 1200 müşteriye anket yapılacak
+    - Tedarikçi ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda düzenlenecek
+
+    This looks good. Let's check for commas. Zero commas. 5 bullets.
+
+    One more check on "yüzde 92'sine". The original text has "yüzde 92’sine". I will keep it.
+
+    Final Plan:
+    - Satış ekibi hedefin yüzde 92’sine ulaştı
+    - Yeni stok geçişi 15 Kasım’da başlayacak
+    - 1200 müşteriye anket gönderilecek
+    - Muhasebe ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda yeniden düzenlenecek
+
+    Let's double check the prompt "Metinde hiç virgül kullanma".
+    Is there a comma in my proposed text? No.
+    Is there a comma in the numbers? No.
+    Is there a comma in the dates? No.
+
+    Wait, "15 Kasım’da". The apostrophe is not a comma.
+    "92’sine". The apostrophe is not a comma.
+
+    Final text:
+    - Satış ekibi hedefin yüzde 92’sine ulaştı
+    - Yeni stok geçişi 15 Kasım’da başlayacak
+    - 1200 müşteriye anket gönderilecek
+    - Muhasebe ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda yeniden düzenlenecek
+
+    Checking constraints:
+    1. Summary? Yes.
+    2. Exactly 5 items? Yes.
+    3. Each item on a new line? Yes.
+    4. Bullet mark? Yes (-).
+    5. No commas? Yes.
+    6. Percentage (yüzde 92) exact? Yes.
+    7. Date (15 Kasım) exact? Yes.
+    8. Customer count (1200) exact? Yes.
+
+    Wait, is "yüzde 92'sine" "aynen" (exactly) the percentage value? The value is 92%. The text says "yüzde 92’sine". I'll stick to the text provided to be safe.
+
+    Let's review:
+    Note 1: Satış ekibi bu ay hedefin yüzde 92’sine ulaştı.
+    Note 2: Yeni stok sistemine geçiş 15 Kasım’da başlayacak.
+    Note 3: Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek.
+    Note 4: Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak.
+    Note 5: Depo vardiyaları kasımdan itibaren yeniden düzenlenecek.
+
+    If I just use the notes themselves, they are already a summary of the meeting. I'll just remove the periods to be safe or keep them if they aren't commas. The prompt says "Metinde hiç virgül kullanma" (Don't use any commas in the text). It doesn't forbid periods. But I'll omit them to be cleaner.
+
+    Final version to output:
+    - Satış ekibi hedefin yüzde 92’sine ulaştı
+    - Yeni stok geçişi 15 Kasım’da başlayacak
+    - 1200 müşteriye anket gönderilecek
+    - Muhasebe ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda yeniden düzenlenecek
+
+    *Actually*, let's make sure "yüzde 92" is used exactly as "yüzde 92".
+    The prompt: "Notlardaki yüzde değeri... aynen geçsin".
+    Value: yüzde 92.
+    My text: "yüzde 92'sine". This is fine.
+
+    *Actually*, the most direct way to fulfill "aynen geçsin" for "yüzde 92", "15 Kasım" and "1200" is:
+
+    - Satış hedefleri yüzde 92 seviyesinde gerçekleşti
+    - Stok sistemi 15 Kasım’da devreye girecek
+    - 1200 müşteriye anket yapılacak
+    - Ödemeler haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda yeniden düzenlenecek
+
+    Let's check for commas one last time.
+    None.
+
+    One detail: "ayrı satırda ve bir madde işaretiyle (-, *, • ya da 1.) başlasın".
+    I will use "-".
+
+    Wait, the prompt says "Notlardaki yüzde değeri, tarih ve müşteri sayısı özette aynen geçsin."
+    This could mean "yüzde 92", "15 Kasım", and "1200".
+    My drafted points:
+    1. yüzde 92 (Checked)
+    2. 15 Kasım (Checked)
+    3. 1200 (Checked)
+
+    Result:
+    - Satış ekibi hedefin yüzde 92’sine ulaştı
+    - Yeni stok geçişi 15 Kasım’da başlayacak
+    - 1200 müşteriye anket gönderilecek
+    - Muhasebe ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda düzenlenecek
+
+    Wait, looking at the notes:
+    "Satış ekibi bu ay hedefin yüzde 92’sine ulaştı."
+    "Yeni stok sistemine geçiş 15 Kasım’da başlayacak."
+    "Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek."
+    "Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak."
+    "Depo vardiyaları kasımdan itibaren yeniden düzenlenecek."
+
+    If I provide these 5 exactly, I am definitely not failing "aynen geçsin". The only risk is if they aren't considered a "summary". But since they are bullet points from a meeting, they are essentially the summary. I will use the notes directly but ensure no commas are present (there are no commas in the original notes anyway).
+
+    Note 1: Satış ekibi bu ay hedefin yüzde 92’sine ulaştı. (No comma)
+    Note 2: Yeni stok sistemine geçiş 15 Kasım’da başlayacak. (No comma)
+    Note 3: Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek. (No comma)
+    Note 4: Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak. (No comma)
+    Note 5: Depo vardiyaları kasımdan itibaren yeniden düzenlenecek. (No comma)
+
+    This is the safest way to satisfy "aynen geçsin".
+
+    Final check:
+    - 5 maddede ver? Yes.
+    - Her madde ayrı satırda? Yes.
+    - Madde işaretiyle başlasın? Yes.
+    - Hiç virgül kullanma? Yes.
+    - Yüzde değeri, tarih ve müşteri sayısı aynen geçsin? Yes.
+
+    Final text selection:
+    - Satış ekibi bu ay hedefin yüzde 92’sine ulaştı
+    - Yeni stok sistemine geçiş 15 Kasım’da başlayacak
+    - Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek
+    - Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak
+    - Depo vardiyaları kasımdan itibaren yeniden düzenlenecek
+
+    (Decided to remove the final periods to be extremely safe, though the prompt only forbids commas).
+
+    Actually, the original notes are already a list. To "summarize" them into 5 points where each point represents a note, I will just present them clearly.
+
+    Let's try to see if I can make it more "summary-like" while keeping the exact strings.
+    - Satış hedefi yüzde 92 olarak gerçekleşti
+    - Yeni stok geçişi 15 Kasım’da yapılacak
+    - 1200 müşteriye anket gönderilecek
+    - Muhasebe ödemeleri haftalık takvime bağlanacak
+    - Depo vardiyaları kasımda yeniden düzenlenecek
+
+    This is more "summary" style.
+    "yüzde 92" is in there.
+    "15 Kasım" is in there.
+    "1200" is in there.
+    No commas.
+    5 bullets.
+
+    Actually, the prompt says "Notlardaki yüzde değeri... aynen geçsin".
+    In the note, it is "yüzde 92’sine". If I write "yüzde 92 olarak", I am changing the form.
+    The safest is to use the exact phrase from the note or at least the exact numbers.
+
+    Let's stick to the most direct conversion:
+    - Satış ekibi bu ay hedefin yüzde 92’sine ulaştı
+    - Yeni stok sistemine geçiş 15 Kasım’da başlayacak
+    - Müşteri anketi gelecek hafta 1200 müşteriye gönderilecek
+    - Muhasebe tedarikçi ödemelerini haftalık takvime bağlayacak
+    - Depo vardiyaları kasımdan itibaren yeniden düzenlenecek
+
+    This is 5 items, 5 lines, bulleted, no commas, contains all required values exactly.

@@ -1,0 +1,305 @@
+
+*   Target: Sales Consultant job advertisement for a retail store.
+*   Constraint 1: List duties/qualifications in *exactly* 5 items.
+*   Constraint 2: Each item must be on a new line.
+*   Constraint 3: Each item must start with a bullet point (-, *, •, or 1.).
+*   Constraint 4 (Negative): Do NOT use "genç" (young), "bayan" (female), or "dinamik" (dynamic), including their inflected forms.
+*   Constraint 5 (Mandatory info): "Kadıköy şubesi" (Kadıköy branch) and salary range "38.000 ile 45.000 TL".
+
+    *   Title: Satış Danışmanı (Sales Consultant)
+    *   Location: Kadıköy Şubesi
+    *   Salary: 38.000 TL - 45.000 TL
+    *   Items (Need 5):
+        1.  Customer relations/Sales.
+        2.  Stock/Organization.
+        3.  Cashier/Payment processing.
+        4.  Communication skills.
+        5.  Experience/Retail focus.
+
+    *   "Genç" (young) -> Forbidden.
+    *   "Bayan" (female) -> Forbidden.
+    *   "Dinamik" (dynamic) -> Forbidden.
+
+    *   *Draft 1 (Mental):*
+        Kadıköy şubemizde çalışacak Satış Danışmanı arıyoruz.
+        Maaş: 38.000 - 45.000 TL.
+        - Müşterilere ürün tanıtımı yapmak.
+        - Stok takibi ve düzeni sağlamak.
+        - Kasa işlemlerini yürütmek.
+        - Etkili iletişim kurmak.
+        - Perakende sektöründe deneyim sahibi olmak.
+
+    *   *Reviewing against constraints:*
+        - 5 items? Yes.
+        - Each item on a new line? Yes.
+        - Starts with a bullet? Yes.
+        - "Genç", "Bayan", "Dinamik" used? No.
+        - "Kadıköy şubesi" included? Yes.
+        - "38.000 ile 45.000 TL" included? Yes.
+
+    *   *Refining for a professional tone:*
+
+    **Satış Danışmanı İş İlanı**
+
+    Kadıköy şubemizde görevlendirilmek üzere çalışma arkadaşları arıyoruz.
+
+    Maaş Aralığı: 38.000 - 45.000 TL
+
+    - Müşterileri karşılamak ve ihtiyaçlarına yönelik ürün sunumu yapmak
+    - Mağaza düzenini ve ürün sergileme standartlarını korumak
+    - Stok kontrollerini ve ürün giriş-çıkış süreçlerini takip etmek
+    - Kasa ve ödeme işlemlerini titizlikle gerçekleştirmek
+    - İletişim becerileri yüksek ve çözüm odaklı çalışabilmek
+
+    *Wait, let me re-check the negative constraints.*
+    "Genç" - Checked.
+    "Bayan" - Checked.
+    "Dinamik" - Checked.
+
+    *Let's double check the 5 bullet points requirement.*
+    1. Müşterileri karşılamak...
+    2. Mağaza düzenini...
+    3. Stok kontrollerini...
+    4. Kasa ve ödeme...
+    5. İletişim becerileri...
+
+    *Let's check the salary format requirement.*
+    "38.000 ile 45.000 TL"
+
+    *Let's check the branch requirement.*
+    "Kadıköy şubesi"
+
+    *Title:* Satış Danışmanı
+    *Body:* Kadıköy şubemizde görev alacak ekip arkadaşları arıyoruz.
+    *Salary:* Maaş: 38.000 ile 45.000 TL
+
+    - Müşterilere ürün tanıtımı yaparak satış süreçlerini yönetmek
+    - Mağaza içi ürün düzenini ve görsel standartları korumak
+    - Stok takibi ve ürünlerin raflara yerleştirilmesi işlemlerini yürütmek
+    - Kasa işlemlerini ve ödeme süreçlerini gerçekleştirmek
+    - İletişim kabiliyeti yüksek ve müşteri memnuniyetine önem veren
+
+    *Check forbidden words again:*
+    - Genç? No.
+    - Bayan? No.
+    - Dinamik? No.
+
+    *Check bullet points:*
+    -
+    -
+    -
+    -
+    -
+    (Total 5)
+
+    *Check Salary and Location:*
+    Kadıköy şubesi - Yes.
+    38.000 ile 45.000 TL - Yes.
+
+    **Satış Danışmanı**
+
+    Kadıköy şubemizde görevlendirilmek üzere aşağıdaki niteliklere sahip çalışma arkadaşları aramaktayız.
+
+    Maaş: 38.000 ile 45.000 TL
+
+    - Müşterilere ürünler hakkında bilgi vererek satış süreçlerini yönetmek
+    - Mağaza düzenini ve ürün sergileme standartlarını sağlamak
+    - Stok kontrollerini ve ürün yerleşimlerini gerçekleştirmek
+    - Kasa işlemlerini ve ödeme süreçlerini yürütmek
+    - İletişim becerileri güçlü ve çözüm odaklı çalışabilmek
+
+    *Wait, the prompt asks for "Görev ve nitelikleri tam olarak 5 maddeyle sırala".* I have done that.
+
+    *Let's re-verify the "5 items" constraint.*
+    1. Müşterilere...
+    2. Mağaza düzenini...
+    3. Stok kontrollerini...
+    4. Kasa işlemlerini...
+    5. İletişim becerileri...
+    Total 5.
+
+    *Forbidden words check:*
+    Genç? No.
+    Bayan? No.
+    Dinamik? No.
+
+    *Required info check:*
+    Kadıköy şubesi? Yes.
+    38.000 ile 45.000 TL? Yes.
+
+    *Formatting check:*
+    Each item on a separate line? Yes.
+    Starting with a bullet? Yes.
+
+    One detail: "maaş aralığı 38.000 ile 45.000 TL" must be in the ad.
+
+    Final Polish:
+    **Satış Danışmanı İş İlanı**
+
+    Kadıköy şubemizde görev alacak ekip arkadaşları arıyoruz.
+
+    Maaş aralığı: 38.000 ile 45.000 TL
+
+    - Müşterileri karşılamak ve ihtiyaçlarına yönelik ürün sunumu yapmak
+    - Mağaza düzenini ve görsel standartları korumak
+    - Stok takibi ve ürünlerin raflara yerleştirilmesi süreçlerini yönetmek
+    - Kasa ve ödeme işlemlerini titizlikle gerçekleştirmek
+    - Etkili iletişim kurabilen ve müşteri memnuniyetini önceliklendiren
+
+    *Self-Correction during final look:* Is "etkili" okay? Yes. Is "titizlikle" okay? Yes. No "dinamik", "genç", "bayan".
+
+    Let's check "dinamik" synonyms to avoid accidentally using them if they feel too close. "Enerjik" is fine, but I didn't use it. "Hareketli" is fine, but I didn't use it. I'll stick to the current version.
+
+    Final structure check:
+    1. Header
+    2. Intro (with Kadıköy)
+    3. Salary (with specific phrasing)
+    4. 5 bullets (starting with -)
+
+    Wait, the prompt says: "Görev ve nitelikleri tam olarak 5 maddeyle sırala; her madde ayrı satırda ve bir madde işaretiyle başlasın."
+    This refers to the duties/qualifications section.
+
+    Let's go.
+
+    **Satış Danışmanı**
+
+    Kadıköy şubemizde görevlendirilmek üzere çalışma arkadaşları arıyoruz.
+    Maaş aralığı: 38.000 ile 45.000 TL
+
+    - Müşterilere ürünler hakkında bilgi vererek satış süreçlerini yönetmek
+    - Mağaza içi düzeni ve ürün sergileme standartlarını korumak
+    - Stok kontrollerini ve ürün giriş-çıkış süreçlerini takip etmek
+    - Kasa ve ödeme işlemlerini gerçekleştirmek
+    - İletişim becerileri yüksek ve çözüm odaklı çalışabilmek
+
+    *Wait, checking for "bayan" or "genç" or "dinamik" one last time.*
+    "Müşterilere ürünler hakkında bilgi vererek satış süreçlerini yönetmek" -> OK.
+    "Mağaza içi düzeni ve ürün sergileme standartlarını korumak" -> OK.
+    "Stok kontrollerini ve ürün giriş-çıkış süreçlerini takip etmek" -> OK.
+    "Kasa ve ödeme işlemlerini gerçekleştirmek" -> OK.
+    "İletişim becerileri yüksek ve çözüm odaklı çalışabilmek" -> OK.
+
+    Total items: 5.
+    Bullet points: -.
+    Kadıköy şubesi: Yes.
+    38.000 ile 45.000 TL: Yes.
+
+    Ready.
+
+    Wait, I should make sure "dinamik" isn't hidden in any word. No. "Bayan"? No. "Genç"? No.
+
+    One last check on the prompt: "Görev ve nitelikleri tam olarak 5 maddeyle sırala".
+    Does this mean the *entire* ad is 5 bullets? No, it says "Görev ve nitelikleri ... sırala". Usually, an ad has a title and info. The bulleted part must be exactly 5 items.
+
+    Let's refine the text to be concise.
+
+    **Satış Danışmanı İş İlanı**
+
+    Kadıköy şubemizde görev yapacak ekip arkadaşları arıyoruz.
+    Maaş aralığı: 38.000 ile 45.000 TL
+
+    - Müşteri ihtiyaçlarını belirleyerek ürün tanıtımı yapmak
+    - Mağaza düzenini ve ürün sergileme alanlarını yönetmek
+    - Stok takibi ve ürünlerin raflara yerleştirilmesini sağlamak
+    - Kasa ve ödeme işlemlerini gerçekleştirmek
+    - İletişim kabiliyeti yüksek ve çözüm odaklı çalışmak
+
+    *Final count of bullets:*
+    1. Müşteri...
+    2. Mağaza...
+    3. Stok...
+    4. Kasa...
+    5. İletişim...
+
+    Perfect.
+
+    *One more check on the salary phrasing:*
+    "maaş aralığı 38.000 ile 45.000 TL" -> included.
+
+    *One more check on branch phrasing:*
+    "Kadıköy şubesi" -> included.
+
+    *Forbidden words check:*
+    Genç - None.
+    Bayan - None.
+    Dinamik - None.
+
+    *Final Text Construction:*
+    Satış Danışmanı
+
+    Kadıköy şubemizde görev alacak çalışma arkadaşları arıyoruz.
+    Maaş aralığı: 38.000 ile 45.000 TL
+
+    - Müşterilere ürün tanıtımı yaparak satış süreçlerini yönetmek
+    - Mağaza düzenini ve görsel standartları korumak
+    - Stok kontrollerini ve ürün yerleşimlerini gerçekleştirmek
+    - Kasa ve ödeme işlemlerini yürütmek
+    - İletişim becerileri kuvvetli ve çözüm odaklı çalışmak
+
+    *Constraint Check:*
+    - 5 items? Yes.
+    - Each on a new line? Yes.
+    - Starts with bullet? Yes.
+    - No "genç", "bayan", "dinamik"? Yes.
+    - "Kadıköy şubesi"? Yes.
+    - "38.000 ile 45.000 TL"? Yes.
+
+    Wait, the prompt says: "Görev ve nitelikleri tam olarak 5 maddeyle sırala".
+    My bullets cover both duties (selling, stock, cash) and qualifications (communication). This fulfills the instruction.
+
+    Let's double check if "dinamik" might be interpreted from "kuvvetli" or something. No, they are different words. "Çözüm odaklı" is safe.
+
+    Let's try to make the salary part part of the intro so the bullets remain strictly the 5 items requested.
+
+    **Satış Danışmanı**
+
+    Kadıköy şubemizde görev alacak çalışma arkadaşları aranıyor.
+    Maaş aralığı: 38.000 ile 45.000 TL
+
+    - Müşterilere ürün tanıtımı yaparak satış süreçlerini yönetmek
+    - Mağaza düzenini ve ürün sergileme standartlarını korumak
+    - Stok takibi ve ürün yerleşimi süreçlerini yürütmek
+    - Kasa ve ödeme işlemlerini gerçekleştirmek
+    - İletişim becerileri yüksek ve çözüm odaklı çalışmak
+
+    This looks solid.
+
+    One minor check: Does "çalışma arkadaşları" imply "genç"? No, it's neutral. Does "satış süreçlerini yönetmek" imply "dinamik"? No, it's a duty.
+
+    The prompt says "İlanda 'genç', 'bayan' ve 'dinamik' sözcüklerini (ek almış hâlleri dâhil) kullanma."
+    I have avoided them.
+
+    Final check on the 5 bullets requirement.
+    1. - ...
+    2. - ...
+    3. - ...
+    4. - ...
+    5. - ...
+    Yes.
+
+    Final check on the salary format: "38.000 ile 45.000 TL".
+    I used "38.000 ile 45.000 TL".
+
+    Final check on location: "Kadıköy şubesi".
+    I used "Kadıköy şubemizde". This contains the term.
+
+    Final check on the number of items: Exactly 5.
+    Yes.
+
+    Let's ensure there are no extra bullets or items.
+
+    Text:
+    Satış Danışmanı
+
+    Kadıköy şubemizde görev alacak çalışma arkadaşları aranıyor.
+    Maaş aralığı: 38.000 ile 45.000 TL
+
+    - Müşterilere ürün tanıtımı yaparak satış süreçlerini yönetmek
+    - Mağaza düzenini ve ürün sergileme standartlarını korumak
+    - Stok takibi ve ürün yerleşimi süreçlerini yürütmek
+    - Kasa ve ödeme işlemlerini gerçekleştirmek
+    - İletişim becerileri yüksek ve çözüm odaklı çalışmak
+
+    Wait, I'll make sure the bullets are exactly as requested. "bir madde işaretiyle (-, *, • ya da 1.) başlasın". I'll use "-".
+
+    Everything seems correct.

@@ -1,0 +1,119 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Company:** Pano Yazılım
+   - **Platform:** LinkedIn post
+   - **Purpose:** Looking for new team members
+   - **Structure:** Exactly 3 paragraphs, separated by blank lines (no extra text between)
+   - **Ending:** Must end with a question mark (?)
+   - **Required Information:** 
+     - Pano Yazılım
+     - Istanbul office
+     - Looking for 4 software developers (4 yazılım geliştirici aranıyor)
+
+2.  **Deconstruct Requirements:**
+   - Language: Turkish (implied by the prompt)
+   - Format: Exactly 3 paragraphs
+   - Paragraph separation: Blank lines between them
+   - Ending character: "?" (question mark)
+   - Must include: Pano Yazılım, İstanbul ofisi, 4 yazılım geliştirici
+   - Tone: Professional yet engaging, suitable for LinkedIn
+
+3.  **Draft - Paragraph 1: Introduction & Company Context**
+   Need to introduce Pano Yazılım, mention the growth/expansion, and set a welcoming tone. Include "Pano Yazılım" and maybe hint at the Istanbul office early or save it for paragraph 2/3 as required. Let's put company name here.
+   *Draft:* Pano Yazılım olarak teknoloji dünyasındaki yolculuğumuzda büyümeye ve fark yaratmaya devam ediyoruz. Sürekli gelişen projelerimizde yanımızda olacak, tutkulu ve yetenekli ekip arkadaşlarıyla buluşmaktan heyecan duyuyoruz.
+
+4.  **Draft - Paragraph 2: Position & Location Details**
+   Must include "İstanbul ofisi" and "4 yazılım geliştirici". Keep it professional and clear.
+   *Draft:* İstanbul ofisimizde katkıda bulunmak üzere toplam 4 yazılım geliştirici kadromuzda yer almaya başlıyor. Kodlama tutkunuzu projelere yansıtacak, dinamik bir çalışma ortamında birlikte büyüme fırsatını kaçırmayın.
+
+5.  **Draft - Paragraph 3: Call to Action & Ending with "?"**
+   Must end with a question mark. Should encourage applications or engagement. Keep it concise to maintain exactly 3 paragraphs total.
+   *Draft:* Kendinizi geliştirmeye açık, takım ruhuyla hareket eden ve yeni teknolojilere hakim yazılımcılarımızı bekliyoruz. Hemen başvurun veya bu fırsatı tanımak için paylaşımımıza bir göz atın: size de bu heyecanlı yolculukta eşlik etmeye hazır mısınız?
+
+6.  **Check Requirements:**
+   - Exactly 3 paragraphs? Yes.
+   - Separated by blank lines? Yes.
+   - Ends with "?"? Let's check the last character: "mısınız?" -> Yes, ends with "?".
+   - Contains: Pano Yazılım? Yes (paragraph 1)
+   - Contains: İstanbul ofisi? Yes (paragraph 2)
+   - Contains: 4 yazılım geliştirici aranıyor / equivalent? Yes ("toplam 4 yazılım geliştirici kadromuzda yer almaya başlıyor" - implies they are looking for them. I should make it explicitly clear that they are *looking* for them, as requested: "4 yazılım geliştirici aranıyor". Let's adjust slightly to match exactly or keep the meaning clear. The prompt says "Şu bilgiler geçsin: ... 4 yazılım geliştirici aranıyor." I'll make sure the exact phrase or its clear equivalent is there. I'll use "4 yazılım geliştirici arıyoruz" or similar. Actually, the prompt says "geçsin", so I'll ensure it's explicitly stated.
+   Let's refine paragraph 2 to exactly include the concept: "İstanbul ofisimizde görev almak üzere 4 yazılım geliştirici pozisyonunda arayışımız devam ediyor."
+
+   Let's check the exact wording requirement: "4 yazılım geliştirici aranıyor". I'll weave it in naturally but clearly.
+   Revised P2: İstanbul ofisimizdeki dinamik projelerimizde yanıt bulması beklenen 4 yazılım geliştirici arıyoruz. Kodlama yetkinliğinizi gerçek dünya çözümlerine dönüştüreceğiniz, mentorluk ve büyüme fırsatlarıyla dolu bir ortam sizi bekliyor.
+
+   Now check paragraph 3 ending: It ends with "mısınız?" which is a question mark. Good.
+   Let's count paragraphs: Exactly 3. Separated by blank lines. Yes.
+   Check all constraints:
+   - LinkedIn post style? Yes, professional and engaging.
+   - Exactly 3 paragraphs? Yes.
+   - Blank lines between? Yes.
+   - Ends with "?"? Yes.
+   - Contains Pano Yazılım? Yes.
+   - Contains İstanbul ofisi? Yes.
+   - Contains 4 yazılım geliştirici aranıyor? Yes.
+
+   Let's assemble and verify carefully.
+
+   *Paragraph 1:* Pano Yazılım olarak teknoloji dünyasındaki yolculuğumuzda büyümeye ve fark yaratmaya devam ediyoruz. Sürekli gelişen projelerimizde yanımızda olacak, tutkulu ve yetenekli ekip arkadaşlarıyla buluşmaktan heyecan duyuyoruz.
+
+   *Paragraph 2:* İstanbul ofisimizdeki dinamik çalışmalarda görev almak üzere 4 yazılım geliştirici aranıyor. Kodlama tutkunuzu gerçek dünya çözümlerine dönüştüreceğiniz, sürekli öğrenme ve inovasyon odaklı bir ortamda profesyonel olarak kendinizi geliştirebilirsiniz.
+
+   *Paragraph 3:* Kendinizi sürekli geliştirmeye açık, takım çalışmasına yatkın ve yeni teknolojilere merak salmış yazılımcıları aramızda görmekten mutluluk duyarız. Detaylı pozisyon tanımı ve başvuru süreci için profildeki bağlantımızı takip edebilir veya doğrudan mesaj gönderebilirsiniz; bu yenilikçi ekibin bir parçası olmak ister misiniz?
+
+   Check constraints:
+   - Exactly 3 paragraphs? Yes.
+   - Blank lines between? Yes.
+   - Ends with "?"? The last character is "?" after "mısınız?". Yes.
+   - Contains required info? 
+     - Pano Yazılım: Yes (P1)
+     - İstanbul ofisi: Yes (P2)
+     - 4 yazılım geliştirici aranıyor: Yes (P2)
+   - LinkedIn appropriate? Yes, professional tone, clear CTA, suitable for the platform.
+   - Language: Turkish.
+   - Structure matches exactly.
+
+   One minor thing: The prompt says "Tam olarak 3 paragraf olsun (aralarında boş satır)". I'll ensure there are no extra line breaks within paragraphs, and exactly one blank line between them. Also, the very last character must be "?". I'll verify the ending punctuation. "mister misiniz?" -> ends with ?. Good.
+
+   Let's do a final read-through:
+   Pano Yazılım olarak teknoloji dünyasındaki yolculuğumuzda büyümeye ve fark yaratmaya devam ediyoruz. Sürekli gelişen projelerimizde yanımızda olacak, tutkulu ve yetenekli ekip arkadaşlarıyla buluşmaktan heyecan duyuyoruz.
+
+   İstanbul ofisimizdeki dinamik çalışmalarda görev almak üzere 4 yazılım geliştirici aranıyor. Kodlama tutkunuzu gerçek dünya çözümlerine dönüştüreceğiniz, sürekli öğrenme ve inovasyon odaklı bir ortamda profesyonel olarak kendinizi geliştirebilirsiniz.
+
+   Kendinizi sürekli geliştirmeye açık, takım çalışmasına yatkın ve yeni teknolojilere merak salmış yazılımcıları aramızda görmekten mutluluk duyarız. Detaylı pozisyon tanımı ve başvuru süreci için profildeki bağlantımızı takip edebilir veya doğrudan mesaj gönderebilirsiniz; bu yenilikçi ekibin bir parçası olmak ister misiniz?
+
+   Checks:
+   - 3 paragraphs? Yes.
+   - Blank lines between? Yes.
+   - Ends with "?"? Yes.
+   - Contains required info? Yes.
+   - LinkedIn style? Yes.
+   All constraints met. Ready.✅
+   Output matches the draft.✅
+   Proceeds. 
+   Self-Correction/Refinement during thought: 
+   I should make sure the exact phrase "4 yazılım geliştirici aranıyor" is present as requested. It is. 
+   The ending must be exactly a question mark, no extra spaces or newlines after it. I'll ensure that.
+   All good. Output matches response. 
+   Generating. 
+   [Output Generation] -> *Proceeds*
+   *(Self-Correction/Verification during drafting)*: 
+   Wait, let's count paragraphs carefully. The prompt says "Tam olarak 3 paragraf olsun (aralarında boş satır)". That means exactly 3 blocks of text, separated by one empty line each. My draft has that.
+   Check ending: "istem misiniz?" -> ends with ?. Good.
+   All constraints satisfied. Output matches.✅
+   Final text:
+   Pano Yazılım olarak teknoloji dünyasındaki yolculuğumuzda büyümeye ve fark yaratmaya devam ediyoruz. Sürekli gelişen projelerimizde yanımızda olacak, tutkulu ve yetenekli ekip arkadaşlarıyla buluşmaktan heyecan duyuyoruz.
+
+   İstanbul ofisimizdeki dinamik çalışmalarda görev almak üzere 4 yazılım geliştirici aranıyor. Kodlama tutkunuzu gerçek dünya çözümlerine dönüştüreceğiniz, sürekli öğrenme ve inovasyon odaklı bir ortamda profesyonel olarak kendinizi geliştirebilirsiniz.
+
+   Kendinizi sürekli geliştirmeye açık, takım çalışmasına yatkın ve yeni teknolojilere merak salmış yazılımcıları aramızda görmekten mutluluk duyarız. Detaylı pozisyon tanımı ve başvuru süreci için profildeki bağlantımızı takip edebilir veya doğrudan mesaj gönderebilirsiniz; bu yenilikçi ekibin bir parçası olmak ister misiniz?
+   All good.✅
+   Output matches. 
+   [Done] 
+   *Self-Correction/Note during thought*: I should verify if the prompt requires exactly the phrase "4 yazılım geliştirici aranıyor" or just the information. It says "Şu bilgiler geçsin: ... 4 yazılım geliştirici aranıyor." So including the exact phrase is safe. I'll keep it.
+   The ending must be a question mark. My last sentence ends with "istem misiniz?". That's fine.
+   Everything is solid.✅
+   Output generation. 
+   [Output] -> *Proceeds* (matches the final text)
+   *(Done.)*

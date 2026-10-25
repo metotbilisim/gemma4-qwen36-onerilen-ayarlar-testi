@@ -1,0 +1,122 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Client/Brand:** Ege Dijital (making the proposal)
+   - **Restaurant Name:** Lezzet Durağı
+   - **Structure:** Exactly 3 sections
+   - **Section Headers:** Each on a separate line, exactly as "Bölüm 1", "Bölüm 2", "Bölüm 3"
+   - **Word Count:** Total text must be between 120 and 160 words (strict)
+   - **Required Information:** Restaurant name (Lezzet Durağı), duration (6 hafta), total cost (48.000 TL)
+   - **Language:** Turkish
+
+2.  **Deconstruct Constraints:**
+   - Must be exactly 3 sections
+   - Headers: 
+     Bölüm 1
+     Bölüm 2
+     Bölüm 3
+   - Word count: 120-160 words (including headers? Usually yes, but I'll count carefully. I'll aim for ~130-140 total to be safe.)
+   - Must include: Lezzet Durağı, 6 hafta, 48.000 TL
+   - Context: Web design proposal from Ege Dijital
+
+3.  **Draft - Section by Section (Mental Refinement in Turkish):**
+   *Bölüm 1*
+   Ege Dijital, Lezzet Durağı’nın dijital kimliğini güçlendirmek amacıyla profesyonel web sitesi yapım teklifini sunar. Modern tasarım anlayışımız ve kullanıcı odaklı arayüz çözümlerimizle markanızı rakiplerinizden ayırıyoruz. Mobil uyumlu yapı, hızlı yükleme süreleri ve arama motoru optimizasyonu ile dijital varlığınızı zirveye taşıyoruz.
+
+   *Bölüm 2*
+   Proje süreci titizlikle planlanmış olup toplamda 6 hafta içinde tamamlanacaktır. İlk haftada ihtiyaç analizi ve tasarım taslağı oluşturulur, ardından içerik yönetimi ve fonksiyonel entegrasyon aşamaları yapılır. Test ve revizyon süreçleri de dahil olmak üzere tüm adımlar şeffaf şekilde ilerletilir. Kalite standartlarımızdan ödün vermeden işinizi zamanında teslim ediyoruz.
+
+   *Bölüm 3*
+   Kapsamlı paketimiz tüm tasarım, geliştirme, hosting kurulumu ve temel SEO ayarlarını kapsamaktadır. Toplam bedel olarak 48.000 TL tutarında teklif sunuyoruz. Ödeme planı anlaşma kapsamında esnek şekilde düzenlenebilir. Lezzet Durağı’nın dijital yolculuğunda güvenilir çözüm ortağınız olmaktan memnuniyet duyacağız. Görüşmek üzere, iyi çalışmalar dileriz.
+
+4.  **Word Count Check (Turkish):**
+   Let's count words carefully. I'll count each word separated by spaces/punctuation.
+
+   Bölüm 1
+   Ege Dijital, Lezzet Durağı’nın dijital kimliğini güçlendirmek amacıyla profesyonel web sitesi yapım teklifini sunar. Modern tasarım anlayışımız ve kullanıcı odaklı arayüz çözümlerimizle markanızı rakiplerinizden ayırıyoruz. Mobil uyumlu yapı, hızlı yükleme süreleri ve arama motoru optimizasyonu ile dijital varlığınızı zirveye taşıyoruz. 
+   *Count:* 
+   Bölüm(1) 1(2) Ege(3) Dijital,(4) Lezzet(5) Durağı’nın(6) dijital(7) kimliğini(8) güçlendirmek(9) amacıyla(10) profesyonel(11) web(12) sitesi(13) yapım(14) teklifini(15) sunar.(16) Modern(17) tasarım(18) anlayışımız(19) ve(20) kullanıcı(21) odaklı(22) arayüz(23) çözümlerimizle(24) markanızı(25) rakiplerinizden(26) ayırıyoruz.(27) Mobil(28) uyumlu(29) yapı,(30) hızlı(31) yükleme(32) süreleri(33) ve(34) arama(35) motoru(36) optimizasyonu(37) ile(38) dijital(39) varlığınızı(40) zirveye(41) taşıyoruz.(42) -> 42 words.
+
+   Bölüm 2
+   Proje süreci titizlikle planlanmış olup toplamda 6 hafta içinde tamamlanacaktır. İlk haftada ihtiyaç analizi ve tasarım taslağı oluşturulur, ardından içerik yönetimi ve fonksiyonel entegrasyon aşamaları yapılır. Test ve revizyon süreçleri de dahil olmak üzere tüm adımlar şeffaf şekilde ilerletilir. Kalite standartlarımızdan ödün vermeden işinizi zamanında teslim ediyoruz.
+   *Count:*
+   Proje(43) süreci(44) titizlikle(45) planlanmış(46) olup(47) toplamda(48) 6(49) hafta(50) içinde(51) tamamlanacaktır.(52) İlk(53) haftada(54) ihtiyaç(55) analizi(56) ve(57) tasarım(58) taslağı(59) oluşturulur,(60) ardından(61) içerik(62) yönetimi(63) ve(64) fonksiyonel(65) entegrasyon(66) aşamaları(67) yapılır.(68) Test(69) ve(70) revizyon(71) süreçleri(72) de(73) dahil(74) olmak(75) üzere(76) tüm(77) adımlar(78) şeffaf(79) şekilde(80) ilerletilir.(81) Kalite(82) standartlarımızdan(83) ödün(84) vermeden(85) işinizi(86) zamanında(87) teslim(88) ediyoruz.(89) -> 47 words (including headers? I'll count headers separately later. Let's just count the body text for now.)
+   Actually, let's count precisely including everything.
+
+   Let's do a strict word count:
+   Bölüm 1 Ege Dijital, Lezzet Durağı’nın dijital kimliğini güçlendirmek amacıyla profesyonel web sitesi yapım teklifini sunar. Modern tasarım anlayışımız ve kullanıcı odaklı arayüz çözümlerimizle markanızı rakiplerinizden ayırıyoruz. Mobil uyumlu yapı, hızlı yükleme süreleri ve arama motoru optimizasyonu ile dijital varlığınızı zirveye taşıyoruz. (41)
+   Bölüm 2 Proje süreci titizlikle planlanmış olup toplamda 6 hafta içinde tamamlanacaktır. İlk haftada ihtiyaç analizi ve tasarım taslağı oluşturulur, ardından içerik yönetimi ve fonksiyonel entegrasyon aşamaları yapılır. Test ve revizyon süreçleri de dahil olmak üzere tüm adımlar şeffaf şekilde ilerletilir. Kalite standartlarımızdan ödün vermeden işinizi zamanında teslim ediyoruz. (46)
+   Bölüm 3 Kapsamlı paketimiz tüm tasarım, geliştirme, hosting kurulumu ve temel SEO ayarlarını kapsamaktadır. Toplam bedel olarak 48.000 TL tutarında teklif sunuyoruz. Ödeme planı anlaşma kapsamında esnek şekilde düzenlenebilir. Lezzet Durağı’nın dijital yolculuğunda güvenilir çözüm ortağınız olmaktan memnuniyet duyacağız. Görüşmek üzere, iyi çalışmalar dileriz. (42)
+   Total words: 41+46+42 = 129. This is within 120-160. Perfect.
+
+   Wait, let's verify the exact word count rules in Turkish. Hyphenated words like "Lezzet Durağı’nın" count as 2 or 1? Usually spaces/punctuation split words. I'll count manually:
+   Bölüm(1) 1(2) Ege(3) Dijital,(4) Lezzet(5) Durağı’nın(6) dijital(7) kimliğini(8) güçlendirmek(9) amacıyla(10) profesyonel(11) web(12) sitesi(13) yapım(14) teklifini(15) sunar.(16) Modern(17) tasarım(18) anlayışımız(19) ve(20) kullanıcı(21) odaklı(22) arayüz(23) çözümlerimizle(24) markanızı(25) rakiplerinizden(26) ayırıyoruz.(27) Mobil(28) uyumlu(29) yapı,(30) hızlı(31) yükleme(32) süreleri(33) ve(34) arama(35) motoru(36) optimizasyonu(37) ile(38) dijital(39) varlığınızı(40) zirveye(41) taşıyoruz.(42)
+   Bölüm(43) 2(44) Proje(45) süreci(46) titizlikle(47) planlanmış(48) olup(49) toplamda(50) 6(51) hafta(52) içinde(53) tamamlanacaktır.(54) İlk(55) haftada(56) ihtiyaç(57) analizi(58) ve(59) tasarım(60) taslağı(61) oluşturulur,(62) ardından(63) içerik(64) yönetimi(65) ve(66) fonksiyonel(67) entegrasyon(68) aşamaları(69) yapılır.(70) Test(71) ve(72) revizyon(73) süreçleri(74) de(75) dahil(76) olmak(77) üzere(78) tüm(79) adımlar(80) şeffaf(81) şekilde(82) ilerletilir.(83) Kalite(84) standartlarımızdan(85) ödün(86) vermeden(87) işinizi(88) zamanında(89) teslim(90) ediyoruz.(91)
+   Bölüm(92) 3(93) Kapsamlı(94) paketimiz(95) tüm(96) tasarım,(97) geliştirme,(98) hosting(99) kurulumu(100) ve(101) temel(102) SEO(103) ayarlarını(104) kapsamaktadır.(105) Toplam(106) bedel(107) olarak(108) 48.000(109) TL(110) tutarında(111) teklif(112) sunuyoruz.(113) Ödeme(114) planı(115) anlaşma(116) kapsamında(117) esnek(118) şekilde(119) düzenlenebilir.(120) Lezzet(121) Durağı’nın(122) dijital(123) yolculuğunda(124) güvenilir(125) çözüm(126) ortağınız(127) olmaktan(128) memnuniyet(129) duyacağız.(130) Görüşmek(131) üzere,(132) iyi(133) çalışmalar(134) dileriz.(135)
+
+   Total: 135 words. This fits perfectly in the 120-160 range.
+   Check constraints:
+   - "Ege Dijital adına" -> Included implicitly as sender, but I should explicitly mention it's from Ege Dijital. The prompt says "Ege Dijital adına, Lezzet Durağı restoranı için web sitesi yapım teklifi yaz." So the proposal is written on behalf of Ege Dijital for Lezzet Durağı. I'll adjust slightly to make it clear it's a proposal from Ege Dijital.
+   - "Metin tam olarak 3 bölümden oluşsun" -> Yes.
+   - "her bölüm başlığı ayrı bir satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın." -> I need to make sure the headers are exactly on separate lines, with just the section name.
+   - "Tüm metin 120 ile 160 kelime arasında olsun." -> ~135 is good.
+   - "Şu bilgiler teklifte geçsin: restoran adı Lezzet Durağı, süre 6 hafta, toplam bedel 48.000 TL." -> All included.
+
+   Let's refine the text to ensure exact header formatting and word count control. I will place headers exactly as requested on their own lines. I'll count words carefully again after formatting.
+
+   Text:
+   Bölüm 1
+   Ege Dijital, Lezzet Durağı’nın dijital kimliğini güçlendirmek amacıyla profesyonel web sitesi yapım teklifini sunar. Modern tasarım anlayışımız ve kullanıcı odaklı arayüz çözümlerimizle markanızı rakiplerinizden ayırıyoruz. Mobil uyumlu yapı, hızlı yükleme süreleri ve arama motoru optimizasyonu ile dijital varlığınızı zirveye taşıyoruz.
+
+   Bölüm 2
+   Proje süreci titizlikle planlanmış olup toplamda 6 hafta içinde tamamlanacaktır. İlk haftada ihtiyaç analizi ve tasarım taslağı oluşturulur, ardından içerik yönetimi ve fonksiyonel entegrasyon aşamaları yapılır. Test ve revizyon süreçleri de dahil olmak üzere tüm adımlar şeffaf şekilde ilerletilir. Kalite standartlarımızdan ödün vermeden işinizi zamanında teslim ediyoruz.
+
+   Bölüm 3
+   Kapsamlı paketimiz tüm tasarım, geliştirme, hosting kurulumu ve temel SEO ayarlarını kapsamaktadır. Toplam bedel olarak 48.000 TL tutarında teklif sunuyoruz. Ödeme planı anlaşma kapsamında esnek şekilde düzenlenebilir. Lezzet Durağı’nın dijital yolculuğunda güvenilir çözüm ortağınız olmaktan memnuniyet duyacağız. Görüşmek üzere, iyi çalışmalar dileriz.
+
+   Word count check:
+   Headers: 6 words (Bölüm, 1, Bölüm, 2, Bölüm, 3)
+   Body: ~129 words. Total ~135. Perfect.
+   Checks:
+   - Ege Dijital adına? The text says "Ege Dijital, ... teklifini sunar." This implies it's on behalf of Ege Dijital. To be safe with "Ege Dijital adına", I could start with "Ege Dijital adına..." but that might add words. I'll adjust the first sentence slightly to explicitly include "adına" if needed, but it's not strictly required to have the exact phrase "Ege Dijital adına" as a header or fixed string, just context. The prompt says "Ege Dijital adına, ... teklifi yaz." So writing it from Ege Dijital's perspective is fine. I'll keep it as is.
+   - Headers: Exactly "Bölüm 1", etc. on separate lines.
+   - Word count: 120-160. I'll count precisely one more time.
+   Let's count manually again:
+   Bölüm(1) 1(2) Ege(3) Dijital,(4) Lezzet(5) Durağı’nın(6) dijital(7) kimliğini(8) güçlendirmek(9) amacıyla(10) profesyonel(11) web(12) sitesi(13) yapım(14) teklifini(15) sunar.(16) Modern(17) tasarım(18) anlayışımız(19) ve(20) kullanıcı(21) odaklı(22) arayüz(23) çözümlerimizle(24) markanızı(25) rakiplerinizden(26) ayırıyoruz.(27) Mobil(28) uyumlu(29) yapı,(30) hızlı(31) yükleme(32) süreleri(33) ve(34) arama(35) motoru(36) optimizasyonu(37) ile(38) dijital(39) varlığınızı(40) zirveye(41) taşıyoruz.(42)
+   Bölüm(43) 2(44) Proje(45) süreci(46) titizlikle(47) planlanmış(48) olup(49) toplamda(50) 6(51) hafta(52) içinde(53) tamamlanacaktır.(54) İlk(55) haftada(56) ihtiyaç(57) analizi(58) ve(59) tasarım(60) taslağı(61) oluşturulur,(62) ardından(63) içerik(64) yönetimi(65) ve(66) fonksiyonel(67) entegrasyon(68) aşamaları(69) yapılır.(70) Test(71) ve(72) revizyon(73) süreçleri(74) de(75) dahil(76) olmak(77) üzere(78) tüm(79) adımlar(80) şeffaf(81) şekilde(82) ilerletilir.(83) Kalite(84) standartlarımızdan(85) ödün(86) vermeden(87) işinizi(88) zamanında(89) teslim(90) ediyoruz.(91)
+   Bölüm(92) 3(93) Kapsamlı(94) paketimiz(95) tüm(96) tasarım,(97) geliştirme,(98) hosting(99) kurulumu(100) ve(101) temel(102) SEO(103) ayarlarını(104) kapsamaktadır.(105) Toplam(106) bedel(107) olarak(108) 48.000(109) TL(110) tutarında(111) teklif(112) sunuyoruz.(113) Ödeme(114) planı(115) anlaşma(116) kapsamında(117) esnek(118) şekilde(119) düzenlenebilir.(120) Lezzet(121) Durağı’nın(122) dijital(123) yolculuğunda(124) güvenilir(125) çözüm(126) ortağınız(127) olmaktan(128) memnuniyet(129) duyacağız.(130) Görüşmek(131) üzere,(132) iyi(133) çalışmalar(134) dileriz.(135)
+
+   Exactly 135 words. Fits perfectly in 120-160.
+   All constraints met.
+   Structure: exactly 3 sections. Headers on separate lines. Required info included. Word count correct. Language Turkish.
+   Ready. Output matches the refined text.✅
+   One minor thing: "Bölüm 1", "Bölüm 2", "Bölüm 3" should be exactly as requested. I'll make sure there's no extra formatting like bold if it interferes, but markdown bold is fine. The prompt says “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın. I will write them exactly as plain text on separate lines.
+   Final check of the prompt: "her bölüm başlığı ayrı bir satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın." -> I will output exactly that.
+   All good. Output matches response. 
+   Proceeds. 
+   Output generation. 
+   [Output Text]
+   Bölüm 1
+   Ege Dijital, Lezzet Durağı’nın dijital kimliğini güçlendirmek amacıyla profesyonel web sitesi yapım teklifini sunar. Modern tasarım anlayışımız ve kullanıcı odaklı arayüz çözümlerimizle markanızı rakiplerinizden ayırıyoruz. Mobil uyumlu yapı, hızlı yükleme süreleri ve arama motoru optimizasyonu ile dijital varlığınızı zirveye taşıyoruz.
+
+   Bölüm 2
+   Proje süreci titizlikle planlanmış olup toplamda 6 hafta içinde tamamlanacaktır. İlk haftada ihtiyaç analizi ve tasarım taslağı oluşturulur, ardından içerik yönetimi ve fonksiyonel entegrasyon aşamaları yapılır. Test ve revizyon süreçleri de dahil olmak üzere tüm adımlar şeffaf şekilde ilerletilir. Kalite standartlarımızdan ödün vermeden işinizi zamanında teslim ediyoruz.
+
+   Bölüm 3
+   Kapsamlı paketimiz tüm tasarım, geliştirme, hosting kurulumu ve temel SEO ayarlarını kapsamaktadır. Toplam bedel olarak 48.000 TL tutarında teklif sunuyoruz. Ödeme planı anlaşma kapsamında esnek şekilde düzenlenebilir. Lezzet Durağı’nın dijital yolculuğunda güvenilir çözüm ortağınız olmaktan memnuniyet duyacağız. Görüşmek üzere, iyi çalışmalar dileriz.
+   [Word count verification again] -> 135. Perfect. All constraints satisfied.✅
+   Output matches exactly. 
+   Proceeds. 
+   [Final Check of the Prompt]
+   - "Ege Dijital adına, Lezzet Durağı restoranı için web sitesi yapım teklifi yaz." -> Covered.
+   - "Metin tam olarak 3 bölümden oluşsun;" -> Yes.
+   - "her bölüm başlığı ayrı bir satırda “Bölüm 1”, “Bölüm 2”, “Bölüm 3” biçiminde yazılsın." -> Yes.
+   - "Tüm metin 120 ile 160 kelime arasında olsun." -> 135. Yes.
+   - "Şu bilgiler teklifte geçsin: restoran adı Lezzet Durağı, süre 6 hafta, toplam bedel 48.000 TL." -> All present.
+   All good.✅
+   Output generation. 
+   [Done] 
+   *(Self-Correction/Refinement during thought)*: 
+   Wait, "Bölüm 1" etc. might count as 2 words each. That's fine. The total is still ~135. I'll keep it exactly as drafted. No extra text, no greetings/sign-offs to strictly control word count. The prompt says "Metin tam olarak 3 bölümden oluşsun", so I will output ONLY those 3 sections with headers. This ensures strict compliance.
+   Final text matches the draft. Proceeds. 
+   Output matches response.✅

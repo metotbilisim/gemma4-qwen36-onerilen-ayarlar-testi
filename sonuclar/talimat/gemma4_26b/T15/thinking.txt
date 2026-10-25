@@ -1,0 +1,286 @@
+
+*   Topic: Opening announcement for a new coffee shop named "Köşe Kahve".
+*   Platform: X (Twitter).
+*   Length Constraints: 18 to 25 words.
+*   Style Constraints: All lowercase (no capital letters).
+*   Required Information: "Köşe Kahve", "Moda’da açıldı" (opened in Moda), "9 Mayıs" (May 9th).
+
+    *   köşe kahve moda'da kapılarını açıyor. 9 mayıs tarihinde görüşmek üzere. taze kahve kokusuyla sizi bekliyoruz. hadi gelin. (18 words) - *Check word count: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18. Good.*
+
+    *   *Let's try a more engaging one.*
+    *   beklenen gün geldi! köşe kahve 9 mayıs tarihinde moda'da kapılarını açıyor. taze kahve kokusuna ortak olmak için hepinizi bekliyoruz. (19 words)
+    *   *Word count check:*
+        1. beklenen
+        2. gün
+        3. geldi!
+        4. köşe
+        5. kahve
+        6. 9
+        7. mayıs
+        8. tarihinde
+        9. moda'da
+        10. kapılarını
+        11. açıyor.
+        12. taze
+        13. kahve
+        14. kokusuna
+        15. ortak
+        16. olmak
+        17. için
+        18. hepinizi
+        19. bekliyoruz.
+    *   Total: 19 words.
+
+    *   *Refining for tone and flow:*
+    *   "köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve sıcak bir ortam için hepinizi bekliyoruz, mutlaka uğrayın."
+    *   *Word count check:*
+        1. köşe
+        2. kahve
+        3. 9
+        4. mayıs
+        5. tarihinde
+        6. moda'da
+        7. açılıyor!
+        8. taze
+        9. kahve
+        10. kokusu
+        11. ve
+        12. sıcak
+        13. bir
+        14. ortam
+        15. için
+        16. hepinizi
+        17. bekliyoruz,
+        18. mutlaka
+        19. uğrayın.
+    *   Total: 19 words.
+
+    *   *Let's try to hit the middle of the range (around 21-22 words).*
+    *   "köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu eşliğinde yeni mekanımızda buluşmak için sabırsızlanıyoruz, hepinizi bekleriz."
+    *   *Word count check:*
+        1. köşe
+        2. kahve
+        3. 9
+        4. mayıs
+        5. tarihinde
+        6. moda'da
+        7. açılıyor!
+        8. taze
+        9. kahve
+        10. kokusu
+        11. eşliğinde
+        12. yeni
+        13. mekanımızda
+        14. buluşmak
+        15. için
+        16. sabırsızlanıyoruz,
+        17. hepinizi
+        18. bekleriz.
+    *   Wait, let me recount carefully.
+    *   1:köşe 2:kahve 3:9 4:mayıs 5:tarihinde 6:moda'da 7:açılıyor! 8:taze 9:kahve 10:kokusu 11:eşliğinde 12:yeni 13:mekanımızda 14:buluşmak 15:için 16:sabırsızlanıyoruz, 17:hepinizi 18:bekleriz. -> 18 words. This fits the lower bound perfectly.
+
+    *   *Let's aim for ~21 words to be safe.*
+    *   "köşe kahve 9 mayıs tarihinde moda'da kapılarını açıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz."
+    *   *Word count check:*
+        1. köşe
+        2. kahve
+        3. 9
+        4. mayıs
+        5. tarihinde
+        6. moda'da
+        7. kapılarını
+        8. açıyor!
+        9. taze
+        10. kahve
+        11. kokusu
+        12. ve
+        13. keyifli
+        14. sohbetler
+        15. için
+        16. hepinizi
+        17. yeni
+        18. mekanımıza
+        19. bekliyoruz.
+    *   That's 19 words. Let me add a bit more.
+
+    *   "köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın."
+    *   *Count:*
+        1. köşe
+        2. kahve
+        3. 9
+        4. mayıs
+        5. tarihinde
+        6. moda'da
+        7. açılıyor!
+        8. taze
+        9. kahve
+        10. kokusu
+        11. ve
+        12. keyifli
+        13. sohbetler
+        14. için
+        15. hepinizi
+        16. yeni
+        17. mekanımıza
+        18. bekliyoruz,
+        19. mutlaka
+        20. uğrayın.
+    *   Total: 20 words. This is perfect. It's within 18-25.
+
+    *   *Constraint Check:*
+        *   Topic: Köşe Kahve opening in Moda on May 9. (Yes)
+        *   Length: 18-25 words. (20 words) (Yes)
+        *   Case: All lowercase. (Yes)
+        *   Platform style: X (Twitter) appropriate. (Yes)
+
+    "köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın."
+
+    Let's double-check lowercase requirement.
+    "köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın."
+    Everything is lowercase. Even names and months.
+
+    Wait, let's try one more to be certain about word count logic.
+    1. köşe
+    2. kahve
+    3. 9
+    4. mayıs
+    5. tarihinde
+    6. moda'da
+    7. açılıyor!
+    8. taze
+    9. kahve
+    10. kokusu
+    11. ve
+    12. keyifli
+    13. sohbetler
+    14. için
+    15. hepinizi
+    16. yeni
+    17. mekanımıza
+    18. bekliyoruz,
+    19. mutlaka
+    20. uğrayın.
+
+    Wait, if "9" is treated as a word, it's 20. If it's not, it's 19. Both are in range.
+
+    Let's check for any accidental capitals.
+    "köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın."
+    None.
+
+    One more check: Does "moda'da" count as one word or two? In standard word processing, it's one.
+
+    Final String:
+    köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın.
+
+    Wait, let's look at the prompt again. "tamamı küçük harflerle yazılsın". I used punctuation. Punctuation is fine, but I must ensure no capital letters follow the exclamation or period.
+
+    Text: köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın.
+
+    Wait, looking at the word "taze" - I should make sure I didn't capitalize it after the "!".
+    "açılıyor! taze" -> lowercase 't'. Correct.
+
+    Let's try one slightly longer to be safe in the middle.
+    "köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu eşliğinde keyifli anlar yaşamak için hepinizi yeni mekanımıza bekliyoruz."
+    1. köşe
+    2. kahve
+    3. 9
+    4. mayıs
+    5. tarihinde
+    6. moda'da
+    7. açılıyor!
+    8. taze
+    9. kahve
+    10. kokusu
+    11. eşliğinde
+    12. keyifli
+    13. anlar
+    14. yaşamak
+    15. için
+    16. hepinizi
+    17. yeni
+    18. mekanımıza
+    19. bekliyoruz.
+    (19 words).
+
+    Let's go with the 20-word version as it feels more like a tweet.
+
+    *Final Verification:*
+    - köşe kahve (included)
+    - moda'da açıldı (included via "moda'da açılıyor")
+    - 9 mayıs (included)
+    - 18-25 words (20 words)
+    - All lowercase (yes)
+
+    One tiny detail: The prompt says "açıldı" (opened/has opened), but usually, an announcement for a future date uses "açılıyor" (is opening). However, if the user wants "açıldı" specifically, it might imply the post is on the 9th. But "9 mayıs tarihinde moda'da açıldı" sounds weird if you are announcing it. I will use "açılıyor" or "kapılarını açıyor" to be natural, or "9 mayıs'ta açılıyor". Let's stick to "açılıyor".
+
+    Actually, I'll use "açılıyor" to make it grammatically natural for an announcement.
+
+    "köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın."
+
+    Let's recount one last time.
+    1. köşe
+    2. kahve
+    3. 9
+    4. mayıs
+    5. tarihinde
+    6. moda'da
+    7. açılıyor!
+    8. taze
+    9. kahve
+    10. kokusu
+    11. ve
+    12. keyifli
+    13. sohbetler
+    14. için
+    15. hepinizi
+    16. yeni
+    17. mekanımıza
+    18. bekliyoruz,
+    19. mutlaka
+    20. uğrayın.
+
+    Total: 20 words. Perfect.
+
+    Wait, I should check if the user wants the exact phrase "açıldı".
+    "Şu bilgiler geçsin: Köşe Kahve, Moda’da açıldı, açılış tarihi 9 Mayıs."
+    This usually means the *information* should be there, not necessarily the exact word "açıldı" if it breaks grammar. "Moda'da açılıyor" conveys the same info.
+
+    Let's try one that uses "açıldı" just in case they meant literal content.
+    "köşe kahve 9 mayıs tarihinde moda'da açıldı! taze kahve ve lezzetli atıştırmalıklar için hepinizi yeni mekanımıza bekliyoruz, mutlaka gelin."
+    1. köşe
+    2. kahve
+    3. 9
+    4. mayıs
+    5. tarihinde
+    6. moda'da
+    7. açıldı!
+    8. taze
+    9. kahve
+    10. ve
+    11. lezzetli
+    12. atıştırmalıklar
+    13. için
+    14. hepinizi
+    15. yeni
+    16. mekanımıza
+    17. bekliyoruz,
+    18. mutlaka
+    19. gelin.
+    (19 words).
+
+    Actually, "9 mayıs tarihinde moda'da açıldı" is grammatically weird (it says it was opened on May 9th, which implies May 9th has passed or is happening). If I am writing the post *for* the opening, "açılıyor" is better. I'll go with "açılıyor".
+
+    Final Choice:
+    köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın.
+
+    Let's re-verify word count once more.
+    köşe(1) kahve(2) 9(3) mayıs(4) tarihinde(5) moda'da(6) açılıyor!(7) taze(8) kahve(9) kokusu(10) ve(11) keyifli(12) sohbetler(13) için(14) hepinizi(15) yeni(16) mekanımıza(17) bekliyoruz,(18) mutlaka(19) uğrayın.(20)
+
+    Count is 20. Constraints met.
+
+    One last check on "all lowercase".
+    köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın.
+    All lowercase. Correct.
+
+    Result:
+    köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın.

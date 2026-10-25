@@ -1,0 +1,116 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Product:** Home coffee grinder (Ev tipi bir kahve değirmeni)
+   - **Length:** Exactly 2 paragraphs (paragraflar arasında boş satır bırak - leave an empty line between them)
+   - **Keyword Requirement:** The word “sessiz” (and its inflected forms like sessizliği, sessizlerden, etc.) must appear at least 3 times in the text.
+   - **Required Information:** 
+     - Model: KD-38
+     - Burr size: 38 mm çelik öğütücü (38 mm steel burr/grinder)
+     - Warranty: 2 yıl garanti (2-year warranty)
+   - **Language:** Turkish
+
+2.  **Deconstruct Requirements:**
+   - Exactly 2 paragraphs
+   - Empty line between paragraphs
+   - “sessiz” (or inflected forms) ≥ 3 times
+   - Include: KD-38, 38 mm çelik öğütücü, 2 yıl garanti
+   - Product description tone
+
+3.  **Brainstorming & Structuring:**
+   - *Paragraph 1:* Introduce the product, highlight key features (model, burr, quiet operation), set the scene for home use.
+   - *Paragraph 2:* Focus on benefits, warranty, quality assurance, and call to action/closing.
+   - Need to strategically place “sessiz” at least 3 times across both paragraphs.
+   - Ensure exact phrasing matches requirements.
+
+   Let's draft mentally in Turkish:
+
+   *Para 1:* KD-38 modeli ev tipi kahve değirmeni, sabahların rutinine huzur katmak üzere tasarlandı. İçinde yer alan 38 mm çelik öğütücü, her tane çekirdeği eşit ve lezzetli bir şekilde öğütürken makinenin sessiz yapısı mükemmel bir uyum sağlıyor. İster erk saatlerde ister geç saatlerde kullanın, komşularınızı rahatsız etmeyen bu sessiz çalışma özelliği ile kahve hazırlamak artık bir keyfe dönüşüyor.
+
+   *Check para 1:* Contains "sessiz" twice ("sessiz yapısı", "sessiz çalışma"). Need one more in para 2. Also contains KD-38, 38 mm çelik öğütücü. Good.
+
+   *Para 2:* Dayanıklı yapısı ve kullanıcı dostu tasarımıyla öne çıkan bu cihaz, her çekirdekte benzersiz aroma profiline ulaşmanızı kolaylaştırır. Ürünün tüm teknik detaylarında olduğu gibi sessizlik konusundaki başarısı da mühendisler tarafından titizlikle test edilmiştir. Satın alımlarınızı 2 yıl garanti kapsamı altına alan bu değerli yatırım, uzun yıllar boyunca evinize huzur ve kahvenize tutku katacak.
+
+   *Check para 2:* Contains "sessizlik" (inflected form of sessiz). That's the 3rd time. Contains "2 yıl garanti". Meets all requirements.
+
+   Let's count paragraphs: Exactly 2. Empty line between them? Yes.
+   Check keyword: “sessiz” or inflected forms ≥ 3 times.
+   Para 1: "sessiz yapısı", "sessiz çalışma" (2)
+   Para 2: "sessizlik konusundaki" (1)
+   Total: 3. Perfect.
+   Check required info: KD-38, 38 mm çelik öğütücü, 2 yıl garanti. All present.
+   Language: Turkish, product description tone.
+
+4.  **Refine & Verify:**
+   Let's read the full draft carefully to ensure everything matches exactly.
+
+   *Draft:*
+   KD-38 modeli ev tipi kahve değirmeni, sabahların rutinine huzur katmak üzere tasarlandı. İçinde yer alan 38 mm çelik öğütücü, her tane çekirdeği eşit ve lezzetli bir şekilde öğütürken makinenin sessiz yapısı mükemmel bir uyum sağlıyor. İster erk saatlerde ister geç saatlerde kullanın, komşularınızı rahatsız etmeyen bu sessiz çalışma özelliği ile kahve hazırlamak artık bir keyfe dönüşüyor.
+
+   Dayanıklı yapısı ve kullanıcı dostu tasarımıyla öne çıkan bu cihaz, her çekirdekte benzersiz aroma profiline ulaşmanızı kolaylaştırır. Ürünün tüm teknik detaylarında olduğu gibi sessizlik konusundaki başarısı da mühendisler tarafından titizlikle test edilmiştir. Satın alımlarınızı 2 yıl garanti kapsamı altına alan bu değerli yatırım, uzun yıllar boyunca evinize huzur ve kahvenize tutku katacak.
+
+   *Check requirements:*
+   - Ev tipi kahve değirmeni ürün açıklaması? Yes.
+   - Tam olarak 2 paragraf? Yes.
+   - Paragraflar arasında boş satır? Yes.
+   - “sessiz” (ek almış hâlleri dâhil) en az 3 kez? "sessiz" appears in "sessiz yapısı", "sessiz çalışma", "sessizlik". That's 3 times. All are inflected or base form. Meets requirement.
+   - Model KD-38? Yes.
+   - 38 mm çelik öğütücü? Yes.
+   - 2 yıl garanti? Yes.
+   - Language/Tone: Professional, descriptive, Turkish.
+
+   One minor adjustment: Ensure "sessiz" exact form or inflected forms are clearly used. The prompt says “sessiz” sözcüğü (ek almış hâlleri dâhil). So "sessiz", "sessizlik", "sessizce", etc. are all fine. I have "sessiz" twice and "sessizlik" once. That's exactly 3. Perfect.
+
+   Let's verify paragraph count strictly: Only two blocks of text separated by one empty line. No extra line breaks. I'll format it correctly.
+
+   Final check of the text against constraints:
+   - Exactly 2 paragraphs? Yes.
+   - Empty line between? Yes.
+   - “sessiz” (inflected forms included) ≥3 times? Yes: sessiz, sessiz, sessizlik.
+   - KD-38? Yes.
+   - 38 mm çelik öğütücü? Yes.
+   - 2 yıl garanti? Yes.
+   - Product description style? Yes.
+
+   All constraints met. Ready to output. I'll produce the exact text. 
+   One thing: I should make sure "sessiz" appears exactly as requested, and the count is clear. The prompt says "en az 3 kez", so 3 is fine. I'll keep it as is.
+   Text looks solid. Output matches response.✅
+   Proceed. 
+   Output generation. 
+   *(Self-Correction/Verification during thought)*
+   Let's count the occurrences explicitly in the draft:
+   1. "...makinenin **sessiz** yapısı..."
+   2. "...bu **sessiz** çalışma özelliği..."
+   3. "...**sessizlik** konusundaki başarısı..."
+   All are forms of "sessiz". Count = 3. Requirement: ≥3. Met.
+   Paragraphs: Exactly 2. Separated by one empty line. Met.
+   Info: KD-38, 38 mm çelik öğütücü, 2 yıl garanti. All present exactly or with minimal necessary grammar (e.g., "KD-38 modeli", which is fine as it's standard). The prompt says "Şu bilgiler geçsin: model KD-38, 38 mm çelik öğütücü, 2 yıl garanti." I'll keep them exactly as phrases if possible.
+   "KD-38 modeli" -> contains KD-38
+   "38 mm çelik öğütücü" -> exact
+   "2 yıl garanti" -> exact
+   All good.
+   Output matches the refined draft.✅
+   Proceeds. 
+   [Output Generation] -> *See response.* 
+   *(Note: I will ensure formatting strictly matches the requirement: exactly two paragraphs, one blank line between, no extra text.)* 
+   Final check of the prompt: "Metin tam olarak 2 paragraf olsun (paragraflar arasında boş satır bırak)." -> I will output only the product description, nothing else.
+   All set. 
+   Output matches response. 
+   [Done.] 
+   *Self-Correction/Refinement during generation prep:* 
+   Wait, let me count "sessiz" strictly. The prompt says “sessiz” sözcüğü (ek almış hâlleri dâhil) metinde en az 3 kez geçsin. 
+   In my draft: 
+   - sessiz (1)
+   - sessiz (2)
+   - sessizlik (3)
+   All good. 
+   I will produce exactly the text now. 
+   [Output Generation] -> *Proceeds.* 
+   *(Final Text to Output)*
+   KD-38 modeli ev tipi kahve değirmeni, sabahların rutinine huzur katmak üzere tasarlandı. İçinde yer alan 38 mm çelik öğütücü, her tane çekirdeği eşit ve lezzetli bir şekilde öğütürken makinenin sessiz yapısı mükemmel bir uyum sağlıyor. İster erk saatlerde ister geç saatlerde kullanın, komşularınızı rahatsız etmeyen bu sessiz çalışma özelliği ile kahve hazırlamak artık bir keyfe dönüşüyor.
+
+   Dayanıklı yapısı ve kullanıcı dostu tasarımıyla öne çıkan bu cihaz, her çekirdekte benzersiz aroma profiline ulaşmanızı kolaylaştırır. Ürünün tüm teknik detaylarında olduğu gibi sessizlik konusundaki başarısı da mühendisler tarafından titizlikle test edilmiştir. Satın alımlarınızı 2 yıl garanti kapsamı altına alan bu değerli yatırım, uzun yıllar boyunca evinize huzur ve kahvenize tutku katacak.
+   *(Checks: 2 paragraphs? Yes. Blank line? Yes. "sessiz" forms ≥3? Yes (sessiz, sessiz, sessizlik). KD-38, 38 mm çelik öğütücü, 2 yıl garanti? Yes.)* All perfect.✅
+   Output matches. 
+   [Done.] 
+   *(Proceeds to output)*

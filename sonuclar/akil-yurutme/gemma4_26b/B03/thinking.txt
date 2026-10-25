@@ -1,0 +1,192 @@
+*   Total Sales (inc. VAT): 805,800.83 TL
+    *   Total Returns (inc. VAT): 27,000.00 TL
+    *   VAT Rate: 20%
+    *   Commission calculation base: Net Sales (Excluding VAT) = (Total Sales - Total Returns) excluding VAT.
+    *   Commission rates (tiered):
+        *   First 250,000 TL: 1%
+        *   Next 200,000 TL (250,001 - 450,000): 3%
+        *   Above 450,000 TL: 3.5%
+    *   Fixed Salary: 32,000.00 TL
+    *   Advance (Avans): 8,000.00 TL
+    *   Final Payment = Salary + Commission - Advance
+
+    *   Net Sales (inc. VAT) = 805,800.83 - 27,000.00 = 778,800.83 TL
+    *   To get Net Sales (excl. VAT), we use the formula: `Net Sales (excl. VAT) = Net Sales (inc. VAT) / (1 + VAT Rate)`
+    *   Net Sales (excl. VAT) = 778,800.83 / 1.20
+
+    *   778,800.83 / 1.20 = 649,000.691666... (keep precision as requested: "Ara adımlar yuvarlanmaz")
+
+    *   Base for calculation = 649,000.691666... TL
+    *   Tier 1 (0 - 250,000): 250,000 * 0.01 = 2,500.00 TL
+    *   Tier 2 (250,000 - 450,000): (450,000 - 250,000) * 0.03 = 200,000 * 0.03 = 6,000.00 TL
+    *   Tier 3 (Above 450,000): (649,000.691666... - 450,000) * 0.035
+        *   Remainder = 199,000.691666...
+        *   Tier 3 Commission = 199,000.691666... * 0.035 = 6,965.02420833... TL
+
+    *   Total Commission = 2,500.00 + 6,000.00 + 6,965.02420833...
+    *   Total Commission = 15,465.02420833... TL
+
+    *   Final Payment = Salary + Commission - Advance
+    *   Final Payment = 32,000.00 + 15,465.02420833... - 8,000.00
+    *   Final Payment = 24,000.00 + 15,465.02420833...
+    *   Final Payment = 39,465.02420833... TL
+
+    *   The instruction says: "yalnızca sonuç iki ondalığa yuvarlanır" (only the result is rounded to two decimals).
+    *   39,465.0242... rounds to 39,465.02.
+
+    *   Total Sales (VAT inc): 805,800.83
+    *   Total Returns (VAT inc): 27,000.00
+    *   Net Sales (VAT inc): 805,800.83 - 27,000 = 778,800.83
+    *   Net Sales (VAT excl): 778,800.83 / 1.2 = 649,000.691666...
+    *   Commission:
+        *   250k * 1% = 2,500
+        *   200k * 3% = 6,000
+        *   (649,000.691666... - 450,000) * 3.5% = 199,000.691666... * 0.035 = 6,965.02420833...
+    *   Total Commission: 2,500 + 6,000 + 6,965.02420833... = 15,465.02420833...
+    *   Salary + Commission - Advance: 32,000 + 15,465.02420833... - 8,000 = 39,465.02420833...
+    *   Rounded Result: 39,465.02 TL.
+
+    *   Wait, let me re-check the math for the last tier.
+    *   $199,000.691666... \times 0.035$
+    *   $199,000 \times 0.035 = 6,965$
+    *   $0.691666... \times 0.035 = 0.02420833...$
+    *   Total = $6,965.02420833...$ Correct.
+
+    *   Total Commission: $2,500 + 6,000 + 6,965.0242... = 15,465.0242...$ Correct.
+    *   Final: $32,000 - 8,000 + 15,465.0242... = 24,000 + 15,465.0242... = 39,465.0242...$ Correct.
+
+    *   "Ara adımlar yuvarlanmaz, yalnızca sonuç iki ondalığa yuvarlanır." (Intermediate steps are not rounded, only the result is rounded to two decimals).
+    *   "Temsilciye ay sonunda kaç TL ödenir?"
+
+    *   Net Sales (inc. VAT): 778,800.83
+    *   Net Sales (excl. VAT): 778,800.83 / 1.2 = 649,000.691666...
+    *   Commission Calculation:
+        *   250,000 * 0.01 = 2,500
+        *   200,000 * 0.03 = 6,000
+        *   (649,000.691666... - 450,000) * 0.035 = 199,000.691666... * 0.035 = 6,965.02420833...
+    *   Total Commission = 15,465.02420833...
+    *   Salary + Commission - Advance = 32,000 + 15,465.02420833... - 8,000 = 39,465.02420833...
+    *   Rounding to two decimals: 39,465.02 TL.
+
+    *Self-Correction/Double Check:*
+    Is there any ambiguity in "Net satış (satış - iade)"? The prompt says "KDV hariç net satış (satış - iade) üzerinden kademeli hesaplanır". This implies (Sales - Returns) excluding VAT.
+    Sales (inc. VAT) = 805,800.83
+    Returns (inc. VAT) = 27,000.00
+    Net Sales (inc. VAT) = 778,800.83
+    Net Sales (excl. VAT) = 778,800.83 / 1.2 = 649,000.691666...
+    Commission:
+    1% of 250,000 = 2,500
+    3% of 200,000 = 6,000
+    3.5% of (649,000.691666... - 450,000) = 6,965.0242...
+    Total Commission = 15,465.0242...
+    Total Payment = 32,000 + 15,465.0242... - 8,000 = 39,465.0242...
+    Rounding to two decimal places: 39,465.02
+
+    *Wait, let me re-read the VAT instruction:* "Satışların tamamı %20 KDV'lidir." This applies to both sales and returns.
+    Net Sales (inc. VAT) = 805,800.83 - 27,000.00 = 778,800.83.
+    Net Sales (excl. VAT) = 778,800.83 / 1.20 = 649,000.691666...
+
+    *Check tiers again:*
+    1. 0 - 250,000 (1%)
+    2. 250,000 - 450,000 (3%) -> This is the "next 200,000"
+    3. Above 450,000 (3.5%)
+    Calculation:
+    250,000 * 0.01 = 2,500
+    200,000 * 0.03 = 6,000
+    (649,000.691666... - 450,000) = 199,000.691666...
+    199,000.691666... * 0.035 = 6,965.02420833...
+    Sum: 2,500 + 6,000 + 6,965.0242... = 15,465.0242...
+
+    Final: 32,000 + 15,465.0242... - 8,000 = 39,465.0242...
+
+    *Is there anything else?*
+    "Ara adımlar yuvarlanmaz, yalnızca sonuç iki ondalığa yuvarlanır."
+    The steps I took:
+    1. Net inc. VAT calculation.
+    2. Net excl. VAT calculation.
+    3. Commission tier calculations.
+    4. Total commission.
+    5. Final sum.
+    None were rounded.
+
+    *Wait, let me re-check the subtraction for the third tier:*
+    649,000.691666666... - 450,000 = 199,000.691666666...
+    199,000.691666666... * 0.035 = 6,965.024208333...
+
+    *Summing up the commission:*
+    2,500 + 6,000 + 6,965.024208333... = 15,465.024208333...
+
+    *Adding salary and subtracting advance:*
+    32,000 + 15,465.024208333... - 8,000 = 39,465.024208333...
+
+    *Rounding to two decimals:* 39,465.02.
+
+    *Wait, I should double-check if 778,800.83 / 1.2 is exact or if there's a tiny difference.*
+    778,800.83 / 1.2 = 649,000.6916666666666666666666667
+    It's a repeating decimal.
+
+    *Double check the math one more time.*
+    805,800.83 - 27,000.00 = 778,800.83
+    778,800.83 / 1.20 = 649,000.6916666666666666666666667
+    250,000 * 0.01 = 2,500
+    (450,000 - 250,000) * 0.03 = 6,000
+    (649,000.6916666666666666666666667 - 450,000) * 0.035 = 199,000.6916666666666666666666667 * 0.035 = 6,965.0242083333333333333333333
+    Commission = 2,500 + 6,000 + 6,965.0242083333333333333333333 = 15,465.0242083333333333333333333
+    Final = 32,000 + 15,465.0242083333333333333333333 - 8,000 = 39,465.0242083333333333333333333
+    Rounding = 39,465.02.
+
+    *The phrasing:* "KDV hariç net satış (satış - iade) üzerinden kademeli hesaplanır".
+    Is it (Sales - Returns) then exclude VAT, OR is it (Sales excluding VAT - Returns excluding VAT)?
+    Mathematically, they are identical:
+    (S_inc - R_inc) / 1.2 = S_excl - R_excl
+    (S_inc - R_inc) / 1.2 = (S_inc/1.2) - (R_inc/1.2)
+    So that doesn't change anything.
+
+    *Let me check the calculation of 199,000.6916666666666666666666667 * 0.035 one more time:*
+    $199,000 \times 0.035 = 6,965$
+    $0.6916666666666666666666667 \times 0.035 = 0.0242083333333333333333333$
+    $6,965 + 0.0242083333333333333333333 = 6,965.0242083333333333333333333$
+    Yes, that is correct.
+
+    Final result check:
+    32,000 - 8,000 + 2,500 + 6,000 + 6,965.0242... = 39,465.0242...
+
+    *Format requirement:* `CEVAP: <değer>` where <değer> is the number with two decimals.
+    `CEVAP: 39.465,02 TL` (Wait, the instruction says "sayıda yalnızca sayıyı yaz (para için iki ondalık, ör. 1.234,56); birim yazacaksan sorudaki birimi kullan").
+    The prompt asks "kaç TL ödenir?".
+    So the unit is TL.
+    The example format is `1.234,56`.
+
+    Wait, I just noticed the wording "sayıda yalnızca sayıyı yaz (para için iki ondalık, ör. 1.234,56); birim yazacaksan sorudaki birimi kullan". This usually means if the question asks "how many TL", I should write "39.465,02 TL".
+
+    *Check Tiered Logic again:*
+    "ilk 250.000 TL için %1, sonraki 200.000 TL için %3, bunun üzerindeki kısım için %3,5"
+    - Tier 1: 0 to 250,000 (Limit 250,000)
+    - Tier 2: 250,001 to 450,000 (Limit 200,000)
+    - Tier 3: 450,001+
+    My calculation:
+    - 250,000 * 0.01 = 2,500
+    - 200,000 * 0.03 = 6,000
+    - (Total - 450,000) * 0.035
+    This matches the tiered logic correctly.
+
+    *Final math summary:*
+    Net Sales (incl. VAT) = 778,800.83
+    Net Sales (excl. VAT) = 649,000.6916666667
+    Commission Tier 1 = 2,500
+    Commission Tier 2 = 6,000
+    Commission Tier 3 = (649,000.6916666667 - 450,000) * 0.035 = 199,000.6916666667 * 0.035 = 6,965.0242083333
+    Total Commission = 15,465.0242083333
+    Total Payment = 32,000 + 15,465.0242083333 - 8,000 = 39,465.0242083333
+    Rounded = 39,465.02
+
+    *Final double check of the question details:*
+    - Total sales (inc. VAT): 805,800.83
+    - Total returns (inc. VAT): 27,000.00
+    - VAT: 20%
+    - Commission base: Net sales (excl. VAT)
+    - Salary: 32,000
+    - Advance: 8,000
+    - Payment formula: salary + commission - advance.
+
+    Everything looks solid.

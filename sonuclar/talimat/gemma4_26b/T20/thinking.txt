@@ -1,0 +1,161 @@
+
+*   Task: Write a 5-6 sentence summary for a quarterly report.
+*   Data Points:
+    1.  Online channel accounted for 54% of total sales.
+    2.  Store traffic decreased by 5%.
+    3.  Average basket value increased by 6%.
+*   Constraints:
+    *   Length: 5 to 6 sentences.
+    *   Keyword: The word "satış" (including its inflected forms like *satışları*, *satışın*, *satışımız*, etc.) must appear at least 3 times.
+    *   Data: All three percentage values (54%, 5%, 6%) must be included.
+    *   Language: Turkish.
+
+    *   Sentence 1: Introduction to the quarter.
+    *   Sentence 2: Online channel performance (54%).
+    *   Sentence 3: Store traffic performance (-5%).
+    *   Sentence 4: Average basket value performance (+6%).
+    *   Sentence 5: Synthesis/Conclusion (mentioning sales again).
+    *   Sentence 6: Looking forward (optional).
+
+    *   *Draft 1:*
+        Bu çeyrekte şirketimizin performans verileri netleşti. Çevrimiçi kanal, toplam **satış** hacminin yüzde 54’ünü gerçekleştirerek büyük bir pay aldı. Öte yandan, fiziksel mağaza trafiğinde yüzde 5 oranında bir düşüş gözlemlendi. Ancak, sepet başına düşen tutarın yüzde 6 yükselmesi olumlu bir gelişme oldu. Bu durum, **satış** stratejilerimizin verimliliğini kanıtlıyor. Gelecek dönemde de **satış** hedeflerimize odaklanacağız.
+
+    *   *Checking Constraints (Draft 1):*
+        *   Sentence count: 6 sentences. (Pass)
+        *   "satış" count:
+            1. "satış hacminin"
+            2. "satış stratejilerimizin"
+            3. "satış hedeflerimize"
+            Total: 3. (Pass)
+        *   Percentages: 54%, 5%, 6%. (Pass)
+        *   Summary quality: Good.
+
+    *   *Refining for Flow (Draft 2):*
+        Bu dönemdeki ticari faaliyetlerimize dair önemli veriler ortaya çıktı. Toplam **satış** miktarının yüzde 54’ünü çevrimiçi kanallar üzerinden elde ettik. Mağaza trafiğimizde yüzde 5’lik bir azalma yaşansa da operasyonel süreçlerimizi yönettik. Ortalama sepet tutarının yüzde 6 yükselmesi, müşteri başına düşen **satış** değerini artırdı. Bu veriler, genel **satış** performansımızın dengeli ilerlediğini gösteriyor. Şirketimiz büyüme ivmesini korumayı hedefliyor.
+
+    *   *Checking Constraints (Draft 2):*
+        *   Sentence count: 6 sentences. (Pass)
+        *   "satış" count:
+            1. "satış miktarının"
+            2. "satış değerini"
+            3. "satış performansımızın"
+            Total: 3. (Pass)
+        *   Percentages: 54%, 5%, 6%. (Pass)
+
+    *   Sentence 1: Bu çeyrekteki ticari performansımıza dair önemli veriler güncellendi.
+    *   Sentence 2: Çevrimiçi kanal, toplam **satış** hacminin yüzde 54’ünü oluşturarak ana itici güç oldu.
+    *   Sentence 3: Fiziksel mağaza trafiğinde yüzde 5 oranında bir düşüş kaydedildi.
+    *   Sentence 4: Buna karşın, ortalama sepet tutarının yüzde 6 yükselmesi olumlu bir sinyal verdi.
+    *   Sentence 5: Bu durum, birim başına yapılan **satış** miktarının arttığını gösteriyor.
+    *   Sentence 6: Toplam **satış** rakamlarımızı daha yukarı taşımak için çalışmalarımız sürecek.
+
+    *Let's re-check:*
+    1. "Bu çeyrekteki ticari performansımıza dair önemli veriler güncellendi." (1)
+    2. "Çevrimiçi kanal, toplam **satış** hacminin yüzde 54’ünü oluşturarak ana itici güç oldu." (2)
+    3. "Fiziksel mağaza trafiğinde yüzde 5 oranında bir düşüş kaydedildi." (3)
+    4. "Buna karşın, ortalama sepet tutarının yüzde 6 yükselmesi olumlu bir sinyal verdi." (4)
+    5. "Bu durum, birim başına yapılan **satış** miktarının arttığını gösteriyor." (5)
+    6. "Toplam **satış** rakamlarımızı daha yukarı taşımak için çalışmalarımız sürecek." (6)
+
+    "satış" count:
+    - satış (hacminin)
+    - satış (miktarının)
+    - satış (rakamlarımızı)
+    Total: 3.
+
+    Percentages:
+    - 54% (Check)
+    - 5% (Check)
+    - 6% (Check)
+
+    Count: 6 sentences. (Check)
+
+    *Wait, I'll make it 5 sentences to be safer and more concise as requested (5-6 range).*
+
+    *Draft 3 (5 sentences):*
+    Bu çeyrekteki ticari faaliyetlerimize dair veriler netleşti. Çevrimiçi kanallar, toplam **satış** hacminin yüzde 54’ünü karşılayarak dikkat çekti. Mağaza trafiği yüzde 5 düşerken, ortalama sepet tutarının yüzde 6 yükselmesi sevindirici bir gelişme oldu. Bu durum, birim başına düşen **satış** değerinin artışını kanıtlıyor. Genel **satış** stratejilerimizi bu veriler ışığında geliştirmeye devam edeceğiz.
+
+    *Counting Draft 3:*
+    1. Bu çeyrekteki ticari faaliyetlerimize dair veriler netleşti.
+    2. Çevrimiçi kanallar, toplam **satış** hacminin yüzde 54’ünü karşılayarak dikkat çekti.
+    3. Mağaza trafiği yüzde 5 düşerken, ortalama sepet tutarının yüzde 6 yükselmesi sevindirici bir gelişme oldu.
+    4. Bu durum, birim başına düşen **satış** değerinin artışını kanıtlıyor.
+    5. Genel **satış** stratejilerimizi bu veriler ışığında geliştirmeye devam edeceğiz.
+
+    Total sentences: 5.
+    "satış" count: 3.
+    Percentages: 54, 5, 6.
+
+    Everything looks perfect.
+
+    *Let's try one more to see if I can make it even more "report-like".*
+
+    1. Şirketimizin bu çeyrekteki performans verileri analiz edildi.
+    2. Çevrimiçi kanal, toplam **satış** tutarının yüzde 54’ünü üstlenerek büyük bir pay aldı.
+    3. Mağaza trafiğindeki yüzde 5’lik düşüşe rağmen, sepet tutarındaki yüzde 6’lık artış olumlu bir tablo çizdi.
+    4. Bu yükseliş, müşteri başına düşen **satış** potansiyelimizin arttığını gösteriyor.
+    5. Hedefimiz, toplam **satış** hacmimizi artırmak için bu trendleri kullanmaktır.
+
+    *Sentence Count:* 5 sentences.
+    *Keyword Count:* "satış" (3 times).
+    *Percentages:* 54%, 5%, 6%.
+
+    This is very clean. I will provide this version.
+
+    *Final Check of the selected version:*
+    1. Şirketimizin bu çeyrekteki performans verileri analiz edildi. (1)
+    2. Çevrimiçi kanal, toplam **satış** tutarının yüzde 54’ünü üstlenerek büyük bir pay aldı. (2)
+    3. Mağaza trafiğindeki yüzde 5’lik düşüşe rağmen, sepet tutarındaki yüzde 6’lık artış olumlu bir tablo çizdi. (3)
+    4. Bu yükseliş, müşteri başına düşen **satış** potansiyelimizin arttığını gösteriyor. (4)
+    5. Hedefimiz, toplam **satış** hacmimizi artırmak için bu trendleri kullanmaktır. (5)
+
+    Requirements met:
+    - 5-6 sentences? Yes (5).
+    - "satış" at least 3 times? Yes (satış, satış, satış).
+    - 3 percentages included? Yes (54, 5, 6).
+
+    *Self-Correction during final look:* In Turkish, "satış" is a noun. Using it in "satış tutarının", "satış potansiyelimizin", "satış hacmimizi" is grammatically correct and fulfills the "ek almış hâlleri dâhil" rule.
+
+    One more version (6 sentences) just in case the user prefers a slightly longer one:
+    1. Bu çeyrekteki ticari performans verilerimiz açıklandı.
+    2. Çevrimiçi kanal, toplam **satış** hacminin yüzde 54’ünü oluşturdu.
+    3. Fiziksel mağaza trafiği yüzde 5 oranında bir düşüş gösterdi.
+    4. Buna karşın, ortalama sepet tutarının yüzde 6 yükselmesi olumlu bir gelişmeydi.
+    5. Bu durum, kişi başına düşen **satış** değerinin arttığını kanıtlıyor.
+    6. Gelecek dönemde de **satış** odaklı büyüme stratejilerimize devam edeceğiz.
+
+    *Counting:*
+    1. Bu çeyrekteki ticari performans verilerimiz açıklandı.
+    2. Çevrimiçi kanal, toplam **satış** hacminin yüzde 54’ünü oluşturdu.
+    3. Fiziksel mağaza trafiği yüzde 5 oranında bir düşüş gösterdi.
+    4. Buna karşın, ortalama sepet tutarının yüzde 6 yükselmesi olumlu bir gelişmeydi.
+    5. Bu durum, kişi başına düşen **satış** değerinin arttığını kanıtlıyor.
+    6. Gelecek dönemde de **satış** odaklı büyüme stratejilerimize devam edeceğiz.
+
+    Sentence count: 6.
+    Satış count: 3.
+    Percentages: 54, 5, 6.
+
+    I will provide the 5-sentence version as it is more direct.
+
+    *Final selection:*
+    Şirketimizin bu çeyrekteki performans verileri analiz edildi. Çevrimiçi kanal, toplam **satış** tutarının yüzde 54’ünü üstlenerek büyük bir pay aldı. Mağaza trafiğindeki yüzde 5’lik düşüşe rağmen, sepet tutarındaki yüzde 6’lık artış olumlu bir tablo çizdi. Bu yükseliş, müşteri başına düşen **satış** potansiyelimizin arttığını gösteriyor. Hedefimiz, toplam **satış** hacmimizi artırmak için bu verileri kullanmaktır.
+
+    Wait, the prompt says "5 ile 6 cümlelik".
+    My selection:
+    1. Şirketimizin bu çeyrekteki performans verileri analiz edildi.
+    2. Çevrimiçi kanal, toplam satış tutarının yüzde 54’ünü üstlenerek büyük bir pay aldı.
+    3. Mağaza trafiğindeki yüzde 5’lik düşüşe rağmen, sepet tutarındaki yüzde 6’lık artış olumlu bir tablo çizdi.
+    4. Bu yükseliş, müşteri başına düşen satış potansiyelimizin arttığını gösteriyor.
+    5. Hedefimiz, toplam satış hacmimizi artırmak için bu verileri kullanmaktır.
+
+    Total: 5 sentences. Correct.
+
+    Let's do a final verification on the logic.
+    54% online sales -> included.
+    5% store traffic drop -> included.
+    6% basket value increase -> included.
+    "satış" count -> 3 (satış tutarının, satış potansiyelimizin, satış hacmimizi).
+    Sentence count -> 5.
+
+    Perfect.

@@ -1,0 +1,148 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Customer Message:** “Siparişim (SZ-7710) kırık geldi ve iade için kimse bana dönmedi.”
+   - **Brand Name:** Sultan Züccaciye
+   - **Constraints:**
+     - Do NOT use "özür" and "maalesef" in any form (including with suffixes like özürler, maalesefler, etc. - though those are rare, I'll strictly avoid the root and all derived forms).
+     - Word count: 70 to 90 Turkish words.
+     - Must include order number: SZ-7710
+     - Must include information that they will get back regarding the return within 3 working days.
+   - **Language:** Turkish
+
+2.  **Deconstruct Constraints & Requirements:**
+   - Brand: Sultan Züccaciye
+   - Order: SZ-7710
+   - Issue: Broken item, no response about return
+   - Promise: Return inquiry/response within 3 working days
+   - Forbidden words: özür, maalesef (and any inflected forms)
+   - Word count: 70-90 Turkish words
+   - Tone: Professional, apologetic (without using forbidden words), responsive, brand-aligned
+
+3.  **Draft - Mental Writing (Turkish):**
+   Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli. Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz. İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti. Size özel oluşturulan iade takip numaranızı ve yönergelerimizi en geç üç iş günü içinde e-posta adresinize göndereceğiz. Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor. Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlıyoruz.
+
+4.  **Word Count Check (Turkish):**
+   Let's count words carefully:
+   Değerli (1) müşterimiz, (2) Sultan (3) Züccaciye’den (4) SZ-7710 (5) numaralı (6) siparişiniz (7) için (8) ulaşmanız (9) çok (10) önemli. (11) Ürününüzün (12) kırık (13) olarak (14) ulaşmasından (15) duyduğumuz (16) üzüntüyü (17) iletmek (18) isteriz. (19) İade (20) sürecindeki (21) gecikme (22) konusunda (23) ilgili (24) ekibimiz (25) derhal (26) harekete (27) geçti. (28) Size (29) özel (30) oluşturulan (31) iade (32) takip (33) numaranızı (34) ve (35) yönergelerimizi (36) en (37) geç (38) üç (39) iş (40) günü (41) içinde (42) e-posta (43) adresinize (44) göndereceğiz. (45) Geri (46) bildirimleriniz (47) hizmet (48 standartlarımızı (49 sürekli (50 iyileştirmemize (51 kaynak (52 oluyor. (53 Güveninizi (54 yenilemeye (55 adanmış (56 olan (57 Sultan (58 Züccaciye (59 ailesi (60 olarak, (61 sürecin (62 sizin (63 için (64 kolay (65 ve (66 sorunsuz (67 ilerlemesini (68 sağlıyoruz. (69)
+   Wait, that's 69 words. I need 70-90. Let's adjust slightly to reach at least 70.
+
+   Let's recount carefully with standard Turkish word segmentation:
+   Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli. (12)
+   Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz. (8) -> Total: 20
+   İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti. (9) -> Total: 29
+   Size özel oluşturulan iade takip numaranızı ve yönergelerimizi en geç üç iş günü içinde e-posta adresinize göndereceğiz. (17) -> Total: 46
+   Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor. (8) -> Total: 54
+   Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlıyoruz. (17) -> Total: 71
+
+   Actually, let's count manually word by word:
+   1. Değerli 2. müşterimiz, 3. Sultan 4. Züccaciye’den 5. SZ-7710 6. numaralı 7. siparişiniz 8. için 9. ulaşmanız 10. çok 11. önemli. 12. Ürününüzün 13. kırık 14. olarak 15. ulaşmasından 16. duyduğumuz 17. üzüntüyü 18. iletmek 19. isteriz. 20. İade 21. sürecindeki 22. gecikme 23. konusunda 24. ilgili 25. ekibimiz 26. derhal 27. harekete 28. geçti. 29. Size 30. özel 31. oluşturulan 32. iade 33. takip 34. numaranızı 35. ve 36. yönergelerimizi 37. en 38. geç 39. üç 40. iş 41. günü 42. içinde 43. e-posta 44. adresinize 45. göndereceğiz. 46. Geri 47. bildirimleriniz 48. hizmet 49. standartlarımızı 50. sürekli 51. iyileştirmemize 52. kaynak 53. oluyor. 54. Güveninizi 55. yenilemeye 56. adanmış 57. olan 58. Sultan 59. Züccaciye 60. ailesi 61. olarak, 62. sürecin 63. sizin 64. için 65. kolay 66. ve 67. sorunsuz 68. ilerlemesini 69. sağlıyoruz.
+   Total: 69 words. Need 70-90. I'll add one word or slightly expand without changing meaning.
+
+   Let's change "sağlıyoruz." to "sağlamayı taahhüt ediyoruz." (+2 words) -> becomes 71.
+   Let's recount: ...68. ilerlemesini 69. sağlamayı 70. taahhüt 71. ediyoruz. (71 total)
+   Actually, let's count the whole thing properly:
+   Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli. Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz. İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti. Size özel oluşturulan iade takip numaranızı ve yönergelerimizi en geç üç iş günü içinde e-posta adresinize göndereceğiz. Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor. Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlamayı taahhüt ediyoruz.
+   Count: 
+   Değerli(1) müşterimiz,(2) Sultan(3) Züccaciye’den(4) SZ-7710(5) numaralı(6) siparişiniz(7) için(8) ulaşmanız(9) çok(10) önemli.(11) Ürününüzün(12) kırık(13) olarak(14) ulaşmasından(15) duyduğumuz(16) üzüntüyü(17) iletmek(18) isteriz.(19) İade(20) sürecindeki(21) gecikme(22) konusunda(23) ilgili(24) ekibimiz(25) derhal(26) harekete(27) geçti.(28) Size(29) özel(30) oluşturulan(31) iade(32) takip(33) numaranızı(34) ve(35) yönergelerimizi(36) en(37) geç(38) üç(39) iş(40) günü(41) içinde(42) e-posta(43) adresinize(44) göndereceğiz.(45) Geri(46) bildirimleriniz(47) hizmet(48) standartlarımızı(49 sürekli(50 iyileştirmemize(51 kaynak(52 oluyor.(53 Güveninizi(54 yenilemeye(55 adanmış(56 olan(57 Sultan(58 Züccaciye(59 ailesi(60 olarak,(61) sürecin(62 sizin(63 için(64) kolay(65 ve(66) sorunsuz(67) ilerlemesini(68) sağlamayı(69) taahhüt(70) ediyoruz.(71)
+   Total: 71 words. Perfect. (Within 70-90)
+
+5.  **Check Constraints:**
+   - Brand: Sultan Züccaciye? Yes, mentioned twice.
+   - Forbidden words: "özür" and "maalesef" (and inflected forms)? Checked. Not present. Used "üzüntü" instead.
+   - Word count: 70-90? Yes, exactly 71.
+   - Must include order number SZ-7710? Yes.
+   - Must include return response within 3 working days? Yes ("en geç üç iş günü içinde").
+   - Language: Turkish? Yes.
+   - Tone: Professional, addresses complaint directly.
+
+   Let's double-check the exact wording for the return promise: "Size özel oluşturulan iade takip numaranızı ve yönergelerimizi en geç üç iş günü içinde e-posta adresinize göndereceğiz." This clearly states that info regarding the return will be sent within 3 working days. The prompt says "iade için 3 iş günü içinde dönüleceği bilgisi geçsin" (info that they will get back regarding the return within 3 business days). My wording covers this well.
+
+   Let's count words one more time carefully to be absolutely sure. Punctuation attached to words doesn't change word count. Hyphenated like e-posta counts as 1. SZ-7710 counts as 1.
+   Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli. (11)
+   Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz. (8) -> 19
+   İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti. (9) -> 28
+   Size özel oluşturulan iade takip numaranızı ve yönergelerimizi en geç üç iş günü içinde e-posta adresinize göndereceğiz. (17) -> 45
+   Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor. (8) -> 53
+   Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlamayı taahhüt ediyoruz. (17) -> 70
+   Wait, let's count exactly:
+   1-11: Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli.
+   12-19: Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz.
+   20-28: İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti.
+   29-45: Size özel oluşturulan iade takip numaranızı ve yönergelerimizi en geç üç iş günü içinde e-posta adresinize göndereceğiz.
+   46-53: Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor.
+   54-70: Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlamayı taahhüt ediyoruz.
+   Total: exactly 70 words. Perfect.
+
+   Check forbidden words again: "özür", "maalesef" - none used. Not even in suffix forms like özrümü, maalesefler, etc.
+   Check brand: Sultan Züccaciye - present.
+   Check order: SZ-7710 - present.
+   Check return timeframe: 3 iş günü içinde dönüleceği bilgisi - covered ("en geç üç iş günü içinde ... göndereceğiz"). I'll adjust slightly to explicitly say "dönülecek" or similar to strictly match "dönüleceği bilgisi geçsin". The prompt says "iade için 3 iş günü içinde dönüleceği bilgisi geçsin". Let's change "göndereceğiz" to something that includes "dönülecek" or rephrase to exactly match the requirement while keeping word count.
+
+   Let's adjust sentence 4: "İade talebinize dair detaylı bilgilendirme ve yönergelerimizi en geç üç iş günü içinde tarafınıza ulaştıracağız." (16 words) - replaces "göndereceğiz" (1 word) with "tarafımıza ulaştıracağız." (2 words). Word count becomes 71.
+   Actually, let's keep it simple: "İade sürecinizle ilgili geri dönüşümüzü en geç üç iş günü içinde tamamlayacağız." 
+   Let's count new total:
+   Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli. (11)
+   Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz. (8) -> 19
+   İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti. (9) -> 28
+   İade talebinize dair geri dönüşümüzü en geç üç iş günü içinde tamamlayacağız. (12) -> 40
+   Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor. (8) -> 48
+   Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlıyoruz. (16) -> 64
+   Need 70-90. I'll add 6 words somewhere without breaking flow.
+   Let's expand slightly: "Sipariş sürecindeki eksikliğimizi fark ediyor, gerekli düzenlemeleri en kısa sürede hayata geçiriyoruz." 
+   New count: 64 + 12 = 76. Good.
+   Let's recount the whole thing carefully:
+   Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli. Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz. İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti. İade talebinize dair geri dönüşümüzü en geç üç iş günü içinde tamamlayacağız. Sipariş sürecindeki eksikliğimizi fark ediyor, gerekli düzenlemeleri en kısa sürede hayata geçiriyoruz. Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor. Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlıyoruz.
+
+   Word count check:
+   1-11: Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli.
+   12-19: Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz.
+   20-28: İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti.
+   29-40: İade talebinize dair geri dönüşümüzü en geç üç iş günü içinde tamamlayacağız.
+   41-52: Sipariş sürecindeki eksikliğimizi fark ediyor, gerekli düzenlemeleri en kısa sürede hayata geçiriyoruz.
+   53-60: Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor.
+   61-76: Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlıyoruz.
+   Total: exactly 76 words. Within 70-90.
+   Forbidden words: None.
+   Brand: Sultan Züccaciye (x2)
+   Order: SZ-7710
+   Return timeframe: 3 iş günü içinde geri dönüş/dönüş bilgisi - matches requirement.
+   All constraints met.
+
+   One minor check: "üzüntüyü" contains "üzüntü", not "özür". So it's fine.
+   The prompt says “özür” ve “maalesef” sözcüklerini (ek almış hâlleri dâhil) kullanma. I used "züntü" in üzüntüyü. That's fine.
+   Word count is strict: 70-90. 76 is perfect.
+   I will output exactly this text. No extra greetings/sign-offs that could push it out of range, or I'll keep it as a single paragraph. The prompt says "Cevap 70 ile 90 kelime arasında olsun." I'll ensure the entire response is within that limit.
+
+   Final check of the text:
+   Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli. Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz. İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti. İade talebinize dair geri dönüşümüzü en geç üç iş günü içinde tamamlayacağız. Sipariş sürecindeki eksikliğimizi fark ediyor, gerekli düzenlemeleri en kısa sürede hayata geçiriyoruz. Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor. Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlıyoruz.
+
+   Word count: 76. Meets all criteria. Ready.✅
+   Output matches the final text.✅
+   Self-Correction/Refinement during thought: 
+   Let's count words one more time manually to be absolutely certain. Turkish word boundaries are clear.
+   Değerli(1) müşterimiz,(2) Sultan(3) Züccaciye’den(4) SZ-7710(5) numaralı(6) siparişiniz(7) için(8) ulaşmanız(9) çok(10) önemli.(11) Ürününüzün(12) kırık(13) olarak(14) ulaşmasından(15) duyduğumuz(16) üzüntüyü(17) iletmek(18) isteriz.(19) İade(20) sürecindeki(21) gecikme(22) konusunda(23) ilgili(24) ekibimiz(25) derhal(26) harekete(27) geçti.(28) İade(29) talebinize(30) dair(31) geri(32) dönüşümüzü(33) en(34) geç(35) üç(36) iş(37) günü(38) içinde(39) tamamlayacağız.(40) Sipariş(41) sürecindeki(42) eksikliğimizi(43) fark(44) ediyor,(45) gerekli(46) düzenlemeleri(47) en(48) kısa(49) sürede(50) hayata(51) geçiriyoruz.(52) Geri(53) bildirimleriniz(54) hizmet(55) standartlarımızı(56 sürekli(57 iyileştirmemize(58 kaynak(59 oluyor.(60) Güveninizi(61 yenilemeye(62 adanmış(63 olan(64 Sultan(65 Züccaciye(66 ailesi(67 olarak,(68) sürecin(69 sizin(70 için(71 kolay(72 ve(73 sorunsuz(74 ilerlemesini(75 sağlıyoruz.(76)
+   Exactly 76. All constraints satisfied. Output matches.✅
+   Proceeds. 
+   Output generation. 
+   [Done] 
+   *Self-Correction/Verification during generation prep*: 
+   Wait, the prompt says "iade için 3 iş günü içinde dönüleceği bilgisi geçsin". My text says "İade talebinize dair geri dönüşümüzü en geç üç iş günü içinde tamamlayacağız." This is semantically identical and covers the requirement. I'll adjust slightly to explicitly use "dönüş" or keep as is. It's fine.
+   Also, check if "özür/maalesef" constraint is strictly met: Yes.
+   Word count: 76. Within 70-90. Yes.
+   Brand: Sultan Züccaciye. Yes.
+   Order: SZ-7710. Yes.
+   All good. Output matches exactly. 
+   Generating response. 
+   [Output Text]
+   Değerli müşterimiz, Sultan Züccaciye’den SZ-7710 numaralı siparişiniz için ulaşmanız çok önemli. Ürününüzün kırık olarak ulaşmasından duyduğumuz üzüntüyü iletmek isteriz. İade sürecindeki gecikme konusunda ilgili ekibimiz derhal harekete geçti. İade talebinize dair geri dönüşümüzü en geç üç iş günü içinde tamamlayacağız. Sipariş sürecindeki eksikliğimizi fark ediyor, gerekli düzenlemeleri en kısa sürede hayata geçiriyoruz. Geri bildirimleriniz hizmet standartlarımızı sürekli iyileştirmemize kaynak oluyor. Güveninizi yenilemeye adanmış olan Sultan Züccaciye ailesi olarak, sürecin sizin için kolay ve sorunsuz ilerlemesini sağlıyoruz. 
+   Word count: 76. Matches perfectly.✅
+   Final check of the prompt: "Cevap 70 ile 90 kelime arasında olsun." - Checked.
+   “özür” ve “maalesef” sözcüklerini (ek almış hâlleri dâhil) kullanma. - Checked.
+   sipariş numarası SZ-7710 ve iade için 3 iş günü içinde dönüleceği bilgisi geçsin. - Checked.
+   All good.✅
+   Output matches response. 
+   [Proceeds] -> *Output Generation* (matches the final text)
+   *(Note: I'll make sure formatting is plain text as requested, no extra fluff)*
+   Done. 
+   [Output Generation] -> *Proceeds* ✅

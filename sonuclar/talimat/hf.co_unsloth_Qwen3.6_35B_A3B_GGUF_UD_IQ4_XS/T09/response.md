@@ -1,0 +1,1 @@
+Mutlu Gıda ailesi olarak bayram tatilinde çalışma düzenimizde yapılan değişiklikleri sizinle paylaşmaktan mutluluk duyuyoruz. Tatil sürecimiz 28 Mayıs'ta başlayacak olup, tüm çalışanlarımız bu günden itibaren resmi izinli sayılacaktır. İşbaşımız ise 2 Haziran'da gerçekleştirilecek ve normal mesai saatlerimiz o gün yeniden başlayacaktır. İyi bayramlar dileriz.

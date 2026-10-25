@@ -1,0 +1,1 @@
+"Defne Atölyesi’nin doğal ürün yelpazesinde yer alan bu özel sabun, cildinize nefes aldırıyor. İçeriği yüzde 100 bitkisel olarak hazırlanmış ve yumuşak bir yapı sunuyor. 120 gram paketiyle günlük bakım rutininize harika bir tamamlayıcıdır. Doğanın gücünü keşfedin."

@@ -1,0 +1,67 @@
+
+*   Target Audience: Mutlu Gıda employees (Mutlu Gıda çalışanları).
+*   Subject: Bayram holiday announcement (bayram tatili duyurusu).
+*   Constraint 1 (Length): 4 to 5 sentences.
+*   Constraint 2 (Closing): Must end with "İyi bayramlar dileriz."
+*   Constraint 3 (Information 1): Holiday starts on May 28 (tatil 28 Mayıs’ta başlıyor).
+*   Constraint 4 (Information 2): Work resumes on June 2 (2 Haziran’da işbaşı yapılacak).
+
+    Değerli Mutlu Gıda çalışanları, yaklaşan bayram nedeniyle tatil dönemine giriyoruz. Tatilimiz 28 Mayıs tarihinde başlayacaktır. Bayram sonrası 2 Haziran günü işbaşı yapılacaktır. Hepinize sevdiklerinizle birlikte huzurlu bir tatil diliyoruz. İyi bayramlar dileriz.
+
+    *   *Sentence 1:* Değerli Mutlu Gıda çalışanları, yaklaşan bayram vesilesiyle tatil programımız belli olmuştur. (1)
+    *   *Sentence 2:* Bayram tatilimiz 28 Mayıs tarihinde başlayacaktır. (2)
+    *   *Sentence 3:* Tatil sonrası 2 Haziran tarihinde işbaşı yapılacaktır. (3)
+    *   *Sentence 4:* Tüm çalışanlarımıza sevdikleriyle birlikte keyifli bir tatil süreci dileriz. (4)
+    *   *Sentence 5:* İyi bayramlar dileriz. (5)
+
+    *Check constraints:*
+    *   Audience: Mutlu Gıda employees mentioned/implied.
+    *   Length: 5 sentences. (Pass)
+    *   Closing: "İyi bayramlar dileriz." (Pass)
+    *   Start date: 28 May. (Pass)
+    *   Return date: 2 June. (Pass)
+
+    Değerli Mutlu Gıda çalışanları, yaklaşan bayram sebebiyle tatil programımız netleşmiştir. Bayram tatilimiz 28 Mayıs tarihinde başlayacaktır. Tatil sonrası 2 Haziran tarihinde yeniden işbaşı yapılacaktır. Tüm çalışma arkadaşlarımıza sevdikleriyle beraber huzurlu bir tatil dileriz. İyi bayramlar dileriz.
+
+    *Sentence count check:*
+    1. Değerli Mutlu Gıda çalışanları, yaklaşan bayram sebebiyle tatil programımız netleşmiştir.
+    2. Bayram tatilimiz 28 Mayıs tarihinde başlayacaktır.
+    3. Tatil sonrası 2 Haziran tarihinde yeniden işbaşı yapılacaktır.
+    4. Tüm çalışma arkadaşlarımıza sevdikleriyle beraber huzurlu bir tatil dileriz.
+    5. İyi bayramlar dileriz.
+
+    Wait, the prompt says "4 ile 5 cümle arasında olsun". 5 is fine.
+
+    Let's try a 4-sentence version just in case.
+    1. Değerli Mutlu Gıda çalışanları, yaklaşan bayram vesilesiyle tatil dönemine giriyoruz.
+    2. Tatilimiz 28 Mayıs tarihinde başlayacak olup, 2 Haziran tarihinde işbaşı yapılacaktır.
+    3. Hepinize sevdiklerinizle birlikte mutlu ve huzurlu bir tatil dönemi dileriz.
+    4. İyi bayramlar dileriz.
+
+    *Sentence count check:* 4 sentences.
+    *Information check:* 28 May start, 2 June return.
+    *Closing check:* "İyi bayramlar dileriz."
+
+    Both versions are good. I will provide a polished 4-5 sentence version.
+
+    *Final selection:*
+    "Değerli Mutlu Gıda çalışanları, yaklaşan bayram vesilesiyle tatil programımız netleşmiştir. Bayram tatilimiz 28 Mayıs tarihinde başlayacaktır. Tatil bitiminde 2 Haziran tarihinde işbaşı yapılacaktır. Tüm çalışanlarımıza sevdikleriyle birlikte keyifli bir tatil dileriz. İyi bayramlar dileriz."
+
+    *Count:*
+    1. Değerli Mutlu Gıda çalışanları, yaklaşan bayram vesilesiyle tatil programımız netleşmiştir.
+    2. Bayram tatilimiz 28 Mayıs tarihinde başlayacaktır.
+    3. Tatil bitiminde 2 Haziran tarihinde işbaşı yapılacaktır.
+    4. Tüm çalışanlarımıza sevdikleriyle birlikte keyifli bir tatil dileriz.
+    5. İyi bayramlar dileriz.
+
+    This is 5 sentences. Perfect.
+
+    "Değerli Mutlu Gıda çalışanları, yaklaşan bayram vesilesiyle tatil programımız belli olmuştur. Bayram tatilimiz 28 Mayıs tarihinde başlayacaktır. Tatil sonrası 2 Haziran tarihinde işbaşı yapılacaktır. Tüm çalışanlarımıza sevdikleriyle birlikte huzurlu bir tatil dileriz. İyi bayramlar dileriz."
+
+    1. Değerli Mutlu Gıda çalışanları... (1)
+    2. Bayram tatilimiz 28 Mayıs... (2)
+    3. Tatil sonrası 2 Haziran... (3)
+    4. Tüm çalışanlarımıza... (4)
+    5. İyi bayramlar dileriz. (5)
+
+    Total: 5 sentences. Requirements met.

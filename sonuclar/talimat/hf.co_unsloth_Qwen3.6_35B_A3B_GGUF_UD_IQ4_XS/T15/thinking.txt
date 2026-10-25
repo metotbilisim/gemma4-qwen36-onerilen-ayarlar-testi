@@ -1,0 +1,142 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Brand/Place:** Köşe Kahve (Köşe Coffee)
+   - **Platform:** X (Twitter)
+   - **Content:** Short opening post
+   - **Length Constraint:** 18 to 25 words exactly (or within that range)
+   - **Formatting Constraint:** ALL lowercase letters only (no capital letters at all)
+   - **Required Information:** 
+     - Name: Köşe Kahve
+     - Location: Moda'da açıldı (opened in Moda)
+     - Opening Date: 9 Mayıs
+   - **Language:** Turkish
+
+2.  **Deconstruct Constraints:**
+   - Word count: 18-25 words
+   - Case: strictly lowercase (türkçe karakterler izinli ama büyük harf yok)
+   - Content must include: köşe kahve, moda, açıldı/açılacak/9 Mayıs, etc.
+   - Platform: X/Twitter format (doesn't change the core requirement, just context)
+
+3.  **Draft - Mental Generation (Turkish):**
+   köşe kahve bugün moda’da kapılarını açıyor. 9 mayıs’ta sizlerle buluşuyoruz. özel lezzetler, samimi bir atmosfer ve harika kahveler sizi bekliyor. hemen gelin, yeni günlerin tadını çıkaralım!
+
+   Let's count words:
+   köşe (1) kahve (2) bugün (3) moda’da (4) kapılarını (5) açıyor. (6) 9 (7) mayıs’ta (8) sizlerle (9) buluşuyoruz. (10) özel (11) lezzetler, (12) samimi (13) bir (14) atmosfer (15) ve (16) harika (17) kahveler (18) sizi (19) bekliyor. (20) hemen (21) gelin, (22) yeni (23) günlerin (24) tadını (25) çıkaralım! (26) -> 26 words. Too long.
+
+   Need to trim to 18-25. Also, check case: all lowercase? Yes, but I used "köşe" which is fine, but need to ensure NO capital letters anywhere. Turkish punctuation like ’ or , is fine. Numbers are fine.
+
+   Let's count carefully and adjust:
+   köşe kahve 9 mayıs’ta moda’da kapılarını açıyor. samimi atmosferimizde kaliteli kahveler ve özel lezzetler sizi bekliyor. ilk daveti sizden, hemen gelin ve yeni bir başlangıcın parçası olun!
+
+   Word count:
+   köşe (1) kahve (2) 9 (3) mayıs’ta (4) moda’da (5) kapılarını (6) açıyor. (7) samimi (8) atmosferimizde (9) kaliteli (10) kahveler (11) ve (12) özel (13) lezzetler (14) sizi (15) bekliyor. (16) ilk (17) daveti (18) sizden, (19) hemen (20) gelin (21) ve (22) yeni (23) bir (24) başlangıcın (25) parçası (26) olun! (27) -> 27. Still too long.
+
+   Let's be strict. I need exactly 18-25 words.
+   I'll count Turkish words carefully. Punctuation attached to words doesn't change word count usually, but I'll keep it simple.
+
+   Draft 3:
+   köşe kahve 9 mayıs’da moda’da açıldı. samimi bir havada özel kahveler ve lezzetli atıştırmalıklar sizi bekliyor. hemen gelin ve yeni günlerin tadını çıkaralım!
+
+   Count:
+   köşe (1) kahve (2) 9 (3) mayıs’da (4) moda’da (5) açıldı. (6) samimi (7) bir (8) havada (9) özel (10) kahveler (11) ve (12) lezzetli (13) atıştırmalıklar (14) sizi (15) bekliyor. (16) hemen (17) gelin (18) ve (19) yeni (20) günlerin (21) tadını (22) çıkaralım! (23) -> 23 words. Good.
+   Check constraints: 
+   - 18-25 words? Yes (23)
+   - All lowercase? Let's check: "köşe kahve 9 mayıs’da moda’da açıldı. samimi bir havada özel kahveler ve lezzetli atıştırmalıklar sizi bekliyor. hemen gelin ve yeni günlerin tadını çıkaralım!" -> All lowercase. Yes.
+   - Contains: Köşe Kahve, Moda'da açıldı, 9 Mayıs? Yes (köşe kahve, moda’da açıldı, 9 mayıs)
+   - Platform: X/Twitter appropriate? Yes, short and engaging.
+
+   Wait, let's verify exact word count rules. Usually, numbers like "9" count as a word. Punctuation attached doesn't split words. Let's count manually again:
+   1. köşe
+   2. kahve
+   3. 9
+   4. mayıs’da
+   5. moda’da
+   6. açıldı.
+   7. samimi
+   8. bir
+   9. havada
+   10. özel
+   11. kahveler
+   12. ve
+   13. lezzetli
+   14. atıştırmalıklar
+   15. sizi
+   16. bekliyor.
+   17. hemen
+   18. gelin
+   19. ve
+   20. yeni
+   21. günlerin
+   22. tadını
+   23. çıkaralım!
+   Total: 23. Fits 18-25.
+
+   Check case constraint strictly: "tamamı küçük harflerle yazılsın (büyük harf kullanma)". I must ensure absolutely zero uppercase letters, including at the start of sentences, proper nouns, etc. My draft has none. Good.
+
+   Check required info: 
+   - köşe kahve ✓
+   - moda’da açıldı ✓
+   - 9 mayıs ✓ (I used "mayıs’da" but requirement says "açılış tarihi 9 Mayıs". I'll adjust to exactly match or keep it natural but ensure the date is clear. The prompt says "Şu bilgiler geçsin: Köşe Kahve, Moda’da açıldı, açılış tarihi 9 Mayıs." I can write "9 mayıs açılışı" or similar to be safe.)
+
+   Let's adjust slightly to ensure the exact phrasing/concepts are clear while keeping word count in range and all lowercase:
+   köşe kahve 9 mayıs’ta moda’da açıldı. samimi atmosferimizde özel kahveler ve lezzetli ikramlar sizi bekliyor. hemen gelin, yeni bir başlangıcın tadını çıkaralım!
+
+   Count:
+   köşe (1) kahve (2) 9 (3) mayıs’ta (4) moda’da (5) açıldı. (6) samimi (7) atmosferimizde (8) özel (9) kahveler (10) ve (11) lezzetli (12) ikramlar (13) sizi (14) bekliyor. (15) hemen (16) gelin, (17) yeni (18) bir (19) başlangıcın (20) tadını (21) çıkaralım! (22) -> 22 words.
+
+   All lowercase? Yes.
+   Contains required info? köşe kahve, moda’da açıldı, 9 mayıs. Yes.
+   Length: 22 words (within 18-25).
+   Platform: X/Twitter style. Yes.
+
+   One minor thing: Turkish punctuation like ’ in mayıs’ta might be counted differently by some strict counters, but it's standard. I'll keep it. To be ultra-safe with word count, I could remove the apostrophe if needed, but it's fine. Actually, "mayıs'ta" is correct. I'll use "9 Mayıs açıldı" -> no, must be lowercase. "9 mayıs'ta moda'da açıldı." is fine.
+
+   Let's count again carefully:
+   köşe (1) kahve (2) 9 (3) mayıs'ta (4) moda'da (5) açıldı. (6) samimi (7) atmosferimizde (8) özel (9) kahveler (10) ve (11) lezzetli (12) ikramlar (13) sizi (14) bekliyor. (15) hemen (16) gelin, (17) yeni (18) bir (19) başlangıcın (20) tadını (21) çıkaralım! (22)
+   Exactly 22 words. Fits 18-25.
+   All lowercase: yes.
+   Required info: köşe kahve, moda'da açıldı, 9 mayıs. Yes.
+   Ready.
+
+   Final check of the prompt: "Yeni açılan Köşe Kahve’nin X (Twitter) hesabı için kısa bir açılış paylaşımı yaz. Paylaşım 18 ile 25 kelime arasında olsun ve tamamı küçük harflerle yazılsın (büyük harf kullanma). Şu bilgiler geçsin: Köşe Kahve, Moda’da açıldı, açılış tarihi 9 Mayıs."
+
+   I will output exactly the draft. No extra text to avoid violating constraints indirectly, though the prompt doesn't forbid it, it's safer to just give the post. Actually, I'll just output the exact text requested.
+
+   Text: köşe kahve 9 mayıs'ta moda'da açıldı. samimi atmosferimizde özel kahveler ve lezzetli ikramlar sizi bekliyor. hemen gelin, yeni bir başlangıcın tadını çıkaralım!
+
+   Word count check: 
+   köşe (1) kahve (2) 9 (3) mayıs'ta (4) moda'da (5) açıldı. (6) samimi (7) atmosferimizde (8) özel (9) kahveler (10) ve (11) lezzetli (12) ikramlar (13) sizi (14) bekliyor. (15) hemen (16) gelin, (17) yeni (18) bir (19) başlangıcın (20) tadını (21) çıkaralım! (22)
+   22 words. Within 18-25.
+   All lowercase: confirmed.
+   Contains required info: confirmed.
+   Platform appropriate: confirmed.
+
+   One thing: "mayıs'ta" has an apostrophe. In Turkish, it's correct. Some word counters might split it or count as one. It's fine.
+   I'll produce exactly this string. No extra words. All constraints met.✅
+   Output matches the draft.✅
+   Proceed. 
+   Self-Correction/Refinement during thought: 
+   Wait, let's count words strictly by spaces/punctuation. 
+   "köşe kahve 9 mayıs'ta moda'da açıldı. samimi atmosferimizde özel kahveler ve lezzetli ikramlar sizi bekliyor. hemen gelin, yeni bir başlangıcın tadını çıkaralım!"
+   Words: köşe, kahve, 9, mayıs'ta, moda'da, açıldı., samimi, atmosferimizde, özel, kahveler, ve, lezzetli, ikramlar, sizi, bekliyor., hemen, gelin,, yeni, bir, başlangıcın, tadını, çıkaralım! -> 22.
+   All good.
+   Output matches exactly.✅
+   Final output generation. 
+   [Output]: köşe kahve 9 mayıs'ta moda'da açıldı. samimi atmosferimizde özel kahveler ve lezzetli ikramlar sizi bekliyor. hemen gelin, yeni bir başlangıcın tadını çıkaralım! 
+   (Note: I'll make sure absolutely no capital letters slip in, even accidentally. The draft is clean.) 
+   All constraints verified. Ready. 
+   Output matches response.✅
+   *(Self-Correction/Verification during process)*: 
+   Let's double check the exact wording requirement: "Köşe Kahve, Moda’da açıldı, açılış tarihi 9 Mayıs." I used lowercase as required. The prompt says "tamamı küçük harflerle yazılsın". So "köşe kahve", "moda'da", "9 mayıs" are correct. 
+   Word count: 22. Within 18-25. 
+   All good. 
+   Proceeds. 
+   Output matches the final string.✅
+   [Final Check of the Prompt]: "Paylaşım 18 ile 25 kelime arasında olsun" -> 22 is fine. "tamamı küçük harflerle yazılsın (büyük harf kullanma)" -> checked. "Şu bilgiler geçsin: Köşe Kahve, Moda’da açıldı, açılış tarihi 9 Mayıs." -> covered. 
+   All constraints met. Output matches.✅
+   *Output Generation* (matches the final string)
+   `köşe kahve 9 mayıs'ta moda'da açıldı. samimi atmosferimizde özel kahveler ve lezzetli ikramlar sizi bekliyor. hemen gelin, yeni bir başlangıcın tadını çıkaralım!` 
+   Word count: 22. Case: all lowercase. Info: included. Platform: suitable. Language: Turkish. 
+   Done. 
+   [Output Generation] -> *Proceeds*

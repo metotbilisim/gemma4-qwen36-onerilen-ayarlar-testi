@@ -1,0 +1,354 @@
+Here's a thinking process that leads to the desired solution:
+
+1.  **Understand the Goal:** The user wants to calculate the share of February revenue relative to the total two-month revenue (January + February) for each branch listed in the table. Then, identify which branch has the *highest* share. Finally, output the answer in a specific format.
+
+2.  **Analyze the Data:**
+    *   Table columns: Branch (Şube), January Revenue (Ocak cirosu), February Revenue (Şubat cirosu).
+    *   Rows: Mersin, Samsun, Ankara, Eskişehir, Adana, Konya, Bursa, Kadıköy.
+
+3.  **Define the Calculation:**
+    *   Formula: $\text{Share} = \frac{\text{February}}{\text{January} + \text{February}}$
+    *   Or simplified: $\frac{\text{Feb}}{\text{Total}}$ where Total is sum of both months.
+
+4.  **Perform Calculations for Each Branch:**
+
+    *   **Mersin:**
+        *   Jan: 467,000
+        *   Feb: 454,000
+        *   Total: $467,000 + 454,000 = 921,000$
+        *   Share: $454,000 / 921,000 \approx 0.493$ (49.3%)
+
+    *   **Samsun:**
+        *   Jan: 638,000
+        *   Feb: 505,000
+        *   Total: $638,000 + 505,000 = 1,143,000$
+        *   Share: $505,000 / 1,143,000 \approx 0.441$ (44.1%)
+
+    *   **Ankara:**
+        *   Jan: 269,000
+        *   Feb: 371,000
+        *   Total: $269,000 + 371,000 = 640,000$
+        *   Share: $371,000 / 640,000 \approx 0.579$ (57.9%)
+
+    *   **Eskişehir:**
+        *   Jan: 654,000
+        *   Feb: 455,000
+        *   Total: $654,000 + 455,000 = 1,109,000$
+        *   Share: $455,000 / 1,109,000 \approx 0.410$ (41.0%)
+
+    *   **Adana:**
+        *   Jan: 538,000
+        *   Feb: 169,000
+        *   Total: $538,000 + 169,000 = 707,000$
+        *   Share: $169,000 / 707,000 \approx 0.239$ (23.9%)
+
+    *   **Konya:**
+        *   Jan: 533,000
+        *   Feb: 549,000
+        *   Total: $533,000 + 549,000 = 1,082,000$
+        *   Share: $549,000 / 1,082,000 \approx 0.507$ (50.7%)
+
+    *   **Bursa:**
+        *   Jan: 538,000
+        *   Feb: 308,000
+        *   Total: $538,000 + 308,000 = 846,000$
+        *   Share: $308,000 / 846,000 \approx 0.364$ (36.4%)
+
+    *   **Kadıköy:**
+        *   Jan: 644,000
+        *   Feb: 305,000
+        *   Total: $644,000 + 305,000 = 949,000$
+        *   Share: $305,000 / 949,000 \approx 0.321$ (32.1%)
+
+5.  **Compare the Results:**
+    *   Mersin: ~0.493
+    *   Samsun: ~0.441
+    *   **Ankara: ~0.579**
+    *   Eskişehir: ~0.410
+    *   Adana: ~0.239
+    *   Konya: ~0.507
+    *   Bursa: ~0.364
+    *   Kadıköy: ~0.321
+
+    *Observation:* To maximize $\frac{Feb}{Jan+Feb}$, you want February to be much larger than January (growth) or January to be very small compared to February.
+    *   Ankara went from 269k to 371k (significant increase).
+    *   Konya went from 533k to 549k (slight increase, almost half-half split).
+    *   Adana crashed, low share.
+    *   Kadıköy and Bursa dropped significantly, low share.
+
+    The highest share is clearly Ankara.
+
+6.  **Verify the calculation for Ankara:**
+    $371 / (269 + 371) = 371 / 640$.
+    $371 / 640 \approx 0.57968...$ (57.97%)
+
+    Check Konya again just to be sure (since it also increased):
+    $549 / (533 + 549) = 549 / 1082 \approx 0.507...$ (50.7%)
+
+    Ankara is higher.
+
+7.  **Format the Output:**
+    *   The question asks for the branch name ("Şube hangisidir?").
+    *   Constraint: "Cevabın son satırı tam olarak `CEVAP: <değer>` biçiminde olsun."
+    *   Constraint: "Sayıda yalnızca sayıyı yaz... birim yazacaksan sorudaki birimi kullan. Tarihte GG.AA.YYYY, isim sorularında yalnızca adı (tablodaki ya da metindeki yazımıyla) yaz." -> Since it asks for the branch name ("hangisidir?"), I should write the name of the branch.
+    *   The question asks: "Bu pay en yüksek olan şube hangisidir?" (Which branch has this share?). So the answer is the branch name.
+
+8.  **Drafting the text response:**
+    *   List the calculation or logic briefly.
+    *   Identify Ankara.
+    *   Final line: `CEVAP: Ankara`
+
+9.  **Refining the content (Self-Correction/Double Check):**
+    *   Did I read the numbers right?
+        *   Ankara Jan: 269, Feb: 371. Yes.
+        *   Konya Jan: 533, Feb: 549. Yes.
+    *   Is there any trick? "Pay" usually means percentage or ratio. Both yield the same ranking.
+    *   Did I miss a branch? Mersin, Samsun, Ankara, Eskişehir, Adana, Konya, Bursa, Kadıköy. (8 branches). All calculated.
+    *   Highest is Ankara.
+
+10. **Final Output Construction:**
+    *   Explanation: Calculate ratio for each.
+    *   Mersin: ~49%
+    *   Samsun: ~44%
+    *   Ankara: ~58%
+    *   Eskişehir: ~41%
+    *   Adana: ~24%
+    *   Konya: ~51%
+    *   Bursa: ~36%
+    *   Kadıköy: ~32%
+    *   Winner: Ankara.
+
+    Wait, the prompt says "Sayıda yalnızca sayıyı yaz...". But the question asks for a **branch name** ("şube hangisidir"). The instruction about numbers seems to apply if the answer is a number (like calculating the share itself). However, standard interpretation of "Cevap: [Value]" where value is the answer to the specific question. The question asks *which branch*. So the answer is "Ankara".
+    *Re-reading constraint:* "Sayıda yalnızca sayıyı yaz... birim yazacaksan sorudaki birimi kullan. Tarihte GG.AA.YYYY, isim sorularında yalnızca adı (tablodaki ya da metindeki yazımıyla) yaz." -> This specifically covers naming cases ("isim sorularında"). So writing "Ankara" is correct.
+
+    *Alternative interpretation check:* Does the user want the share value? "Bu pay en yüksek olan şube hangisidir?" No, it asks for the branch.
+    "Her şubenin ... payını hesapla... Bu pay en yüksek olan şube hangisidir?" -> Question 1 is a command ("Calculate"), Question 2 is a question ("Which branch"). The final answer should address the specific question asked at the end or implied as the result of the task. Usually, in these prompts, if it asks "Which X", the answer is X.
+
+    Let's check the constraint wording again carefully: "Cevabın son satırı tam olarak `CEVAP: <değer>` biçiminde olsun."
+    If the question asked "What is the highest share?", I would write a number. It asks "Which branch?". So I write the name.
+
+    Let's verify Ankara calculation one last time.
+    Jan: 269,000
+    Feb: 371,000
+    Total: 640,000
+    Share: 371,000 / 640,000 = 0.57968...
+
+    Konya calculation (closest competitor due to growth):
+    Jan: 533,000
+    Feb: 549,000
+    Total: 1,082,000
+    Share: 549,000 / 1,082,000 = 0.5073...
+
+    Adana is out (drop).
+    Mersin is close to 50% but dropped slightly.
+    Samsun dropped.
+    Eskişehir dropped significantly.
+    Bursa dropped significantly.
+    Kadıköy dropped significantly.
+
+    Only Konya and Ankara showed growth, increasing their share above 50%.
+    Ankara's growth ratio (371/269 = 1.38) is higher than Konya's (549/533 = 1.03).
+    Therefore, Ankara has the highest share.
+
+    Wait, check the prompt again for any hidden tricks? "Para için iki ondalık". "İsim sorularında yalnızca adı". Okay.
+
+    Let's write down the steps clearly in the explanation.
+
+    **Step 1: Calculate Total (Jan + Feb)**
+    Mersin: 467+454 = 921
+    Samsun: 638+505 = 1143
+    Ankara: 269+371 = 640
+    Eskişehir: 654+455 = 1109
+    Adana: 538+169 = 707
+    Konya: 533+549 = 1082
+    Bursa: 538+308 = 846
+    Kadıköy: 644+305 = 949
+
+    **Step 2: Calculate Share (Feb / Total)**
+    Mersin: 454/921 ≈ 0.493
+    Samsun: 505/1143 ≈ 0.442
+    Ankara: 371/640 = **0.5797**
+    Eskişehir: 455/1109 ≈ 0.410
+    Adana: 169/707 ≈ 0.239
+    Konya: 549/1082 ≈ 0.507
+    Bursa: 308/846 ≈ 0.364
+    Kadıköy: 305/949 ≈ 0.321
+
+    **Step 3: Compare**
+    0.5797 (Ankara) > 0.507 (Konya) > ...
+
+    Result: Ankara.
+
+    Wait, is there any ambiguity about "pay"? Usually means fraction/percentage.
+    Is it possible the user wants the value? "Her şubenin ... payını hesapla" (Calculate the share). Then "Bu pay en yüksek olan şube hangisidir?" (Which branch has this share?). The question explicitly asks for the *branch* name.
+
+    Final check on constraints:
+    "Cevabın son satırı tam olarak `CEVAP: <değer>` biçiminde olsun."
+    Value = Ankara.
+    Constraint: "isim sorularında yalnızca adı (tablodaki ya da metindeki yazımıyla) yaz." -> Ankara matches the table.
+
+    Ready.
+
+    Wait, looking at Adana again.
+    Jan: 538, Feb: 169.
+    Share = 169 / (538+169) = 169/707 = 0.24. Low.
+
+    Looking at Konya again.
+    Jan: 533, Feb: 549.
+    Share = 549/1082 = 0.507.
+
+    Looking at Ankara again.
+    Jan: 269, Feb: 371.
+    Share = 371/640 = 0.58.
+
+    Comparison holds.
+
+    One distinct possibility: Did I misread a number?
+    Mersin 467 -> 454 (Drop)
+    Samsun 638 -> 505 (Drop)
+    Ankara 269 -> 371 (Rise) -> **Candidate**
+    Eskişehir 654 -> 455 (Drop)
+    Adana 538 -> 169 (Big Drop)
+    Konya 533 -> 549 (Small Rise) -> **Candidate**
+    Bursa 538 -> 308 (Drop)
+    Kadıköy 644 -> 305 (Drop)
+
+    Only Ankara and Konya have Feb > Jan.
+    For a ratio $F / (J+F)$, if $F < J$, ratio < 0.5.
+    If $F > J$, ratio > 0.5.
+    So only branches with growth can be the maximum (unless all dropped, but here some grew).
+    Between Konya and Ankara:
+    Ratio is closer to 1 (or higher) if Feb >> Jan.
+    Ankara: 371 vs 269. Difference +102.
+    Konya: 549 vs 533. Difference +16.
+    Ankara has a much higher share because the denominator (Total) is smaller relative to the numerator compared to Konya, or simply put, February makes up a larger chunk of the total revenue in Ankara.
+
+    Wait, logic check on ratio $R = \frac{F}{J+F}$.
+    If $F > J$, then $R > 0.5$.
+    The higher $F$ is relative to $J$, the closer $R$ is to 1 (or 100%).
+    Ankara: Feb is ~38% higher than Jan ($371/269 \approx 1.38$).
+    Konya: Feb is ~3% higher than Jan ($549/533 \approx 1.03$).
+    Therefore, Ankara's share must be significantly higher than Konya's share.
+
+    Calculation check:
+    $R_{Ankara} = \frac{1.38 J}{J + 1.38 J} = \frac{1.38}{2.38} \approx 0.579$
+    $R_{Konya} = \frac{1.03 J'}{J' + 1.03 J'} = \frac{1.03}{2.03} \approx 0.507$
+    Correct.
+
+    Final Answer is Ankara.
+
+    Wait, did I miss "Bursa"? Jan 538 -> Feb 308. Drop. Share < 0.5.
+    "Kadıköy"? Jan 644 -> Feb 305. Drop. Share < 0.5.
+    "Mersin"? Jan 467 -> Feb 454. Drop. Share < 0.5.
+    "Samsun"? Jan 638 -> Feb 505. Drop. Share < 0.5.
+    "Eskişehir"? Jan 654 -> Feb 455. Drop. Share < 0.5.
+    "Adana"? Jan 538 -> Feb 169. Drop. Share < 0.5.
+
+    So yes, logic holds perfectly. Only branches with increased revenue (Feb > Jan) can exceed 50% share. Among them, the one with higher relative increase wins. Ankara wins.
+
+    Output format check:
+    Explanation text first.
+    Last line `CEVAP: Ankara`.
+
+    Wait, looking at the instruction: "Sayıda yalnızca sayıyı yaz... birim yazacaksan sorudaki birimi kullan."
+    Since the answer is a name ("Ankara"), I should just write "Ankara". The number instructions don't apply to names, but the naming instructions do.
+
+    Wait, is there any ambiguity in "pay"? Could it mean absolute share? No, "pay" implies fraction/percentage of the whole. Even if it meant absolute value (Feb revenue), Adana (169) and Bursa (308) etc are lower than Jan revenues except for Konya and Ankara.
+    If it meant Feb Revenue:
+    Samsun 505, Eskişehir 455, Mersin 454, Konya 549, Ankara 371...
+    Highest Feb revenue is Konya (549).
+    But the question explicitly defines pay as "Şubat / (Ocak + Şubat)". So it's definitely a ratio.
+
+    Double check Konya numbers:
+    Jan: 533,000
+    Feb: 549,000
+    Total: 1,082,000
+    Share: 549/1082 = 0.507
+
+    Double check Ankara numbers:
+    Jan: 269,000
+    Feb: 371,000
+    Total: 640,000
+    Share: 371/640 = 0.579
+
+    Okay, calculation is robust.
+
+    One final check on the text "Sayıda yalnızca sayıyı yaz (para için iki ondalık, ör. 1.234,56)". This implies if the answer was a currency amount or a number, follow that format. Since it's a name, just the name. However, sometimes these LLM prompts are tricky and might want the calculated percentage? "Bu pay en yüksek olan şube hangisidir?" -> "Which branch is it?". Answer: Ankara. If it asked "What is the highest share?", answer would be a number.
+    I will stick to the branch name.
+
+    Wait, looking at the provided examples in the prompt instructions (implicit in standard prompts like this):
+    "CEVAP: <değer>"
+    If I write "CEVAP: Ankara", it fits "isim sorularında yalnızca adı".
+    If I write "CEVAP: 57,97%", that would be answering a different question.
+    So, "Ankara" is the safe and correct interpretation.
+
+    Final plan:
+    1. Show calculation table or summary.
+    2. Identify Ankara as max.
+    3. Output CEVAP: Ankara.
+
+    Wait, just to be pedantic about formatting numbers in Turkish locale if needed for explanation (though not strictly required for the final line). I will use commas or dots consistently? The prompt uses dots in table "467.000". I will follow that style or standard text.
+    Prompt table: `467.000` (dot as thousands separator).
+    Prompt instruction example: `1.234,56` (dot as thousands, comma as decimal).
+    I will write explanations clearly.
+
+    Let's re-read the prompt numbers carefully to ensure no typos in my manual copy.
+    Mersin: 467.000 / 454.000
+    Samsun: 638.000 / 505.000
+    Ankara: 269.000 / 371.000
+    Eskişehir: 654.000 / 455.000
+    Adana: 538.000 / 169.000
+    Konya: 533.000 / 549.000
+    Bursa: 538.000 / 308.000
+    Kadıköy: 644.000 / 305.000
+
+    Everything seems correct.
+
+    One edge case check: Could "pay" mean share of the *total chain revenue*?
+    "Her şubenin iki ay toplam cirosu içinde Şubat ayının payını hesapla" -> Calculate for *each branch*, the share of Feb in *that branch's* two month total.
+    Yes, localized to the branch row. Not chain-wide.
+
+    Conclusion stands: Ankara.
+
+    Wait, what if I calculate percentages?
+    Mersin: 49.32%
+    Samsun: 44.17%
+    **Ankara: 57.97%**
+    Eskişehir: 41.02%
+    Adana: 23.90%
+    Konya: 50.74%
+    Bursa: 36.40%
+    Kadıköy: 32.14%
+
+    Winner is definitely Ankara.
+
+    Final Answer formulation.
+    Gerekçe (Reasoning):
+    - Formül: Pay = Şubat / (Ocak + Şubat)
+    - Hesaplamalar:
+      - Mersin: 454.000 / 921.000 ≈ %49,32
+      - Samsun: 505.000 / 1.143.000 ≈ %44,18
+      - Ankara: 371.000 / 640.000 = **%57,97**
+      - Eskişehir: 455.000 / 1.109.000 ≈ %41,03
+      - Adana: 169.000 / 707.000 ≈ %23,90
+      - Konya: 549.000 / 1.082.000 ≈ %50,74
+      - Bursa: 308.000 / 846.000 ≈ %36,41
+      - Kadıköy: 305.000 / 949.000 ≈ %32,14
+    - En yüksek pay Ankara'ya aittir.
+
+    Result string: `CEVAP: Ankara`
+
+    Wait, is there any ambiguity about "Şube" column header? No, it lists the names.
+    Is there any trick with the currency TL? No.
+    Is there any trick with "iki ay toplam cirosu"? Jan + Feb. Correct.
+
+    I am confident.
+
+    One tiny detail: "Cevabın son satırı tam olarak `CEVAP: <değer>` biçiminde olsun."
+    Does it want a space after colon? Yes, standard markdown/text usually implies it or the prompt shows `CEVAP: <değer>`. I will include the space.
+
+    Final check on "isim sorularında yalnızca adı (tablodaki ya da metindeki yazımıyla) yaz."
+    Table says "Ankara".
+    So "Ankara" is correct.
+
+    Let's produce the output.

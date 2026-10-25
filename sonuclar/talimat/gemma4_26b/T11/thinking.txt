@@ -1,0 +1,380 @@
+
+*   Customer Complaint: "Siparişim (SZ-7710) kırık geldi ve iade için kimse bana dönmedi." (My order SZ-7710 arrived broken and nobody contacted me regarding the return.)
+*   Persona: Sultan Züccaciye.
+*   Constraints:
+    *   Do NOT use "özür" (apology) or "maalesef" (unfortunately) in any form (including inflected versions).
+    *   Word count: 70 to 90 words.
+    *   Must include order number: SZ-7710.
+    *   Must include info: Will be contacted within 3 business days regarding the return.
+
+    *   Acknowledge the situation (broken item).
+    *   Provide a solution/next step (the 3-day window).
+    *   Show empathy/professionalism without using forbidden words.
+
+    *   *Attempt 1 (Drafting in Turkish):*
+        Sayın Müşterimiz, SZ-7710 numaralı siparişinizle ilgili yaşadığınız durumu öğrendik. Ürünün hasarlı ulaşması sebebiyle üzüntü duyuyoruz. Konuyla ilgili incelemelerimiz devam etmektedir. İade talebinizle ilgili yetkili ekibimiz en geç 3 iş günü içerisinde tarafınıza dönüş sağlayacaktır. Yaşanan bu aksaklığı telafi etmek adına tüm süreçleri hızlandırıyoruz. Sabrınız ve anlayışınız için teşekkür ederiz. Sultan Züccaciye ekibi olarak her zaman yanınızdayız.
+
+    *   *Checking constraints for Attempt 1:*
+        *   "Özür" used? No.
+        *   "Maalesef" used? No.
+        *   Order number SZ-7710 included? Yes.
+        *   3 business days included? Yes.
+        *   Word count check:
+            "Sayın Müşterimiz, SZ-7710 numaralı siparişinizle ilgili yaşadığınız durumu öğrendik. Ürünün hasarlı ulaşması sebebiyle üzüntü duyuyoruz. Konuyla ilgili incelemelerimiz devam etmektedir. İade talebinizle ilgili yetkili ekibimiz en geç 3 iş günü içerisinde tarafınıza dönüş sağlayacaktır. Yaşanan bu aksaklığı telafi etmek adına tüm süreçleri hızlandırıyoruz. Sabrınız ve anlayışınız için teşekkür ederiz. Sultan Züccaciye ekibi olarak her zaman yanınızdayız."
+            Word count: ~55 words. (Too short, need 70-90).
+
+    *   *Attempt 2 (Expanding):*
+        Sayın Müşterimiz, SZ-7710 numaralı siparişinizin hasarlı bir şekilde size ulaştığını üzülerek öğrendik. Yaşadığınız bu durumdan dolayı derin bir üzüntü içerisindeyiz. İade sürecinizle ilgili talebiniz sistemimize başarıyla kaydedilmiştir. İade işlemlerinizin hızlıca tamamlanması için ilgili birimimiz en geç 3 iş günü içerisinde sizinle iletişime geçerek çözüm sunacaktır. Süreci titizlikle takip ediyor ve konuyu önceliğimiz olarak görüyoruz. Gösterdiğiniz anlayış için teşekkür eder, iyi günler dileriz. Sultan Züccaciye ekibi her zaman yanınızdadır.
+
+    *   *Checking constraints for Attempt 2:*
+        *   "Özür" used? No.
+        *   "Maalesef" used? No.
+        *   Order number SZ-7710 included? Yes.
+        *   3 business days included? Yes.
+        *   Word count check:
+            1. Sayın 2. Müşterimiz, 3. SZ-7710 4. numaralı 5. siparişinizin 6. hasarlı 7. bir 8. şekilde 9. size 10. ulaştığını 11. üzülerek 12. öğrendik. 13. Yaşadığınız 14. bu 15. durumdan 16. dolayı 17. derin 18. bir 19. üzüntü 20. içerisindeyiz. 21. İade 22. sürecinizle 23. ilgili 24. talebiniz 25. sistemimize 26. başarıyla 27. kaydedilmiştir. 28. İade 29. işlemlerinizin 30. hızlıca 31. tamamlanması 32. için 33. ilgili 34. birimimiz 35. en 36. geç 37. 3 38. iş 39. günü 40. içerisinde 41. sizinle 42. iletişime 43. geçerek 44. çözüm 45. sunacaktır. 46. Süreci 47. titizlikle 48. takip 49. ediyor 50. ve 51. konuyu 52. önceliğimiz 53. olarak 54. görüyoruz. 55. Gösterdiğiniz 56. anlayış 57. için 58. teşekkür 59. eder, 60. iyi 61. günler 62. dileriz. 63. Sultan 64. Züccaciye 65. ekibi 66. her 67. zaman 68. yanınızdadır.
+            Count: 68 words. Still a bit short (Target: 70-90).
+
+    *   *Attempt 3 (Further expansion to hit the target):*
+        Sayın Müşterimiz, SZ-7710 numaralı siparişinizin hasarlı bir şekilde tarafınıza ulaştığını üzülerek tespit ettik. Yaşadığınız bu olumsuz tecrübeden dolayı üzüntü duyuyoruz. İade talebinizle ilgili gerekli incelemeler hemen başlatılmıştır. Konuya dair tüm süreçlerin yönetilmesi adına yetkili ekibimiz, en geç 3 iş günü içerisinde sizinle iletişime geçerek durumu çözüme kavuşturacaktır. Sabrınız ve anlayışınız bizim için çok değerlidir. Yaşanan aksaklığı gidermek adına tüm gücümüzle çalışıyoruz. Sultan Züccaciye ailesi olarak her zaman yanınızdayız.
+
+    *   *Word count check (Attempt 3):*
+        1. Sayın
+        2. Müşterimiz,
+        3. SZ-7710
+        4. numaralı
+        5. siparişinizin
+        6. hasarlı
+        7. bir
+        8. şekilde
+        9. tarafınıza
+        10. ulaştığını
+        11. üzülerek
+        12. tespit
+        13. ettik.
+        14. Yaşadığınız
+        15. bu
+        16. olumsuz
+        17. tecrübeden
+        18. dolayı
+        19. üzüntü
+        20. duyuyoruz.
+        21. İade
+        22. talebinizle
+        23. ilgili
+        24. gerekli
+        25. incelemeler
+        26. hemen
+        27. başlatılmıştır.
+        28. Konuya
+        29. dair
+        30. tüm
+        31. süreçlerin
+        32. yönetilmesi
+        33. adına
+        34. yetkili
+        35. ekibimiz,
+        36. en
+        37. geç
+        38. 3
+        39. iş
+        40. günü
+        41. içerisinde
+        42. sizinle
+        43. iletişime
+        44. geçerek
+        45. durumu
+        46. çözüme
+        47. kavuşturacaktır.
+        48. Sabrınız
+        49. ve
+        50. anlayışınız
+        51. bizim
+        52. için
+        53. çok
+        54. değerlidir.
+        55. Yaşanan
+        56. aksaklığı
+        57. gidermek
+        58. adına
+        59. tüm
+        60. gücümüzle
+        61. çalışıyoruz.
+        62. Sultan
+        63. Züccaciye
+        64. ailesi
+        65. olarak
+        66. her
+        67. zaman
+        68. yanınızdayız.
+        Total: 68. Still short. Need to add about 5-10 more words.
+
+    *   *Attempt 4 (Refining Attempt 3 for length):*
+        Sayın Müşterimiz, SZ-7710 numaralı siparişinizin hasarlı bir şekilde tarafınıza ulaştığını üzülerek tespit ettik. Yaşadığınız bu olumsuz tecrübeden dolayı büyük bir üzüntü duyuyoruz. İade talebinizle ilgili gerekli teknik incelemeler hemen başlatılmıştır. Konuya dair tüm süreçlerin hızla yönetilmesi adına yetkili ekibimiz, en geç 3 iş günü içerisinde sizinle iletişime geçerek durumu hızla çözüme kavuşturacaktır. Sabrınız ve gösterdiğiniz anlayış bizim için çok değerlidir. Yaşanan aksaklığı gidermek adına tüm gücümüzle çalışıyoruz. Sultan Züccaciye ailesi her zaman yanınızdadır.
+
+    *   *Word count check (Attempt 4):*
+        1. Sayın
+        2. Müşterimiz,
+        3. SZ-7710
+        4. numaralı
+        5. siparişinizin
+        6. hasarlı
+        7. bir
+        8. şekilde
+        9. tarafınıza
+        10. ulaştığını
+        11. üzülerek
+        12. tespit
+        13. ettik.
+        14. Yaşadığınız
+        15. bu
+        16. olumsuz
+        17. tecrübeden
+        18. dolayı
+        19. büyük
+        20. bir
+        21. üzüntü
+        22. duyuyoruz.
+        23. İade
+        24. talebinizle
+        25. ilgili
+        26. gerekli
+        27. teknik
+        28. incelemeler
+        29. hemen
+        30. başlatılmıştır.
+        31. Konuya
+        32. dair
+        33. tüm
+        34. süreçlerin
+        35. hızla
+        36. yönetilmesi
+        37. adına
+        38. yetkili
+        39. ekibimiz,
+        40. en
+        41. geç
+        42. 3
+        43. iş
+        44. günü
+        45. içerisinde
+        46. sizinle
+        47. iletişime
+        48. geçerek
+        49. durumu
+        50. hızla
+        51. çözüme
+        52. kavuşturacaktır.
+        53. Sabrınız
+        54. ve
+        55. gösterdiğiniz
+        56. anlayış
+        57. bizim
+        58. için
+        59. çok
+        60. değerlidir.
+        61. Yaşanan
+        62. aksaklığı
+        63. gidermek
+        64. adına
+        65. tüm
+        66. gücümüzle
+        67. çalışıyoruz.
+        68. Sultan
+        69. Züccaciye
+        70. ailesi
+        71. her
+        72. zaman
+        73. yanınızdadır.
+        Total: 73. Perfect. (Between 70 and 90).
+
+    *   *Forbidden word check:*
+        "özür" - None.
+        "maalesef" - None.
+        "özür dileriz", "özürler", "maalesef ki" etc - None.
+
+    *   *Requirements check:*
+        - Persona: Sultan Züccaciye (Mentioned at end).
+        - Order No SZ-7710: Included.
+        - 3 business days info: Included.
+        - Word count 70-90: 73 words.
+
+    Text: "Sayın Müşterimiz, SZ-7710 numaralı siparişinizin hasarlı bir şekilde tarafınıza ulaştığını üzülerek tespit ettik. Yaşadığınız bu olumsuz tecrübeden dolayı büyük bir üzüntü duyuyoruz. İade talebinizle ilgili gerekli teknik incelemeler hemen başlatılmıştır. Konuya dair tüm süreçlerin hızla yönetilmesi adına yetkili ekibimiz, en geç 3 iş günü içerisinde sizinle iletişime geçerek durumu hızla çözüme kavuşturacaktır. Sabrınız ve gösterdiğiniz anlayış bizim için çok değerlidir. Yaşanan aksaklığı gidermek adına tüm gücümüzle çalışıyoruz. Sultan Züccaciye ailesi her zaman yanınızdadır."
+
+    *Wait, checking "üzülerek" and "üzüntü".* The prompt says do not use "özür" (apology) and "maalesef" (unfortunately). "Üzüntü" (sadness/regret) is fine as it's a different word, but I should ensure it doesn't sound like a direct "özür". It conveys empathy. Let's re-read the prompt's strictness.
+    Constraint: "“özür” ve “maalesef” sözcüklerini (ek almış hâlleri dâhil) kullanma."
+    It is specific. "Üzüntü" is allowed.
+
+    *One more check of the text for "maalesef" or "özür" variations:*
+    Sayın (No)
+    Müşterimiz, (No)
+    SZ-7710 (No)
+    numaralı (No)
+    siparişinizin (No)
+    hasarlı (No)
+    bir (No)
+    şekilde (No)
+    tarafınıza (No)
+    ulaştığını (No)
+    üzülerek (No)
+    tespit (No)
+    ettik. (No)
+    Yaşadığınız (No)
+    bu (No)
+    olumsuz (No)
+    tecrübeden (No)
+    dolayı (No)
+    büyük (No)
+    bir (No)
+    üzüntü (No)
+    duyuyoruz. (No)
+    İade (No)
+    talebinizle (No)
+    ilgili (No)
+    gerekli (No)
+    teknik (No)
+    incelemeler (No)
+    hemen (No)
+    başlatılmıştır. (No)
+    Konuya (No)
+    dair (No)
+    tüm (No)
+    süreçlerin (No)
+    hızla (No)
+    yönetilmesi (No)
+    adına (No)
+    yetkili (No)
+    ekibimiz, (No)
+    en (No)
+    geç (No)
+    3 (No)
+    iş (No)
+    günü (No)
+    içerisinde (No)
+    sizinle (No)
+    iletişime (No)
+    geçerek (No)
+    durumu (No)
+    hızla (No)
+    çözüme (No)
+    kavuşturacaktır. (No)
+    Sabrınız (No)
+    ve (No)
+    gösterdiğiniz (No)
+    anlayış (No)
+    bizim (No)
+    için (No)
+    çok (No)
+    değerlidir. (No)
+    Yaşanan (No)
+    aksaklığı (No)
+    gidermek (No)
+    adına (No)
+    tüm (No)
+    gücümüzle (No)
+    çalışıyoruz. (No)
+    Sultan (No)
+    Züccaciye (No)
+    ailesi (No)
+    her (No)
+    zaman (No)
+    yanınızdadır. (No)
+
+    Total count: 73 words.
+
+    Let's do a final manual count to be absolutely sure.
+    1 Sayın, 2 Müşterimiz, 3 SZ-7710, 4 numaralı, 5 siparişinizin, 6 hasarlı, 7 bir, 8 şekilde, 9 tarafınıza, 10 ulaştığını, 11 üzülerek, 12 tespit, 13 ettik. 14 Yaşadığınız, 15 bu, 16 olumsuz, 17 tecrübeden, 18 dolayı, 19 büyük, 20 bir, 21 üzüntü, 22 duyuyoruz. 23 İade, 24 talebinizle, 25 ilgili, 26 gerekli, 27 teknik, 28 incelemeler, 29 hemen, 30 başlatılmıştır. 31 Konuya, 32 dair, 33 tüm, 34 süreçlerin, 35 hızla, 36 yönetilmesi, 37 adına, 38 yetkili, 39 ekibimiz, 40 en, 41 geç, 42 3, 43 iş, 44 günü, 45 içerisinde, 46 sizinle, 47 iletişime, 48 geçerek, 49 durumu, 50 hızla, 51 çözüme, 52 kavuşturacaktır. 53 Sabrınız, 54 ve, 55 gösterdiğiniz, 56 anlayış, 57 bizim, 58 için, 59 çok, 60 değerlidir. 61 Yaşanan, 62 aksaklığı, 63 gidermek, 64 adına, 65 tüm, 66 gücümüzle, 67 çalışıyoruz. 68 Sultan, 69 Züccaciye, 70 ailesi, 71 her, 72 zaman, 73 yanınızdadır.
+
+    Wait, if I count "3" as a word, it's 73. If I don't, it's 72. Either way, it's in the 70-90 range.
+
+    *Constraint Check:*
+    - "özür" (and variants) used? No.
+    - "maalesef" (and variants) used? No.
+    - Order SZ-7710 used? Yes.
+    - 3 iş günü used? Yes.
+    - Sultan Züccaciye persona? Yes.
+    - Word count 70-90? Yes.
+
+    *Final Polish:*
+    The tone is professional, empathetic, and efficient.
+
+    Text:
+    Sayın Müşterimiz, SZ-7710 numaralı siparişinizin hasarlı bir şekilde tarafınıza ulaştığını üzülerek tespit ettik. Yaşadığınız bu olumsuz tecrübeden dolayı büyük bir üzüntü duyuyoruz. İade talebinizle ilgili gerekli teknik incelemeler hemen başlatılmıştır. Konuya dair tüm süreçlerin hızla yönetilmesi adına yetkili ekibimiz, en geç 3 iş günü içerisinde sizinle iletişime geçerek durumu hızla çözüme kavuşturacaktır. Sabrınız ve gösterdiğiniz anlayış bizim için çok değerlidir. Yaşanan aksaklığı gidermek adına tüm gücümüzle çalışıyoruz. Sultan Züccaciye ailesi her zaman yanınızdadır.
+
+    *Wait, one more look. "üzülerek" is derived from "üzülmek" (to be sad), not "özür" (apology). "üzüntü" is "sadness". This is safe.*
+
+    *Let's double check if "maalesef" or "özür" could be hidden in words like "özürlü" or "maalesefki". No.*
+
+    Final word count verification:
+    Sayın(1) Müşterimiz,(2) SZ-7710(3) numaralı(4) siparişinizin(5) hasarlı(6) bir(7) şekilde(8) tarafınıza(9) ulaştığını(10) üzülerek(11) tespit(12) ettik.(13) Yaşadığınız(14) bu(15) olumsuz(16) tecrübeden(17) dolayı(18) büyük(19) bir(20) üzüntü(21) duyuyoruz.(22) İade(23) talebinizle(24) ilgili(25) gerekli(26) teknik(27) incelemeler(28) hemen(29) başlatılmıştır.(30) Konuya(31) dair(32) tüm(33) süreçlerin(34) hızla(35) yönetilmesi(36) adına(37) yetkili(38) ekibimiz,(39) en(40) geç(41) 3(42) iş(43) günü(44) içerisinde(45) sizinle(46) iletişime(47) geçerek(48) durumu(49) hızla(50) çözüme(51) kavuşturacaktır.(52) Sabrınız(53) ve(54) gösterdiğiniz(55) anlayış(56) bizim(57) için(58) çok(59) değerlidir.(60) Yaşanan(61) aksaklığı(62) gidermek(63) adına(64) tüm(65) gücümüzle(66) çalışıyoruz.(67) Sultan(68) Züccaciye(69) ailesi(70) her(71) zaman(72) yanınızdadır.(73)
+
+    It is perfectly within 70-90.
+
+    *Self-Correction during final pass:*
+    I used "hızla" twice. Let's change one for better flow.
+    "...süreçlerin hızla yönetilmesi adına yetkili ekibimiz, en geç 3 iş günü içerisinde sizinle iletişime geçerek durumu titizlikle çözüme kavuşturacaktır."
+    Word count change: "hızla" -> "titizlikle". Still 73 words.
+
+    Let's check:
+    Sayın Müşterimiz, SZ-7710 numaralı siparişinizin hasarlı bir şekilde tarafınıza ulaştığını üzülerek tespit ettik. Yaşadığınız bu olumsuz tecrübeden dolayı büyük bir üzüntü duyuyoruz. İade talebinizle ilgili gerekli teknik incelemeler hemen başlatılmıştır. Konuya dair tüm süreçlerin hızla yönetilmesi adına yetkili ekibimiz, en geç 3 iş günü içerisinde sizinle iletişime geçerek durumu titizlikle çözüme kavuşturacaktır. Sabrınız ve gösterdiğiniz anlayış bizim için çok değerlidir. Yaşanan aksaklığı gidermek adına tüm gücümüzle çalışıyoruz. Sultan Züccaciye ailesi her zaman yanınızdadır.
+
+    Word count:
+    1-Sayın 2-Müşterimiz, 3-SZ-7710 4-numaralı 5-siparişinizin 6-hasarlı 7-bir 8-şekilde 9-tarafınıza 10-ulaştığını 11-üzülerek 12-tespit 13-ettik. 14-Yaşadığınız 15-bu 16-olumsuz 17-tecrübeden 18-dolayı 19-büyük 20-bir 21-üzüntü 22-duyuyoruz. 23-İade 24-talebinizle 25-ilgili 26-gerekli 27-teknik 28-incelemeler 29-hemen 30-başlatılmıştır. 31-Konuya 32-dair 33-tüm 34-süreçlerin 35-hızla 36-yönetilmesi 37-adına 38-yetkili 39-ekibimiz, 40-en 41-geç 42-3 43-iş 44-günü 45-içerisinde 46-sizinle 47-iletişime 48-geçerek 49-durumu 50-titizlikle 51-çözüme 52-kavuşturacaktır. 53-Sabrınız 54-ve 55-gösterdiğiniz 56-anlayış 57-bizim 58-için 59-çok 60-değerlidir. 61-Yaşanan 62-aksaklığı 63-gidermek 64-adına 65-tüm 66-gücümüzle 67-çalışıyoruz. 68-Sultan 69-Züccaciye 70-ailesi 71-her 72-zaman 73-yanınızdadır.
+
+    Total: 73 words. Perfect.
+
+    Wait, let's check the "maalesef" and "özür" one last time.
+    - özür: No.
+    - özür dileriz: No.
+    - maalesef: No.
+    - maalesef ki: No.
+
+    Ready.
+
+    One tiny adjustment: "üzülerek tespit ettik" vs "tespit ettik". I'll keep it to ensure word count.
+
+    Text to deliver:
+    Sayın Müşterimiz, SZ-7710 numaralı siparişinizin hasarlı bir şekilde tarafınıza ulaştığını üzülerek tespit ettik. Yaşadığınız bu olumsuz tecrübeden dolayı büyük bir üzüntü duyuyoruz. İade talebinizle ilgili gerekli teknik incelemeler hemen başlatılmıştır. Konuya dair tüm süreçlerin hızla yönetilmesi adına yetkili ekibimiz, en geç 3 iş günü içerisinde sizinle iletişime geçerek durumu titizlikle çözüme kavuşturacaktır. Sabrınız ve gösterdiğiniz anlayış bizim için çok değerlidir. Yaşanan aksaklığı gidermek adına tüm gücümüzle çalışıyoruz. Sultan Züccaciye ailesi her zaman yanınızdadır.
+
+    Wait, I just thought of something. Does "üzüntü" or "üzülerek" count as "özür"? No, they are different lexical items. The prompt is very specific about the word "özür".
+
+    Word Count Re-re-check:
+    1.Sayın 2.Müşterimiz, 3.SZ-7710 4.numaralı 5.siparişinizin 6.hasarlı 7.bir 8.şekilde 9.tarafınıza 10.ulaştığını 11.üzülerek 12.tespit 13.ettik. 14.Yaşadığınız 15.bu 16.olumsuz 17.tecrübeden 18.dolayı 19.büyük 20.bir 21.üzüntü 22.duyuyoruz. 23.İade 24.talebinizle 25.ilgili 26.gerekli 27.teknik 28.incelemeler 29.hemen 30.başlatılmıştır. 31.Konuya 32.dair 33.tüm 34.süreçlerin 35.hızla 36.yönetilmesi 37.adına 38.yetkili 39.ekibimiz, 40.en 41.geç 42.3 43.iş 44.günü 45.içerisinde 46.sizinle 47.iletişime 48.geçerek 49.durumu 50.titizlikle 51.çözüme 52.kavuşturacaktır. 53.Sabrınız 54.ve 55.gösterdiğiniz 56.anlayış 57.bizim 58.için 59.çok 60.değerlidir. 61.Yaşanan 62.aksaklığı 63.gidermek 64.adına 65.tüm 66.gücümüzle 67.çalışıyoruz. 68.Sultan 69.Züccaciye 70.ailesi 71.her 72.zaman 73.yanınızdadır.
+
+    Result: 73 words. Constraints satisfied.
+
+    *Wait!* One more look at the prompt: "“özür” ve “maalesef” sözcüklerini (ek almış hâlleri dâhil) kullanma."
+    It's safe.
+
+    Wait, "üzüntü duyuyoruz" is a bit close to an apology in spirit, but the word "özür" is not there. The instruction says "don't use the words", not "don't express the sentiment". In professional writing, if you can't say "I'm sorry", you express regret/unhappiness.
+
+    Let's check word count again.
+    If "SZ-7710" is 1 word.
+    If "3" is 1 word.
+    Everything looks correct.
+
+    Final check of word count one last time (very carefully):
+    Sayın(1) Müşterimiz,(2) SZ-7710(3) numaralı(4) siparişinizin(5) hasarlı(6) bir(7) şekilde(8) tarafınıza(9) ulaştığını(10) üzülerek(11) tespit(12) ettik.(13) Yaşadığınız(14) bu(15) olumsuz(16) tecrübeden(17) dolayı(18) büyük(19) bir(20) üzüntü(21) duyuyoruz.(22) İade(23) talebinizle(24) ilgili(25) gerekli(26) teknik(27) incelemeler(28) hemen(29) başlatılmıştır.(30) Konuya(31) dair(32) tüm(33) süreçlerin(34) hızla(35) yönetilmesi(36) adına(37) yetkili(38) ekibimiz,(39) en(40) geç(41) 3(42) iş(43) günü(44) içerisinde(45) sizinle(46) iletişime(47) geçerek(48) durumu(49) titizlikle(50) çözüme(51) kavuşturacaktır.(52) Sabrınız(53) ve(54) gösterdiğiniz(55) anlayış(56) bizim(57) için(58) çok(59) değerlidir.(60) Yaşanan(61) aksaklığı(62) gidermek(63) adına(64) tüm(65) gücümüzle(66) çalışıyoruz.(67) Sultan(68) Züccaciye(69) ailesi(70) her(71) zaman(72) yanınızdadır.(73)
+
+    Total: 73 words. (Within 70-90 range).
+
+    One more attempt at expansion just in case a different counter counts differently.
+    "Sultan Züccaciye ailesi olarak her zaman yanınızdayız." (Adds 2 words).
+    73 + 2 = 75.
+    Let's do that to be safe.
+
+    Final Text:
+    Sayın Müşterimiz, SZ-7710 numaralı siparişinizin hasarlı bir şekilde tarafınıza ulaştığını üzülerek tespit ettik. Yaşadığınız bu olumsuz tecrübeden dolayı büyük bir üzüntü duyuyoruz. İade talebinizle ilgili gerekli teknik incelemeler hemen başlatılmıştır. Konuya dair tüm süreçlerin hızla yönetilmesi adına yetkili ekibimiz, en geç 3 iş günü içerisinde sizinle iletişime geçerek durumu titizlikle çözüme kavuşturacaktır. Sabrınız ve gösterdiğiniz anlayış bizim için çok değerlidir. Yaşanan aksaklığı gidermek adına tüm gücümüzle çalışıyoruz. Sultan Züccaciye ailesi olarak her zaman yanınızdayız.
+
+    Counting again (Final):
+    1.Sayın 2.Müşterimiz, 3.SZ-7710 4.numaralı 5.siparişinizin 6.hasarlı 7.bir 8.şekilde 9.tarafınıza 10.ulaştığını 11.üzülerek 12.tespit 13.ettik. 14.Yaşadığınız 15.bu 16.olumsuz 17.tecrübeden 18.dolayı 19.büyük 20.bir 21.üzüntü 22.duyuyoruz. 23.İade 24.talebinizle 25.ilgili 26.gerekli 27.teknik 28.incelemeler 29.hemen 30.başlatılmıştır. 31.Konuya 32.dair 33.tüm 34.süreçlerin 35.hızla 36.yönetilmesi 37.adına 38.yetkili 39.ekibimiz, 40.en 41.geç 42.3 43.iş 44.günü 45.içerisinde 46.sizinle 47.iletişime 48.geçerek 49.durumu 50.titizlikle 51.çözüme 52.kavuşturacaktır. 53.Sabrınız 54.ve 55.gösterdiğiniz 56.anlayış 57.bizim 58.için 59.çok 60.değerlidir. 61.Yaşanan 62.aksaklığı 63.gidermek 64.adına 65.tüm 66.gücümüzle 67.çalışıyoruz. 68.Sultan 69.Züccaciye 70.ailesi 71.olarak 72.her 73.zaman 74.yanınızdayız.
+
+    Total = 74.
+    Constraints check:
+    - 70-90 words? Yes (74).
+    - "özür" or "maalesef" used? No.
+    - "SZ-7710" included? Yes.
+    - "3 iş günü" included? Yes.
+    - Persona "Sultan Züccaciye"? Yes.
+
+    Done.

@@ -1,0 +1,5 @@
+Bölüm 1
+Şirketimizin bu ayki finansal performans verileri incelendiğinde, oldukça başarılı bir tablo ile karşılaşmaktayız. Aylık ciro artış oranı, bir önceki aya kıyasla yüzde 8 seviyesinde yükselerek hedeflerimize önemli katkı sağlamıştır. Bununla birlikte, operasyonel verimliliğimizi artırmak adına yürüttüğümüz yoğun çalışmalar sonucunda iade oranı yüzde 3 seviyesinden yüzde 2 seviyesine gerilemiştir. Bu durum, ürün kalitemizin arttığını göstermektedir.
+
+Bölüm 2
+Pazar genişleme stratejilerimiz neticesinde, yeni müşteri sayısı bu dönemde toplamda 140 olarak kaydedilmiştir. Satış kanallarımızdaki ürün dağılımı analiz edildiğinde, en çok satan ürün grubu ofis kırtasiyesi olarak öne çıkmıştır. Gelecek dönemde bu ivmeyi korumak adına stratejik planlamalarımız ve çalışmalarımız kararlılıkla sürecektir.

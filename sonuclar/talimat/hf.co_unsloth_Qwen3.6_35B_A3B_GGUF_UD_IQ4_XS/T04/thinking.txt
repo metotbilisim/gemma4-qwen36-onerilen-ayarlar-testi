@@ -1,0 +1,135 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Sender/Provider:** Kuzey Bilişim
+   - **Recipient/Client:** Aydın Muhasebe (accounting office)
+   - **Service:** Monthly computer maintenance service
+   - **Requirements:**
+     - List exactly 4 features/bullet points for the service.
+     - Each bullet must be on a separate line and start with a bullet marker (-, *, •, or 1.).
+     - Absolutely NO use of the words "ucuz", "indirim", "fiyat" (or their variants/forms).
+     - Must include: Büro adı: Aydın Muhasebe, 8 bilgisayar, aylık 850 TL.
+   - **Language:** Turkish
+
+   - **Format:** Official offer/proposal text in Turkish.
+
+2.  **Deconstruct Constraints:**
+   - *Exactly 4 bullet points* for service features.
+   - *Each on a new line*, starting with allowed markers.
+   - *Forbidden words:* ucuz, indirim, fiyat (and any grammatical variants like ucuza, ucuzluk, indirime, indirmeli, fiyata, fiyatlı, etc.). I need to be very careful to avoid these entirely.
+   - *Mandatory info:* Aydın Muhasebe, 8 bilgisayar, aylık 850 TL.
+   - *Tone:* Professional, formal business proposal style.
+
+3.  **Draft - Mental Refinement (Internal Translation & Structuring):**
+   I'll structure it as a standard business proposal:
+   - Header/Title
+   - Greeting
+   - Introduction/Purpose
+   - Service details with exactly 4 bullets
+   - Pricing & scope mention (must include the mandatory info)
+   - Closing/Call to action
+   - Signature
+
+   Let's draft it step-by-step in Turkish:
+
+   **Başlık:** Kuzey Bilişim - Aydın Muhasebe Aylık Bilgisayar Bakım Hizmeti Teklifi
+   **Hitap:** Değerli Aydın Muhasebe Yönetimi,
+   **Giriş:** Yazılım ve donanım altyapınızın kesintisiz çalışması için Kuzey Bilişim olarak hazırladığımız aylık bakım hizmet teklifimizi sizinle paylaşıyoruz.
+   **Hizmet Özellikleri (Exactly 4 bullets):**
+   - Donanım arızalarının önleyici bakımı ve temizliği
+   - Yazılım güncellemeleri, virüs koruması ve sistem optimizasyonu
+   - Yedekleme planlaması ve veri güvenliliği denetimleri
+   - Teknik destek hattı üzerinden uzaktan ve yerinde müdahale desteği
+   **Kapsam & Ücret:** Söz konusu bakım paketi; ofisinizdeki 8 bilgisayar ünitesi için düzenli olarak uygulanacak olup, aylık bedel 850 TL olarak belirlenmiştir.
+   **Kapanış:** Hizmet sürecimizde sorunsuz iş sürekliliğinizi sağlamak önceliğimizdir. Görüşlerinizi ve onayınızı bekler, çalışmalarınızda başarılar dileriz.
+   **İmza:** Kuzey Bilişim
+
+4.  **Check Constraints:**
+   - *Sender/Recipient:* Kuzey Bilişim (sender), Aydın Muhasebe (recipient) - ✓
+   - *Service:* Aylık bilgisayar bakım hizmeti - ✓
+   - *Exactly 4 bullet points for features?* Yes, exactly 4.
+   - *Each on separate line starting with allowed marker?* Yes, all start with `- `.
+   - *Forbidden words check:* I need to scan the entire draft for "ucuz", "indirim", "fiyat" and their variants.
+     Draft words: Değerli, Yönetimi, Yazılım, donanım, altyapınızın, kesintisiz, çalışması, için, Kuzey, Bilişim, olarak, hazırladığımız, aylık, bakım, hizmet, teklifimizi, sizinle, paylaşıyoruz., Donanım, arızalarının, önleyici, temizliği, güncellemeleri, virüs, koruması, sistemi, optimizasyonu, Yedekleme, planlaması, veri, güvenliği, denetimleri, Teknik, destek, hattı, üzerinden, uzaktan, yerinde, müdahale, desteği., Söz, konusu, paketi; ofisinizdeki, ünitesi, düzenli, uygulanacak, olup, aylık, bedel, 850, TL, olarak, belirlenmiştir., Sürecimizde, sorunsuz, iş, sürekliliğinizi, sağlamak, önceliğimizdir., Görüşlerinizi, onayınızı, bekler, çalışmalarınızda, başarılar, dileriz., İmza:, Kuzey, Bilişim.
+     No forbidden words found. I used "bedel" instead of "fiyat". Good.
+   - *Mandatory info included:* Aydın Muhasebe ✓, 8 bilgisayar ✓, aylık 850 TL ✓.
+   - *Language:* Turkish ✓
+   - *Format/Structure:* Professional proposal format ✓
+
+   Let's verify the bullet constraint strictly: "Hizmetin özelliklerini tam olarak 4 maddeyle listele; her madde ayrı satırda ve bir madde işaretiyle (-, *, • ya da 1.) başlasın."
+   I will make sure the bullets are strictly formatted and nothing else interferes.
+
+   One minor adjustment: I'll place the bullets exactly as requested, ensuring no extra text breaks the "exactly 4" rule. The prompt says "Hizmetin özelliklerini tam olarak 4 maddeyle listele", so I'll present them clearly.
+
+   Let's draft it carefully:
+
+   **Kuzey Bilişim – Aydın Muhasebe Aylık Bilgisayar Bakım Hizmeti Teklifi**
+
+   Değerli Aydın Muhasebe Yönetimi,
+   İşletmenizin teknik altyapısının verimli ve güvenli şekilde devam etmesi amacıyla Kuzey Bilişim tarafından hazırlanan aylık bakım paketimizi sizlerle paylaşıyoruz. Belirtilen kapsamda sunulacak hizmetler aşağıdaki gibidir:
+
+   - Donanım bileşenlerinin düzenli kontrolü, iç temizliği ve termal bakım işlemleri
+   - İşletim sistemi güncellemeleri, güvenlik yazılımları kurulumu ve sistem performans optimizasyonu
+   - Önemli verilerin otomatik yedeklenmesi, şifreleme denetimleri ve veri bütünlüğü koruma süreçleri
+   - Uzman teknik ekibimizce sağlanan uzaktan erişim desteği ile gerektiğinde ofisinize yönelik yerinde müdahale hizmeti
+
+   Söz konusu bakım programı; Aydın Muhasebe bürosunda bulunan 8 bilgisayar ünitesi için düzenli olarak yürütülecek olup, aylık bedel 850 TL olarak tespit edilmiştir. Süreç boyunca yazılımsal veya donanımsal herhangi bir aksaklık oluşması halinde ek maliyet yansıtılmayacak, hizmet kesintisiz şekilde sürdürülecektir.
+
+   Teklifimiz onaylandığı anda bakım programı aktifleştirilecek, çalışma takviminizle uyumlu bir şekilde operasyon başlayacaktır. Gerekli inceleme ve değerlendirmelerinizde kolaylıklar diler, uzun vadeli iş birliklerimiz temennimizle saygılarımızla iletiriz.
+
+   Kuzey Bilişim
+   Teklif Tarihi: ...
+
+   Check again:
+   - Exactly 4 bullets? Yes.
+   - Each on separate line starting with allowed marker? Yes.
+   - No forbidden words? Scanned: ucuz, indirim, fiyat (and variants) -> Not present. Used "bedel", "maliyet" (wait, "ek maliyet yansıtılmayacak" contains "maliyet". The prompt only forbids "ucuz", "indirim", "fiyat". So "maliyet" is fine. But to be ultra-safe, I'll change "ek maliyet yansıtılmayacak" to "ek bir ücret talep edilmeyecektir" or just rephrase to avoid any borderline terms. Actually, the prompt only bans those three words. I'll keep it simple: "ek ödeme talep edilmeyecek".)
+   - Mandatory info: Aydın Muhasebe ✓, 8 bilgisayar ✓, aylık 850 TL ✓.
+   - All constraints met.
+
+   One thing: The prompt says "Hizmetin özelliklerini tam olarak 4 maddeyle listele; her madde ayrı satırda ve bir madde işaretiyle (-, *, • ya da 1.) başlasın." I will ensure the bullets are strictly formatted as requested. I'll use `- ` for each.
+
+   Let's verify the exact wording constraint: “ucuz”, “indirim” ve “fiyat” sözcüklerini (ek almış hâlleri dâhil) kullanma. -> Checked. Not used.
+   Mandatory: büro adı Aydın Muhasebe, 8 bilgisayar, aylık 850 TL. -> Included.
+   Service: aylık bilgisayar bakım hizmeti -> Included.
+
+   The draft looks solid. I will generate it now. I'll make sure the formatting exactly matches the request. I'll place the bullets clearly under a heading or just as part of the text. The prompt doesn't forbid other text, just says to list the features in exactly 4 bullets.
+
+   Final check of the draft against constraints:
+   - Kuzey Bilişim’in Aydın Muhasebe bürosuna sunduğu aylık bilgisayar bakım hizmeti için teklif metni yaz. -> Yes.
+   - Hizmetin özelliklerini tam olarak 4 maddeyle listele; -> Yes, exactly 4.
+   - her madde ayrı satırda ve bir madde işaretiyle (-, *, • ya da 1.) başlasın. -> Yes.
+   - “ucuz”, “indirim” ve “fiyat” sözcüklerini (ek almış hâlleri dâhil) kullanma. -> Checked. None used.
+   - Şu bilgiler teklifte geçsin: büro adı Aydın Muhasebe, 8 bilgisayar, aylık 850 TL. -> All present.
+
+   Everything is ready. Output matches the draft.✅
+   I will produce the response now. 
+   Self-Correction/Refinement during thought: 
+   I should make sure the bullets are strictly on separate lines and nothing else breaks them. I'll format it cleanly.
+   The prompt says "her madde ayrı satırda ve bir madde işaretiyle (-, *, • ya da 1.) başlasın." I'll use `- ` for all four.
+   I'll double-check the exact phrasing of the mandatory info: "büro adı Aydın Muhasebe, 8 bilgisayar, aylık 850 TL." I'll weave them in naturally but exactly as requested.
+   All good. Output matches response. 
+   Proceeds. 
+   [Output Generation] -> *See response.* 
+   Structure:
+   Başlık
+   Hitap
+   Giriş cümlesi
+   - Madde 1
+   - Madde 2
+   - Madde 3
+   - Madde 4
+   Kapsam/Ücret bilgisi (Aydın Muhasebe, 8 bilgisayar, aylık 850 TL)
+   Kapanış
+   İmza
+   Checks: 4 bullets? Yes. Separate lines? Yes. Markers? Yes. Forbidden words? None. Mandatory info? Yes. Context? Monthly PC maintenance for Aydın Muhasebe by Kuzey Bilişim. All perfect.✅
+   Output matches the final refined version. 
+   *Self-Correction/Verification during generation prep:* 
+   Wait, let's count bullets: exactly 4. 
+   Each starts with `- `. 
+   No forbidden words. 
+   Includes required info. 
+   Professional tone. 
+   Ready. 
+   Output Generation. 
+   *(Done.)*

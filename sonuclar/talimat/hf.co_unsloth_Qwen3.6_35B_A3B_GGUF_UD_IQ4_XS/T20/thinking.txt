@@ -1,0 +1,151 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Task:** Write a summary for a quarterly report based on the provided data.
+   - **Length:** 5 to 6 sentences.
+   - **Keyword Requirement:** The word "satış" (and its inflected forms) must appear at least 3 times in the text.
+   - **Data Requirements:** All three percentage values must be included in the summary: 54%, 5%, 6%.
+   - **Provided Data:**
+     - Çevrimiçi kanal toplam satışın yüzde 54’ünü oluşturdu. (Online channel accounted for 54% of total sales.)
+     - Mağaza trafiği yüzde 5 düştü. (Store traffic dropped by 5%.)
+     - Ortalama sepet tutarı yüzde 6 yükseldi. (Average basket value increased by 6%.)
+
+2.  **Identify Constraints:**
+   - Language: Turkish
+   - Length: Exactly 5-6 sentences.
+   - Keyword: "satış" (or forms like satışın, satışları, satışı, satışımıza, etc.) ≥ 3 times.
+   - Data points: 54%, 5%, 6% must all be present.
+   - Content: Must summarize the quarterly report based on the data.
+
+3.  **Draft - Mental Refinement (Sentence by Sentence):**
+   *Sentence 1:* Bu çeyrek raporu, dijital dönüşümün etkilerini açıkça gösteren önemli satış verilerine yer veriyor. (Contains "satış" - 1)
+   *Sentence 2:* Özellikle çevrimiçi kanalın toplam satışa yüzde 54 oranında katkı sağlaması, dağıtım stratejimizin güçlü yönlerini ortaya koyuyor. (Contains "satışa" - inflected form of satış - 2)
+   *Sentence 3:* Fiziksel mağazalardan gelen ziyaretçi sayısında ise yüzde 5’lik bir düşüş kaydedilse de bu durum satışı olumsuz etkilemedi. (Contains "satisi"? Wait, "satışı" is inflected form of satış - 3)
+   *Sentence 4:* Müşterilerin alışveriş tutumlarındaki değişim, ortalama sepet tutarının yüzde 6 artış göstererek satışı desteklemesinden de anlaşılıyor. (Contains "satisi" again, but I already have 3. Let's count carefully.)
+   *Sentence 5:* Genel değerlendirildiğinde, online ve offline kanallar arasındaki dengeyi koruyan bu satış performansı önümüzdeki dönem için iyi bir temel oluşturuyor. (Contains "satış" - 4)
+
+   Wait, let's count sentences and check constraints:
+   - Sentence count: 5. (Good)
+   - "satış" occurrences: satış, satışa, satışı, satışı, satış. That's more than 3. I'll adjust to exactly or at least 3, but the constraint says "en az 3 kez" (at least 3 times). So it's fine.
+   - Data points: 54%, 5%, 6%. All present.
+   - Language: Turkish.
+   - Content: Quarterly report summary.
+
+   Let's verify each constraint carefully:
+   - Length: 5 sentences. (Within 5-6 range)
+   - "satış" + inflections: I need to make sure they are correctly used and count as the word. In Turkish, inflections of "satış" include satışın, satışı, satışa, satışta, satışımız, etc. I'll use them carefully.
+   - Data: %54, %5, %6. All present.
+   - Context: Quarterly report summary.
+
+   Let's rewrite it more cohesively and ensure exact compliance:
+   Bu çeyrek performans raporu, kanallar arası dönüşümün net sonuçlarını satış verileriyle teyit etmektedir. Çevrimiçi pazarlamanın başarısı sayesinde toplam satışın yüzde 54’ü dijital platformlardan gerçekleşti. Mağaza trafiğinde gözlemlenen yüzde 5’lik daralmaya rağmen, müşteri alışveriş davranışlarındaki iyileşme satışı korudu. Ortalama sepet tutarının yüzde 6 oranında artması, marka sadakatini ve satış verimliliğini de güçlendirdi. Sonuç olarak, online odaklı büyüme modeli şirketin finansal hedeflerinde sürdürülebilir bir satış rotası çizdi.
+
+   Check constraints:
+   - Sentences: 5. (Good)
+   - "satış" occurrences: 
+     1. satış verileriyle
+     2. toplam satışın
+     3. satışı korudu
+     4. satış verimliliğini
+     5. satış rotası çizdi
+     That's 5. (At least 3? Yes.)
+   - Data: %54, %5, %6. All present.
+   - Context: Quarterly report summary. Yes.
+   - Language: Turkish. Yes.
+
+   Let's count sentences precisely:
+   1. Bu çeyrek performans raporu, kanallar arası dönüşümün net sonuçlarını satış verileriyle teyit etmektedir.
+   2. Çevrimiçi pazarlamanın başarısı sayesinde toplam satışın yüzde 54’ü dijital platformlardan gerçekleşti.
+   3. Mağaza trafiğinde gözlemlenen yüzde 5’lik daralmaya rağmen, müşteri alışveriş davranışlarındaki iyileşme satışı korudu.
+   4. Ortalama sepet tutarının yüzde 6 oranında artması, marka sadakatini ve satış verimliliğini de güçlendirdi.
+   5. Sonuç olarak, online odaklı büyüme modeli şirketin finansal hedeflerinde sürdürülebilir bir satış rotası çizdi.
+   Exactly 5 sentences. Meets the 5-6 requirement.
+   "satış" appears in forms: satış, satışın, satışı, satış, satış. All are correct inflected/uninflected forms of the root word. Constraint says "(ek almış hâlleri dâhil) metinde en az 3 kez geçsin." So it's satisfied.
+   Percentages: yüzde 54, yüzde 5, yüzde 6. All present.
+   Content: Summarizes quarterly report based on data. Yes.
+
+   One minor adjustment: Make sure the tone is appropriate for a quarterly report summary. It sounds professional and analytical. The flow is logical: intro -> online sales% -> store traffic drop + basket value increase effect -> conclusion.
+   Let's verify the exact wording requirement: “satış” sözcüğü (ek almış hâlleri dâhil) metinde en az 3 kez geçsin.
+   I'll count them in the draft:
+   1. satış verileriyle
+   2. satışın
+   3. satışı
+   4. satış
+   5. satış
+   That's 5. I can reduce to exactly 3 or 4 to be safe, but "en az 3" means 3 or more is fine. I'll keep it as is, or adjust slightly to ensure natural flow without overusing it. Actually, using it 3 times is safer to avoid sounding repetitive. Let's adjust to exactly 3 or 4 natural occurrences.
+
+   Revised draft:
+   Bu çeyrek performans raporu, kanallar arası dinamiklerin satış sonuçlarına etkisini net bir şekilde ortaya koyuyor. Çevrimiçi kanalın toplam satışın yüzde 54’ünü karşılaması, dijital stratejimizin başarı hikayesini doğruluyor. Fiziksel mağaza ziyaretlerindeki yüzde 5’lik düşüşe rağmen, ortalama sepet tutarının yüzde 6 yükselmesi genel geliri destekledi. Müşteri davranışlarındaki bu değişim, satışı çeşitlendirmeye yönelik yaklaşımlarımızın ispatı niteliğinde. Sonuç itibarıyla, hem online hem de offline kanallardaki denge önümüzdeki çeyrek için sağlam bir temel oluşturuyor.
+
+   Check:
+   - Sentences: 5.
+   - "satış" occurrences: 
+     1. satış sonuçlarına (inflected)
+     2. satışın
+     3. satışı
+     Total: 3. Meets "en az 3".
+   - Data: yüzde 54, yüzde 5, yüzde 6. All present.
+   - Context: Quarterly report summary. Yes.
+   - Language/Tone: Professional, analytical, fits quarterly report style.
+
+   All constraints met. I will output this exact text.
+   Double-check sentence count: Exactly 5. (Matches "5 ile 6 cümlelik")
+   Check percentage format: "yüzde 54", "yüzde 5", "yüzde 6". The prompt says "Üç yüzde değeri de özette geçsin." This is satisfied.
+   Check keyword: “satış” sözcüğü (ek almış hâlleri dâhil) metinde en az 3 kez geçsin. -> "sonuçlarına", "satisın", "satisi". All are forms of satış. Count = 3. Satisfied.
+   Content matches provided data accurately.
+
+   Final check of the draft against constraints:
+   - 5 sentences? Yes.
+   - "satış" (w/ inflections) ≥ 3 times? Yes (3 times).
+   - All three % values included? Yes (54, 5, 6).
+   - Summarizes quarterly report? Yes.
+   - Turkish language? Yes.
+
+   Ready. Output matches the refined draft.✅
+   One minor thing: I'll make sure the formatting is plain text as requested. No extra fluff.
+   Text: 
+   Bu çeyrek performans raporu, kanallar arası dinamiklerin satış sonuçlarına etkisini net bir şekilde ortaya koyuyor. Çevrimiçi kanalın toplam satışın yüzde 54’ünü karşılaması, dijital stratejimizin başarı hikayesini doğruluyor. Fiziksel mağaza ziyaretlerindeki yüzde 5’lik düşüşe rağmen, ortalama sepet tutarının yüzde 6 yükselmesi genel geliri destekledi. Müşteri davranışlarındaki bu değişim, satışı çeşitlendirmeye yönelik yaklaşımlarımızın ispatı niteliğinde. Sonuç itibarıyla, hem online hem de offline kanallardaki denge önümüzdeki çeyrek için sağlam bir temel oluşturuyor.
+   All good. Output matches. 
+   Self-Correction/Verification during thought: 
+   Wait, "satış sonuçlarına" - is that considered an inflection of "satış"? Yes, sales results. The root is satış. 
+   Could be clearer to use "satış verilerine" or keep it as is. It's fine.
+   Let's count exactly: 
+   1. satış sonuçlarına
+   2. satışın
+   3. satışı
+   That's 3. Meets requirement.
+   Percentages: yüzde 54, yüzde 5, yüzde 6. All present.
+   Sentence count: 5. Meets 5-6.
+   Content: Directly uses the data points.
+   All constraints satisfied. Proceeds. 
+   Output matches the refined draft.✅
+   Final Output Generation. 
+   [Output matches the response]
+   "Bu çeyrek performans raporu, kanallar arası dinamiklerin satış sonuçlarına etkisini net bir şekilde ortaya koyuyor. Çevrimiçi kanalın toplam satışın yüzde 54’ünü karşılaması, dijital stratejimizin başarı hikayesini doğruluyor. Fiziksel mağaza ziyaretlerindeki yüzde 5’lik düşüşe rağmen, ortalama sepet tutarının yüzde 6 yükselmesi genel geliri destekledi. Müşteri davranışlarındaki bu değişim, satışı çeşitlendirmeye yönelik yaklaşımlarımızın ispatı niteliğinde. Sonuç itibarıyla, hem online hem de offline kanallardaki denge önümüzdeki çeyrek için sağlam bir temel oluşturuyor."
+   Checks:
+   - 5 sentences? Yes.
+   - "satış" (w/ inflections) ≥3? Yes (3).
+   - %54, %5, %6? Yes.
+   - Quarterly report summary context? Yes.
+   Perfect.✅
+   Output matches exactly. 
+   Proceeds. 
+   [Final Check of the Prompt]: “Aşağıdaki verilerden çeyrek raporu için 5 ile 6 cümlelik bir özet yaz. “satış” sözcüğü (ek almış hâlleri dâhil) metinde en az 3 kez geçsin. Üç yüzde değeri de özette geçsin. Veriler: Çevrimiçi kanal toplam satışın yüzde 54’ünü oluşturdu. Mağaza trafiği yüzde 5 düştü. Ortalama sepet tutarı yüzde 6 yükseldi.”
+   All constraints met. Output generation. 
+   [Output Generation] -> *Proceeds*
+   *(Self-Correction/Refinement during thought)*: I want to make sure the inflected forms are unmistakably recognized as "satış". Sometimes Turkish NLP considers compound words differently, but "satış sonuçlarına", "satışın", "satisi" are all clearly derived from satış. To be absolutely safe, I'll use the exact word "satış" three times, or one exact + two inflected. The prompt says "ek almış hâlleri dâhil", so it's fine. I'll keep it as is. It's natural and professional.
+   Final text matches the draft. Output matches response.✅
+   [Done] 
+   *Output Generation* (matches the final refined version)
+   "Bu çeyrek performans raporu, kanallar arası dinamiklerin satış sonuçlarına etkisini net bir şekilde ortaya koyuyor. Çevrimiçi kanalın toplam satışın yüzde 54’ünü karşılaması, dijital stratejimizin başarı hikayesini doğruluyor. Fiziksel mağaza ziyaretlerindeki yüzde 5’lik düşüşe rağmen, ortalama sepet tutarının yüzde 6 yükselmesi genel geliri destekledi. Müşteri davranışlarındaki bu değişim, satışı çeşitlendirmeye yönelik yaklaşımlarımızın ispatı niteliğinde. Sonuç itibarıyla, hem online hem de offline kanallardaki denge önümüzdeki çeyrek için sağlam bir temel oluşturuyor." 
+   All constraints verified. Ready. 
+   [Output] -> *Proceeds* (matches the final text)
+   *(Note: I will output only the requested summary as per standard instructions, but I'll make sure it's exactly as refined.)*
+   Final Check:
+   - 5 sentences? Yes.
+   - "satış" + inflections ≥3? Yes (3).
+   - Percentages? 54, 5, 6. Yes.
+   - Quarterly report context? Yes.
+   Perfect.✅
+   Output matches response. 
+   [Done]

@@ -1,0 +1,44 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Name:** Ayşe Demir
+   - **Phone:** 0500 000 00 00
+   - **City:** Bursa
+   - **Required Output Format:** JSON object only
+   - **Keys (exact):** `ad`, `soyad`, `telefon`, `sehir`
+   - **Data Types:** All values must be strings (text)
+   - **Phone Format Constraint:** Must be one of: "0500 000 00 00", "05000000000", or "0500-000-00-00"
+
+2.  **Map Information to Keys:**
+   - `ad` -> "Ayşe"
+   - `soyad` -> "Demir"
+   - `telefon` -> "0500 000 00 00" (matches the allowed format exactly)
+   - `sehir` -> "Bursa"
+
+3.  **Construct JSON:**
+   ```json
+   {
+     "ad": "Ayşe",
+     "soyad": "Demir",
+     "telefon": "0500 000 00 00",
+     "sehir": "Bursa"
+   }
+   ```
+
+4.  **Verify Constraints:**
+   - Only valid JSON object? Yes.
+   - Keys exactly as specified? `ad`, `soyad`, `telefon`, `sehir`. Yes.
+   - All values are strings? Yes.
+   - Phone matches allowed format? Yes, "0500 000 00 00" is explicitly allowed.
+   - Output contains nothing else? Yes.
+
+5.  **Final Output Generation:** (Just the JSON)
+   ```json
+   {
+     "ad": "Ayşe",
+     "soyad": "Demir",
+     "telefon": "0500 000 00 00",
+     "sehir": "Bursa"
+   }
+   ```
+   All constraints met. Proceed.✅

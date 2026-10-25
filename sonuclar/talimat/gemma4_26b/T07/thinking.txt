@@ -1,0 +1,86 @@
+
+*   Product: Home coffee grinder (Ev tipi kahve değirmeni).
+*   Format: Exactly 2 paragraphs, with a blank line between them.
+*   Keyword Constraint: "sessiz" (including inflected forms like "sessizce", "sessizliği", etc.) must appear at least 3 times.
+*   Required Information:
+    *   Model: KD-38
+    *   Grinder Type: 38 mm steel burrs (38 mm çelik öğütücü)
+    *   Warranty: 2 years (2 yıl garanti)
+*   Language: Turkish.
+
+    *   Focus on the user experience, the model name, and the grinding technology.
+    *   *Drafting idea:* Start with the importance of fresh coffee. Introduce KD-38. Mention the 38 mm steel burrs. Mention the quietness.
+    *   *Drafting (Mental):* Kahve tutkunları için tasarlanan KD-38 modeli, sabah rutinlerinizi mükemmel hale getiriyor. 38 mm çelik öğütücü sayesinde çekirdeklerinizi her seferinde eşit boyutta öğütür. En sevdiğiniz özelliği ise oldukça sessiz çalışmasıdır. (Count "sessiz": 1).
+
+    *   Focus on reliability, warranty, and more quietness mentions.
+    *   *Drafting idea:* Emphasize the durability and peace of mind. Mention the 2-year warranty. Mention the quietness again to meet the constraint.
+    *   *Drafting (Mental):* Bu cihaz, evinizin huzurunu bozmadan sessiz bir deneyim sunar. Uzun ömürlü yapısıyla dikkat çeken ürünümüz, 2 yıl garanti kapsamındadır. Kahve keyfinizi sessizce ve kaliteli bir şekilde sürdürmeniz için tasarlandı. (Count "sessiz": 2, 3).
+
+    *   *Paragraph 1:*
+        Kahve tutkunlarının evdeki en büyük yardımcısı olacak KD-38 modeli, taze kahve kokusunu her sabah mutfağınıza taşımak için tasarlandı. İçerisindeki yüksek kaliteli 38 mm çelik öğütücü sayesinde çekirdeklerinizi ideal hassasiyette öğütürken, oldukça **sessiz** bir çalışma performansı sunarak sabah mahmurluğunuzu bozmaz.
+
+    *   *Paragraph 2:*
+        Kullanım kolaylığı ve dayanıklılığı ön planda tutan bu cihaz, konforlu ve **sessiz** bir kahve hazırlama süreci vaat eder. Üstelik, uzun süreli kullanım güveni sağlamak adına ürünümüz 2 yıl garanti ile desteklenmektedir. Siz de mutfağınızda **sessiz** bir profesyonel arıyorsanız, KD-38 ile tanışmanın tam zamanı.
+
+    *   Exactly 2 paragraphs? Yes.
+    *   Blank line between paragraphs? Yes.
+    *   "sessiz" (inc. inflections) at least 3 times?
+        1. sessiz
+        2. sessiz
+        3. sessiz
+        (Total: 3. Check.)
+    *   Model KD-38 included? Yes.
+    *   38 mm çelik öğütücü included? Yes.
+    *   2 yıl garanti included? Yes.
+
+    (Self-Correction: Let's make sure the flow is natural.)
+
+    *Revised Text:*
+    Kahve tutkunlarının evdeki en büyük yardımcısı olacak KD-38 modeli, taze kahve kokusunu her sabah mutfağınıza taşımak için tasarlandı. İçerisindeki yüksek kaliteli 38 mm çelik öğütücü sayesinde çekirdeklerinizi ideal hassasiyette öğütürken, oldukça sessiz bir çalışma performansı sunarak sabah mahmurluğunuzu bozmaz.
+
+    Kullanım kolaylığı ve dayanıklılığı ön planda tutan bu cihaz, konforlu ve sessiz bir kahve hazırlama süreci vaat eder. Üstelik, uzun süreli kullanım güveni sağlamak adına ürünümüz 2 yıl garanti ile desteklenmektedir. Siz de mutfağınızda sessiz bir profesyonel arıyorsanız, KD-38 ile tanışmanın tam zamanı.
+
+    1. sessiz
+    2. sessiz
+    3. sessiz
+
+    Wait, let me check if I can add one more just in case.
+
+    *Alternative check:*
+    Para 1: ...sessiz...
+    Para 2: ...sessiz... ...sessiz...
+
+    Total 3. Perfect.
+
+    *Let's double check requirements again.*
+    - "sessiz" word at least 3 times. (Checked)
+    - Model KD-38. (Checked)
+    - 38 mm çelik öğütücü. (Checked)
+    - 2 yıl garanti. (Checked)
+    - Exactly 2 paragraphs. (Checked)
+    - Blank line between. (Checked)
+
+    *Text Construction:*
+    Kahve tutkunlarının evdeki en büyük yardımcısı olacak KD-38 modeli, taze kahve kokusunu her sabah mutfağınıza taşımak için özel olarak tasarlandı. İçerisindeki yüksek kaliteli 38 mm çelik öğütücü sayesinde çekirdeklerinizi her seferinde ideal hassasiyette öğütürken, oldukça sessiz bir çalışma performansı sunarak sabah mahmurluğunuzu bozmaz.
+
+    Kullanım kolaylığı ve dayanıklılığı ön planda tutan bu cihaz, konforlu ve sessiz bir kahve hazırlama süreci vaat eder. Üstelik, uzun süreli kullanım güveni sağlamak adına ürünümüz 2 yıl garanti kapsamında sunulmaktadır. Siz de mutfağınızda sessiz bir profesyonel arıyorsanız, KD-38 ile tanışmanın tam zamanı.
+
+    *Word count check for "sessiz":*
+    1. "...oldukça **sessiz** bir..."
+    2. "...konforlu ve **sessiz** bir..."
+    3. "...mutfağınızda **sessiz** bir..."
+
+    Total: 3. Perfect.
+
+    *Information check:*
+    - KD-38 (Yes)
+    - 38 mm çelik öğütücü (Yes)
+    - 2 yıl garanti (Yes)
+
+    *Format check:*
+    - 2 paragraphs. (Yes)
+    - Blank line between. (Yes)
+
+    *Final Polish:* The language is professional and inviting for a product description.
+
+    (Drafting final response)

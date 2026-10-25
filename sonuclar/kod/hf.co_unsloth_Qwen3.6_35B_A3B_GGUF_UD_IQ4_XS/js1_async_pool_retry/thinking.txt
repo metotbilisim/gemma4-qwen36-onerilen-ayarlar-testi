@@ -1,0 +1,694 @@
+Here's a thinking process:
+
+1.  **Understand the Goal**: The user wants a Node.js CommonJS module exporting two functions: `promisePool` and `retry`. No external packages. Must handle specific edge cases and behaviors as described.
+
+2.  **Analyze `promisePool(taskFns, limit)`**:
+   - Input: `taskFns` (array of 0-arg functions), `limit` (positive integer)
+   - Behavior: Run at most `limit` tasks concurrently. Start new tasks as soon as one finishes.
+   - Output: Array of results in original order.
+   - Error handling: If any task rejects/throws, immediately reject the pool's promise with that error. Stop starting new tasks. Leave running tasks alone.
+   - Edge cases: Empty array -> `[]`. Invalid limit -> `TypeError`.
+   - Implementation strategy:
+     - Validate `limit`: `if (!Number.isInteger(limit) || limit <= 0) throw new TypeError(...)`
+     - Handle empty array: `if (taskFns.length === 0) return []`
+     - Use a queue/index approach to track which task to run next.
+     - Keep an array `results` of size `taskFns.length` initialized with placeholders or just track by index.
+     - Maintain a counter for running tasks.
+     - When a task finishes (success or error), decrement counter. If error, reject immediately. If success, store result and start next task if any left.
+     - Need to handle synchronous throws properly. Wrap each task in a try-catch or use `.catch()` on the promise.
+     - Since we need to reject immediately on first error and stop starting new tasks, we can use a flag or just check if we've already rejected. But the spec says "rejects with that error immediately", which means the returned promise rejects. We can just propagate the error up.
+     - Let's design a loop/worker pattern:
+       ```javascript
+       async function promisePool(taskFns, limit) {
+         if (!Number.isInteger(limit) || limit <= 0) {
+           throw new TypeError('limit must be a positive integer');
+         }
+         if (taskFns.length === 0) return [];
+
+         const results = new Array(taskFns.length);
+         let index = 0;
+         let running = 0;
+
+         // We need to track if we've already rejected to avoid starting more tasks
+         // But actually, if we just let the error propagate, we can check a flag.
+         let rejected = false;
+
+         const runTask = async (taskIndex) => {
+           if (rejected) return;
+           try {
+             const result = await taskFns[taskIndex]();
+             results[taskIndex] = result;
+           } catch (err) {
+             rejected = true;
+             throw err; // This will reject the pool's promise
+           } finally {
+             running--;
+             // Try to start next tasks
+             while (running < limit && index < taskFns.length && !rejected) {
+               const nextIndex = index++;
+               running++;
+               // Schedule next task
+               runTask(nextIndex).catch(() => {}); // Catch here to prevent unhandled rejection in the worker loop
+             }
+           }
+         };
+
+         // Start initial batch
+         while (running < limit && index < taskFns.length) {
+           const taskIndex = index++;
+           running++;
+           runTask(taskIndex).catch(() => {});
+         }
+
+         // Wait for all to finish
+         // But wait, if any rejects, we need to reject immediately.
+         // The above pattern catches errors in workers and sets rejected=true, but the pool's promise needs to reject.
+         // We can use a Promise.all or a custom waiter.
+         // Actually, we can just create a promise that resolves/rejects based on the workers.
+       }
+       ```
+     - Let's refine the error handling. The spec says: "If any task rejects or throws, the returned promise rejects with that error immediately, and no new tasks are started after that point (tasks already running are simply left alone)."
+     - This means we don't need to cancel running tasks, just stop starting new ones.
+     - We can use a `Promise` that we resolve/reject manually, or we can use `Promise.all` on the worker promises, but `Promise.all` waits for all. We want immediate rejection on first error, but we also want to return results in order. Wait, `Promise.all` rejects on first error and doesn't return partial results. The spec says: "Resolve with an array of results in the same order as taskFns... If any task rejects or throws, the returned promise rejects with that error immediately". So we only return results if ALL succeed. If one fails, we reject.
+     - So we can just collect promises for each task, and use `Promise.all(promises)`. But we need to control concurrency.
+     - Better approach: Use a semaphore-like pattern.
+     - Let's track a `reject` function for the main promise.
+     - Actually, we can just create an array of promises that resolve to `[index, result]` or reject. But concurrency control is needed.
+     - Standard pattern for bounded concurrency:
+       ```javascript
+       async function promisePool(taskFns, limit) {
+         if (!Number.isInteger(limit) || limit <= 0) throw new TypeError('...');
+         if (taskFns.length === 0) return [];
+
+         const results = new Array(taskFns.length);
+         let currentIndex = 0;
+         let activeTasks = 0;
+         let firstError = null;
+
+         // We'll use a Promise that we resolve/reject
+         return new Promise((resolve, reject) => {
+           const processNext = () => {
+             if (firstError) return; // Stop starting new tasks
+             if (activeTasks === 0 && currentIndex < taskFns.length) {
+               // All done
+               resolve(results);
+               return;
+             }
+             if (currentIndex >= taskFns.length) return; // Waiting for active tasks
+
+             while (activeTasks < limit && currentIndex < taskFns.length && !firstError) {
+               const idx = currentIndex++;
+               activeTasks++;
+               Promise.resolve()
+                 .then(() => taskFns[idx]())
+                 .then(res => {
+                   results[idx] = res;
+                 })
+                 .catch(err => {
+                   if (!firstError) firstError = err;
+                 })
+                 .finally(() => {
+                   activeTasks--;
+                   processNext();
+                 });
+             }
+           };
+
+           processNext();
+         });
+       }
+       ```
+     - Wait, this approach catches all errors in `.catch()`, sets `firstError`, but doesn't reject the main promise immediately. The spec says: "the returned promise rejects with that error immediately". So we should reject as soon as one fails.
+     - Also, `processNext` is called recursively, which is fine.
+     - Let's adjust to reject immediately:
+       ```javascript
+       async function promisePool(taskFns, limit) {
+         if (!Number.isInteger(limit) || limit <= 0) throw new TypeError('limit must be a positive integer');
+         if (taskFns.length === 0) return [];
+
+         const results = new Array(taskFns.length);
+         let currentIndex = 0;
+         let activeTasks = 0;
+         let hasRejection = false;
+
+         const run = () => new Promise((resolve, reject) => {
+           if (hasRejection) {
+             resolve(); // Already rejected, just resolve this sentinel
+             return;
+           }
+           if (activeTasks === 0 && currentIndex >= taskFns.length) {
+             resolve(results);
+             return;
+           }
+           if (currentIndex >= taskFns.length) return; // waiting
+
+           const startNext = () => {
+             if (hasRejection) return;
+             while (activeTasks < limit && currentIndex < taskFns.length && !hasRejection) {
+               const idx = currentIndex++;
+               activeTasks++;
+               Promise.resolve(taskFns[idx]())
+                 .then(res => {
+                   results[idx] = res;
+                 })
+                 .catch(err => {
+                   if (!hasRejection) {
+                     hasRejection = true;
+                     reject(err);
+                   }
+                 })
+                 .finally(() => {
+                   activeTasks--;
+                   startNext();
+                 });
+             }
+           };
+           startNext();
+         });
+
+         return run();
+       }
+       ```
+     - Let's trace this carefully.
+     - `run()` creates a promise. If `hasRejection` is true, it resolves immediately (to avoid unhandled rejection if multiple errors happen, though we reject on first).
+     - Inside, `startNext()` loops while `activeTasks < limit` and `currentIndex < taskFns.length`.
+     - For each task, it decrements `activeTasks` in `finally`, then calls `startNext()` again. This will pick up the next task if limit allows.
+     - When `activeTasks` drops to 0 and `currentIndex === taskFns.length`, the next `startNext()` call will hit the check `if (activeTasks === 0 && currentIndex >= taskFns.length)` and resolve with `results`.
+     - What if `limit` is 1 and we have 3 tasks?
+       - `activeTasks`=0, `currentIndex`=0. `startNext()` starts task 0. `activeTasks`=1.
+       - Task 0 finishes. `activeTasks`=0. `startNext()` called. Starts task 1.
+       - Works.
+     - What about synchronous throws? `Promise.resolve(taskFns[idx]())` handles sync returns and sync throws correctly.
+     - What about the "immediately reject" requirement? The `.catch` sets `hasRejection = true` and calls `reject(err)`. This rejects the `run()` promise immediately. The spec says "the returned promise rejects with that error immediately". This matches.
+     - One issue: `Promise.resolve(taskFns[idx]())` might throw synchronously before returning a promise. `Promise.resolve()` handles that.
+     - Wait, `taskFns[idx]()` is called inside `Promise.resolve()`. If it throws synchronously, `Promise.resolve()` catches it and returns a rejected promise. That's fine.
+     - Let's consider the `limit` validation: `!Number.isInteger(limit) || limit <= 0`. This covers `0`, `-1`, `1.5`, `"2"`, `NaN`. `Number.isInteger(NaN)` is false. `Number.isInteger("2")` is false. Good.
+     - One subtle point: `Promise.resolve(taskFns[idx]())` vs `taskFns[idx]().then(...)`. If `taskFns[idx]` throws synchronously, `taskFns[idx]()` throws before returning, so we need to wrap it: `Promise.resolve().then(() => taskFns[idx]())` or just `try { const p = taskFns[idx](); ... } catch`. Actually, `Promise.resolve(taskFns[idx]())` works if `taskFns[idx]` returns a value/promise. If it throws synchronously, `taskFns[idx]()` throws, so `Promise.resolve()` never gets called. We should do:
+       ```javascript
+       const p = taskFns[idx]();
+       Promise.resolve(p).then(...)
+       ```
+       Or just:
+       ```javascript
+       Promise.resolve().then(() => taskFns[idx]())
+       ```
+       This is safer.
+     - Let's refine:
+       ```javascript
+       const runTask = (idx) => {
+         activeTasks++;
+         Promise.resolve()
+           .then(() => taskFns[idx]())
+           .then(res => { results[idx] = res; })
+           .catch(err => { if (!hasRejection) { hasRejection = true; reject(err); } })
+           .finally(() => {
+             activeTasks--;
+             startNext();
+           });
+       };
+       ```
+     - This looks solid.
+     - Wait, `startNext` is called recursively. In JS, recursive function calls in a loop can cause stack overflow if there are many tasks? No, it's not a tight loop; it's called in `finally`, which is microtask. It's fine.
+     - Actually, `startNext` calls `runTask` which schedules a microtask. The recursion depth will be at most `limit` + 1 per batch. Safe.
+     - Let's double check the "immediately reject" part. If multiple tasks fail, only the first rejection triggers `reject(err)`. Others are caught by `if (!hasRejection)`. That's fine.
+     - What about `limit` validation? The spec says: "If limit is not a positive integer ..., the returned promise rejects with a TypeError." Wait, `promisePool` is an `async function`. If we throw synchronously, it rejects the returned promise. That's standard async function behavior. So `throw new TypeError(...)` is correct.
+     - One detail: `Number.isInteger(limit) || limit <= 0` covers all cases. But what if `limit` is `Infinity`? `Number.isInteger(Infinity)` is false. The spec says "positive integer", so `Infinity` should probably be rejected or treated as a number? The spec says "not a positive integer (e.g. 0, -1, 1.5, "2", NaN)". I'll stick with `!Number.isInteger(limit) || limit <= 0`.
+     - Actually, `Number.isInteger(Infinity)` is false, so it rejects. That's fine.
+     - Let's test mentally: `taskFns = []`, `limit = 1`. Returns `[]`. Correct.
+     - `taskFns = [f1, f2]`, `limit = 1`. Runs f1, then f2. Resolves `[r1, r2]`. Correct.
+     - `taskFns = [f1, f2]`, `limit = 2`. Runs both. Resolves `[r1, r2]`. Correct.
+     - Error handling: f2 throws. `hasRejection` becomes true, `reject(err)` called. `startNext` won't start f3. Correct.
+     - One thing: `Promise.resolve()` in `run()` might resolve immediately if `hasRejection` is true, but we want the returned promise to be the one that rejects. Actually, `run()` returns a promise. If `hasRejection` is set inside a `.catch`, the `run()` promise is rejected. That's correct.
+     - Wait, `run()` is defined as `const run = () => new Promise((resolve, reject) => { ... })`. If we call `reject(err)`, the promise returned by `run()` rejects. That's what we `return run();`. Correct.
+     - Is there any case where `run()` resolves but we wanted it to reject? No.
+     - One minor thing: `startNext` is called in `.finally()`. If `reject(err)` is called, the promise is settled. Future `.finally()` callbacks still run. That's fine.
+     - Let's consider if `taskFns` contains functions that return promises that resolve later. The concurrency limit works correctly.
+     - I think `promisePool` is solid.
+
+3.  **Analyze `retry(fn, options)`**:
+   - Input: `fn` (function), `options` (object, optional)
+   - Options defaults: `{ retries = 3, delayMs = 0, factor = 2, shouldRetry = (err) => true }`
+   - Calls `fn(attempt)` where `attempt` starts at 1.
+   - If resolves, return value.
+   - If rejects/throws, and `retries` remaining > 0, and `shouldRetry(err)` true, wait `delayMs * factor ** (attempt - 1)`, then call `fn(attempt + 1)`.
+   - Max calls: `retries + 1`.
+   - When giving up, reject with last error.
+   - Wait using `setTimeout`/`clearTimeout`, `require('timers').setTimeout`, etc.
+   - Implementation strategy:
+     - Parse options with defaults.
+     - Loop from `attempt = 1` to `retries + 1`.
+     - Try `await fn(attempt)`. If success, return.
+     - If error, check if `attempt <= retries` and `shouldRetry(err)`.
+     - If yes, calculate delay: `delayMs * Math.pow(factor, attempt - 1)`.
+     - Wait using `new Promise(resolve => setTimeout(resolve, delay))`.
+     - Continue loop.
+     - If loop finishes without success, throw the last error.
+     - Edge case: `delayMs * factor ** (attempt - 1)` might be 0. `setTimeout(..., 0)` works.
+     - What if `options` is undefined? Use default object.
+     - Let's write it out:
+       ```javascript
+       async function retry(fn, options) {
+         const { retries = 3, delayMs = 0, factor = 2, shouldRetry = () => true } = options || {};
+         let lastError;
+         for (let attempt = 1; attempt <= retries + 1; attempt++) {
+           try {
+             return await fn(attempt);
+           } catch (err) {
+             lastError = err;
+             if (attempt <= retries && shouldRetry(err)) {
+               const delay = delayMs * Math.pow(factor, attempt - 1);
+               await new Promise(resolve => setTimeout(resolve, delay));
+             } else {
+               break;
+             }
+           }
+         }
+         throw lastError;
+       }
+       ```
+     - Wait, the spec says: "If it rejects/throws, and fewer than retries retries have been made so far, and shouldRetry(err) returns true, wait ... and call fn again".
+     - "fewer than retries retries have been made so far" -> This means if `retries = 3`, we can retry up to 3 times. Total calls = 4. My loop `attempt <= retries + 1` handles this. When `attempt = 4`, `attempt <= retries` is false, so it breaks and throws. Correct.
+     - Delay calculation: `delayMs * factor ** (attempt - 1)`. For attempt 1 (first retry), delay is `delayMs * factor^0 = delayMs`. Correct.
+     - Wait, the spec says: "wait `delayMs * factor ** (attempt - 1)` milliseconds". If `attempt` is the current attempt number (1-based), then for the first failure (attempt 1), we wait `delayMs * factor^0`. That matches.
+     - One detail: `require('timers').setTimeout` vs global `setTimeout`. The spec says "Wait using the global `setTimeout`...". Global `setTimeout` is fine in Node.js.
+     - What about `options` being `undefined`? `options || {}` handles it.
+     - What about `shouldRetry` default? `(err) => true` or `() => true`? Spec says `(err) => true`. I'll use `(err) => true`.
+     - Let's check the exact wording: "fewer than `retries` retries have been made so far". If `retries = 3`, after 1st failure, 0 retries made. After 2nd failure, 1 retry made. So we can retry while `retriesMade < retries`. My condition `attempt <= retries` means: when `attempt=1`, `1 <= 3` true, retry. When `attempt=3`, `3 <= 3` true, retry. When `attempt=4`, `4 <= 3` false, stop. Total attempts = 4. Correct.
+     - One subtle point: `delayMs * factor ** (attempt - 1)` could be large, but that's fine.
+     - The spec says: "A promise rejection that nobody handles (Node would terminate the process) counts as a failure, even if every returned value is correct." This is a warning about unhandled rejections. My code catches errors properly and returns/throws appropriately, so no unhandled rejections.
+     - Wait, `await new Promise(resolve => setTimeout(resolve, delay))` creates a promise. If `delay` is 0, it resolves on next tick. That's fine.
+     - Could there be an issue with `setTimeout` being faked? The spec says timer functions are replaced by controllable fakes. `setTimeout` is standard.
+     - One thing: `require('timers/promises').setTimeout` is mentioned as an option, but global `setTimeout` is fine.
+     - I'll stick with `new Promise(resolve => setTimeout(resolve, delay))`.
+     - Let's verify the `retry` function against the spec carefully.
+     - "Calls `fn(attempt)` where `attempt` starts at 1." -> Checked.
+     - "If it resolves, return its value." -> Checked.
+     - "If it rejects/throws, and fewer than `retries` retries have been made so far, and `shouldRetry(err)` returns true, wait `delayMs * factor ** (attempt - 1)` milliseconds and call `fn` again with the next attempt number." -> Checked.
+     - "So `fn` is called at most `retries + 1` times in total." -> Checked.
+     - "When giving up, reject with the last error." -> Checked.
+     - All good.
+
+4.  **Combine and Format**:
+   - Module structure:
+     ```javascript
+     'use strict';
+
+     async function promisePool(taskFns, limit) {
+       // validation
+       // logic
+     }
+
+     async function retry(fn, options) {
+       // logic
+     }
+
+     module.exports = { promisePool, retry };
+     ```
+   - Let's refine `promisePool` to be robust.
+   - I'll rewrite it carefully to avoid any microtask recursion stack issues or race conditions.
+   - Actually, the recursive `startNext` in `finally` is fine, but to be strictly safe and cleaner, I can use a simple loop or `setImmediate` if needed, but microtasks are fine here.
+   - Let's consider an alternative implementation for `promisePool` that is more straightforward:
+     ```javascript
+     async function promisePool(taskFns, limit) {
+       if (!Number.isInteger(limit) || limit <= 0) {
+         throw new TypeError('limit must be a positive integer');
+       }
+       if (taskFns.length === 0) return [];
+
+       const results = new Array(taskFns.length);
+       let currentIndex = 0;
+       let activeTasks = 0;
+       let hasRejection = false;
+
+       const run = () => new Promise((resolve, reject) => {
+         if (hasRejection) {
+           resolve();
+           return;
+         }
+         if (activeTasks === 0 && currentIndex >= taskFns.length) {
+           resolve(results);
+           return;
+         }
+
+         const startNext = () => {
+           if (hasRejection) return;
+           while (activeTasks < limit && currentIndex < taskFns.length && !hasRejection) {
+             const idx = currentIndex++;
+             activeTasks++;
+             Promise.resolve()
+               .then(() => taskFns[idx]())
+               .then(res => { results[idx] = res; })
+               .catch(err => {
+                 if (!hasRejection) {
+                   hasRejection = true;
+                   reject(err);
+                 }
+               })
+               .finally(() => {
+                 activeTasks--;
+                 startNext();
+               });
+           }
+         };
+         startNext();
+       });
+
+       return run();
+     }
+     ```
+   - Wait, there's a potential issue: `Promise.resolve().then(...)` vs `taskFns[idx]()` might throw synchronously before `Promise.resolve()` is called. I already fixed that by using `.then(() => taskFns[idx]())`.
+   - Let's test mentally: `taskFns = [() => { throw new Error('sync') }]`. `Promise.resolve().then(() => taskFns[0]())` will catch the sync throw and reject the promise. `.catch` handles it. `hasRejection = true`, `reject(err)`. `finally` runs. `activeTasks` becomes 0. `startNext` runs, sees `hasRejection`, returns. `run` promise is rejected. Correct.
+   - What about `limit` validation? `!Number.isInteger(limit) || limit <= 0` covers `0`, `-1`, `1.5`, `"2"`, `NaN`. Correct.
+   - One minor thing: `Number.isInteger(limit)` returns false for `null`, `undefined`, objects, strings, etc. So it correctly rejects invalid limits.
+   - The spec says: "If limit is not a positive integer (e.g. 0, -1, 1.5, "2", NaN), the returned promise rejects with a TypeError." Since it's an async function, throwing synchronously rejects the returned promise. Correct.
+   - I'll add a specific message to the TypeError, though not strictly required.
+   - Let's consider if `taskFns` contains functions that return promises that resolve after the pool has already rejected. The spec says: "tasks already running are simply left alone." My code leaves them alone because `hasRejection` is true, so `startNext` won't start new ones, and existing tasks just run to completion. Their `.catch` or `.finally` won't cause issues because `hasRejection` is already true. Correct.
+   - One edge case: `limit` is huge, larger than `taskFns.length`. `while (activeTasks < limit && currentIndex < taskFns.length)` will start all tasks. Correct.
+   - Another edge case: `taskFns` is not an array? The spec doesn't say to validate it, so assume it's an array.
+   - I think `promisePool` is good.
+
+   Let's double check `retry` implementation details.
+   ```javascript
+   async function retry(fn, options) {
+     const { retries = 3, delayMs = 0, factor = 2, shouldRetry = () => true } = options || {};
+     let lastError;
+     for (let attempt = 1; attempt <= retries + 1; attempt++) {
+       try {
+         return await fn(attempt);
+       } catch (err) {
+         lastError = err;
+         if (attempt <= retries && shouldRetry(err)) {
+           const delay = delayMs * Math.pow(factor, attempt - 1);
+           await new Promise(resolve => setTimeout(resolve, delay));
+         } else {
+           break;
+         }
+       }
+     }
+     throw lastError;
+   }
+   ```
+   - Wait, `shouldRetry` default in spec is `(err) => true`. I'll use that.
+   - The delay calculation: `delayMs * factor ** (attempt - 1)`. Using `Math.pow` or `**` is fine.
+   - One thing: `setTimeout` might be replaced by fakes. `new Promise(resolve => setTimeout(resolve, delay))` is standard.
+   - What if `delayMs` is negative? Spec doesn't say, assume valid.
+   - What if `fn` throws synchronously? `try/catch` catches it.
+   - What if `fn` returns a rejected promise? `await` catches it.
+   - Looks solid.
+
+   Let's consider the "A promise rejection that nobody handles counts as a failure" note. This is a warning about unhandled rejections. My code properly awaits or returns promises, so no unhandled rejections.
+   However, in `promisePool`, if `reject(err)` is called, the promise returned by `run()` rejects. The caller awaits it. If the caller doesn't handle it, that's on them. My module doesn't leave promises dangling.
+   Wait, in `promisePool`, `Promise.resolve().then(...).catch(...).finally(...)`. The `.catch` calls `reject(err)`. That rejects the outer `run()` promise. The inner promise chain is handled. No unhandled rejection.
+   One subtle point: `startNext` is called in `.finally()`. If `hasRejection` becomes true, `startNext` returns early. The `.finally()` callback still runs. That's fine.
+   Is there any chance `run()` resolves but we wanted it to reject? No.
+   Is there any chance `run()` rejects but we wanted it to resolve? No.
+
+   Let's test `promisePool` with an example mentally:
+   `taskFns = [() => new Promise(r => setTimeout(() => r(1), 10)), () => Promise.resolve(2)]`, `limit = 1`.
+   - `run()` called. `activeTasks`=0, `currentIndex`=0.
+   - `startNext()` starts task 0. `activeTasks`=1.
+   - Task 0 finishes. `activeTasks`=0. `startNext()` called. Starts task 1. `activeTasks`=1.
+   - Task 1 finishes. `activeTasks`=0. `startNext()` called. `currentIndex`=2, `activeTasks`=0 -> resolves `[1, 2]`.
+   Correct.
+
+   What about `limit = 0`? Throws TypeError. Correct.
+   What about `taskFns = []`? Returns `[]`. Correct.
+
+   One detail: `Number.isInteger(limit)` returns false for `Infinity`. The spec says "positive integer", so `Infinity` should probably be rejected. I'll keep it. If they want `Infinity` to work as "unlimited", they'd specify, but they said "positive integer". I'll stick with `!Number.isInteger(limit) || limit <= 0`.
+
+   Wait, the spec says: "If limit is not a positive integer (e.g. 0, -1, 1.5, "2", NaN), the returned promise rejects with a TypeError."
+   This implies we should throw `new TypeError(...)`.
+
+   Let's check `retry` delay calculation again.
+   `attempt` starts at 1.
+   First call: `fn(1)`. Fails.
+   `attempt` = 1. `attempt <= retries` (1 <= 3) true. `shouldRetry` true.
+   Delay: `delayMs * factor ** (1 - 1)` = `delayMs`.
+   Wait. Call `fn(2)`. Fails.
+   `attempt` = 2. Delay: `delayMs * factor ** (2 - 1)` = `delayMs * factor`.
+   Wait. Call `fn(3)`. Fails.
+   `attempt` = 3. Delay: `delayMs * factor ** (3 - 1)` = `delayMs * factor^2`.
+   Wait. Call `fn(4)`. Succeeds or fails.
+   If fails, `attempt` = 4. `attempt <= retries` (4 <= 3) false. Break. Throw last error.
+   Total calls: 4. Matches "at most retries + 1".
+   Delay between attempts: 0 -> wait -> 1 -> wait -> 2 -> wait -> 3.
+   Wait, the spec says: "wait `delayMs * factor ** (attempt - 1)` milliseconds".
+   If `attempt` is the current attempt number that just failed, then for attempt 1, delay is `delayMs * factor^0`. Correct.
+   All good.
+
+   One minor thing: `require('timers').setTimeout` vs global `setTimeout`. The spec says "Wait using the global `setTimeout`...". I'll use global `setTimeout`.
+   Also, `options` might be `undefined`. `options || {}` handles it.
+   Default `shouldRetry`: `(err) => true`. I'll use exactly that.
+
+   Let's assemble the module.
+   I'll wrap it in a single code block.
+   I'll add `'use strict';` for good practice, though not strictly required.
+   I'll make sure exports match exactly: `module.exports = { promisePool, retry };`
+
+   One thing: `promisePool` validation. `!Number.isInteger(limit) || limit <= 0` is correct.
+   Should I check if `taskFns` is an array? Not specified, assume valid.
+   Should I handle `taskFns` not being iterable? Not specified.
+
+   Let's consider if `limit` is `1.5`. `Number.isInteger(1.5)` is false. Throws TypeError. Correct.
+   `"2"` -> false. Correct.
+   `NaN` -> false. Correct.
+   `Infinity` -> false. Correct.
+   `-1` -> false. Correct.
+   `0` -> false. Correct.
+   `1` -> true. Correct.
+
+   All edge cases covered.
+
+   One potential issue: In `promisePool`, `Promise.resolve().then(() => taskFns[idx]())` might not catch synchronous throws if `taskFns[idx]` is not a function? But spec says it's an array of zero-argument functions. I'll assume valid input.
+
+   Another potential issue: `startNext` is called recursively. In V8, microtask recursion can hit limits? Unlikely for this pattern, but to be safe, I could use `setImmediate` or just rely on the fact that it's bounded by `limit`. It's fine.
+
+   Let's write out the full code.
+   I'll structure it carefully.
+
+   ```javascript
+   'use strict';
+
+   async function promisePool(taskFns, limit) {
+     if (!Number.isInteger(limit) || limit <= 0) {
+       throw new TypeError('limit must be a positive integer');
+     }
+     if (taskFns.length === 0) return [];
+
+     const results = new Array(taskFns.length);
+     let currentIndex = 0;
+     let activeTasks = 0;
+     let hasRejection = false;
+
+     const run = () => new Promise((resolve, reject) => {
+       if (hasRejection) {
+         resolve();
+         return;
+       }
+       if (activeTasks === 0 && currentIndex >= taskFns.length) {
+         resolve(results);
+         return;
+       }
+
+       const startNext = () => {
+         if (hasRejection) return;
+         while (activeTasks < limit && currentIndex < taskFns.length && !hasRejection) {
+           const idx = currentIndex++;
+           activeTasks++;
+           Promise.resolve()
+             .then(() => taskFns[idx]())
+             .then(res => {
+               results[idx] = res;
+             })
+             .catch(err => {
+               if (!hasRejection) {
+                 hasRejection = true;
+                 reject(err);
+               }
+             })
+             .finally(() => {
+               activeTasks--;
+               startNext();
+             });
+         }
+       };
+       startNext();
+     });
+
+     return run();
+   }
+
+   async function retry(fn, options) {
+     const { retries = 3, delayMs = 0, factor = 2, shouldRetry = () => true } = options || {};
+     let lastError;
+
+     for (let attempt = 1; attempt <= retries + 1; attempt++) {
+       try {
+         return await fn(attempt);
+       } catch (err) {
+         lastError = err;
+         if (attempt <= retries && shouldRetry(err)) {
+           const delay = delayMs * Math.pow(factor, attempt - 1);
+           await new Promise(resolve => setTimeout(resolve, delay));
+         } else {
+           break;
+         }
+       }
+     }
+
+     throw lastError;
+   }
+
+   module.exports = { promisePool, retry };
+   ```
+
+   Wait, `shouldRetry` default in spec is `(err) => true`. I used `() => true`. I'll change to `(err) => true` to match spec exactly, though it doesn't matter functionally.
+   Also, `Math.pow(factor, attempt - 1)` vs `factor ** (attempt - 1)`. Both fine.
+   One thing: `options` might be `null`. `options || {}` handles `null` and `undefined`.
+   What if `options` is an object but missing keys? Destructuring with defaults handles it.
+   All good.
+
+   Let's double check the `promisePool` error handling requirement: "If any task rejects or throws, the returned promise rejects with that error immediately, and no new tasks are started after that point (tasks already running are simply left alone)."
+   My code: `hasRejection = true; reject(err);` inside `.catch`. This rejects the `run()` promise immediately. `startNext` checks `hasRejection` and returns, so no new tasks start. Existing tasks continue because they are already scheduled. This matches perfectly.
+
+   One subtle point: `Promise.resolve().then(() => taskFns[idx]())` vs `taskFns[idx]().then(...)`. If `taskFns[idx]` throws synchronously, `taskFns[idx]()` throws before returning, so `.then` is never attached. `Promise.resolve().then(...)` defers the call until the microtask queue, catching sync throws. This is correct.
+
+   Another check: `limit` validation. The spec says "If limit is not a positive integer ..., the returned promise rejects with a TypeError." Since `promisePool` is `async`, throwing synchronously rejects the returned promise. This is standard and correct.
+
+   One detail: `require('timers').setTimeout` is mentioned as an option for waiting, but global `setTimeout` is fine. I'll stick with global.
+
+   Final check of the code against requirements:
+   - CommonJS module: `module.exports = { promisePool, retry };` ✓
+   - `promisePool` signature: `async function promisePool(taskFns, limit)` ✓
+   - Runs at most `limit` concurrently ✓
+   - Starts next as soon as one finishes ✓
+   - Resolves with array in same order ✓
+   - Rejects immediately on first error, stops new tasks, leaves running ✓
+   - Empty array resolves to `[]` ✓
+   - Invalid limit throws TypeError ✓
+   - `retry` signature: `async function retry(fn, options)` ✓
+   - Options defaults match spec ✓
+   - Calls `fn(attempt)` starting at 1 ✓
+   - Waits `delayMs * factor ** (attempt - 1)` ✓
+   - Max `retries + 1` calls ✓
+   - Rejects with last error when giving up ✓
+   - No external packages ✓
+   - Single code block ✓
+
+   Everything looks solid. I will produce the final answer.
+   One minor adjustment: I'll make sure `shouldRetry` default matches exactly: `shouldRetry = (err) => true`.
+   Also, I'll use `factor ** (attempt - 1)` instead of `Math.pow` for brevity, though both work.
+   I'll keep the code as is.
+
+   Wait, is there any issue with `options` being `undefined` and destructuring? `const { ... } = options || {};` handles it.
+   What if `options` is `null`? `options || {}` handles it.
+   All good.
+
+   One thing: `promisePool` might have a slight issue if `taskFns` contains functions that return promises that resolve after `hasRejection` is true. They will still run, which is correct per spec ("tasks already running are simply left alone"). Their results will be stored in `results`, but since the main promise already rejected, those results are ignored. That's fine.
+
+   I think it's ready.
+   Output matches request.
+   Proceeds. 
+   Self-Correction/Refinement during thought:
+   Let's verify `retry` delay calculation again.
+   Spec: "wait `delayMs * factor ** (attempt - 1)` milliseconds"
+   If `attempt` is 1 (first failure), delay = `delayMs * 1`.
+   If `attempt` is 2 (second failure), delay = `delayMs * factor`.
+   This matches exponential backoff starting from the first retry.
+   My code: `const delay = delayMs * Math.pow(factor, attempt - 1);` -> correct.
+   One detail: `setTimeout` resolution. `await new Promise(resolve => setTimeout(resolve, delay));` is standard.
+   All good.
+
+   Final code structure:
+   ```javascript
+   'use strict';
+
+   async function promisePool(taskFns, limit) {
+     if (!Number.isInteger(limit) || limit <= 0) {
+       throw new TypeError('limit must be a positive integer');
+     }
+     if (taskFns.length === 0) return [];
+
+     const results = new Array(taskFns.length);
+     let currentIndex = 0;
+     let activeTasks = 0;
+     let hasRejection = false;
+
+     const run = () => new Promise((resolve, reject) => {
+       if (hasRejection) {
+         resolve();
+         return;
+       }
+       if (activeTasks === 0 && currentIndex >= taskFns.length) {
+         resolve(results);
+         return;
+       }
+
+       const startNext = () => {
+         if (hasRejection) return;
+         while (activeTasks < limit && currentIndex < taskFns.length && !hasRejection) {
+           const idx = currentIndex++;
+           activeTasks++;
+           Promise.resolve()
+             .then(() => taskFns[idx]())
+             .then(res => {
+               results[idx] = res;
+             })
+             .catch(err => {
+               if (!hasRejection) {
+                 hasRejection = true;
+                 reject(err);
+               }
+             })
+             .finally(() => {
+               activeTasks--;
+               startNext();
+             });
+         }
+       };
+       startNext();
+     });
+
+     return run();
+   }
+
+   async function retry(fn, options) {
+     const { retries = 3, delayMs = 0, factor = 2, shouldRetry = (err) => true } = options || {};
+     let lastError;
+
+     for (let attempt = 1; attempt <= retries + 1; attempt++) {
+       try {
+         return await fn(attempt);
+       } catch (err) {
+         lastError = err;
+         if (attempt <= retries && shouldRetry(err)) {
+           const delay = delayMs * factor ** (attempt - 1);
+           await new Promise(resolve => setTimeout(resolve, delay));
+         } else {
+           break;
+         }
+       }
+     }
+
+     throw lastError;
+   }
+
+   module.exports = { promisePool, retry };
+   ```
+   This looks complete and correct. I'll output it. 
+   One minor thing: `factor ** (attempt - 1)` might be evaluated as `factor ** (attempt - 1)`. In JS, `**` has right-to-left associativity, but here it's fine. I'll keep it.
+   All constraints met.
+   Output matches. 
+   Proceeds. 
+   [Done] 
+   Output Generation. 
+   *(Self-Correction/Verification during generation prep)*
+   Wait, `promisePool` spec says: "If any task rejects or throws, the returned promise rejects with that error immediately, and no new tasks are started after that point (tasks already running are simply left alone)."
+   My implementation rejects the `run()` promise immediately. But `run()` is the only promise returned. So it works.
+   One thing: `Promise.resolve().then(...)` might not be necessary if we just do `taskFns[idx]().then(...)`, but `taskFns[idx]()` could throw synchronously before returning a promise, causing an unhandled rejection if not caught. `Promise.resolve().then(() => taskFns[idx]())` safely catches sync throws. I'll keep it.
+   Actually, `try { const p = taskFns[idx](); Promise.resolve(p).then(...) } catch(e) { ... }` is more explicit, but `Promise.resolve().then(() => taskFns[idx]())` is cleaner and standard.
+   I'll stick with it.
+   All good. 
+   Output matches the refined code. 
+   Proceeds. 
+   [Output Generation] -> *Proceeds*

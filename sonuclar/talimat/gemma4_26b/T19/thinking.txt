@@ -1,0 +1,235 @@
+
+*   Input data:
+        *   Monthly revenue increase: 8% compared to last month.
+        *   Return rate: dropped from 3% to 2%.
+        *   New customer count: 140.
+        *   Best-selling product group: office stationery (ofis kırtasiyesi).
+    *   Output Format: Two-part report summary.
+    *   Section Headers: "Bölüm 1" and "Bölüm 2" on separate lines.
+    *   Word Count constraint: 90 to 110 words.
+    *   Required content: Revenue increase rate (ciro artış oranı), new customer count (yeni müşteri sayısı), and best-selling product group (en çok satan ürün grubu).
+    *   Language: Turkish.
+
+    *   *Draft 1 (Mental Outline):*
+        Bölüm 1
+        Bu ayki finansal performansımız oldukça olumludur. Aylık ciro artış oranı geçen aya oranla %8 olarak gerçekleşmiştir. Ayrıca iade oranlarımızı %3'ten %2'ye düşürerek müşteri memnuniyetini artırdık.
+        Bölüm 2
+        Müşteri kazanımı tarafında ise yeni müşteri sayısı 140 olarak kaydedilmiştir. Ürün satış verilerine bakıldığında, en çok satan ürün grubu ofis kırtasiyesi olmuştur. Bu veriler, stratejimizin doğru yolda olduğunu göstermektedir.
+
+    *   *Draft 1 Word Count Check:*
+        Bölüm 1 (2)
+        Bu (3) ayki (4) finansal (5) performansımız (6) oldukça (7) olumludur. (8) Aylık (9) ciro (10) artış (11) oranı (12) geçen (13) aya (14) oranla (15) %8 (16) olarak (17) gerçekleşmiştir. (18) Ayrıca (19) iade (20) oranlarımızı (21) %3'ten (22) %2'ye (23) düşürerek (24) müşteri (25) memnuniyetini (26) artırdık. (27)
+        Bölüm 2 (29)
+        Müşteri (30) kazanımı (31) tarafında (32) ise (33) yeni (34) müşteri (35) sayısı (36) 140 (37) olarak (38) kaydedilmiştir. (39) Ürün (40) satış (41) verilerine (42) bakıldığında, (43) en (44) çok (45) satan (46) ürün (47) grubu (48) ofis (49) kırtasiyesi (50) olmuştur. (51) Bu (52) veriler, (53) stratejimizin (54) doğru (55) yolda (56) olduğunu (57) göstermektedir. (58)
+
+    *Total: ~58 words. Too short. Need to expand to reach 90-110 words.*
+
+    *   *Draft 2 (Expansion):*
+        Bölüm 1
+        Şirketimizin bu ayki finansal performans verileri incelendiğinde, oldukça başarılı bir tabloyla karşılaşmaktayız. Aylık ciro artış oranı, bir önceki aya kıyasla yüzde 8 seviyesinde yükselerek hedeflerimize katkı sağlamıştır. Bununla birlikte, operasyonel verimliliğimizi artırmak adına yürüttüğümüz çalışmalar sonucunda iade oranı yüzde 3 seviyesinden yüzde 2 seviyesine gerilemiştir. Bu durum, ürün kalitemizin ve müşteri beklentilerinin daha iyi karşılandığını açıkça kanıtlamaktadır.
+
+        Bölüm 2
+        Pazar genişleme stratejilerimiz neticesinde, yeni müşteri sayısı bu dönemde toplamda 140 olarak kaydedilmiştir. Satış kanallarımızdaki ürün dağılımı analiz edildiğinde, en çok satan ürün grubu ofis kırtasiyesi olarak öne çıkmıştır. Gelecek dönemde bu başarının devamını sağlamak adına planlamalarımız sürmektedir.
+
+    *   *Draft 2 Word Count Check:*
+        1. Bölüm
+        2. 1
+        3. Şirketimizin
+        4. bu
+        5. ayki
+        6. finansal
+        7. performans
+        8. verileri
+        9. incelendiğinde,
+        10. oldukça
+        11. başarılı
+        12. bir
+        13. tabloyla
+        14. karşılaşmaktayız.
+        15. Aylık
+        16. ciro
+        17. artış
+        18. oranı,
+        19. bir
+        20. önceki
+        21. aya
+        22. kıyasla
+        23. yüzde
+        24. 8
+        25. seviyesinde
+        26. yükselerek
+        27. hedeflerimize
+        28. katkı
+        29. sağlamıştır.
+        30. Bununla
+        31. birlikte,
+        32. operasyonel
+        33. verimliliğimizi
+        34. artırmak
+        35. adına
+        36. yürüttüğümüz
+        37. çalışmalar
+        38. sonucunda
+        39. iade
+        40. oranı
+        41. yüzde
+        42. 3
+        43. seviyesinden
+        44. yüzde
+        45. 2
+        46. seviyesine
+        47. gerilemiştir.
+        48. Bu
+        49. durum,
+        50. ürün
+        51. kalitemizin
+        52. ve
+        53. müşteri
+        54. beklentilerinin
+        55. daha
+        56. iyi
+        57. karşılandığını
+        58. açıkça
+        59. kanıtlamaktadır.
+        60. Bölüm
+        61. 2
+        62. Pazar
+        63. genişleme
+        64. stratejilerimiz
+        65. neticesinde,
+        66. yeni
+        67. müşteri
+        68. sayısı
+        69. bu
+        70. dönemde
+        71. toplamda
+        72. 140
+        73. olarak
+        74. kaydedilmiştir.
+        75. Satış
+        76. kanallarımızdaki
+        77. ürün
+        78. dağılımı
+        79. analiz
+        80. edildiğinde,
+        81. en
+        82. çok
+        83. satan
+        84. ürün
+        85. grubu
+        86. ofis
+        87. kırtasiyesi
+        88. olarak
+        89. öne
+        90. çıkmıştır.
+        91. Gelecek
+        92. dönemde
+        93. bu
+        94. başarının
+        95. devamını
+        96. sağlamak
+        97. adına
+        98. planlamalarımız
+        99. sürmektedir.
+
+    *Total count: ~99 words.* (Note: word counting can vary slightly depending on if symbols like % or numbers count as words, but in most linguistic models, they do. Let's aim for a solid 100).
+
+    *   *Let's double check constraints:*
+        *   Two sections? Yes.
+        *   Headers "Bölüm 1" and "Bölüm 2"? Yes.
+        *   90-110 words? Current count is ~99. Perfect.
+        *   Revenue increase rate (ciro artış oranı) included? Yes.
+        *   New customer count (yeni müşteri sayısı) included? Yes.
+        *   Best selling product group (en çok satan ürün grubu) included? Yes.
+
+    *Text:*
+    Bölüm 1
+    Şirketimizin bu ayki finansal performans verileri incelendiğinde, oldukça başarılı bir tabloyla karşılaşmaktayız. Aylık ciro artış oranı, bir önceki aya kıyasla yüzde 8 seviyesinde yükselerek hedeflerimize katkı sağlamıştır. Bununla birlikte, operasyonel verimliliğimizi artırmak adına yürüttüğümüz çalışmalar sonucunda iade oranı yüzde 3 seviyesinden yüzde 2 seviyesine gerilemiştir. Bu durum, ürün kalitemizin ve müşteri memnuniyetinin arttığını göstermektedir.
+
+    Bölüm 2
+    Pazar genişleme stratejilerimiz neticesinde, yeni müşteri sayısı bu dönemde toplamda 140 olarak kaydedilmiştir. Satış kanallarımızdaki ürün dağılımı analiz edildiğinde, en çok satan ürün grubu ofis kırtasiyesi olarak öne çıkmıştır. Gelecek dönemde bu başarının devamını sağlamak için çalışmalarımız sürecektir.
+
+    *Word Count Re-verification:*
+    1:Bölüm 2:1 3:Şirketimizin 4:bu 5:ayki 6:finansal 7:performans 8:verileri 9:incelendiğinde, 10:oldukça 11:başarılı 12:bir 13:tabloyla 14:karşılaşmaktayız. 15:Aylık 16:ciro 17:artış 18:oranı, 19:bir 20:önceki 21:aya 22:kıyasla 23:yüzde 24:8 25:seviyesinde 26:yükselerek 27:hedeflerimize 28:katkı 29:sağlamıştır. 30:Bununla 31:birlikte, 32:operasyonel 33:verimliliğimizi 34:artırmak 35:adına 36:yürüttüğümüz 37:çalışmalar 38:sonucunda 39:iade 40:oranı 41:yüzde 42:3 43:seviyesinden 44:yüzde 45:2 46:seviyesine 47:gerilemiştir. 48:Bu 49:durum, 50:ürün 51:kalitemizin 52:ve 53:müşteri 54:memnuniyetinin 55:arttığını 56:göstermektedir. 57:Bölüm 58:2 59:Pazar 60:genişleme 61:stratejilerimiz 62:neticesinde, 63:yeni 64:müşteri 65:sayısı 66:bu 67:dönemde 68:toplamda 69:140 70:olarak 71:kaydedilmiştir. 72:Satış 73:kanallarımızdaki 74:ürün 75:dağılımı 76:analiz 77:edildiğinde, 78:en 79:çok 80:satan 81:ürün 82:grubu 83:ofis 84:kırtasiyesi 85:olarak 86:öne 87:çıkmıştır. 88:Gelecek 89:dönemde 90:bu 91:başarının 92:devamını 93:sağlamak 94:için 95:çalışmalarımız 96:sürecektir.
+
+    Wait, 96 words. This is within the 90-110 range. Let's add a few words to be safe and more professional.
+
+    *Final Polish:*
+    Bölüm 1
+    Şirketimizin bu ayki finansal performans verileri incelendiğinde, oldukça başarılı bir tablo ile karşılaşmaktayız. Aylık ciro artış oranı, bir önceki aya kıyasla yüzde 8 seviyesinde yükselerek hedeflerimize önemli katkı sağlamıştır. Bununla birlikte, operasyonel verimliliğimizi artırmak adına yürüttüğümüz yoğun çalışmalar sonucunda iade oranı yüzde 3 seviyesinden yüzde 2 seviyesine gerilemiştir. Bu durum, ürün kalitemizin arttığını göstermektedir.
+
+    Bölüm 2
+    Pazar genişleme stratejilerimiz neticesinde, yeni müşteri sayısı bu dönemde toplamda 140 olarak kaydedilmiştir. Satış kanallarımızdaki ürün dağılımı analiz edildiğinde, en çok satan ürün grubu ofis kırtasiyesi olarak öne çıkmıştır. Gelecek dönemde bu ivmeyi korumak adına stratejik planlamalarımız sürecektir.
+
+    *Word count check:*
+    1. Bölüm 2. 1 3. Şirketimizin 4. bu 5. ayki 6. finansal 7. performans 8. verileri 9. incelendiğinde, 10. oldukça 11. başarılı 12. bir 13. tablo 14. ile 15. karşılaşmaktayız. 16. Aylık 17. ciro 18. artış 19. oranı, 20. bir 21. önceki 22. aya 23. kıyasla 24. yüzde 25. 8 26. seviyesinde 27. yükselerek 28. hedeflerimize 29. önemli 30. katkı 31. sağlamıştır. 32. Bununla 33. birlikte, 34. operasyonel 35. verimliliğimizi 36. artırmak 37. adına 38. yürüttüğümüz 39. yoğun 40. çalışmalar 41. sonucunda 42. iade 43. oranı 44. yüzde 45. 3 46. seviyesinden 47. yüzde 48. 2 49. seviyesine 50. gerilemiştir. 51. Bu 52. durum, 53. ürün 54. kalitemizin 55. arttığını 56. göstermektedir. 57. Bölüm 58. 2 59. Pazar 60. genişleme 61. stratejilerimiz 62. neticesinde, 63. yeni 64. müşteri 65. sayısı 66. bu 67. dönemde 68. toplamda 69. 140 70. olarak 71. kaydedilmiştir. 72. Satış 73. kanallarımızdaki 74. ürün 75. dağılımı 76. analiz 77. edildiğinde, 78. en 79. çok 80. satan 81. ürün 82. grubu 83. ofis 84. kırtasiyesi 85. olarak 86. öne 87. çıkmıştır. 88. Gelecek 89. dönemde 90. bu 91. ivmeyi 92. korumak 93. adına 94. stratejik 95. planlamalarımız 96. sürecektir.
+
+    96 words. Perfect. It's within 90-110.
+
+    - Two parts? Yes.
+    - Headers correct? Yes.
+    - Ciro artış oranı? Included (yüzde 8).
+    - Yeni müşteri sayısı? Included (140).
+    - En çok satan ürün grubu? Included (ofis kırtasiyesi).
+    - Length? ~96 words.
+
+    *One more check on the content:*
+    Rakamlar:
+    Aylık ciro geçen aya göre yüzde 8 arttı. (Check)
+    İade oranı yüzde 3'ten yüzde 2'ye düştü. (Check)
+    Yeni müşteri sayısı 140 oldu. (Check)
+    En çok satan ürün grubu ofis kırtasiyesi. (Check)
+
+    *Wait, I should ensure the headers are on separate lines as requested.*
+
+    *Draft looks solid.*
+
+    Bölüm 1
+    Şirketimizin bu ayki finansal performans verileri incelendiğinde, oldukça başarılı bir tablo ile karşılaşmaktayız. Aylık ciro artış oranı, bir önceki aya kıyasla yüzde 8 seviyesinde yükselerek hedeflerimize önemli katkı sağlamıştır. Bununla birlikte, operasyonel verimliliğimizi artırmak adına yürüttüğümüz yoğun çalışmalar sonucunda iade oranı yüzde 3 seviyesinden yüzde 2 seviyesine gerilemiştir. Bu durum, ürün kalitemizin arttığını göstermektedir.
+
+    Bölüm 2
+    Pazar genişleme stratejilerimiz neticesinde, yeni müşteri sayısı bu dönemde toplamda 140 olarak kaydedilmiştir. Satış kanallarımızdaki ürün dağılımı analiz edildiğinde, en çok satan ürün grubu ofis kırtasiyesi olarak öne çıkmıştır. Gelecek dönemde bu ivmeyi korumak adına stratejik planlamalarımız sürecektir.
+
+    *Self-Correction during final review:*
+    The prompt asks for the summary to be between 90 and 110 words.
+    Let me recount exactly.
+    1-Bölüm 2-1
+    3-Şirketimizin 4-bu 5-ayki 6-finansal 7-performans 8-verileri 9-incelendiğinde, 10-oldukça 11-başarılı 12-bir 13-tablo 14-ile 15-karşılaşmaktayız. 16-Aylık 17-ciro 18-artış 19-oranı, 20-bir 21-önceki 22-aya 23-kıyasla 24-yüzde 25-8 26-seviyesinde 27-yükselerek 28-hedeflerimize 29-önemli 30-katkı 31-sağlamıştır. 32-Bununla 33-birlikte, 34-operasyonel 35-verimliliğimizi 36-artırmak 37-adına 38-yürüttüğümüz 39-yoğun 40-çalışmalar 41-sonucunda 42-iade 43-oranı 44-yüzde 45-3 46-seviyesinden 47-yüzde 48-2 49-seviyesine 50-gerilemiştir. 51-Bu 52-durum, 53-ürün 54-kalitemizin 55-arttığını 56-göstermektedir.
+    57-Bölüm 58-2
+    59-Pazar 60-genişleme 61-stratejilerimiz 62-neticesinde, 63-yeni 64-müşteri 65-sayısı 66-bu 67-dönemde 68-toplamda 69-140 70-olarak 71-kaydedilmiştir. 72-Satış 73-kanallarımızdaki 74-ürün 75-dağılımı 76-analiz 77-edildiğinde, 78-en 79-çok 80-satan 81-ürün 82-grubu 83-ofis 84-kırtasiyesi 85-olarak 86-öne 87-çıkmıştır. 88-Gelecek 89-dönemde 90-bu 91-ivmeyi 92-korumak 93-adına 94-stratejik 95-planlamalarımız 96-sürecektir.
+
+    Total is 96. Perfect.
+
+    Wait, let's double check if I should include "Bölüm 1" and "Bölüm 2" in the word count. Usually, yes.
+    96 words is a safe number.
+
+    Let's do one more slight expansion to hit ~100 words just to be extra safe.
+
+    "Gelecek dönemde bu ivmeyi korumak adına stratejik planlamalarımız ve çalışmalarımız kararlılıkla sürecektir."
+    (Added: ve çalışmalarımız kararlılıkla -> +4 words)
+    96 + 4 = 100 words.
+
+    *Revised Text for Output:*
+    Bölüm 1
+    Şirketimizin bu ayki finansal performans verileri incelendiğinde, oldukça başarılı bir tablo ile karşılaşmaktayız. Aylık ciro artış oranı, bir önceki aya kıyasla yüzde 8 seviyesinde yükselerek hedeflerimize önemli katkı sağlamıştır. Bununla birlikte, operasyonel verimliliğimizi artırmak adına yürüttüğümüz yoğun çalışmalar sonucunda iade oranı yüzde 3 seviyesinden yüzde 2 seviyesine gerilemiştir. Bu durum, ürün kalitemizin arttığını göstermektedir.
+
+    Bölüm 2
+    Pazar genişleme stratejilerimiz neticesinde, yeni müşteri sayısı bu dönemde toplamda 140 olarak kaydedilmiştir. Satış kanallarımızdaki ürün dağılımı analiz edildiğinde, en çok satan ürün grubu ofis kırtasiyesi olarak öne çıkmıştır. Gelecek dönemde bu ivmeyi korumak adına stratejik planlamalarımız ve çalışmalarımız kararlılıkla sürecektir.
+
+    *Final Count:*
+    1-Bölüm 2-1 3-Şirketimizin 4-bu 5-ayki 6-finansal 7-performans 8-verileri 9-incelendiğinde, 10-oldukça 11-başarılı 12-bir 13-tablo 14-ile 15-karşılaşmaktayız. 16-Aylık 17-ciro 18-artış 19-oranı, 20-bir 21-önceki 22-aya 23-kıyasla 24-yüzde 25-8 26-seviyesinde 27-yükselerek 28-hedeflerimize 29-önemli 30-katkı 31-sağlamıştır. 32-Bununla 33-birlikte, 34-operasyonel 35-verimliliğimizi 36-artırmak 37-adına 38-yürüttüğümüz 39-yoğun 40-çalışmalar 41-sonucunda 42-iade 43-oranı 44-yüzde 45-3 46-seviyesinden 47-yüzde 48-2 49-seviyesine 50-gerilemiştir. 51-Bu 52-durum, 53-ürün 54-kalitemizin 55-arttığını 56-göstermektedir. 57-Bölüm 58-2 59-Pazar 60-genişleme 61-stratejilerimiz 62-neticesinde, 63-yeni 64-müşteri 65-sayısı 66-bu 67-dönemde 68-toplamda 69-140 70-olarak 71-kaydedilmiştir. 72-Satış 73-kanallarımızdaki 74-ürün 75-dağılımı 76-analiz 77-edildiğinde, 78-en 79-çok 80-satan 81-ürün 82-grubu 83-ofis 84-kırtasiyesi 85-olarak 86-öne 87-çıkmıştır. 88-Gelecek 89-dönemde 90-bu 91-ivmeyi 92-korumak 93-adına 94-stratejik 95-planlamalarımız 96-ve 97-çalışmalarımız 98-kararlılıkla 99-sürecektir.
+
+    Word count is 99 words.
+    Requirement: 90 to 110.
+    Perfect.
+
+    *Contents:*
+    - Ciro artış oranı: %8 (Included)
+    - Yeni müşteri sayısı: 140 (Included)
+    - En çok satan ürün grubu: ofis kırtasiyesi (Included)
+
+    *Formatting:*
+    Bölüm 1 (separate line)
+    Bölüm 2 (separate line)
+
+    Everything looks good.

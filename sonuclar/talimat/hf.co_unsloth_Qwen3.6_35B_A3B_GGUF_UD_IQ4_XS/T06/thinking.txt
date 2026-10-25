@@ -1,0 +1,87 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Input Notes:** 
+     - Pazarlama bütçesi gelecek çeyrekte 250.000 TL ile sabit kalacak.
+     - Yeni broşür tasarımı onaylandı.
+     - Web sitesindeki form hataları bu hafta giderilecek.
+     - Fuar katılımı için İzmir’deki tarih 17 Mart olarak belirlendi.
+   - **Requirements:**
+     - Write a summary of 3 to 5 sentences.
+     - The entire response must be in UPPERCASE (BÜYÜK HARFLERLE).
+     - Must include: budget amount (bütçe tutarı), city (şehir), and date (tarih) in the summary.
+
+2.  **Extract Key Information from Notes:**
+   - Budget: 250.000 TL (for next quarter)
+   - Brochure design: Approved
+   - Website form errors: Will be fixed this week
+   - Fair/Exhibition: İzmir, March 17
+   - Required elements for summary: Bütçe tutarı (250.000 TL), Şehir (İzmir), Tarih (17 Mart)
+
+3.  **Draft Summary (Mental - in Turkish, then convert to uppercase):**
+   Gelecek çeyrekte pazarlama bütçesi 250.000 TL ile sabit tutulacaktır. Yeni broşür tasarımı onaylanmış olup web sitesindeki form hataları bu hafta içinde düzeltilecektir. Ayrıca fuar katılımı kapsamında düzenlenecek etkinlik için İzmir şehri ve 17 Mart tarihi kesinleşmiştir.
+
+4.  **Check Requirements:**
+   - Length: 3 sentences. (Matches 3-5 requirement)
+   - All caps: Need to convert entirely to uppercase.
+   - Contains budget amount: 250.000 TL ✓
+   - Contains city: İzmir ✓
+   - Contains date: 17 Mart ✓
+   - Language: Turkish ✓
+
+5.  **Convert to Uppercase & Verify:**
+   GELECEK ÇEYREKTE PAZARLAMA BÜTÇESİ 250.000 TL İLE SABİT TUTULACAKTIR. YENİ BROŞÜR TASARIMI ONAYLANMIŞ OLUP WEB SİTESİNDEKİ FORM HATALARI BU HAFTA İÇİNDE DÜZELTİLECEKTİR. AYRICA FUAR KATILIMI KAPSAMINDA DÜZENLENECEK ETKİNLİK İÇİN İZMİR ŞEHİR VE 17 MART TARİHİ KESİNLEŞMİŞTİR.
+
+   Let's count sentences: 3. (Meets 3-5 requirement)
+   All caps? Yes.
+   Contains budget, city, date? Yes (250.000 TL, İzmir, 17 Mart).
+   Content matches notes? Yes.
+   Language correct? Yes.
+
+6.  **Final Output Generation:** (matches the uppercase version exactly)
+   GELECEK ÇEYREKTE PAZARLAMA BÜTÇESİ 250.000 TL İLE SABİT TUTULACAKTIR. YENİ BROŞÜR TASARIMI ONAYLANMIŞ OLUP WEB SİTESİNDEKİ FORM HATALARI BU HAFTA İÇİNDE DÜZELTİLECEKTİR. AYRICA FUAR KATILIMI İÇİN İZMİR ŞEHİR VE 17 MART TARİHİ KESİNLEŞMİŞTİR.
+
+   Wait, let's check the exact wording for city/date requirement: "bütçe tutarı, şehir ve tarih özette geçsin." - It's satisfied.
+   Check sentence count: Exactly 3. Good.
+   All caps: Yes.
+   Ready. Output matches exactly.✅
+   One minor tweak: Ensure punctuation doesn't break the all-caps rule (it won't, just letters matter). The prompt says "Cevabın tamamı BÜYÜK HARFLERLE yazılsın." so I'll make sure every single letter is uppercase.
+
+   Final text:
+   GELECEK ÇEYREKTE PAZARLAMA BÜTÇESİ 250.000 TL İLE SABİT TUTULACAKTIR. YENİ BROŞÜR TASARIMI ONAYLANMIŞ OLUP WEB SİTESİNDEKİ FORM HATALARI BU HAFTA İÇİNDE DÜZELTİLECEKTİR. AYRICA FUAR KATILIMI İÇİN İZMİR ŞEHİR VE 17 MART TARİHİ BELİRLENMİŞTİR.
+
+   Checks:
+   - 3 sentences? Yes.
+   - All caps? Yes.
+   - Budget (250.000 TL), City (İzmir), Date (17 Mart) included? Yes.
+   - Accurate to notes? Yes.
+   Proceeds. 
+   Output matches response.✅
+   Note: I'll make sure the Turkish characters are preserved in uppercase (İ, Ş, Ç, Ğ, Ü, Ö) as per standard Turkish uppercase rules. The prompt says "BÜYÜK HARFLERLE", so I'll keep them uppercase. All good. 
+   Output generation. 
+   [Done] 
+   *Self-Correction/Verification during thought*: 
+   Let's count sentences carefully: 
+   1. GELECEK ÇEYREKTE PAZARLAMA BÜTÇESİ 250.000 TL İLE SABİT TUTULACAKTIR.
+   2. YENİ BROŞÜR TASARIMI ONAYLANMIŞ OLUP WEB SİTESİNDEKİ FORM HATALARI BU HAFTA İÇİNDE DÜZELTİLECEKTİR.
+   3. AYRICA FUAR KATILIMI İÇİN İZMİR ŞEHİR VE 17 MART TARİHİ BELİRLENMİŞTİR.
+   Exactly 3. Meets "3 ile 5 cümlelik". 
+   All caps: Checked. 
+   Required info: Budget (250.000 TL), City (İzmir), Date (17 Mart). All present. 
+   Ready.✅
+   Output matches the final text. 
+   Proceeds. 
+   [Output Generation] -> *See response.* 
+   *(Note: I'll make sure no lowercase letters slip in, including at the start of sentences.)* 
+   Final check of the prompt: "Cevabın tamamı BÜYÜK HARFLERLE yazılsın." -> Understood. 
+   All good. 
+   Output matches response exactly. 
+   [Done.] 
+   *(Self-Correction/Refinement during process)*: I should ensure that the summary flows naturally while strictly following constraints. The draft does. No further changes needed. 
+   Output generation. 
+   `GELECEK ÇEYREKTE PAZARLAMA BÜTÇESİ 250.000 TL İLE SABİT TUTULACAKTIR. YENİ BROŞÜR TASARIMI ONAYLANMIŞ OLUP WEB SİTESİNDEKİ FORM HATALARI BU HAFTA İÇİNDE DÜZELTİLECEKTİR. AYRICA FUAR KATILIMI İÇİN İZMİR ŞEHİR VE 17 MART TARİHİ BELİRLENMİŞTİR.` -> Matches all constraints.✅
+   Proceeds. 
+   [Output Generation] (matches the final refined version)
+   *(Note: I'll output exactly that string.)*
+   [Done.] 
+   *(Final Output Generation)* -> *See response.*

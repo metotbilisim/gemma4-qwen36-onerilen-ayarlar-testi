@@ -1,0 +1,1 @@
+köşe kahve 9 mayıs tarihinde moda'da açılıyor! taze kahve kokusu ve keyifli sohbetler için hepinizi yeni mekanımıza bekliyoruz, mutlaka uğrayın.

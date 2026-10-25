@@ -1,0 +1,263 @@
+
+*   Product: Natural soap.
+*   Brand: Defne Atölyesi.
+*   Weight: 120 grams.
+*   Ingredient: 100% plant-based (yüzde 100 bitkisel).
+*   Constraint 1: Entire response must be enclosed in double quotes (first and last characters).
+*   Constraint 2: Word count must be between 30 and 40 words.
+*   Language: Turkish.
+
+    Defne Atölyesi'nin bu eşsiz sabunu ile tanışın. Yüzde 100 bitkisel içerikli formülü sayesinde cildinizi doğanın saflığıyla besler. 120 gram ağırlığındaki bu özel ürün, banyo keyfinizi bambaşka bir boyuta taşıyarak size tamamen doğal bir dokunuş sunar.
+
+    *   *Words:* Defne (1) Atölyesi'nin (2) bu (3) eşsiz (4) sabunu (5) ile (6) tanışın. (7) Yüzde (8) 100 (9) bitkisel (10) içerikli (11) formülü (12) sayesinde (13) cildinizi (14) doğanın (15) saflığıyla (16) besler. (17) 120 (18) gram (19) ağırlığındaki (20) bu (21) özel (22) ürün, (23) banyo (24) keyfinizi (25) bambaşka (26) bir (27) boyuta (28) taşıyarak (29) size (30) tamamen (31) doğal (32) bir (33) dokunuş (34) sunar. (35)
+    *   *Count check:* 35 words.
+    *   *Content check:* Defne Atölyesi (Yes), 120 gram (Yes), yüzde 100 bitkisel (Yes).
+    *   *Formatting check:* Needs quotes around the whole thing.
+
+    "Defne Atölyesi’nin yüzde 100 bitkisel içeriğe sahip bu eşsiz sabunu, cildinize doğanın tüm saflığını sunuyor. 120 gram ağırlığındaki bu doğal mucize, banyo rutinlerinizi tazelerken cildinizi derinlemesine besleyerek yumuşacık ve sağlıklı bir görünüm kazandırır."
+
+    *Word count:*
+    1. Defne
+    2. Atölyesi’nin
+    3. yüzde
+    4. 100
+    5. bitkisel
+    6. içeriğe
+    7. sahip
+    8. bu
+    9. eşsiz
+    10. sabunu,
+    11. cildinize
+    12. doğanın
+    13. tüm
+    14. saflığını
+    15. sunuyor.
+    16. 120
+    17. gram
+    18. ağırlığındaki
+    19. bu
+    20. doğal
+    21. mucize,
+    22. banyo
+    23. rutinlerinizi
+    24. tazelerken
+    25. cildinizi
+    26. derinlemesine
+    27. besleyerek
+    28. yumuşacık
+    29. ve
+    30. sağlıklı
+    31. bir
+    32. görünüm
+    33. kazandırır.
+
+    Total: 33 words.
+
+    Wait, let me re-count carefully.
+    "Defne(1) Atölyesi’nin(2) yüzde(3) 100(4) bitkisel(5) içeriğe(6) sahip(7) bu(8) eşsiz(9) sabunu,(10) cildinize(11) doğanın(12) tüm(13) saflığını(14) sunuyor.(15) 120(16) gram(17) ağırlığındaki(18) bu(19) doğal(20) mucize,(21) banyo(22) rutinlerinizi(23) tazelerken(24) cildinizi(25) derinlemesine(26) besleyerek(27) yumuşacık(28) ve(29) sağlıklı(30) bir(31) görünüm(32) kazandırır.(33)"
+
+    33 words is within 30-40.
+
+    Let's try to get closer to 35 to be safe.
+
+    "Defne Atölyesi’nin yüzde 100 bitkisel içeriğe sahip bu eşsiz sabunu, cildinize doğanın tüm saflığını sunuyor. 120 gram ağırlığındaki bu özel ürün, banyo rutinlerinizi tazelerken cildinizi derinlemesine besleyerek size yumuşacık ve sağlıklı bir dokunuş sağlar."
+
+    *Word count:*
+    1 Defne
+    2 Atölyesi’nin
+    3 yüzde
+    4 100
+    5 bitkisel
+    6 içeriğe
+    7 sahip
+    8 bu
+    9 eşsiz
+    10 sabunu,
+    11 cildinize
+    12 doğanın
+    13 tüm
+    14 saflığını
+    15 sunuyor.
+    16 120
+    17 gram
+    18 ağırlığındaki
+    19 bu
+    20 özel
+    21 ürün,
+    22 banyo
+    23 rutinlerinizi
+    24 tazelerken
+    25 cildinizi
+    26 derinlemesine
+    27 besleyerek
+    28 size
+    29 yumuşacık
+    30 ve
+    31 sağlıklı
+    32 bir
+    33 dokunuş
+    34 sağlar.
+
+    Total: 34 words. This is perfect.
+
+    *   Brand included: Defne Atölyesi.
+    *   Weight included: 120 gram.
+    *   Content included: yüzde 100 bitkisel.
+    *   Total words: 34.
+    *   Constraint: All in double quotes.
+
+    "Defne Atölyesi’nin yüzde 100 bitkisel içeriğe sahip bu eşsiz sabunu, cildinize doğanın tüm saflığını sunuyor. 120 gram ağırlığındaki bu özel ürün, banyo rutinlerinizi tazelerken cildinizi derinlemesine besleyerek size yumuşacık ve sağlıklı bir dokunuş sağlar."
+
+    *Wait, I should count again to be absolutely certain.*
+    1.Defne 2.Atölyesi’nin 3.yüzde 4.100 5.bitkisel 6.içeriğe 7.sahip 8.bu 9.eşsiz 10.sabunu, 11.cildinize 12.doğanın 13.tüm 14.saflığını 15.sunuyor. 16.120 17.gram 18.ağırlığındaki 19.bu 20.özel 21.ürün, 22.banyo 23.rutinlerinizi 24.tazelerken 25.cildinizi 26.derinlemesine 27.besleyerek 28.size 29.yumuşacık 30.ve 31.sağlıklı 32.bir 33.dokunuş 34.sağlar.
+
+    Yes, 34 words.
+
+    One detail: "yüzde 100 bitkisel" is in the prompt. My text has "yüzde 100 bitkisel".
+    Brand: Defne Atölyesi. My text has "Defne Atölyesi’nin".
+    Weight: 120 gram. My text has "120 gram".
+
+    Final Check:
+    "Defne Atölyesi’nin yüzde 100 bitkisel içeriğe sahip bu eşsiz sabunu, cildinize doğanın tüm saflığını sunuyor. 120 gram ağırlığındaki bu özel ürün, banyo rutinlerinizi tazelerken cildinizi derinlemesine besleyerek size yumuşacık ve sağlıklı bir dokunuş sağlar."
+
+    Let's check the prompt again. "Cevabın tamamı çift tırnak işareti içinde olsun (ilk karakter ve son karakter çift tırnak olsun)."
+
+    Does the text flow naturally? Yes. Is it a product description? Yes.
+
+    Word Count Check (Manual recount):
+    1: Defne
+    2: Atölyesi'nin
+    3: yüzde
+    4: 100
+    5: bitkisel
+    6: içeriğe
+    7: sahip
+    8: bu
+    9: eşsiz
+    10: sabunu,
+    11: cildinize
+    12: doğanın
+    13: tüm
+    14: saflığını
+    15: sunuyor.
+    16: 120
+    17: gram
+    18: ağırlığındaki
+    19: bu
+    20: özel
+    21: ürün,
+    22: banyo
+    23: rutinlerinizi
+    24: tazelerken
+    25: cildinizi
+    26: derinlemesine
+    27: besleyerek
+    28: size
+    29: yumuşacık
+    30: ve
+    31: sağlıklı
+    32: bir
+    33: dokunuş
+    34: sağlar.
+
+    Total = 34. Correct.
+
+    Wait, let me check if "100" and "120" are counted as words. In standard word counting (like MS Word), numbers separated by spaces are words.
+    "yüzde 100 bitkisel" -> yüzde(1) 100(2) bitkisel(3).
+    "120 gram" -> 120(1) gram(2).
+
+    If the user's count doesn't include numbers, I might be in trouble. But usually, in NLP and standard word counts, they are words.
+    If I count only alphabet-based words:
+    Defne(1) Atölyesi'nin(2) yüzde(3) bitkisel(4) içeriğe(5) sahip(6) bu(7) eşsiz(8) sabunu,(9) cildinize(10) doğanın(11) tüm(12) saflığını(13) sunuyor.(14) gram(15) ağırlığındaki(16) bu(17) özel(18) ürün,(19) banyo(20) rutinlerinizi(21) tazelerken(22) cildinizi(23) derinlemesine(24) besleyerek(25) size(26) yumuşacık(27) ve(28) sağlıklı(29) bir(30) dokunuş(31) sağlar.(32)
+    32 words. Even if numbers aren't counted, it's 32, which is > 30.
+
+    Wait, if "Defne Atölyesi" is treated as one brand entity, but in word counts, it's two.
+    Let's look at the range 30-40. 34 is a very safe number.
+
+    One more check on constraints.
+    - Short intro for natural soap: Yes.
+    - Entire answer in double quotes: Yes.
+    - 30-40 words: Yes (34).
+    - Brand: Defne Atölyesi: Yes.
+    - Weight: 120 gram: Yes.
+    - Content: yüzde 100 bitkisel: Yes.
+
+    Let's refine the text to ensure it stays within 30-40 regardless of number counting.
+    If numbers are words: 34 words.
+    If numbers are NOT words: 32 words.
+    Both are within 30-40.
+
+    Let's try one more just to be safe, adding a few words to bump up the non-number count to 34-35.
+
+    "Defne Atölyesi’nin yüzde 100 bitkisel içeriğe sahip bu eşsiz sabunu, cildinize doğanın tüm saflığını sunuyor. 120 gram ağırlığındaki bu özel ürün, banyo rutinlerinizi tazelerken cildinizi derinlemesine besleyerek size her kullanımda yumuşacık ve sağlıklı bir dokunuş sağlar."
+
+    Counting:
+    1 Defne
+    2 Atölyesi’nin
+    3 yüzde
+    4 100
+    5 bitkisel
+    6 içeriğe
+    7 sahip
+    8 bu
+    9 eşsiz
+    10 sabunu,
+    11 cildinize
+    12 doğanın
+    13 tüm
+    14 saflığını
+    15 sunuyor.
+    16 120
+    17 gram
+    18 ağırlığındaki
+    19 bu
+    20 özel
+    21 ürün,
+    22 banyo
+    23 rutinlerinizi
+    24 tazelerken
+    25 cildinizi
+    26 derinlemesine
+    27 besleyerek
+    28 size
+    29 her
+    30 kullanımda
+    31 yumuşacık
+    32 ve
+    33 sağlıklı
+    34 bir
+    35 dokunuş
+    36 sağlar.
+
+    Total: 36 words.
+    If numbers aren't words: 34 words.
+    This is very safe.
+
+    Final text: "Defne Atölyesi’nin yüzde 100 bitkisel içeriğe sahip bu eşsiz sabunu, cildinize doğanın tüm saflığını sunuyor. 120 gram ağırlığındaki bu özel ürün, banyo rutinlerinizi tazelerken cildinizi derinlemesine besleyerek size her kullanımda yumuşacık ve sağlıklı bir dokunuş sağlar."
+
+    Wait, the prompt says "yüzde 100 bitkisel". I wrote "yüzde 100 bitkisel".
+    The prompt says "120 gram". I wrote "120 gram".
+    The prompt says "Defne Atölyesi". I wrote "Defne Atölyesi'nin". This is grammatically correct for the sentence.
+
+    One last check of the quotes instruction. "Cevabın tamamı çift tırnak işareti içinde olsun (ilk karakter ve son karakter çift tırnak olsun)." -> This means no intro/outro text from the AI.
+
+    Text: "Defne Atölyesi’nin yüzde 100 bitkisel içeriğe sahip bu eşsiz sabunu, cildinize doğanın tüm saflığını sunuyor. 120 gram ağırlığındaki bu özel ürün, banyo rutinlerinizi tazelerken cildinizi derinlemesine besleyerek size her kullanımda yumuşacık ve sağlıklı bir dokunuş sağlar."
+
+    Wait, "100" and "120" are numeric. Let's make sure I don't accidentally include a space inside the quotes at the start/end.
+
+    Let's verify word count one more time.
+    "Defne(1) Atölyesi’nin(2) yüzde(3) 100(4) bitkisel(5) içeriğe(6) sahip(7) bu(8) eşsiz(9) sabunu,(10) cildinize(11) doğanın(12) tüm(13) saflığını(14) sunuyor.(15) 120(16) gram(17) ağırlığındaki(18) bu(19) özel(20) ürün,(21) banyo(22) rutinlerinizi(23) tazelerken(24) cildinizi(25) derinlemesine(26) besleyerek(27) size(28) her(29) kullanımda(30) yumuşacık(31) ve(32) sağlıklı(33) bir(34) dokunuş(35) sağlar.(36)"
+
+    Perfect. 36 words.
+
+    Check for any potential issues:
+    - Brand name: Defne Atölyesi (Check)
+    - Weight: 120 gram (Check)
+    - Content: yüzde 100 bitkisel (Check)
+    - Word count: 36 (Check, 30-40 range)
+    - Quotes: Entire response inside quotes (Check)
+
+    Double check quotes requirement: "Cevabın tamamı çift tırnak işareti içinde olsun (ilk karakter ve son karakter çift tırnak olsun)."
+    This implies the output should be exactly: "Text"
+
+    Let's do it.

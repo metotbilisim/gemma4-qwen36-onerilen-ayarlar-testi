@@ -1,0 +1,43 @@
+*   Input: "12 paket A4 kâğıt, toplam tutar 1450 TL."
+    *   Task: Convert to JSON.
+    *   Constraints:
+        *   Output must be *only* a valid JSON object.
+        *   Required keys: `urun` (string), `adet` (number), `tutar` (number).
+        *   Optional: Other keys allowed.
+        *   Content: Product name, quantity, and total amount must be included.
+
+    *   Product (`urun`): "A4 kâğıt" or "A4 kâğıt paketi".
+    *   Quantity (`adet`): 12.
+    *   Total Amount (`tutar`): 1450.
+
+    ```json
+    {
+      "urun": "A4 kâğıt",
+      "adet": 12,
+      "tutar": 1450
+    }
+    ```
+
+    *   Valid JSON? Yes.
+    *   Only JSON in response? Yes.
+    *   `urun` (text)? Yes.
+    *   `adet` (number)? Yes.
+    *   `tutar` (number)? Yes.
+
+    ```json
+    {
+      "urun": "A4 kâğıt",
+      "adet": 12,
+      "tutar": 1450,
+      "para_birimi": "TL"
+    }
+    ```
+    (The prompt says "at least these keys", so adding `para_birimi` is fine, but I'll stick to the minimum/cleanest version unless it feels better to include more). Let's stick to the core requirements to ensure strict compliance with "only valid JSON".
+
+    ```json
+    {
+      "urun": "A4 kâğıt",
+      "adet": 12,
+      "tutar": 1450
+    }
+    ```

@@ -1,0 +1,880 @@
+*   Class name: `LruCache`.
+    *   Interface: `\Countable`.
+    *   PHP Version: 8.4.
+    *   Properties:
+        *   `capacity` (int): Minimum 1.
+        *   `clock` (Closure): Returns current time (float). Default `microtime(true)`.
+        *   `data` (array/Map): Store keys to values + metadata.
+        *   `order` (Doubly Linked List): Track usage recency.
+        *   `ttlIndex` (Min-Heap): Track expiration times.
+
+    *   `__construct(int $capacity, ?\Closure $clock = null)`: Validate $capacity >= 1.
+    *   `set(string $key, mixed $value, ?float $ttl = null)`:
+        *   Validate $ttl (if provided, must be > 0).
+        *   Update recency (move to front of list).
+        *   Remove expired entries first if capacity exceeded.
+        *   If still over capacity, evict LRU (back of list).
+        *   Store entry (value, expiration time).
+        *   Add to TTL index (if TTL provided).
+    *   `get(string $key, mixed $default = null)`:
+        *   Check existence and expiration.
+        *   If expired, delete and return `$default`.
+        *   If exists, move to front and return value.
+        *   If missing, return `$default`.
+    *   `has(string $key)`:
+        *   Check existence and expiration.
+        *   Do *not* change recency.
+    *   `delete(string $key)`:
+        *   Remove entry and return true if it was not expired.
+    *   `count()`: Return number of non-expired entries.
+    *   `keys()`: Return keys from least to most recently used (non-expired).
+
+    *   `get`, `has`, `delete`: $O(1)$ (assuming hash map and doubly linked list).
+    *   `set` (no TTL): $O(1)$ (assuming $O(1)$ removal of expired and LRU).
+    *   `set` (with TTL): $O(\log n)$ (due to heap).
+    *   `remove expired`: Amortized $O(k)$ where $k$ is number of expired items.
+    *   `count`, `keys`: $O(n)$.
+
+    *   To achieve $O(1)$ for `get`, `has`, and `delete`, we need a hash map (PHP array) mapping keys to nodes in a doubly linked list.
+    *   To achieve $O(1)$ for recency updates, the doubly linked list must allow $O(1)$ removal of a known node.
+    *   To achieve $O(\log n)$ for TTL, a Min-Heap (`SplPriorityQueue` is a Max-Heap, so we use negative priority or a custom implementation. Or just `SplPriorityQueue` and invert the value). Wait, `SplPriorityQueue` is actually a max-priority queue. To make it a min-heap for expiration times, we can insert `-expiration_time`.
+    *   Wait, `SplPriorityQueue` doesn't support removing specific items (like when an entry is updated or deleted before it expires). This is a problem for the $O(\log n)$ requirement if we need to "remove" an expired entry from the heap when its TTL changes.
+    *   Actually, for the TTL index, we don't necessarily need to remove items from the heap when they are updated/deleted. We can use "lazy deletion". When we peek at the heap, check if the top item's key still exists and if its expiration time matches the one in the main storage. If not, pop and continue.
+
+    *   `capacity`: int.
+    *   `clock`: Closure.
+    *   `items`: Array of `Entry` objects. `Entry` contains `key`, `value`, `expires_at`, `prev`, `next`.
+    *   `head`, `tail`: Pointers for the Doubly Linked List.
+    *   `ttlHeap`: `SplPriorityQueue`.
+
+    *   Each item in the `items` array: `['value' => mixed, 'expires_at' => float|null, 'prev' => ?string, 'next' => ?string]`
+    *   Actually, manual doubly linked list with keys as pointers in the array is memory efficient in PHP.
+
+    1.  Calculate `now`.
+    2.  Clean up expired entries (look at `ttlHeap`).
+    3.  If key exists:
+        *   Remove from list.
+        *   Update value and `expires_at`.
+        *   Insert into list (head).
+    4.  If key doesn't exist:
+        *   If count >= capacity, evict tail.
+        *   Insert into list (head).
+    5.  If TTL provided, add to `ttlHeap`.
+
+    *Wait*, the requirement says: "If the cache now holds more than $capacity$ entries, first remove expired entries; if still over capacity, evict the least recently used entry."
+
+    Correct order for `set`:
+    1.  Handle existing key (if exists, remove it from the list/logic so we can re-insert it as new).
+    2.  Check if adding this will exceed capacity.
+    3.  If (current count + 1) > capacity:
+        *   Clean expired entries.
+        *   If still (current count + 1) > capacity:
+            *   Remove LRU (tail).
+    4.  Add new entry.
+
+    Wait, if the key is being *replaced*, the count doesn't increase.
+    Refined logic for `set(key, value, ttl)`:
+    1.  Validate TTL.
+    2.  Get `now`.
+    3.  If `key` exists:
+        *   Remove existing node from list.
+        *   Delete from `items`.
+    4.  If `count(items) == capacity`:
+        *   Remove expired entries (peek `ttlHeap`).
+        *   If `count(items) == capacity` (meaning no expired entries found or none existed):
+            *   Remove LRU (tail).
+    5.  Insert new entry.
+    6.  If TTL provided, add to `ttlHeap`.
+
+    *Issue with `ttlHeap` and Lazy Deletion*:
+    When a key is updated, the old expiration time remains in the heap.
+    When an item is deleted, its expiration remains in the heap.
+    Solution: When peeking at the heap, check if `items[$key]['expires_at'] === heap_timestamp`.
+
+    *Self-Correction on capacity*:
+    If `capacity` is 5, and I have 5 items. I call `set` on an *existing* key. The count doesn't increase. I don't need to evict anything.
+    If I call `set` on a *new* key. I need to check if I'm at capacity.
+
+    *   `head`: Key of the most recent.
+    *   `tail`: Key of the least recent.
+    *   `items`: `[key => ['value' => v, 'expires_at' => e, 'prev' => p, 'next' => n]]`
+
+    *   `count()`: Count of non-expired entries.
+    *   `keys()`: Traverse from tail to head? No, prompt says "from least recently used to most recently used". So tail to head.
+
+    Wait, `count()` must return the number of *non-expired* entries. This means `count()` might trigger a cleanup or at least need to check expiration. But the complexity says `count` and `keys` can be $O(n)$.
+
+    *   `get(key)`:
+        *   Check if key in `items`.
+        *   If yes:
+            *   Check expiration.
+            *   If expired: `delete(key)`, return `$default`.
+            *   If not expired: Move to head, return `value`.
+        *   Else: return `$default`.
+    *   `has(key)`:
+        *   Check if key in `items`.
+        *   If yes:
+            *   Check expiration.
+            *   If expired: `delete(key)`, return `false`.
+            *   Else: return `true`.
+        *   Else: return `false`.
+    *   `delete(key)`:
+        *   Check if key in `items`.
+        *   If yes:
+            *   Check expiration.
+            *   If expired: `delete(key)`, return `false`.
+            *   If not expired: `delete(key)`, return `true`.
+        *   Else: return `false`.
+
+    Wait, the requirement for `delete` says: "returns true if a non-expired entry existed". This implies if it's expired, we return false. However, an expired entry is logically "not there".
+
+    *Complexity Note*: "Removing expired entries may be amortized... never a scan of all entries". This strongly implies using the heap.
+
+    *   `items`: array.
+    *   `head`: string|null.
+    *   `tail`: string|null.
+    *   `ttlHeap`: `SplPriorityQueue`.
+    *   `capacity`: int.
+    *   `clock`: Closure.
+
+    ```php
+    private function removeNode(string $key): void {
+        $node = $this->items[$key];
+        $prev = $node['prev'];
+        $next = $node['next'];
+
+        if ($prev !== null) {
+            $this->items[$prev]['next'] = $next;
+        } else {
+            $this->head = $next;
+        }
+
+        if ($next !== null) {
+            $this->items[$next]['prev'] = $prev;
+        } else {
+            $this->tail = $prev;
+        }
+        unset($this->items[$key]);
+    }
+
+    private function addHead(string $key, mixed $value, ?float $expiresAt): void {
+        $this->items[$key] = [
+            'value' => $value,
+            'expires_at' => $expiresAt,
+            'prev' => null,
+            'next' => $this->head,
+        ];
+        if ($this->head !== null) {
+            $this->items[$this->head]['prev'] = $key;
+        }
+        $this->head = $key;
+        if ($this->tail === null) {
+            $this->tail = $key;
+        }
+    }
+
+    private function cleanExpired(): void {
+        $now = ($this->clock)();
+        while (!$this->ttlHeap->isEmpty()) {
+            $top = $this->ttlHeap->top(); // returns [expires_at, key]
+            if ($top['expires_at'] > $now) {
+                break;
+            }
+            $this->ttlHeap->extract();
+            $key = $top['key'];
+
+            // Check if this entry is still valid and has this exact expiration time
+            if (isset($this->items[$key]) && $this->items[$key]['expires_at'] !== null && $this->items[$key]['expires_at'] <= $now) {
+                // Check for floating point precision? The prompt says >= t + x.
+                // Let's just check if the current expires_at matches the heap's.
+                // If someone updated the key with a NEW ttl, the old one is still in heap.
+                // If expires_at in items matches top['expires_at'], then it's truly expired.
+                if ($this->items[$key]['expires_at'] === $top['expires_at']) {
+                    $this->removeNode($key);
+                }
+            }
+        }
+    }
+    ```
+
+    Wait, the `SplPriorityQueue` `top()` method returns the element, but I need to compare the value. `SplPriorityQueue`'s `top()` returns the *data*, not the priority. To get both, I'd usually set the priority to the expiration time.
+
+    Since `SplPriorityQueue` is a Max-Heap, and we want a Min-Heap (earliest expiration first), we should use `-expiration_time` as the priority.
+
+    ```php
+    $this->ttlHeap->insert($key, -$expirationTime);
+    ```
+    Wait, `SplPriorityQueue` stores the data. When we `top()`, we get the key. But how do we know what the priority was? We don't.
+    Actually, we can just store an array in the data: `['key' => $key, 'expires_at' => $expirationTime]`.
+
+    ```php
+    $this->ttlHeap->insert(['key' => $key, 'expires_at' => $expirationTime], -$expirationTime);
+    ```
+
+    When `cleanExpired` runs:
+    ```php
+    while (!$this->ttlHeap->isEmpty()) {
+        $top = $this->ttlHeap->top();
+        if ($top['expires_at'] > $now) break;
+        $this->ttlHeap->extract();
+        $key = $top['key'];
+        if (isset($this->items[$key]) && $this->items[$key]['expires_at'] === $top['expires_at']) {
+             $this->removeNode($key);
+        }
+    }
+    ```
+    One small issue: `expires_at` is a float. Comparing floats for equality can be tricky, but here they are the exact same values inserted into the heap, so `===` should work.
+
+    *   `set(key, value, ttl)`:
+        1. `now = clock()`
+        2. `if (key exists) { removeNode(key); }`
+        3. `if (count(items) == capacity) { cleanExpired(); }`
+        4. `if (count(items) == capacity) { removeNode(tail); }`
+        5. `addHead(key, value, ttl ? now + ttl : null)`
+        6. `if (ttl) { ttlHeap->insert(['key' => key, 'expires_at' => now + ttl], -(now + ttl)); }`
+
+    *Wait*, there is a logic flaw in the capacity check. If I am *replacing* an existing key, I should not trigger the capacity-based eviction of *other* keys.
+    Let's fix:
+
+    ```php
+    public function set(string $key, mixed $value, ?float $ttl = null): void
+    {
+        if ($ttl !== null && $ttl <= 0) {
+            throw new \InvalidArgumentException("TTL must be positive.");
+        }
+
+        $now = ($this->clock)();
+
+        if (isset($this->items[$key])) {
+            $this->removeNode($key);
+        } elseif (count($this->items) >= $this->capacity) {
+            $this->cleanExpired();
+            if (count($this->items) >= $this->capacity) {
+                $this->removeNode($this->tail); // tail is non-null because capacity >= 1
+            }
+        }
+
+        $expiresAt = ($ttl !== null) ? ($now + $ttl) : null;
+        $this->addHead($key, $value, $expiresAt);
+
+        if ($expiresAt !== null) {
+            $this->ttlHeap->insert(['key' => $key, 'expires_at' => $expiresAt], -$expiresAt);
+        }
+    }
+    ```
+
+    *   `count()`:
+        ```php
+        public function count(): int {
+            $now = ($this->clock)();
+            // Note: Requirement says count() can be O(n). 
+            // We don't HAVE to clean expired here, but we must only count non-expired.
+            $count = 0;
+            foreach ($this->items as $item) {
+                if ($item['expires_at'] === null || $item['expires_at'] > $now) {
+                    $count++;
+                }
+            }
+            return $count;
+        }
+        ```
+
+    *   `keys()`:
+        ```php
+        public function keys(): array {
+            $now = ($this->clock)();
+            $keys = [];
+            $curr = $this->tail;
+            while ($curr !== null) {
+                $item = $this->items[$curr];
+                if ($item['expires_at'] === null || $item['expires_at'] > $now) {
+                    $keys[] = $curr;
+                }
+                $curr = $item['prev'];
+            }
+            return $keys;
+        }
+        ```
+        Wait, `keys` order: "from least recently used to most recently used".
+        My `tail` is LRU, `head` is MRU.
+        So traversal should be: `tail` -> `tail['prev']` -> ... -> `head`.
+        Wait, the `prev` and `next` pointers:
+        `head` <-> `next` <-> `item` <-> `prev` <-> `tail`.
+        So if `tail` is the least recent, we start at `tail` and follow `prev`.
+
+        Let's re-trace:
+        `addHead` sets `item['next'] = head`.
+        So `head` is most recent.
+        `tail` is least recent.
+        `tail`'s `prev` is the one before it.
+        `head`'s `next` is the one after it.
+        So `tail` -> `prev` -> `prev` ... is the order of LRU to MRU. Correct.
+
+    *   `has(key)`:
+        ```php
+        public function has(string $key): bool {
+            if (!isset($this->items[$key])) return false;
+            $now = ($this->clock)();
+            if ($this->items[$key]['expires_at'] !== null && $this->items[$key]['expires_at'] <= $now) {
+                $this->removeNode($key);
+                return false;
+            }
+            return true;
+        }
+        ```
+
+    *   `delete(key)`:
+        ```php
+        public function delete(string $key): bool {
+            if (!isset($this->items[$key])) return false;
+            $now = ($this->clock)();
+            if ($this->items[$key]['expires_at'] !== null && $this->items[$key]['expires_at'] <= $now) {
+                $this->removeNode($key);
+                return false;
+            }
+            $this->removeNode($key);
+            return true;
+        }
+        ```
+
+    "An entry set at time `t` with TTL `x` is expired at any time `>= t + x`."
+    My code: `if ($item['expires_at'] <= $now)`. Correct.
+
+    *   `capacity` >= 1? Yes, checked in constructor.
+    *   `clock` handles `microtime(true)`? Yes.
+    *   `set` replaces entry and makes it MRU? Yes.
+    *   `set` replaces TTL? Yes.
+    *   `set` handles capacity: remove expired then LRU? Yes.
+    *   `get` returns value and makes it MRU? Yes.
+    *   `get` handles missing/expired and returns `$default`? Yes.
+    *   `get` handles `null` as valid value? Yes.
+    *   `has` does NOT change recency? Yes.
+    *   `delete` returns true if non-expired entry existed? Yes.
+    *   `count` returns number of non-expired entries? Yes.
+    *   `keys` returns non-expired keys, LRU to MRU? Yes.
+    *   Complexity:
+        *   `get`, `has`, `delete`: $O(1)$ (amortized for cleaning, but $O(1)$ for the individual call's core logic).
+        *   `set`: $O(1)$ (no TTL), $O(\log n)$ (with TTL).
+        *   `remove expired`: Amortized $O(1)$? Yes, because each entry is added once and removed once.
+        *   `count`, `keys`: $O(n)$.
+
+    One detail: `cleanExpired` in `set`. If we are at capacity, we call `cleanExpired`. `cleanExpired` is amortized $O(1)$ per call (on average) because it only removes items that are already expired. The prompt says "its total cost is proportional to the number of entries removed".
+
+    *   `SplPriorityQueue` is built-in.
+    *   `__construct` throws `\InvalidArgumentException`.
+    *   `set` throws `\InvalidArgumentException`.
+    *   PHP 8.4 features: None specifically required by the logic (like property hooks), but we'll use standard modern PHP syntax.
+
+    *Self-Correction on `cleanExpired`*: In `set`, the `cleanExpired` should be called *before* we check the capacity limit to make sure we have space.
+
+    ```php
+    public function set(string $key, mixed $value, ?float $ttl = null): void
+    {
+        if ($ttl !== null && $ttl <= 0) {
+            throw new \InvalidArgumentException("TTL must be positive.");
+        }
+
+        $now = ($this->clock)();
+
+        // If key exists, remove it to update its position and TTL
+        if (isset($this->items[$key])) {
+            $this->removeNode($key);
+        }
+
+        // If we are at capacity, try to free space
+        if (count($this->items) >= $this->capacity) {
+            $this->cleanExpired();
+            // If still at capacity, we must evict the LRU
+            if (count($this->items) >= $this->capacity) {
+                $this->removeNode($this->tail);
+            }
+        }
+
+        $expiresAt = ($ttl !== null) ? ($now + $ttl) : null;
+        $this->addHead($key, $value, $expiresAt);
+
+        if ($expiresAt !== null) {
+            // Use negative of expiresAt for Min-Heap behavior in SplPriorityQueue
+            $this->ttlHeap->insert(['key' => $key, 'expires_at' => $expiresAt], -$expiresAt);
+        }
+    }
+    ```
+
+    *Wait*, one edge case: `capacity` could be 1. If I have 1 item and I `set` a *new* key. `count($this->items)` is 1. `cleanExpired()` runs. If nothing is expired, `count` is still 1. `removeNode($this->tail)` is called. Then `addHead` adds the new item. Correct.
+
+    If the capacity is 1, and I `set` an *existing* key, `isset($this->items[$key])` is true, `removeNode` is called, `count` becomes 0. The `if (count >= capacity)` block is skipped. `addHead` is called. Perfect.
+
+    *Check: `has` vs `get` vs `delete`*
+    `has` doesn't change recency. My `has` implementation:
+    ```php
+    public function has(string $key): bool {
+        if (!isset($this->items[$key])) return false;
+        $now = ($this->clock)();
+        if ($this->items[$key]['expires_at'] !== null && $this->items[$key]['expires_at'] <= $now) {
+            $this->removeNode($key); // Must remove it if expired
+            return false;
+        }
+        return true;
+    }
+    ```
+    This is fine. It doesn't move the node to the head.
+
+    Wait, `delete` returns true if a *non-expired* entry existed.
+    ```php
+    public function delete(string $key): bool {
+        if (!isset($this->items[$key])) return false;
+        $now = ($this->clock)();
+        $isExpired = ($this->items[$key]['expires_at'] !== null && $this->items[$key]['expires_at'] <= $now);
+        
+        $this->removeNode($key);
+        
+        return !$isExpired;
+    }
+    ```
+    If it was expired, `removeNode` happens, and it returns `false`. If it was not expired, `removeNode` happens, and it returns `true`. This matches.
+
+    *Wait*, one more thing. `count()` and `keys()` must return only *non-expired* entries. My implementation does this.
+
+    *One tiny detail in `addHead`*:
+    ```php
+    private function addHead(string $key, mixed $value, ?float $expiresAt): void {
+        $this->items[$key] = [
+            'value' => $value,
+            'expires_at' => $expiresAt,
+            'prev' => null,
+            'next' => $this->head,
+        ];
+        if ($this->head !== null) {
+            $this->items[$this->head]['prev'] = $key;
+        }
+        $this->head = $key;
+        if ($this->tail === null) {
+            $this->tail = $key;
+        }
+    }
+    ```
+    If the cache is empty, `head` and `tail` are null.
+    `addHead` sets `head = $key`, `tail = $key`.
+    If the cache has 1 item (the head), `head` is `key1`, `tail` is `key1`.
+    `addHead(key2)`:
+    `items[key2]['next'] = key1`.
+    `items[key1]['prev'] = key2`.
+    `head = key2`.
+    `tail` stays `key1`.
+    Correct.
+
+    *Check `removeNode` again*:
+    If `key` is the only item: `head` and `tail` are both `key`.
+    `prev` is null, `next` is null.
+    `if ($prev !== null)` -> false.
+    `else { $this->head = $next; }` -> `head = null`.
+    `if ($next !== null)` -> false.
+    `else { $this->tail = $prev; }` -> `tail = null`.
+    Correct.
+
+    *   PHP 8.4: Use `readonly` properties or type hinting if appropriate (though not strictly required for the logic).
+    *   `\Countable` interface must be implemented.
+    *   No namespace.
+    *   No printing.
+    *   Complete file in one block.
+
+    Wait, `SplPriorityQueue` `top()` might be problematic if I don't store the priority.
+    Actually, `SplPriorityQueue::top()` returns the data.
+    The data I'm inserting is `['key' => $key, 'expires_at' => $expiresAt]`.
+    So `top()` will return that array.
+
+    Let's double-check the $O(1)$ requirement for `get/has/delete`.
+    `get` and `has` and `delete` all perform a lookup in `items` ($O(1)$) and if found, potentially move the node or remove it ($O(1)$).
+    If they trigger a `removeNode` because of expiration, that's still $O(1)$.
+
+    *Self-Correction on `set`*:
+    The requirement: "If the cache now holds more than $capacity$ entries, first remove expired entries; if still over capacity, evict the least recently used entry."
+    My `set` code:
+    ```php
+    if (isset($this->items[$key])) {
+        $this->removeNode($key);
+    }
+    if (count($this->items) >= $this->capacity) {
+        $this->cleanExpired();
+        if (count($this->items) >= $this->capacity) {
+            $this->removeNode($this->tail);
+        }
+    }
+    ```
+    Is there a scenario where `count($this->items)` becomes `> capacity`?
+    No, because I remove the existing key first, then check if I need to make room for the *new* key.
+    If I have 5/5 items and I `set` a new key:
+    1. `isset` is false.
+    2. `count` (5) >= `capacity` (5).
+    3. `cleanExpired()` runs.
+    4. If `count` is still 5, `removeNode($this->tail)` runs. `count` becomes 4.
+    5. `addHead` runs. `count` becomes 5.
+    Correct.
+
+    *Final check on `keys()` order*:
+    `keys()`: "from least recently used to most recently used".
+    `tail` is LRU.
+    `tail` -> `prev` -> `prev` ... -> `head`.
+    In my `addHead` function, `next` is the pointer to the *more* recent item.
+    `prev` is the pointer to the *less* recent item.
+    So:
+    `tail` is the end of the list.
+    `tail->prev` is the item before it (more recent).
+    `head->next` is the item after it (more recent).
+    Wait, I've got my direction mixed up. Let's re-verify.
+
+    If I add A, then B:
+    - `addHead(A)`: `head=A, tail=A, items[A]={next:null, prev:null}`
+    - `addHead(B)`: `head=B, tail=A, items[B]={next:A, prev:null}, items[A]={next:null, prev:B}`
+    Recency: B is MRU, A is LRU.
+    To go LRU -> MRU: Start at `tail` (A), go to `tail->next` (B).
+    Ah, the `prev` and `next` names were swapped in my mental model.
+    In `addHead(B)` where `head` was A:
+    `items[B]['next'] = A` (A is the node that was previously head, so it is *more* recent than B? No, B is new, so B is MRU).
+    If B is MRU and A is LRU:
+    B (MRU) <-> A (LRU)
+    `B->next = A`
+    `A->prev = B`
+    To go LRU to MRU: `A -> B`.
+    So `tail` to `head` using `next` pointers? No, `A` is tail. `A->next` is B.
+    So `tail -> next` is the direction.
+
+    Let's fix the pointers in `addHead` and `removeNode`:
+    ```php
+    private function addHead(string $key, mixed $value, ?float $expiresAt): void {
+        $this->items[$key] = [
+            'value' => $value,
+            'expires_at' => $expiresAt,
+            'prev' => null, // prev = less recent
+            'next' => $this->head, // next = more recent
+        ];
+        if ($this->head !== null) {
+            $this->items[$this->head]['prev'] = $key;
+        }
+        $this->head = $key;
+        if ($this->tail === null) {
+            $this->tail = $key;
+        }
+    }
+    ```
+    Example:
+    1. `addHead(A)`: `head=A, tail=A, items[A]={next:null, prev:null}`
+    2. `addHead(B)`: `head=B, tail=A, items[B]={next:A, prev:null}, items[A]={next:null, prev:B}`
+    Recency: B(MRU), A(LRU).
+    `tail` is A. `A->next` is B.
+    To go LRU -> MRU: `A -> B`.
+    So the loop in `keys()` should be:
+    ```php
+    $curr = $this->tail;
+    while ($curr !== null) {
+        // ... add to array
+        $curr = $this->items[$curr]['next'];
+    }
+    ```
+
+    Let's re-check `removeNode` with this logic:
+    ```php
+    private function removeNode(string $key): void {
+        $node = $this->items[$key];
+        $prev = $node['prev']; // less recent
+        $next = $node['next']; // more recent
+
+        if ($prev !== null) {
+            $this->items[$prev]['next'] = $next;
+        } else {
+            $this->head = $next;
+        }
+
+        if ($next !== null) {
+            $this->items[$next]['prev'] = $prev;
+        } else {
+            $this->tail = $prev;
+        }
+        unset($this->items[$key]);
+    }
+    ```
+    Test `removeNode` on B in `B(MRU) <-> A(LRU)`:
+    `key` is B. `prev` is null. `next` is A.
+    `if ($prev !== null)` is false.
+    `else { $this->head = $next; }` -> `head = A`.
+    `if ($next !== null)` is true.
+    `$this->items[A]['prev'] = null`.
+    `unset(items[B])`.
+    Result: `head=A, tail=A`. Correct.
+
+    Test `removeNode` on A in `B(MRU) <-> A(LRU)`:
+    `key` is A. `prev` is B. `next` is null.
+    `if ($prev !== null)` is true.
+    `$this->items[B]['next'] = null`.
+    `if ($next !== null)` is false.
+    `else { $this->tail = $prev; }` -> `tail = B`.
+    `unset(items[A])`.
+    Result: `head=B, tail=B`. Correct.
+
+    One more check: `keys()` order.
+    LRU to MRU: `A -> B`.
+    My `tail` is A. `A->next` is B.
+    So `tail -> next -> next` is the correct order.
+
+    *   `set`: `O(1)` or `O(log n)`.
+    *   `get`/`has`/`delete`: `O(1)`.
+    *   `count`/`keys`: `O(n)`.
+    *   `cleanExpired`: Amortized $O(1)$ per entry.
+
+    Wait, one tiny detail. `count()` can be $O(n)$ but it must return the number of *non-expired* entries. This means it has to check every entry's expiration. My implementation does this.
+
+    `get(string $key, mixed $default = null): mixed`
+    If the key is `null`, it must return the stored `null`, not `$default`.
+    My code:
+    ```php
+    if (!isset($this->items[$key])) return $default;
+    // ... check expiration ...
+    if (expired) return $default;
+    return $this->items[$key]['value'];
+    ```
+    Since `isset($this->items[$key])` is true even if `items[$key]['value']` is `null`, this works.
+
+    *Wait*, one more thing: `isset()` in PHP returns `false` if the value is `null`. But here `items` is an array of arrays. `isset($this->items[$key])` checks if the *key* exists in the array, not the value inside. So it's safe. To be absolutely safe, I'll use `array_key_exists($key, $this->items)`.
+
+    Wait, actually, `isset($this->items[$key])` is fine because the array element is an array (not null). Even if the value *within* the array is null, `isset` on the outer array will be true.
+
+    ```php
+    public function get(string $key, mixed $default = null): mixed
+    {
+        if (!array_key_exists($key, $this->items)) {
+            return $default;
+        }
+
+        $now = ($this->clock)();
+        if ($this->items[$key]['expires_at'] !== null && $this->items[$key]['expires_at'] <= $now) {
+            $this->removeNode($key);
+            return $default;
+        }
+
+        // Move to head (MRU)
+        $value = $this->items[$key]['value'];
+        $expiresAt = $this->items[$key]['expires_at'];
+        $this->removeNode($key);
+        $this->addHead($key, $value, $expiresAt);
+
+        return $value;
+    }
+    ```
+
+    `has` should *not* change recency.
+    ```php
+    public function has(string $key): bool
+    {
+        if (!array_key_exists($key, $this->items)) {
+            return false;
+        }
+
+        $now = ($this->clock)();
+        if ($this->items[$key]['expires_at'] !== null && $this->items[$key]['expires_at'] <= $now) {
+            $this->removeNode($key);
+            return false;
+        }
+
+        return true;
+    }
+    ```
+
+    Wait, the prompt says `count()` and `keys()` may be $O(n)$. It doesn't say they *must* be $O(n)$. But they need to return the *non-expired* entries.
+
+    ```php
+    public function count(): int
+    {
+        $now = ($this->clock)();
+        $count = 0;
+        foreach ($this->items as $item) {
+            if ($item['expires_at'] === null || $item['expires_at'] > $now) {
+                $count++;
+            }
+        }
+        return $count;
+    }
+    ```
+
+    Final `keys()`:
+    ```php
+    public function keys(): array
+    {
+        $now = ($this->clock)();
+        $keys = [];
+        $curr = $this->tail;
+        while ($curr !== null) {
+            $item = $this->items[$curr];
+            if ($item['expires_at'] === null || $item['expires_at'] > $now) {
+                $keys[] = $curr;
+            }
+            $curr = $item['next'];
+        }
+        return $keys;
+    }
+    ```
+
+    - `__construct`: `int $capacity`, `?\Closure $clock`.
+    - `set`: `string $key`, `mixed $value`, `?float $ttl`.
+    - `get`: `string $key`, `mixed $default`.
+    - `has`: `string $key`.
+    - `delete`: `string $key`.
+    - `count`: `int`.
+    - `keys`: `array`.
+
+    One tiny thing: `count($this->items)` in `set` could be slightly inaccurate if there are expired entries not yet cleaned. But `cleanExpired` is called right after, so it's fine.
+
+    One final check on `cleanExpired`:
+    ```php
+    private function cleanExpired(): void {
+        $now = ($this->clock)();
+        while (!$this->ttlHeap->isEmpty()) {
+            $top = $this->ttlHeap->top();
+            if ($top['expires_at'] > $now) {
+                break;
+            }
+            $this->ttlHeap->extract();
+            $key = $top['key'];
+
+            if (array_key_exists($key, $this->items) && $this->items[$key]['expires_at'] === $top['expires_at']) {
+                $this->removeNode($key);
+            }
+        }
+    }
+    ```
+    Wait, if `expires_at` is, say, `100.0000000001` and `now` is `100.0`, `100.0000000001 > 100.0` is true, so it won't clean it. If `expires_at` is `100.0`, it will clean it. This matches `expires_at <= now`. Correct.
+
+    ```php
+    <?php
+
+    class LruCache implements \Countable
+    {
+        private int $capacity;
+        private \Closure $clock;
+        /** @var array<string, array{value: mixed, expires_at: float|null, prev: string|null, next: string|null}> */
+        private array $items = [];
+        private ?string $head = null;
+        private ?string $tail = null;
+        private \SplPriorityQueue $ttlHeap;
+
+        public function __construct(int $capacity, ?\Closure $clock = null)
+        {
+            if ($capacity < 1) {
+                throw new \InvalidArgumentException("Capacity must be at least 1.");
+            }
+            $this->capacity = $capacity;
+            $this->clock = $clock ?? fn(): float => microtime(true);
+            $this->ttlHeap = new \SplPriorityQueue();
+        }
+
+        // ... rest of the methods
+    }
+    ```
+
+    Actually, one last thing. The complexity requirement: "Removing expired entries may be amortized... its total cost is proportional to the number of entries removed, never a scan of all entries on every `set`."
+    My `set` calls `cleanExpired`, which only looks at the `ttlHeap`. This perfectly matches the requirement.
+
+    Wait, if someone calls `set` on an existing key with a *new* TTL, the old entry in the `ttlHeap` will still be there. My `cleanExpired` handles this by checking `if ($this->items[$key]['expires_at'] === $top['expires_at'])`. This is the standard lazy deletion pattern for heaps.
+
+    Wait, what if an entry is deleted or replaced, and then the same key is added again with a *different* TTL?
+    1. `set('a', 1, 10)` -> `items['a']` has `expires_at = 10`. `ttlHeap` has `('a', 10)`.
+    2. `set('a', 2, 20)` -> `removeNode('a')` called. `items['a']` is removed. Then `addHead('a', 2, 20)` called. `items['a']` has `expires_at = 20`. `ttlHeap` has `('a', 10)` and `('a', 20)`.
+    3. `cleanExpired` runs at time `15`:
+        - `top` is `('a', 10)`.
+        - `10 <= 15` is true.
+        - `extract` it.
+        - `array_key_exists('a', $this->items)` is true.
+        - `items['a']['expires_at']` is 20.
+        - `20 === 10` is false.
+        - Nothing is removed.
+    4. `cleanExpired` runs at time `25`:
+        - `top` is `('a', 20)`.
+        - `20 <= 25` is true.
+        - `extract` it.
+        - `array_key_exists('a', $this->items)` is true.
+        - `items['a']['expires_at']` is 20.
+        - `20 === 20` is true.
+        - `removeNode('a')` is called.
+    Perfect.
+
+    The prompt: "If the cache now holds more than $capacity$ entries, first remove expired entries; if still over capacity, evict the least recently used entry."
+    This must happen during `set`.
+
+    Wait, what if `set` is called on an *existing* key?
+    If the key exists, the current count doesn't increase.
+    If I `removeNode($key)` first, the count decreases by 1.
+    Then, if `count($this->items) >= $this->capacity`, I clean expired and then potentially evict the tail.
+    If the capacity is 5, and I have 5 items. I `set` an existing key.
+    `removeNode` -> count is 4.
+    `if (4 >= 5)` is false.
+    `addHead` -> count is 5.
+    This is correct. The capacity is not violated and no unnecessary eviction happens.
+
+    *Another case*: `capacity` is 1. I have 1 item. I `set` a *new* key.
+    1. `isset` is false.
+    2. `count` (1) >= `capacity` (1).
+    3. `cleanExpired()`.
+    4. If nothing expired, `count` is 1.
+    5. `count >= capacity` (1 >= 1) is true.
+    6. `removeNode(tail)` -> count is 0.
+    7. `addHead` -> count is 1.
+    Correct.
+
+    *Another case*: `capacity` is 5. I have 5 items. I `set` a *new* key.
+    1. `isset` is false.
+    2. `count` (5) >= `capacity` (5).
+    3. `cleanExpired()`.
+    4. If something expired (say 2 items), `count` becomes 3.
+    5. `if (3 >= 5)` is false.
+    6. `addHead` -> count is 4.
+    7. Wait, if I had 5, and 2 expired, I now have 3. Adding 1 makes 4. This is correct.
+    8. If *nothing* expired, `count` is 5. `if (5 >= 5)` is true. `removeNode(tail)` -> count is 4. `addHead` -> count is 5.
+    Correct.
+
+    Wait, I just realized: `count($this->items)` is $O(1)$ in PHP. So `count($this->items)` is very fast. The complexity requirements are all satisfied.
+
+    Final check on `keys()`:
+    `tail` is LRU, `head` is MRU.
+    `tail->next` is the next-most-recent.
+    `head->prev` is the next-most-recent.
+    My `keys()` loop: `curr = $this->tail; while ($curr !== null) { ... $curr = $this->items[$curr]['next']; }`.
+    This goes from LRU to MRU. Correct.
+
+    ```php
+    public function keys(): array
+    {
+        $now = ($this->clock)();
+        $keys = [];
+        $curr = $this->tail;
+        while ($curr !== null) {
+            $item = $this->items[$curr];
+            if ($item['expires_at'] === null || $item['expires_at'] > $now) {
+                $keys[] = $curr;
+            }
+            $curr = $item['next'];
+        }
+        return $keys;
+    }
+    ```
+
+    Wait, one tiny thing about `SplPriorityQueue`. It is a Max-Heap. To make it a Min-Heap, I used `-$expiresAt`. This works perfectly for float values.
+
+    Final code structure:
+    - `class LruCache implements \Countable`
+    - `private array $items`
+    - `private ?string $head`
+    - `private ?string $tail`
+    - `private \SplPriorityQueue $ttlHeap`
+    - `private int $capacity`
+    - `private \Closure $clock`
+    - `public function __construct`
+    - `public function set`
+    - `public function get`
+    - `public function has`
+    - `public function delete`
+    - `public function count`
+    - `public function keys`
+    - `private function removeNode`
+    - `private function addHead`
+    - `private function cleanExpired`
+
+    (Self-correction): I'll ensure `addHead` and `removeNode` are robust.

@@ -1,0 +1,190 @@
+
+*   Target Audience: Customers of an online store.
+*   Purpose: Announce a system update/work happening at night.
+*   Constraint 1: Details must be explained in exactly 3 items.
+*   Constraint 2: Each item must be on a separate line.
+*   Constraint 3: Each item must start with a bullet point (-, *, •, or 1.).
+*   Constraint 4: **DO NOT USE** the words "sorun" (problem) and "bakım" (maintenance), including their inflected forms.
+*   Constraint 5: Must include: Work starts Saturday at 23:00, ends Sunday at 02:00.
+
+    *   *Forbidden words:* sorun, sorunu, sorunlar, bakımları, bakım, vb.
+    *   *Work period:* Cumartesi 23:00 -> Pazar 02:00.
+
+    *   Idea 1: We are upgrading our system to provide better service.
+    *   Idea 2: The time window is Saturday 23:00 to Sunday 02:00.
+    *   Idea 3: You might experience access interruptions during this time.
+
+    *Refining into 3 bullet points without forbidden words:*
+
+    1.  Sizlere daha hızlı ve kesintisiz bir deneyim sunmak adına altyapımızı güncelliyoruz. (We are updating our infrastructure to offer faster experience.)
+    2.  Çalışmalarımız Cumartesi günü saat 23:00’te başlayacak ve Pazar günü saat 02:00’de tamamlanacaktır. (Work starts Sat 23:00, ends Sun 02:00.)
+    3.  Bu süre zarfında web sitemize ve mobil uygulamamıza erişimde geçici aksaklıklar yaşanabilir. (Temporary interruptions might occur.)
+
+    *   "sorun" or "bakım" used?
+        - "Sizlere daha hızlı ve kesintisiz bir deneyim sunmak adına altyapımızı güncelliyoruz." -> No.
+        - "Çalışmalarımız Cumartesi günü saat 23:00’te başlayacak ve Pazar günü saat 02:00’de tamamlanacaktır." -> No.
+        - "Bu süre zarfında web sitemize ve mobil uygulamamıza erişimde geçici aksaklıklar yaşanabilir." -> No.
+    *   Exactly 3 items? Yes.
+    *   Separate lines? Yes.
+    *   Bullet points? Yes (*).
+    *   Times correct? Saturday 23:00 - Sunday 02:00. Yes.
+
+    *Draft:*
+    Değerli Müşterilerimiz,
+
+    Sizlere daha iyi bir hizmet sunabilmek amacıyla altyapımızda iyileştirmeler gerçekleştireceğiz.
+
+    * Çalışmalar Cumartesi günü saat 23:00’te başlayacak,
+    * Pazar günü saat 02:00’de sona erecektir,
+    * Bu zaman diliminde platformumuza erişim kısıtlı olabilir.
+
+    *Wait, the prompt asks for the details to be in 3 items. Let's make the 3 items more descriptive or follow the prompt's logical structure.*
+
+    *Option B:*
+    Değerli Müşterilerimiz, sizlere daha kaliteli bir alışveriş deneyimi sunmak için sistemimizde iyileştirmeler yapacağız.
+
+    * Çalışma Cumartesi günü saat 23:00’te başlayacaktır.
+    * İşlem süreci Pazar günü saat 02:00’de tamamlanacaktır.
+    * Belirtilen saat aralığında web sitemize erişimde kesintiler yaşanabilir.
+
+    *Check word constraints again:*
+    "sorun" -> None.
+    "bakım" -> None. (Used "iyileştirme", "çalışma", "işlem", "kesinti").
+
+    *Check times:*
+    Saturday 23:00 -> Start.
+    Sunday 02:00 -> End.
+
+    *Final Polish:*
+    Değerli Müşterilerimiz, sizlere daha hızlı ve güvenli bir alışveriş deneyimi sunmak amacıyla altyapımızı güncelliyoruz.
+
+    * Çalışmalar Cumartesi günü saat 23:00’te başlayacaktır.
+    * Süreç Pazar günü saat 02:00’de sona erecektir.
+    * Bu zaman diliminde sitemize erişimde geçici aksaklıklar görülebilir.
+
+    - 3 items? Yes.
+    - Each on a new line? Yes.
+    - Starts with a bullet? Yes (*).
+    - "sorun" used? No.
+    - "bakım" used? No.
+    - Saturday 23:00 included? Yes.
+    - Sunday 02:00 included? Yes.
+
+    *Wait, let's re-read the prompt's specific requirement for the items:* "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat".
+
+    Let's try to pack the info into the 3 items better.
+    1. Purpose (Improvement/Update)
+    2. Time (Sat 23:00 - Sun 02:00)
+    3. Result (Interruption/Access)
+
+    *Revised Final Version:*
+    Değerli Müşterilerimiz, sizlere daha iyi bir hizmet sunmak için altyapımızı güncelliyoruz.
+
+    * Çalışmalar Cumartesi günü saat 23:00’te başlayacaktır.
+    * Süreç Pazar günü saat 02:00’de tamamlanacaktır.
+    * Bu zaman diliminde platformumuza erişimde kısa süreli aksaklıklar yaşanabilir.
+
+    *One more check:*
+    "sorun" -> No.
+    "bakım" -> No.
+    "bakım" (inflected) -> No.
+    "sorun" (inflected) -> No.
+
+    Let's check for "bakım" synonyms that might trigger caution. "İyileştirme", "güncelleme", "çalışma" are fine.
+
+    Wait, the prompt says: "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat".
+    Does the start/end time need to be *within* those 3 points? Yes.
+
+    Let's check the draft one more time.
+    1. Start time.
+    2. End time.
+    3. Impact.
+
+    This works perfectly.
+
+    *Draft:*
+    Değerli Müşterilerimiz, sizlere daha kaliteli bir deneyim sunmak adına altyapımızda güncellemeler gerçekleştireceğiz.
+
+    * Çalışma Cumartesi günü saat 23:00’te başlayacaktır.
+    * Süreç Pazar günü saat 02:00’de sona erecektir.
+    * Bu zaman diliminde sitemize erişimde geçici aksaklıklar yaşanabilir.
+
+    *Wait, let's ensure "çalışma" is okay. Yes, "çalışma" is not "bakım".*
+
+    *Check words again:*
+    "sorun" -> no.
+    "bakım" -> no.
+
+    *Check times:*
+    Cumartesi 23:00.
+    Pazar 02:00.
+
+    *Check list format:*
+    3 items.
+    Separate lines.
+    Bullet points.
+
+    Looks good.
+
+    *Double checking "sorun" and "bakım":*
+    "Değerli Müşterilerimiz, sizlere daha kaliteli bir deneyim sunmak adına altyapımızda güncellemeler gerçekleştireceğiz.
+    * Çalışma Cumartesi günü saat 23:00’te başlayacaktır.
+    * Süreç Pazar günü saat 02:00’de sona erecektir.
+    * Bu zaman diliminde sitemize erişimde geçici aksaklıklar yaşanabilir."
+
+    Words used:
+    Değerli, Müşterilerimiz, sizlere, daha, kaliteli, bir, deneyim, sunmak, adına, altyapımızda, güncellemeler, gerçekleştireceğiz, Çalışma, Cumartesi, günü, saat, 23:00'te, başlayacaktır, Süreç, Pazar, günü, saat, 02:00'de, sona, erecektir, Bu, zaman, diliminde, sitemize, erişimde, geçici, aksaklıklar, yaşanabilir.
+
+    None of them are "sorun" or "bakım".
+
+    One detail: The prompt says "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat". It doesn't explicitly forbid an intro sentence, but usually, for these types of prompts, the 3 points *are* the announcement. However, a professional tone usually needs a header. I will provide a brief intro to make it a real "announcement text".
+
+    *Wait*, I should check if "bakım" is hidden in "aksaklık" or "güncelleme". No.
+
+    *Final check of the constraints:*
+    1. 3 items. (Check)
+    2. Separate lines. (Check)
+    3. Start with bullet. (Check)
+    4. No "sorun" or "bakım" (incl. inflections). (Check)
+    5. Sat 23:00 to Sun 02:00. (Check)
+
+    Ready.
+
+    *Alternative if the user wants ONLY the bullets:*
+    * Çalışma Cumartesi günü saat 23:00’te başlayacaktır.
+    * Süreç Pazar günü saat 02:00’de tamamlanacaktır.
+    * Bu saatler arasında sitemize erişimde kesintiler yaşanabilir.
+
+    Actually, the prompt says "Bir online mağazanın müşterilerine... duyuran bir metin yaz". This implies a complete text.
+
+    Final Polish:
+    Değerli Müşterilerimiz, sizlere daha iyi bir hizmet sunabilmek adına altyapımızı güncelliyoruz.
+
+    * Çalışmalar Cumartesi günü saat 23:00’te başlayacaktır.
+    * Süreç Pazar günü saat 02:00’de tamamlanacaktır.
+    * Belirtilen saatler arasında sitemize erişimde geçici kesintiler yaşanabilir.
+
+    Let's check "bakım" one last time. "bakım", "bakımı", "bakımın"... none.
+    "sorun", "sorunu", "sorunlar"... none.
+
+    "Çalışma" is fine.
+
+    Text Construction:
+    Header: Değerli Müşterilerimiz, sizlere daha iyi bir hizmet sunabilmek adına altyapımızı güncelliyoruz.
+    Bullet 1: * Çalışmalar Cumartesi günü saat 23:00’te başlayacaktır.
+    Bullet 2: * Süreç Pazar günü saat 02:00’de tamamlanacaktır.
+    Bullet 3: * Belirtilen saatler arasında sitemize erişimde geçici kesintiler yaşanabilir.
+
+    Wait, "aksaklık" or "kesinti" is a good substitute for "sorun".
+    "güncelleme" or "iyileştirme" is a good substitute for "bakım".
+
+    Let's verify if "bakım" is in "başlayacaktır"? No. "tamamlanacaktır"? No.
+
+    One final check on the time format: "Cumartesi günü saat 23:00'te başlayacak, Pazar günü saat 02:00'de bitecek."
+    My text: "Cumartesi günü saat 23:00'te başlayacaktır. ... Pazar günü saat 02:00'de tamamlanacaktır."
+
+    Perfect.
+
+    *Self-Correction during final look:* I must make sure I don't use "bakım" even in words like "bakımları". I haven't.
+
+    Let's write it.

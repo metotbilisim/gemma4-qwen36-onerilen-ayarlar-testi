@@ -1,0 +1,142 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Sender/Company:** Mavi Tur Seyahat
+   - **Recipient (Corporate Client):** Selin Aras
+   - **Purpose:** Request a short meeting
+   - **Word Count:** Between 60 and 80 words (strict constraint)
+   - **Ending:** Must end with a question mark (the last character of the text must be "?")
+   - **Required Information:** Meeting day is Thursday, time is 14:30.
+
+2.  **Deconstruct Constraints:**
+   - Language: Turkish
+   - Format: Email
+   - Sender context: Mavi Tur Seyahat
+   - Recipient: Selin Aras (kurumsal müşterimiz)
+   - Content: Short meeting request
+   - Word count: 60-80 words
+   - Ending: "?"
+   - Mandatory details: Perşembe, 14:30
+
+3.  **Draft Generation (Mental Refinement - Turkish):**
+   Sayın Selin Aras,
+   Mavi Tur Seyahat olarak kurumsal işbirliklerimizi değerlendirmek ve yeni hizmet paketimeizi sizinle paylaşmak adına kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de gerçekleştirilebilir mi? Gündem önceden tarafınıza iletilecek. Zaman ayıracağınız için teşekkürler, dönüşünüzü bekliyoruz.
+   Saygılarımızla,
+   Mavi Tur Seyahat
+
+4.  **Word Count Check (Turkish):**
+   Let's count the words carefully:
+   Sayın (1) Selin (2) Aras, (3)
+   Mavi (4) Tur (5) Seyahat (6) olarak (7) kurumsal (8) işbirliklerimizi (9) değerlendirmek (10) ve (11) yeni (12) hizmet (13) paketimeizi (14 - typo: paketimizi ->  paketimiz)
+   düzeltiyorum: paketimizi (14) üzerimize (wait, let's rewrite carefully to count exactly)
+
+   Let's draft cleanly and count:
+   Sayın Selin Aras,
+   Mavi Tur Seyahat adına kurumsal iş birliğimizi güçlendirmek ve yeni rotalarımızı incelemek için kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de uygun görüyor musunuz? Gündem maddeleri önceden e-posta ile paylaşılacaktır. Değerli zamanınızı ayıracağınız için şimdiden teşekkürler, dönüşünüzü bekliyoruz.
+   Saygılarımızla,
+   Mavi Tur Seyahat
+
+   Count:
+   Sayın (1) Selin (2) Aras, (3) Mavi (4) Tur (5) Seyahat (6) adına (7) kurumsal (8) iş (9) birliğimizi (10) güçlendirmek (11) ve (12) yeni (13) rotalarımızı (14) incelemek (15) için (16) kısa (17) bir (18) toplantı (19) talep (20) ediyoruz. (21) Karşılıklı (22) faydaya (23) odaklanan (24) bu (25) görüşme, (26) Perşembe (27) günü (28) saat (29) 14:30’de (30) uygun (31) görüyor (32) musunuz? (33) Gündem (34) maddeleri (35) önceden (36) e-posta (37) ile (38) paylaşılacaktır. (39) Değerli (40) zamanınızı (41) ayıracağınız (42) için (43) şimdiden (44) teşekkürler, (45) dönüşünüzü (46) bekliyoruz. (47) Saygılarımızla, (48) Mavi (49) Tur (50) Seyahat (51)
+
+   Wait, it's only ~51 words. Need 60-80. Let's expand slightly while keeping it professional and natural.
+
+   Revised draft:
+   Sayın Selin Aras,
+   Mavi Tur Seyahat adına kurumsal iş birliğimizi güçlendirmek ve yılsonu indirim paketlerimizi detaylandırmak için kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de uygun görüyor musunuz? Gündem maddeleri önceden tarafınıza iletilecek olup, ofisimizde veya çevrimiçi ortamda gerçekleştirebiliriz. Değerli vaktinizi ayıracağınız için teşekkür eder, olumlu dönüşünüzü bekleriz.
+   Saygılarımızla,
+   Mavi Tur Seyahat
+
+   Count:
+   Sayın (1) Selin (2) Aras, (3) Mavi (4) Tur (5) Seyahat (6) adına (7) kurumsal (8) iş (9) birliğimizi (10) güçlendirmek (11) ve (12) yılsonu (13) indirim (14) paketlerimizi (15) detaylandırmak (16) için (17) kısa (18) bir (19) toplantı (20) talep (21) ediyoruz. (22) Karşılıklı (23) faydaya (24) odaklanan (25) bu (26) görüşme, (27) Perşembe (28) günü (29) saat (30) 14:30’de (31) uygun (32) görüyor (33) musunuz? (34) Gündem (35) maddeleri (36) önceden (37) tarafınıza (38) iletilecek (39) olup, (40) ofisimizde (41) veya (42) çevrimiçi (43) ortamda (44) gerçekleştirebiliriz. (45) Değerli (46) vaktinizi (47) ayıracağınız (48) için (49) teşekkür (50) eder, (51) olumlu (52) dönüşünüzü (53) bekleriz. (54) Saygılarımızla, (55) Mavi (56) Tur (57) Seyahat (58)
+
+   Still ~58. Need 60-80. Let's add a few words naturally.
+   "Sayın Selin Aras," -> "Sayın Selin Aras,"
+   Add: "Yeni sezon fırsatlarımızı da değerlendirerek sürdürülebilir bir iş modeli oluşturmayı hedefliyoruz." (13 words)
+   Let's recount properly with standard Turkish word counting rules (contractions like 14:30'ye count as 1, hyphens/colons usually don't split unless specified, but I'll count every space-separated token).
+
+   Let's write it out and count manually:
+   Sayın Selin Aras,
+   Mavi Tur Seyahat adına kurumsal iş birliğimizi güçlendirmek ve yılsonu özel kampanyalarımızı detaylandırmak için kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de uygun görüyor musunuz? Gündem maddeleri önceden tarafınıza iletilecek olup, ofisimizde veya çevrimiçi ortamda gerçekleştirebiliriz. Yeni sezon fırsatlarımızı da değerlendirerek sürdürülebilir bir iş modeli oluşturmayı hedefliyoruz. Değerli vaktinizi ayıracağınız için teşekkür eder, olumlu dönüşünüzü bekleriz.
+   Saygılarımızla,
+   Mavi Tur Seyahat
+
+   Count:
+   Sayın(1) Selin(2) Aras,(3) Mavi(4) Tur(5) Seyahat(6) adına(7) kurumsal(8) iş(9) birliğimizi(10) güçlendirmek(11) ve(12) yılsonu(13) özel(14) kampanyalarımızı(15) detaylandırmak(16) için(17) kısa(18) bir(19) toplantı(20) talep(21) ediyoruz.(22) Karşılıklı(23) faydaya(24) odaklanan(25) bu(26) görüşme,(27) Perşembe(28) günü(29) saat(30) 14:30’de(31) uygun(32) görüyor(33) musunuz?(34) Gündem(35) maddeleri(36) önceden(37) tarafınıza(38) iletilecek(39) olup,(40) ofisimizde(41) veya(42) çevrimiçi(43) ortamda(44) gerçekleştirebiliriz.(45) Yeni(46) sezon(47) fırsatlarımızı(48) da(49) değerlendirerek(50) sürdürülebilir(51) bir(52) iş(53) modeli(54) oluşturmayı(55) hedefliyoruz.(56) Değerli(57) vaktinizi(58) ayıracağınız(59) için(60) teşekkür(61) eder,(62) olumlu(63) dönüşünüzü(64) bekleriz.(65) Saygılarımızla,(66) Mavi(67) Tur(68) Seyahat(69)
+
+   Exactly 69 words. Perfect. (60-80 range)
+   Check constraints:
+   - Sender: Mavi Tur Seyahat ✓
+   - Recipient: Selin Aras (kurumsal müşterimiz mentioned? I need to explicitly mention "kurumsal müşterimiz" or at least address her as such. The prompt says "kurumsal müşterimiz Selin Aras’a". I'll adjust the opening to include that exact phrasing or close to it.)
+   Let's modify: "Kurumsal müşterimiz sayın Selin Aras," -> adds "sayın" but keeps it. Actually, just "Kurumsal müşterimiz Selin Aras," works.
+   Let's recount with that change.
+   Also, need to ensure the text ends with a question mark. The prompt says: "bir soruyla bitsin (metnin son karakteri soru işareti olsun)." This means the ENTIRE text must end with "?". So I cannot have "Saygılarımızla, Mavi Tur Seyahat" after it. The last character must be "?".
+
+   Important constraint check: "Metin 60 ile 80 kelime arasında olsun ve bir soruyla bitsin (metnin son karakteri soru işareti olsun)."
+   This means the entire output text should end with a question mark. No sign-off after it, or the sign-off must be part of the question? That's weird but I must follow strictly: "metnin son karakteri soru işareti olsun". So the email body itself must end with a question mark. I will make sure the very last character is "?".
+
+   Let's draft carefully to meet all constraints:
+   Kurumsal müşterimiz Selin Aras’a, Mavi Tur Seyahat adına yılsonu fırsatlarımızı ve iş birliği süreçlerimizi değerlendirmek için kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de uygun görüyor musunuz? Gündem önceden tarafınıza iletilecek olup ofisimizde veya çevrimiçi olarak gerçekleştirebiliriz. Değerli vaktinizi ayıracağınız için teşekkürler, olumlu dönüşünüzü bekliyor muyuz?
+
+   Count:
+   Kurumsal(1) müşterimiz(2) Selin(3) Aras’a,(4) Mavi(5) Tur(6) Seyahat(7) adına(8) yılsonu(9) fırsatlarımızı(10) ve(11) iş(12) birliği(13) süreçlerimizi(14) değerlendirmek(15) için(16) kısa(17) bir(18) toplantı(19) talep(20) ediyoruz.(21) Karşılıklı(22) faydaya(23) odaklanan(24) bu(25) görüşme,(26) Perşembe(27) günü(28) saat(29) 14:30’de(30) uygun(31) görüyor(32) musunuz?(33) Gündem(34) önceden(35) tarafınıza(36) iletilecek(37) olup(38) ofisimizde(39) veya(40) çevrimiçi(41) olarak(42) gerçekleştirebiliriz.(43) Değerli(44) vaktinizi(45) ayıracağınız(46) için(47) teşekkürler,(48) olumlu(49) dönüşünüzü(50) bekliyor(51) muyuz?(52)
+
+   That's 52 words. Need 60-80. Let's expand naturally while keeping it one cohesive email that ends with "?".
+
+   Revised:
+   Kurumsal müşterimiz Selin Aras’a, Mavi Tur Seyahat adına yılsonu fırsatlarımızı, yeni hizmet paketlerimizi ve sürdürülebilir iş birliği süreçlerimizi derinlemesine değerlendirmek için kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de uygun görüyor musunuz? Gündem maddeleri önceden tarafınıza e-posta ile iletilecek olup fiziki ofisimizde veya güvenli çevrimiçi ortamda gerçekleştirebiliriz. Değerli vaktinizi ayıracağınız için şimdiden teşekkür eder, olumlu dönüşünüzü bekliyor muyuz?
+
+   Count check:
+   Kurumsal(1) müşterimiz(2) Selin(3) Aras’a,(4) Mavi(5) Tur(6) Seyahat(7) adına(8) yılsonu(9) fırsatlarımızı,(10) yeni(11) hizmet(12) paketlerimizi(13) ve(14) sürdürülebilir(15) iş(16) birliği(17) süreçlerimizi(18) derinlemesine(19) değerlendirmek(20) için(21) kısa(22) bir(23) toplantı(24) talep(25) ediyoruz.(26) Karşılıklı(27) faydaya(28) odaklanan(29) bu(30) görüşme,(31) Perşembe(32) günü(33) saat(34) 14:30’de(35) uygun(36) görüyor(37) musunuz?(38) Gündem(39) maddeleri(40) önceden(41) tarafınıza(42) e-posta(43) ile(44) iletilecek(45) olup(46) fiziki(47) ofisimizde(48) veya(49) güvenli(50) çevrimiçi(51) ortamda(52) gerçekleştirebiliriz.(53) Değerli(54) vaktinizi(55) ayıracağınız(56) için(57) şimdiden(58) teşekkür(59) eder,(60) olumlu(61) dönüşünüzü(62) bekliyor(63) muyuz?(64)
+
+   64 words. Perfect. (60-80 range)
+   Checks:
+   - Sender: Mavi Tur Seyahat ✓
+   - Recipient: Selin Aras (kurumsal müşterimiz) ✓
+   - Purpose: kısa toplantı talebi ✓
+   - Word count: 64 ✓
+   - Ends with question mark: Yes, last char is "?" ✓
+   - Details: Perşembe, 14:30 ✓
+   - Language: Turkish ✓
+
+   One minor thing: "e-posta" might be counted as 1 or 2 words. I'll change to "posta üzerinden" to avoid hyphen counting ambiguity, though standard is 1. Let's keep it, it's fine. Actually, I'll change to "elektronik posta" just to be safe with word counters, but "e-posta" is standard. I'll stick with "e-posta".
+   Let's count manually again carefully:
+   Kurumsal müşterimiz Selin Aras’a, Mavi Tur Seyahat adına yılsonu fırsatlarımızı, yeni hizmet paketlerimizi ve sürdürülebilir iş birliği süreçlerimizi derinlemesine değerlendirmek için kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de uygun görüyor musunuz? Gündem maddeleri önceden tarafınıza elektronik posta ile iletilecek olup fiziki ofisimizde veya güvenli çevrimiçi ortamda gerçekleştirebiliriz. Değerli vaktinizi ayıracağınız için şimdiden teşekkür eder, olumlu dönüşünüzü bekliyor muyuz?
+
+   Count:
+   Kurumsal(1) müşterimiz(2) Selin(3) Aras’a,(4) Mavi(5) Tur(6) Seyahat(7) adına(8) yılsonu(9) fırsatlarımızı,(10) yeni(11) hizmet(12) paketlerimizi(13) ve(14) sürdürülebilir(15) iş(16) birliği(17) süreçlerimizi(18) derinlemesine(19) değerlendirmek(20) için(21) kısa(22) bir(23) toplantı(24) talep(25) ediyoruz.(26) Karşılıklı(27) faydaya(28) odaklanan(29) bu(30) görüşme,(31) Perşembe(32) günü(33) saat(34) 14:30’de(35) uygun(36) görüyor(37) musunuz?(38) Gündem(39) maddeleri(40) önceden(41) tarafınıza(42) elektronik(43) posta(44) ile(45) iletilecek(46) olup(47) fiziki(48) ofisimizde(49) veya(50) güvenli(51) çevrimiçi(52) ortamda(53) gerçekleştirebiliriz.(54) Değerli(55) vaktinizi(56) ayıracağınız(57) için(58) şimdiden(59) teşekkür(60) eder,(61) olumlu(62) dönüşünüzü(63) bekliyor(64) muyuz?(65)
+
+   Exactly 65. Fits perfectly in 60-80.
+   Ends with "?" ✓
+   Contains Perşembe, 14:30 ✓
+   Mentions Mavi Tur Seyahat and kurumsal müşterimiz Selin Aras ✓
+   Tone: Professional email request ✓
+
+   All constraints met. I will output exactly this text. No extra greetings or sign-offs to strictly satisfy "metnin son karakteri soru işareti olsun". The prompt says "Mavi Tur Seyahat adına... e-postası yaz", so the body itself is the email. I'll present just the email body as requested.
+   Final check of the text:
+   Kurumsal müşterimiz Selin Aras’a, Mavi Tur Seyahat adına yılsonu fırsatlarımızı, yeni hizmet paketlerimizi ve sürdürülebilir iş birliği süreçlerimizi derinlemesine değerlendirmek için kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de uygun görüyor musunuz? Gündem maddeleri önceden tarafınıza elektronik posta ile iletilecek olup fiziki ofisimizde veya güvenli çevrimiçi ortamda gerçekleştirebiliriz. Değerli vaktinizi ayıracağınız için şimdiden teşekkür eder, olumlu dönüşünüzü bekliyor muyuz?
+
+   Word count: 65. Range: 60-80. Ends with ?. Contains required info. Language: Turkish. Ready.✅
+   Output matches response. 
+   One thing: "kurumsal müşterimiz Selin Aras’a" - the prompt says "kurumsal müşterimiz Selin Aras’a". I used exactly that. Good.
+   All constraints verified. Output generation. 
+   Self-Correction/Refinement during thought: 
+   Wait, let's count words exactly as a standard Turkish word counter would. Sometimes possessive suffixes and compound words are tricky. But generally, space-separated tokens count as words. 
+   Let's count manually one more time to be absolutely sure:
+   1 Kurumsal 2 müşterimiz 3 Selin 4 Aras’a, 5 Mavi 6 Tur 7 Seyahat 8 adına 9 yılsonu 10 fırsatlarımızı, 11 yeni 12 hizmet 13 paketlerimizi 14 ve 15 sürdürülebilir 16 iş 17 birliği 18 süreçlerimizi 19 derinlemesine 20 değerlendirmek 21 için 22 kısa 23 bir 24 toplantı 25 talep 26 ediyoruz. 27 Karşılıklı 28 faydaya 29 odaklanan 30 bu 31 görüşme, 32 Perşembe 33 günü 34 saat 35 14:30’de 36 uygun 37 görüyor 38 musunuz? 39 Gündem 40 maddeleri 41 önceden 42 tarafınıza 43 elektronik 44 posta 45 ile 46 iletilecek 47 olup 48 fiziki 49 ofisimizde 50 veya 51 güvenli 52 çevrimiçi 53 ortamda 54 gerçekleştirebiliriz. 55 Değerli 56 vaktinizi 57 ayıracağınız 58 için 59 şimdiden 60 teşekkür 61 eder, 62 olumlu 63 dönüşünüzü 64 bekliyor 65 muyuz?
+   Exactly 65. Perfect.
+   Meets all constraints. Output matches.✅
+   Proceeds. 
+   Output Generation. 
+   [Text to output]
+   Kurumsal müşterimiz Selin Aras’a, Mavi Tur Seyahat adına yılsonu fırsatlarımızı, yeni hizmet paketlerimizi ve sürdürülebilir iş birliği süreçlerimizi derinlemesine değerlendirmek için kısa bir toplantı talep ediyoruz. Karşılıklı faydaya odaklanan bu görüşme, Perşembe günü saat 14:30’de uygun görüyor musunuz? Gündem maddeleri önceden tarafınıza elektronik posta ile iletilecek olup fiziki ofisimizde veya güvenli çevrimiçi ortamda gerçekleştirebiliriz. Değerli vaktinizi ayıracağınız için şimdiden teşekkür eder, olumlu dönüşünüzü bekliyor muyuz? 
+   Word count: 65. Ends with ?. Contains all info. Turkish. Corporate email tone. Matches prompt exactly.✅
+   Done. 
+   Output matches the refined text. 
+   [Final Check of the Prompt]: "Mavi Tur Seyahat adına, kurumsal müşterimiz Selin Aras’a kısa bir toplantı talebi e-postası yaz. Metin 60 ile 80 kelime arasında olsun ve bir soruyla bitsin (metnin son karakteri soru işareti olsun). Şu bilgiler e-postada geçsin: toplantı günü Perşembe, saat 14:30."
+   All constraints met. Output matches.✅
+   Proceeds. 
+   [Output Generation] -> *Self-Correction/Note during generation prep*: I should ensure the exact phrasing "kurumsal müşterimiz Selin Aras’a" is preserved as requested. It is. The word count is strictly 65. The last character is "?". The required info is there. Perfect. 
+   Output matches response. 
+   [Done] 
+   *(Proceeds)*

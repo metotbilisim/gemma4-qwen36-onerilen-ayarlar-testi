@@ -1,0 +1,128 @@
+
+*   Target Audience: Software company hiring a Backend Developer.
+*   Structure: Exactly 3 sections.
+*   Section Headings: "Bölüm 1", "Bölüm 2", "Bölüm 3" on separate lines.
+*   Word Count Constraint: Total text must be between 130 and 170 words.
+*   Required Information: Ankara office, Node.js, at least 3 years of experience.
+*   Language: Turkish.
+
+    *   *Bölüm 1 (Introduction/Role):* We are a growing software company looking for a Backend Developer.
+    *   *Bölüm 2 (Requirements/Technical Skills):* You should have at least 3 years of experience. Deep knowledge of Node.js is essential. Understanding of databases and APIs.
+    *   *Bölüm 3 (Location/Closing):* Working at our Ankara office. Join our team.
+
+    *   *Bölüm 1*
+        Yenilikçi projeler üreten büyüyen yazılım firmamız için dinamik ve tutkulu bir Backend Geliştirici arıyoruz. Modern teknolojileri kullanarak ölçeklenebilir sistemler tasarlayacak, ekibimize değer katacak bir çalışma arkadaşı bekliyoruz. Yazılım dünyasındaki gelişmeleri takip eden ve karmaşık problemleri çözmekten keyif alan adaylar bizim için önceliklidir.
+
+    *   *Bölüm 2*
+        Adaylarda aradığımız temel nitelikler şunlardır: En az 3 yıl profesyonel backend geliştirme deneyimine sahip olmanız, Node.js teknolojisinde ileri düzeyde yetkinlik sergilemeniz gerekmektedir. Bunun yanı sıra RESTful API tasarımı, veritabanı yönetimi (SQL/NoSQL) ve mikro hizmet mimarileri konusunda bilgi sahibi olmanız beklenmektedir. Algoritma geliştirme ve sistem optimizasyonu konularındaki tecrübeniz büyük avantaj sağlayacaktır.
+
+    *   *Bölüm 3*
+        Pozisyonumuz Ankara ofisimizde yer almaktadır. Ofisimizdeki enerjik çalışma ortamına uyum sağlayabilecek, ekip çalışmasına yatkın ve sürekli öğrenmeye açık adaylarla tanışmak istiyoruz. Sunduğumuz sosyal imkanlar ve gelişim fırsatlarıyla kariyerinizde yeni bir adım atmaya hazır mısınız? Başvurularınızı bekliyoruz.
+
+    *   *Bölüm 1:* 36 words.
+    *   *Bölüm 2:* 51 words.
+    *   *Bölüm 3:* 41 words.
+    *   *Total:* 128 words.
+    *   *Target:* 130 - 170 words.
+
+    *Self-Correction:* I need to add a few more words to reach the minimum of 130.
+
+    *   *Bölüm 1*
+        Yenilikçi projeler üreten, hızla büyüyen yazılım firmamız bünyesinde görev alacak dinamik ve tutkulu bir Backend Geliştirici arıyoruz. Modern teknolojileri kullanarak ölçeklenebilir sistemler tasarlayacak, teknik ekibimize değer katacak vizyoner bir çalışma arkadaşı bekliyoruz. Yazılım dünyasındaki güncel gelişmeleri yakından takip eden ve karmaşık mühendislik problemlerini çözmekten heyecan duyan adaylar bizim için önceliklidir. (56 words)
+
+    *   *Bölüm 2*
+        Adaylarda aradığımız temel teknik nitelikler şunlardır: Backend geliştirme süreçlerinde en az 3 yıl profesyonel deneyime sahip olmanız ve Node.js teknolojisinde ileri düzeyde yetkinlik sergilemeniz gerekmektedir. Bunun yanı sıra RESTful API tasarımı, veritabanı yönetimi (SQL/NoSQL) ve mikro hizmet mimarileri konularında derin bilgi sahibi olmanız beklenmektedir. Algoritma geliştirme ve performans optimizasyonu konusundaki tecrübeleriniz büyük bir avantajdır. (62 words)
+
+    *   *Bölüm 3*
+        Pozisyonumuz Ankara ofisimizde, hibrit çalışma modellerine uygun şekilde konumlandırılmıştır. Ofisimizdeki enerjik ve profesyonel çalışma ortamına hızla uyum sağlayabilecek, ekip çalışmasına yatkın ve sürekli öğrenmeye açık adaylarla tanışmak istiyoruz. Sunduğumuz sosyal imkanlar ve kariyer gelişim fırsatlarıyla geleceği birlikte inşa etmeye hazır mısınız? Başvurularınızı heyecanla bekliyoruz. (51 words)
+
+    *   *Total Calculation:* 56 + 62 + 51 = 169 words.
+
+    *Wait, checking the limit:* 130 - 170. 169 is very close to the limit. Let's trim slightly to be safe.
+
+    *Trimmed Version:*
+    *Bölüm 1*
+    Yenilikçi projeler üreten, hızla büyüyen yazılım firmamız bünyesinde görev alacak dinamik bir Backend Geliştirici arıyoruz. Modern teknolojileri kullanarak ölçeklenebilir sistemler tasarlayacak, teknik ekibimize değer katacak vizyoner bir çalışma arkadaşı bekliyoruz. Yazılım dünyasındaki gelişmeleri yakından takip eden ve karmaşık mühendislik problemlerini çözmekten heyecan duyan adaylar bizim için önceliklidir. (53 words)
+
+    *Bölüm 2*
+    Adaylarda aradığımız temel teknik nitelikler şunlardır: Backend geliştirme süreçlerinde en az 3 yıl profesyonel deneyime sahip olmanız ve Node.js teknolojisinde ileri düzeyde yetkinlik sergilemeniz gerekmektedir. Bunun yanı sıra RESTful API tasarımı, veritabanı yönetimi ve mikro hizmet mimarileri konularında bilgi sahibi olmanız beklenmektedir. Algoritma geliştirme ve performans optimizasyonu konusundaki tecrübeleriniz büyük bir avantajdır. (58 words)
+
+    *Bölüm 3*
+    Pozisyonumuz Ankara ofisimizde konumlandırılmıştır. Ofisimizdeki enerjik ve profesyonel çalışma ortamına uyum sağlayabilecek, ekip çalışmasına yatkın ve sürekli öğrenmeye açık adaylarla tanışmak istiyoruz. Sunduğumuz geniş sosyal imkanlar ve kariyer gelişim fırsatlarıyla geleceği birlikte inşa etmeye hazır mısınız? Başvurularınızı heyecanla bekliyoruz. (44 words)
+
+    *Total:* 53 + 58 + 44 = 155 words. Perfect.
+
+    *   3 sections? Yes.
+    *   Headings "Bölüm 1", "Bölüm 2", "Bölüm 3" on separate lines? Yes.
+    *   Word count 130-170? (155 words) Yes.
+    *   Ankara ofisi included? Yes.
+    *   Node.js included? Yes.
+    *   At least 3 years experience included? Yes.
+
+    *Word count check (Turkish):*
+    1. Yenilikçi 2. projeler 3. üreten, 4. hızla 5. büyüyen 6. yazılım 7. firmamız 8. bünyesinde 9. görev 10. alacak 11. dinamik 12. bir 13. Backend 14. Geliştirici 15. arıyoruz. 16. Modern 17. teknolojileri 18. kullanarak 19. ölçeklenebilir 20. sistemler 21. tasarlayacak, 22. teknik 23. ekibimize 24. değer 25. katacak 26. vizyoner 27. bir 28. çalışma 29. arkadaşı 30. bekliyoruz. 31. Yazılım 32. dünyasındaki 33. gelişmeleri 34. yakından 35. takip 36. eden 37. ve 38. karmaşık 39. mühendislik 40. problemlerini 41. çözmekten 42. heyecan 43. duyan 44. adaylar 45. bizim 46. için 47. önceliklidir. (47 words)
+
+    48. Adaylarda 49. aradığımız 50. temel 51. teknik 52. nitelikler 53. şunlardır: 54. Backend 55. geliştirme 56. süreçlerinde 57. en 58. az 59. 3 60. yıl 61. profesyonel 62. deneyime 63. sahip 64. olmanız 65. ve 66. Node.js 67. teknolojisinde 68. ileri 69. düzeyde 70. yetkinlik 71. sergilemeniz 72. gerekmektedir. 73. Bunun 74. yanı 75. sıra 76. RESTful 77. API 78. tasarımı, 79. veritabanı 80. yönetimi 81. ve 82. mikro 83. hizmet 84. mimarileri 85. konularında 86. bilgi 87. sahibi 88. olmanız 89. beklenmektedir. 90. Algoritma 91. geliştirme 92. ve 93. performans 94. optimizasyonu 95. konusundaki 96. tecrübeleriniz 97. büyük 98. bir 99. avantajdır. (52 words)
+
+    100. Pozisyonumuz 101. Ankara 102. ofisimizde 103. konumlandırılmıştır. 104. Ofisimizdeki 105. enerjik 106. ve 107. profesyonel 108. çalışma 109. ortamına 110. uyum 111. sağlayabilecek, 112. ekip 113. çalışmasına 114. yatkın 115. ve 116. sürekli 117. öğrenmeye 118. açık 119. adaylarla 120. tanışmak 121. istiyoruz. 122. Sunduğumuz 123. geniş 124. sosyal 125. imkanlar 126. ve 127. kariyer 128. gelişim 129. fırsatlarıyla 130. geleceği 131. birlikte 132. inşa 133. etmeye 134. hazır 135. mısınız? 136. Başvurularınızı 137. heyecanla 138. bekliyoruz. (39 words)
+
+    Total: 47 + 52 + 39 = 138 words. (Perfect, fits in 130-170 range).
+
+    *Wait, checking words again carefully:*
+    "Bölüm 1", "Bölüm 2", "Bölüm 3" are titles.
+    Total words including titles: 138 + 6 = 144 words.
+    Still well within 130-170.
+
+    *Wait, let me re-verify the count of the actual text content just to be absolutely safe.*
+    Text:
+    Yenilikçi projeler üreten, hızla büyüyen yazılım firmamız bünyesinde görev alacak dinamik bir Backend Geliştirici arıyoruz. Modern teknolojileri kullanarak ölçeklenebilir sistemler tasarlayacak, teknik ekibimize değer katacak vizyoner bir çalışma arkadaşı bekliyoruz. Yazılım dünyasındaki gelişmeleri yakından takip eden ve karmaşık mühendislik problemlerini çözmekten heyecan duyan adaylar bizim için önceliklidir.
+    Adaylarda aradığımız temel teknik nitelikler şunlardır: Backend geliştirme süreçlerinde en az 3 yıl profesyonel deneyime sahip olmanız ve Node.js teknolojisinde ileri düzeyde yetkinlik sergilemeniz gerekmektedir. Bunun yanı sıra RESTful API tasarımı, veritabanı yönetimi ve mikro hizmet mimarileri konularında bilgi sahibi olmanız beklenmektedir. Algoritma geliştirme ve performans optimizasyonu konusundaki tecrübeleriniz büyük bir avantajdır.
+    Pozisyonumuz Ankara ofisimizde konumlandırılmıştır. Ofisimizdeki enerjik ve profesyonel çalışma ortamına uyum sağlayabilecek, ekip çalışmasına yatkın ve sürekli öğrenmeye açık adaylarla tanışmak istiyoruz. Sunduğumuz geniş sosyal imkanlar ve kariyer gelişim fırsatlarıyla geleceği birlikte inşa etmeye hazır mısınız? Başvurularınızı heyecanla bekliyoruz.
+
+    Word count tools usually treat "Node.js" as 1 word. "3" as 1 word.
+    Let's re-count manually one last time.
+    1-Yenilikçi 2-projeler 3-üreten, 4-hızla 5-büyüyen 6-yazılım 7-firmamız 8-bünyesinde 9-görev 10-alacak 11-dinamik 12-bir 13-Backend 14-Geliştirici 15-arıyoruz. 16-Modern 17-teknolojileri 18-kullanarak 19-ölçeklenebilir 20-sistemler 21-tasarlayacak, 22-teknik 23-ekibimize 24-değer 25-katacak 26-vizyoner 27-bir 28-çalışma 29-arkadaşı 30-bekliyoruz. 31-Yazılım 32-dünyasındaki 33-gelişmeleri 34-yakından 35-takip 36-eden 37-ve 38-karmaşık 39-mühendislik 40-problemlerini 41-çözmekten 42-heyecan 43-duyan 44-adaylar 45-bizim 46-için 47-önceliklidir.
+    48-Adaylarda 49-aradığımız 50-temel 51-teknik 52-nitelikler 53-şunlardır: 54-Backend 55-geliştirme 56-süreçlerinde 57-en 58-az 59-3 60-yıl 61-profesyonel 62-deneyime 63-sahip 64-olmanız 65-ve 66-Node.js 67-teknolojisinde 68-ileri 69-düzeyde 70-yetkinlik 71-sergilemeniz 72-gerekmektedir. 73-Bunun 74-yanı 75-sıra 76-RESTful 77-API 78-tasarımı, 79-veritabanı 80-yönetimi 81-ve 82-mikro 83-hizmet 84-mimari 85-konularında 86-bilgi 87-sahibi 88-olmanız 89-beklenmektedir. 90-Algoritma 91-geliştirme 92-ve 93-performans 94-optimizasyonu 95-konusundaki 96-tecrübeleriniz 97-büyük 98-bir 99-avantajdır.
+    100-Pozisyonumuz 101-Ankara 102-ofisimizde 103-konumlandırılmıştır. 104-Ofisimizdeki 105-enerjik 106-ve 107-profesyonel 108-çalışma 109-ortamına 110-uyum 111-sağlayabilecek, 112-ekip 113-çalışmasına 114-yatkın 115-ve 116-sürekli 117-öğrenmeye 118-açık 119-adaylarla 120-tanışmak 121-istiyoruz. 122-Sunduğumuz 123-geniş 124-sosyal 125-imkanlar 126-ve 127-kariyer 128-gelişim 129-fırsatlarıyla 130-geleceği 131-birlikte 132-inşa 133-etmeye 134-hazır 135-mısınız? 136-Başvurularınızı 137-heyecanla 138-bekliyoruz.
+
+    Total text = 138 words.
+    Titles (Bölüm 1, Bölüm 2, Bölüm 3) = 6 words.
+    Total = 144 words.
+
+    The prompt says "Tüm metin 130 ile 170 kelime arasında olsun" (All text should be between 130 and 170 words).
+    144 falls perfectly in the middle.
+
+    One final check on the content requirements:
+    - Ankara ofisi: Included ("Ankara ofisimizde").
+    - Node.js: Included ("Node.js teknolojisinde").
+    - En az 3 yıl deneyim: Included ("en az 3 yıl profesyonel deneyime").
+
+    Structure check:
+    Bölüm 1
+    [Text]
+    Bölüm 2
+    [Text]
+    Bölüm 3
+    [Text]
+
+    All constraints met.
+
+    *Self-Correction on wording:*
+    I will ensure "Node.js" and "3" are counted naturally.
+
+    *Text content for the final response:*
+    Bölüm 1
+    Yenilikçi projeler üreten, hızla büyüyen yazılım firmamız bünyesinde görev alacak dinamik bir Backend Geliştirici arıyoruz. Modern teknolojileri kullanarak ölçeklenebilir sistemler tasarlayacak, teknik ekibimize değer katacak vizyoner bir çalışma arkadaşı bekliyoruz. Yazılım dünyasındaki gelişmeleri yakından takip eden ve karmaşık mühendislik problemlerini çözmekten heyecan duyan adaylar bizim için önceliklidir.
+
+    Bölüm 2
+    Adaylarda aradığımız temel teknik nitelikler şunlardır: Backend geliştirme süreçlerinde en az 3 yıl profesyonel deneyime sahip olmanız ve Node.js teknolojisinde ileri düzeyde yetkinlik sergilemeniz gerekmektedir. Bunun yanı sıra RESTful API tasarımı, veritabanı yönetimi ve mikro hizmet mimarileri konularında bilgi sahibi olmanız beklenmektedir. Algoritma geliştirme ve performans optimizasyonu konusundaki tecrübeleriniz büyük bir avantajdır.
+
+    Bölüm 3
+    Pozisyonumuz Ankara ofisimizde konumlandırılmıştır. Ofisimizdeki enerjik ve profesyonel çalışma ortamına uyum sağlayabilecek, ekip çalışmasına yatkın ve sürekli öğrenmeye açık adaylarla tanışmak istiyoruz. Sunduğumuz geniş sosyal imkanlar ve kariyer gelişim fırsatlarıyla geleceği birlikte inşa etmeye hazır mısınız? Başvurularınızı heyecanla bekliyoruz.
+
+    *Final word count calculation:*
+    144 words.
+
+    (Counting words in "Bölüm 1", "Bölüm 2", "Bölüm 3" as words is standard).
+
+    *Ready.*

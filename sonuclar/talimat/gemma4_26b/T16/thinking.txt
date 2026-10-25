@@ -1,0 +1,81 @@
+
+*   Topic: Hiring post for Pano Yazılım.
+*   Platform: LinkedIn.
+*   Tone: Professional yet engaging (standard for LinkedIn).
+*   Constraints:
+    1.  Exactly 3 paragraphs.
+    2.  Must have blank lines between paragraphs.
+    3.  The very last character must be a question mark (?).
+    4.  Required info: Pano Yazılım, Istanbul office, 4 software developers needed.
+
+    *   *Paragraph 1: Introduction/Hook.* Mention Pano Yazılım's growth and excitement.
+    *   *Paragraph 2: Details.* Mention the Istanbul office and the specific role (4 software developers).
+    *   *Paragraph 3: Call to Action/Closing.* How to apply and the mandatory question mark at the end.
+
+    *   *Drafting Paragraph 1:*
+        Pano Yazılım olarak büyümeye ve gelişmeye hız kesmeden devam ediyoruz! Ekibimizi güçlendirmek ve yeni projelerimizde fark yaratacak yetenekli çalışma arkadaşları arıyoruz.
+
+    *   *Drafting Paragraph 2:*
+        İstanbul ofisimizde görevlendirilmek üzere, dinamik çalışma ortamımıza uyum sağlayacak 4 yazılım geliştirici arayışımız bulunmaktadır. Teknolojiye tutkuyla bağlı, öğrenmeye açık ve çözüm odaklı isimlerle tanışmak için sabırsızlanıyoruz.
+
+    *   *Drafting Paragraph 3:*
+        Siz de bu heyecan verici yolculuğun bir parçası olmak ister misiniz? Başvurularınızı iletmek veya detaylı bilgi almak için bizimle iletişime geçebilirsiniz. Peki, siz bu ekibin bir parçası olmaya hazır mısınız? (Wait, the last character must be a question mark. This works.)
+
+    *   *Constraint Check:*
+        *   3 paragraphs? Yes.
+        *   Blank lines between? Yes.
+        *   Last character is "?"? Yes.
+        *   Includes "Pano Yazılım"? Yes.
+        *   Includes "İstanbul ofisi"? Yes.
+        *   Includes "4 yazılım geliştirici aranıyor"? Yes.
+
+    *   *P1:* Pano Yazılım ailesi olarak büyüme yolculuğumuzda heyecan verici bir döneme giriyoruz! Yeni projelerimizde yer alacak, vizyonumuza ortak olacak yetenekli çalışma arkadaşları arıyoruz.
+
+    *   *P2:* İstanbul ofisimizde görevlendirilmek üzere, teknolojiye yön verecek 4 yazılım geliştirici arayışımız bulunuyor. Dinamik ve yenilikçi ekibimizde kendinizi geliştirebileceğiniz harika bir ortam sizi bekliyor.
+
+    *   *P3:* Siz de bu ekibin bir parçası olup geleceği bizimle birlikte inşa etmek ister misiniz?
+
+    *   Check paragraph count: 1, 2, 3. (OK)
+    *   Check blank lines: Yes. (OK)
+    *   Check last char: "?" (OK)
+    *   Check "Pano Yazılım": Yes.
+    *   Check "İstanbul ofisi": Yes.
+    *   Check "4 yazılım geliştirici": Yes.
+
+    Wait, the user said "4 yazılım geliştirici aranıyor" (4 software developers are being sought). My draft says "4 yazılım geliştirici arayışımız bulunuyor". It means the same thing. Let's make it even closer to the prompt's phrasing if possible, though "arayışımız var" is more natural for a post. Let's stick to natural LinkedIn style.
+
+    *Refined Draft:*
+    Pano Yazılım olarak büyümeye ve yeni teknolojiler geliştirmeye hız kesmeden devam ediyoruz! Ekibimizi genişletmek ve başarılarımızı birlikte kutlamak için yeni çalışma arkadaşları arıyoruz.
+
+    İstanbul ofisimizde görev alacak, heyecanımıza ortak olacak 4 yazılım geliştirici aranıyor. Dinamik çalışma ortamımızda kendinizi geliştirebileceğiniz ve fark yaratabileceğiniz bir kariyer fırsatı sizi bekliyor.
+
+    Siz de bu ekibin bir parçası olup geleceği bizimle birlikte inşa etmek ister misiniz?
+
+    *Verification:*
+    1. Pano Yazılım included.
+    2. İstanbul ofisi included.
+    3. 4 yazılım geliştirici aranıyor included.
+    4. Exactly 3 paragraphs.
+    5. Blank lines between.
+    6. Last character is "?".
+
+    *Wait*, let's make sure no extra spaces or punctuation follow the question mark at the end.
+
+    *Final Text:*
+    Pano Yazılım olarak büyüme yolculuğumuzda heyecan verici bir döneme giriyoruz! Yeni projelerimizde fark yaratacak ve vizyonumuza değer katacak yetenekli çalışma arkadaşları arıyoruz.
+
+    İstanbul ofisimizde görevlendirilmek üzere toplam 4 yazılım geliştirici aranıyor. Dinamik, yenilikçi ve sürekli öğrenmeyi destekleyen ekibimizde kendinize yeni bir yol çizmek için bu fırsatı kaçırmayın.
+
+    Siz de bu ekibin bir parçası olup geleceği bizimle birlikte inşa etmek ister misiniz?
+
+    *Checking Requirements:*
+    - 3 Paragraphs? Yes.
+    - Blank lines? Yes.
+    - Last character "?": Yes.
+    - Pano Yazılım: Yes.
+    - İstanbul ofisi: Yes.
+    - 4 yazılım geliştirici aranıyor: Yes.
+
+    *Self-Correction during final glance:* The prompt says "4 yazılım geliştirici aranıyor" should be included. My text has it exactly.
+
+    Let's go.

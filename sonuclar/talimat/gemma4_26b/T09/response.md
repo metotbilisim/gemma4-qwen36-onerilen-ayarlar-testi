@@ -1,0 +1,1 @@
+Değerli Mutlu Gıda çalışanları, yaklaşan bayram vesilesiyle tatil programımız netleşmiştir. Bayram tatilimiz 28 Mayıs tarihinde başlayacaktır. Tatil sonrası 2 Haziran tarihinde yeniden işbaşı yapılacaktır. Tüm çalışma arkadaşlarımıza sevdikleriyle birlikte huzurlu bir tatil dönemi dileriz. İyi bayramlar dileriz.

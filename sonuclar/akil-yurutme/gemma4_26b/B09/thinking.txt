@@ -1,0 +1,710 @@
+*   Total people: 6 (Nihan, Kaan, Mert, Burak, Gül, Ayşe).
+    *   Sessions: 1st (09:00), 2nd (10:00), 3rd (11:00), 4th (12:00), 5th (13:00), 6th (14:00).
+    *   Each person takes one full session.
+
+    1.  Kaan < Burak and Ayşe < Burak.
+    2.  Mert < Kaan.
+    3.  Nihan is between Gül and Ayşe (Gül-Nihan-Ayşe or Ayşe-Nihan-Gül).
+    4.  |Kaan - Gül| = 2 (This means there are 2 sessions between them, so if Kaan is at 1, Gül is at 4; if Kaan is 2, Gül is 5; etc. Wait, "tam olarak iki oturum var" usually means there are two people *between* them. Let's check the math: Kaan (1), [X], [Y], Gül (4). So $|K - G| = 3$ or $|K - G| = 2$?
+        Let's clarify "tam olarak iki oturum var" in Turkish:
+        - "A ile B arasında iki oturum var" = A, [X], [Y], B. This means if A is 1, B is 4. (Gap = 3)
+        - "A ile B arasında bir oturum var" = A, [X], B. This means if A is 1, B is 3. (Gap = 2)
+        Let's re-read:
+        - "Kaan ile Gül arasında tam olarak iki oturum var." (K, X, Y, G or G, X, Y, K) -> |K - G| = 3.
+        - "Mert ile Gül arasında tam olarak bir oturum var." (M, X, G or G, X, M) -> |M - G| = 2.
+
+    5.  Kaan < Burak
+    6.  Ayşe < Burak
+    7.  Mert < Kaan
+    8.  Nihan is between Gül and Ayşe (G-N-A or A-N-G). This usually means they are consecutive (G, N, A or A, N, G) OR just in that order. Let's re-read: "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor; hangisinin önde olduğu belli değil."
+        "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor" could mean:
+        a) Gül, Nihan, Ayşe are consecutive (G-N-A or A-N-G).
+        b) Nihan is simply somewhere between them in time.
+        *Self-correction*: In logic puzzles, "A is between B and C" often means B < A < C or C < A < B. However, the phrasing "arasında bir oturumda sunum yapıyor" (is presenting in a session between Gül and Ayşe) strongly implies they are consecutive or at least that Nihan's slot is the one sandwiched between them. Let's test the most restrictive interpretation first (consecutive: G-N-A or A-N-G).
+
+    *   M < K
+    *   K < B
+    *   A < B
+    *   |K - G| = 3
+    *   |M - G| = 2
+    *   N is between G and A (G-N-A or A-N-G)
+
+    *Case 1: K is before G (K < G)*
+    If |K - G| = 3, possibilities for (K, G):
+    (1, 4), (2, 5), (3, 6)
+
+    If K=1:
+    G=4.
+    M < K? Impossible, because K is 1.
+
+    If K=2:
+    G=5.
+    M < K => M=1.
+    |M - G| = |1 - 5| = 4. (But |M - G| must be 2). Contradiction.
+
+    If K=3:
+    G=6.
+    M < K => M can be 1 or 2.
+    If M=1, |M - G| = |1 - 6| = 5 (No).
+    If M=2, |M - G| = |2 - 6| = 4 (No).
+
+    *Wait, let me re-evaluate the gaps.*
+    "A ile B arasında X oturum var"
+    If X=0: A, B (|A-B|=1)
+    If X=1: A, _, B (|A-B|=2)
+    If X=2: A, _, _, B (|A-B|=3)
+
+    Let's re-test Case 1 (K < G) with |K-G|=3 and |M-G|=2:
+    If K=1, G=4. M must be < 1 (Impossible).
+    If K=2, G=5. M must be < 2 (M=1). |M-G| = |1-5| = 4 (Not 2).
+    If K=3, G=6. M must be < 3 (M=1 or 2). |M-G| = |1-6|=5 or |2-6|=4 (Not 2).
+
+    *Case 2: G is before K (G < K)*
+    If |K - G| = 3, possibilities for (G, K):
+    (1, 4), (2, 5), (3, 6)
+
+    If G=1:
+    K=4.
+    M < K (M can be 2, 3).
+    |M - G| = 2 => |M - 1| = 2 => M = 3.
+    So: G=1, M=3, K=4.
+    Constraints check:
+    M < K (3 < 4) - OK.
+    K < B (4 < B) => B is 5 or 6.
+    A < B.
+    N is between G(1) and A.
+    Since G=1, the order must be G-N-A (1, N, A).
+    Wait, if G=1 and M=3, where do N and A go?
+    N is between G(1) and A.
+    If N is between 1 and A, and they are consecutive (G, N, A), then N=2 and A=3.
+    But M=3. Contradiction.
+
+    Let's re-check "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor". Does it mean N is *immediately* between them?
+    If G=1, N=2, A=3.
+    But M must be 3 (|M-G|=2). Contradiction.
+    What if N is between them but not immediately?
+    If G=1, N=2, A=...
+    Wait, "Mert ile Gül arasında tam olarak bir oturum var" means |M-G|=2.
+    If G=1, then M=3.
+    If G=1, M=3, K=4.
+    We have A < B and K < B.
+    Since K=4, B must be 5 or 6.
+    If B=5, then A must be < 5.
+    If B=6, then A must be < 6.
+    We also have N between G(1) and A.
+    If G=1, then N must be between 1 and A.
+    The remaining slots are 2, 5, 6.
+    If A=5, then N must be 2. (G=1, N=2, M=3, K=4, A=5, B=6).
+    Let's check all conditions for (G=1, N=2, M=3, K=4, A=5, B=6):
+    1. K(4) and A(5) before B(6)? Yes.
+    2. M(3) before K(4)? Yes.
+    3. N(2) between G(1) and A(5)? Yes.
+    4. K(4) and G(1) have two sessions between them (2, 3)? Yes.
+    5. M(3) and G(1) have one session between them (2)? Yes.
+    All conditions met!
+
+    Wait, let me double-check "Kaan ile Gül arasında tam olarak iki oturum var".
+    Sessions: 1, 2, 3, 4, 5, 6
+    K=4, G=1. Sessions between them: 2 and 3. (That's two sessions). Correct.
+    "Mert ile Gül arasında tam olarak bir oturum var".
+    M=3, G=1. Session between them: 2. (That's one session). Correct.
+
+    Let's check if there are other possibilities.
+    If G=2:
+    K=5.
+    M < K (M can be 1, 3, 4).
+    |M-G|=2 => |M-2|=2 => M=4.
+    Check: G=2, M=4, K=5.
+    A < B and K < B.
+    If K=5, B must be 6.
+    If B=6, then A must be < 6.
+    Slots remaining: 1, 3.
+    N is between G(2) and A.
+    If A=1, then N must be between 2 and 1? Impossible.
+    If A=3, then N must be between 2 and 3? Impossible.
+
+    If G=3:
+    K=6.
+    M < K (M can be 1, 2, 4, 5).
+    |M-G|=2 => |M-3|=2 => M=1 or M=5.
+    If M=1:
+    G=3, K=6, M=1.
+    K < B? Impossible (K is 6).
+
+    If M=5:
+    G=3, K=6, M=5.
+    K < B? Impossible (K is 6).
+
+    Wait, let's re-examine Case 2 (G < K) where K=5, G=2.
+    Wait, if G=2, then K=5. |K-G|=3.
+    M < K and |M-G|=2.
+    If G=2, M must be 4.
+    G=2, M=4, K=5.
+    Remaining slots: 1, 3, 6.
+    K < B => 5 < B => B=6.
+    Remaining: 1, 3.
+    N is between G(2) and A.
+    If A=1, N is between 2 and 1 (Impossible).
+    If A=3, N is between 2 and 3 (Impossible).
+
+    What if K < G? (Already checked, but let's be thorough).
+    |K-G|=3, |M-G|=2, M < K.
+    If G=4, K=1 (Impossible as M < K).
+    If G=5, K=2 (M must be 1, |1-5|=4, no).
+    If G=6, K=3 (M can be 1, 2; |1-6|=5, |2-6|=4, no).
+
+    What if G > K but M is not necessarily < K?
+    No, the rule is "Mert, Kaan'dan önce sunum yapıyor" (M < K).
+
+    Let's re-check G=1, N=2, M=3, K=4, A=5, B=6.
+    1. K(4) and A(5) before B(6). (4 < 6 and 5 < 6) - OK.
+    2. M(3) before K(4). (3 < 4) - OK.
+    3. N(2) is between G(1) and A(5). (1 < 2 < 5) - OK.
+    4. K(4) and G(1) have two sessions (2, 3) between them. - OK.
+    5. M(3) and G(1) have one session (2) between them. - OK.
+
+    Is there any other possible arrangement for G=1, M=3, K=4, B=6, A=5, N=2?
+    The remaining people were N and A.
+    The slots were 2 and 5.
+    Could N=5 and A=2?
+    If A=2, then N=5.
+    Is N(5) between G(1) and A(2)? No.
+
+    Wait, let's re-read: "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor".
+    Does this mean Nihan's session is *the* session between Gül and Ayşe?
+    If Gül is 1st and Ayşe is 3rd, then Nihan is 2nd.
+    Let's try this: G=1, N=2, A=3.
+    If G=1, N=2, A=3:
+    |M-G|=2 => M=3. But A=3. Contradiction.
+    If G=3, N=2, A=1:
+    |M-G|=2 => M=1 or 5.
+    If M=1, A=1. Contradiction.
+    If M=5:
+    G=3, N=2, A=1, M=5.
+    K < B and A < B.
+    |K-G|=3 => |K-3|=3 => K=6.
+    If K=6, K < B is impossible.
+
+    Let's re-examine the "between" condition: "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor".
+    In Turkish, "A, B ile C arasında bir oturumda sunum yapıyor" can mean Nihan is in a session that is between the session of Gül and the session of Ayşe.
+    This is exactly what I used: G < N < A or A < N < G.
+
+    Wait! Let's look at the A < B and K < B condition again.
+    If G=1, M=3, K=4, B=6, A=5, N=2, we had:
+    G: 1
+    N: 2
+    M: 3
+    K: 4
+    A: 5
+    B: 6
+    Let's re-verify:
+    - K(4) and A(5) before B(6): Yes.
+    - M(3) before K(4): Yes.
+    - N(2) between G(1) and A(5): Yes.
+    - K(4) and G(1) have two sessions (2, 3) between them: Yes.
+    - M(3) and G(1) have one session (2) between them: Yes.
+
+    Are there any other possibilities for G=1, M=3, K=4?
+    Slots: 1:G, 2:?, 3:M, 4:K, 5:?, 6:?
+    Remaining: N, A, B.
+    We know K < B and A < B.
+    Since K=4, B must be 5 or 6.
+    If B=5:
+    A must be < 5. Only slot 2 is left.
+    If A=2, then N must be between G(1) and A(2). No slot available.
+    If B=6:
+    A can be 2 or 5.
+    If A=2, N must be between G(1) and A(2). No slot.
+    If A=5, N must be between G(1) and A(5). Slot 2 is available!
+    If N=2, the order is G(1), N(2), M(3), K(4), A(5), B(6). (Already found).
+
+    Wait, let's double-check the K and G gap again.
+    "Kaan ile Gül arasında tam olarak iki oturum var."
+    If K=4 and G=1, the sessions between them are 2 and 3. That's two sessions. Correct.
+    "Mert ile Gül arasında tam olarak bir oturum var."
+    If M=3 and G=1, the session between them is 2. That's one session. Correct.
+
+    Let's re-verify the *entire* set of constraints one more time.
+    1. Kaan and Ayşe before Burak: K(4) < B(6) and A(5) < B(6). (Correct)
+    2. Mert before Kaan: M(3) < K(4). (Correct)
+    3. Nihan between Gül and Ayşe: G(1) < N(2) < A(5). (Correct)
+    4. Kaan and Gül (4 and 1) have two sessions (2, 3) between them. (Correct)
+    5. Mert and Gül (3 and 1) have one session (2) between them. (Correct)
+
+    Wait, is there any other? Let's check G=2 again.
+    If G=2, M=4, K=5.
+    Remaining: 1, 3, 6.
+    K < B => 5 < B => B=6.
+    Remaining: 1, 3.
+    N is between G(2) and A.
+    If A=1, N is between 2 and 1 (Impossible).
+    If A=3, N is between 2 and 3 (Impossible).
+
+    What if G is larger?
+    If G=3, then K=6. But K must be before B. Impossible.
+    If G=4, then K=1. But M must be before K. Impossible.
+    If G=5, then K=2. M must be < 2, so M=1.
+    |M-G| = |1-5| = 4 (Not 2).
+    If G=6, then K=3. M must be < 3.
+    If M=1, |M-G| = 5.
+    If M=2, |M-G| = 4.
+
+    Let's re-check the K-G gap one more time.
+    If |K-G| = 2 (meaning one person between them)?
+    The prompt says "tam olarak iki oturum var" (there are exactly two sessions).
+    In English, "there are two sessions between them" means A, [session], [session], B.
+    In Turkish, "A ile B arasında iki oturum var" means the same.
+    Example: Between 1 and 4, there are 2 and 3. (Two sessions).
+    So |K-G| = 3 is correct.
+
+    Is there anything else?
+    Wait, what if "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor" means Nihan is the *only* one between them?
+    If G=1, N=2, A=3.
+    Then |M-G|=2 would mean M=3. But A is 3.
+    If A=1, N=2, G=3.
+    |M-G|=2 means M=1 or 5.
+    If M=1, A=1 (Contradiction).
+    If M=5, G=3, N=2, A=1.
+    K must be |K-G|=3, so K=6.
+    But K must be < B. (Impossible).
+
+    What if Nihan is not *immediately* between them?
+    "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor"
+    This is usually interpreted as G < N < A or A < N < G.
+    I have already used this interpretation and found G=1, N=2, M=3, K=4, A=5, B=6.
+
+    Let me double check all constraints again.
+    - Kaan (4) and Ayşe (5) are before Burak (6). (Yes: 4<6, 5<6)
+    - Mert (3) is before Kaan (4). (Yes: 3<4)
+    - Nihan (2) is between Gül (1) and Ayşe (5). (Yes: 1 < 2 < 5)
+    - Kaan (4) and Gül (1) have two sessions between them (2, 3). (Yes: 2 sessions)
+    - Mert (3) and Gül (1) have one session between them (2). (Yes: 1 session)
+
+    The person in the 6th session (14:00) is Burak.
+
+    Wait, let me double check the "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor" part again.
+    Could it mean "Nihan is in a session *between* the session of Gül and the session of Ayşe"?
+    This is what I used (G < N < A or A < N < G).
+    Could it mean something else?
+    "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor"
+    This is a slightly ambiguous sentence in Turkish.
+    It could mean "Nihan is presenting in one of the sessions between Gül and Ayşe."
+    This is exactly what G < N < A or A < N < G means.
+
+    Let's re-verify everything.
+    People: N(2), K(4), M(3), B(6), G(1), A(5).
+    1. K(4) and A(5) < B(6)? Yes.
+    2. M(3) < K(4)? Yes.
+    3. N(2) is between G(1) and A(5)? Yes.
+    4. K(4) and G(1) have two sessions (2, 3) between them? Yes.
+    5. M(3) and G(1) have one session (2) between them? Yes.
+
+    Is there any other possible person for the 6th session?
+    Let's re-test G=2, K=5, M=4.
+    K=5, so B must be 6.
+    Slots: 1:?, 2:G, 3:?, 4:M, 5:K, 6:B.
+    Remaining: N, A.
+    N must be between G(2) and A.
+    If A=1, N cannot be between 1 and 2.
+    If A=3, N cannot be between 2 and 3.
+
+    Let's re-test G=1, M=3, K=4 again.
+    Slots: 1:G, 2:?, 3:M, 4:K, 5:?, 6:?
+    Remaining: N, A, B.
+    A < B and K(4) < B.
+    If B=5, A must be < 5. The only slot left is 2.
+    If A=2, N must be between 1 and 2. (No slot).
+    If B=6, A can be 2 or 5.
+    If A=2, N must be between 1 and 2. (No slot).
+    If A=5, N must be between 1 and 5. Slot 2 is available!
+    If N=2, the order is G(1), N(2), M(3), K(4), A(5), B(6). (Wait, I already did this).
+
+    Is there any other?
+    What if G=2, M=4, K=5, B=6, A=3, N=... No.
+    What if G=2, M=4, K=5, B=6, A=1, N=... No.
+    What if G=1, M=3, K=4, B=5, A=2, N=... No.
+
+    Wait! Let me re-read: "Kaan ve Ayşe, ikisi de Burak'tan önce sunum yapıyor."
+    Does this mean K < B and A < B? Yes.
+    "Mert, Kaan'dan önce sunum yapıyor."
+    Does this mean M < K? Yes.
+    "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor."
+    Does this mean G < N < A or A < N < G? Yes.
+    "Kaan ile Gül arasında tam olarak iki oturum var."
+    Does this mean |K-G|=3? Yes.
+    "Mert ile Gül arasında tam olarak bir oturum var."
+    Does this mean |M-G|=2? Yes.
+
+    Wait, let's check the order (A, N, G) instead of (G, N, A).
+    If A < N < G:
+    If G=4, K=1 (No, M < K).
+    If G=5, K=2. M < 2 means M=1.
+    |M-G| = |1-5| = 4 (No, |M-G|=2).
+    If G=6, K=3. M < 3 means M=1 or 2.
+    If M=1, |1-6|=5 (No).
+    If M=2, |2-6|=4 (No).
+    If G=3, K=6. (No, K < B).
+
+    Let's re-check G=2, M=4, K=5, B=6.
+    Remaining slots: 1, 3.
+    If A=1, then N must be between 1 and 2 (No).
+    If A=3, then N must be between 2 and 3 (No).
+
+    Let me re-examine G=1, M=3, K=4, B=6, A=5, N=2.
+    Wait, I just noticed something.
+    The question is "6. oturumda (14:00) kim sunum yapıyor?".
+    My answer is Burak.
+
+    Let me double-check the gap "iki oturum var" one more time.
+    In some contexts, "between A and B there are two sessions" could mean A is 1 and B is 3 (meaning session 2 is the only one between them). But the phrasing "tam olarak iki oturum var" (there are exactly two sessions) is quite specific.
+    If there are two sessions between them, they must be 1 and 4, 2 and 5, or 3 and 6.
+    Gap:
+    |1-4| = 3.
+    Number of sessions between them: 4 - 1 - 1 = 2.
+    So |K-G|=3 and |M-G|=2.
+
+    Is there any other possibility for |K-G|=3 and |M-G|=2?
+    If G=1: K=4, M=3.
+    If G=2: K=5, M=4.
+    If G=3: K=6, M=5 (But K < B, so K cannot be 6).
+    If G=4: K=1 (But M < K, so K cannot be 1).
+    If G=5: K=2, M=3 (Wait, M < K, so 3 < 2 is impossible).
+    If G=6: K=3, M=4 (Wait, M < K, so 4 < 3 is impossible).
+
+    So the only two potential foundations are:
+    Foundation 1: G=1, M=3, K=4.
+    Foundation 2: G=2, M=4, K=5.
+
+    Let's re-verify Foundation 2 (G=2, M=4, K=5):
+    K < B => 5 < B => B=6.
+    Remaining people: N, A.
+    Remaining slots: 1, 3.
+    Condition: N is between G(2) and A.
+    If A=1: N must be between 1 and 2. (No slot).
+    If A=3: N must be between 2 and 3. (No slot).
+
+    Let's re-verify Foundation 1 (G=1, M=3, K=4):
+    K < B => 4 < B => B is 5 or 6.
+    If B=5:
+    Remaining: N, A.
+    Remaining slots: 2, 6.
+    Condition: N is between G(1) and A.
+    If A=2: N must be between 1 and 2. (No slot).
+    If A=6: N must be between 1 and 6. Slot 2 is available.
+    So G=1, N=2, M=3, K=4, B=5, A=6.
+    Wait! Let me check "Kaan ve Ayşe, ikisi de Burak'tan önce sunum yapıyor".
+    If A=6 and B=5, then A is *not* before B.
+    So B cannot be 5.
+    If B=6:
+    Remaining: N, A.
+    Remaining slots: 2, 5.
+    Condition: N is between G(1) and A.
+    If A=2: N must be between 1 and 2. (No slot).
+    If A=5: N must be between 1 and 5. Slot 2 is available.
+    So G=1, N=2, M=3, K=4, A=5, B=6.
+
+    Wait, let me double-check the B=6, A=5, N=2 case again.
+    Is N(2) between G(1) and A(5)? Yes, 1 < 2 < 5.
+    Is K(4) before B(6)? Yes.
+    Is A(5) before B(6)? Yes.
+    Is M(3) before K(4)? Yes.
+    Is K(4) and G(1) two sessions apart? Yes (2 and 3).
+    Is M(3) and G(1) one session apart? Yes (2).
+    Everything fits!
+
+    Final check of the question: "6. oturumda (14:00) kim sunum yapıyor?"
+    6th session is 14:00.
+    My order:
+    09:00 (1st): Gül
+    10:00 (2nd): Nihan
+    11:00 (3rd): Mert
+    12:00 (4th): Kaan
+    13:00 (5th): Ayşe
+    14:00 (6th): Burak
+
+    Wait, let me re-read the Nihan condition one more time.
+    "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor; hangisinin önde olduğu belli değil."
+    This could potentially mean Nihan is *the* session between them (meaning G, N, A or A, N, G).
+    If it means Nihan is *the only* one between them:
+    In my solution (G=1, N=2, M=3, K=4, A=5, B=6), Nihan is in the 2nd session, which is between the 1st (Gül) and 5th (Ayşe).
+    Is Nihan "between Gül and Ayşe"? Yes.
+    Is Nihan "in a session between Gül and Ayşe"? Yes.
+
+    Let me see if there's any other possible interpretation of "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor".
+    If it means Nihan is *exactly* in the middle of them (like A, N, G or G, N, A), then the gap between G and A would have to be 2 (e.g., 1 and 3, or 2 and 4).
+    If |G-A|=2:
+    In my solution, |G-A| = |1-5| = 4.
+    But the sentence doesn't say "exactly in the middle". It says "in a session between them".
+    If I say "I'll meet you in a session between 1:00 and 5:00," it doesn't mean I'll meet you at 3:00. It just means I'll meet you at 2:00 or 3:00 or 4:00.
+
+    Let's re-verify: "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor".
+    In Turkish, this usually means Nihan's slot is one of the slots between Gül's slot and Ayşe's slot.
+
+    Wait, let's check if there is any other possibility for "tam olarak iki oturum var".
+    Does "Kaan ile Gül arasında tam olarak iki oturum var" mean there are two people between them, or that the difference in their session numbers is 2?
+    If |K-G|=2:
+    If G=1, K=3.
+    M < K => M=2.
+    |M-G| = |2-1| = 1. (But |M-G| must be 2).
+    If G=2, K=4.
+    M < K => M=1 or 3.
+    |M-G| = |1-2|=1 or |3-2|=1. (But |M-G| must be 2).
+    If G=3, K=5.
+    M < K => M=1, 2, 4.
+    |M-G| = |1-3|=2.
+    So G=3, M=1, K=5.
+    Check K < B: 5 < B => B=6.
+    Check A < B: A < 6.
+    Remaining: N, A.
+    Remaining slots: 2, 4.
+    N is between G(3) and A.
+    If A=2, N is between 3 and 2 (No).
+    If A=4, N is between 3 and 4 (No).
+    If G=4, K=6 (No, K < B).
+    If G=4, K=2.
+    M < K => M=1.
+    |M-G| = |1-4|=3 (No, |M-G| must be 2).
+    If G=5, K=3.
+    M < K => M=1, 2.
+    |M-G| = |1-5|=4 or |2-5|=3 (No, |M-G| must be 2).
+    If G=6, K=4.
+    M < K => M=1, 2, 3.
+    |M-G| = |4-6|=2? (No, |M-G| must be 2, so M=4? No, M is already used).
+    If M=4, but K=4.
+
+    Let's double check |K-G|=3 again.
+    If |K-G|=3, there are 2 sessions between them.
+    Example: 1, (2, 3), 4.
+    If |M-G|=2, there is 1 session between them.
+    Example: 1, (2), 3.
+    This is what I used.
+
+    Let's re-check Foundation 2 one more time (G=2, M=4, K=5, B=6).
+    Remaining slots: 1, 3.
+    Remaining people: N, A.
+    N must be between G(2) and A.
+    If A=1, N cannot be between 1 and 2.
+    If A=3, N cannot be between 2 and 3.
+
+    What if G was larger?
+    If G=3, K=6 (No, K < B).
+    If G=4, K=1 (No, M < K).
+    If G=5, K=2, M=3 (No, M < K).
+    If G=6, K=3, M=4 (No, M < K).
+
+    Let me re-verify "Kaan ve Ayşe, ikisi de Burak'tan önce sunum yapıyor".
+    Does it mean:
+    - K < B AND A < B (What I used)
+    - K and A are both immediately before B? (No, that's not what it says).
+
+    Let me re-verify:
+    - K=4, A=5, B=6. (K and A are before B).
+    - M=3, K=4. (M is before K).
+    - G=1, N=2, A=5. (N is between G and A).
+    - |K-G| = |4-1| = 3. (Two sessions between them: 2 and 3).
+    - |M-G| = |3-1| = 2. (One session between them: 2).
+    All conditions are satisfied by the sequence G, N, M, K, A, B.
+
+    Is there any other possible sequence?
+    Let's look at the Nihan condition again. "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor".
+    Could it mean Nihan is *at the same time* as one of the others? No, "her oturumda tek kişi sunum yapar".
+    Could it mean Nihan is between them, but not necessarily *in a single session*? No, "bir oturumda sunum yapıyor".
+
+    Wait, let me re-read the very first line.
+    "6 kişi, Cuma günü 09:00'dan başlayarak sırayla birer saatlik sunum yapacak: Nihan, Kaan, Mert, Burak, Gül, Ayşe."
+    This just lists the names.
+
+    Wait! "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor".
+    Let's check my sequence again: G(1), N(2), M(3), K(4), A(5), B(6).
+    N is 2nd. G is 1st. A is 5th.
+    Is 2 between 1 and 5? Yes.
+    Is Nihan in *a* session between Gül and Ayşe? Yes, the 2nd session.
+
+    Let me double-check if there's any other possible value for B.
+    If B was 5, then K and A must be < 5.
+    K=4 and A could be 1, 2, 3.
+    If K=4, G must be 1 (since |K-G|=3).
+    If G=1, then M must be 3 (since |M-G|=2).
+    If G=1, M=3, K=4, B=5.
+    Remaining: N, A.
+    Remaining slots: 2, 6.
+    If A=2, then N must be between G(1) and A(2). (No).
+    If A=6, then A is not before B=5.
+
+    If B was 4, then K must be < 4.
+    If K=3, then G=6 (since |K-G|=3).
+    If G=6, then M must be 4 (since |M-G|=2).
+    But B=4, so M cannot be 4.
+
+    Wait, what if K < G? I already checked that.
+    If K=1, then G=4. But M < K is impossible.
+    If K=2, then G=5. M < K means M=1. |M-G| = |1-5|=4. (No).
+    If K=3, then G=6. M < K means M=1 or 2. |M-G| = |1-6|=5 or |2-6|=4. (No).
+
+    One last check:
+    G=1, N=2, M=3, K=4, A=5, B=6.
+    - K(4) < B(6) and A(5) < B(6). (Check)
+    - M(3) < K(4). (Check)
+    - N(2) is between G(1) and A(5). (Check)
+    - |K-G| = 3. (Check: 2 and 3 are between 1 and 4)
+    - |M-G| = 2. (Check: 2 is between 1 and 3)
+    Everything seems solid.
+
+    Wait, let me just re-read the "between" part one more time.
+    "Kaan ile Gül arasında tam olarak iki oturum var."
+    "Mert ile Gül arasında tam olarak bir oturum var."
+    If these mean the *difference* is 2 and 1 respectively (i.e., |K-G|=2 and |M-G|=1), let's see:
+    If |K-G|=2 and |M-G|=1:
+    - G=1, K=3, M=2.
+    - M < K (2 < 3). (Check)
+    - K < B and A < B.
+    - G=1, M=2, K=3.
+    - Remaining slots: 4, 5, 6.
+    - Remaining people: N, A, B.
+    - A < B and K(3) < B.
+    - N is between G(1) and A.
+    - If A=4, N must be between 1 and 4. Slot 5, 6? No.
+    - If A=5, N must be between 1 and 5. Slot 4 is available!
+    - If N=4, then B must be 6.
+    - Let's check: G=1, M=2, K=3, N=4, A=5, B=6.
+    - N(4) is between G(1) and A(5). (Check)
+    - |K-G| = |3-1|=2. (Wait, "iki oturum var" means two sessions are *between* them, not the difference is 2).
+    - Let's re-verify: In 1 and 3, how many sessions are between them? Only one (the 2nd).
+    - So if "iki oturum var" means |K-G|=2, then there's only *one* session between them.
+    - But the question says "iki oturum var" (two sessions are there). This must mean the gap is 2.
+
+    Let's double-check:
+    "A ile B arasında bir oturum var" = A, [X], B (Gap of 1)
+    "A ile B arasında iki oturum var" = A, [X], [Y], B (Gap of 2)
+    This is the standard way these puzzles are phrased.
+    So |K-G|=3 and |M-G|=2.
+    My original calculation:
+    |K-G|=3 means K and G are 1 and 4, 2 and 5, or 3 and 6.
+    |M-G|=2 means M and G are 1 and 3, 2 and 4, 3 and 5, or 4 and 6.
+
+    Let's re-check all combinations of |K-G|=3 and |M-G|=2:
+    - If G=1, then K=4 and M=3. (This was my Foundation 1).
+    - If G=2, then K=5 and M=4. (This was my Foundation 2).
+    - If G=3, then K=6 and M=1 or 5. (K=6 is impossible because K < B).
+    - If G=4, then K=1 and M=2 or 6. (K=1 is impossible because M < K).
+    - If G=5, then K=2 and M=3. (M < K is impossible).
+    - If G=6, then K=3 and M=4. (M < K is impossible).
+
+    Wait, let's re-check G=4, K=1, M=2 again.
+    If G=4, K=1, M=2.
+    M < K is 2 < 1. (False).
+    If G=5, K=2, M=3.
+    M < K is 3 < 2. (False).
+    If G=6, K=3, M=4.
+    M < K is 4 < 3. (False).
+
+    Wait, I should also check the K < G case.
+    - If K=1, G=4. M < K is impossible.
+    - If K=2, G=5. M < K means M=1. |M-G| = |1-5|=4. (No).
+    - If K=3, G=6. M < K means M=1 or 2. |M-G| = |1-6|=5 or |2-6|=4. (No).
+
+    Wait! What if G was the one *before* K?
+    Wait, I already checked G < K and K < G.
+
+    Let me re-verify G=2, M=4, K=5, B=6.
+    Remaining slots: 1, 3.
+    Remaining people: N, A.
+    N is between G(2) and A.
+    If A=1, N must be between 2 and 1. (No).
+    If A=3, N must be between 2 and 3. (No).
+
+    Okay, so Foundation 1 is the only one that works.
+    G=1, N=2, M=3, K=4, A=5, B=6.
+    Everything is consistent.
+    Final person: Burak.
+    6th session is 14:00.
+
+    Let's just double-check the session times:
+    1st: 09:00
+    2nd: 10:00
+    3rd: 11:00
+    4th: 12:00
+    5th: 13:00
+    6th: 14:00
+
+    Wait, the question asks: "6. oturumda (14:00) kim sunum yapıyor?".
+    The person I found is Burak.
+
+    Let's re-check the constraints one more time. Very carefully.
+    - Kaan (4) and Ayşe (5) are before Burak (6). (Yes)
+    - Mert (3) is before Kaan (4). (Yes)
+    - Nihan (2) is between Gül (1) and Ayşe (5). (Yes)
+    - Kaan (4) and Gül (1) have two sessions (2, 3) between them. (Yes)
+    - Mert (3) and Gül (1) have one session (2) between them. (Yes)
+
+    Wait, I just had a thought. What if "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor" means Nihan is *the* session *exactly* between them, and they are not necessarily consecutive?
+    No, that would be "Nihan, Gül ile Ayşe'nin tam ortasında".
+    "Arasında bir oturumda" simply means she is in one of the sessions between them.
+
+    Is there any other possible interpretation of "tam olarak iki oturum var"?
+    If it meant |K-G|=2, then there is *one* session between them.
+    If it meant |K-G|=1, then there are *no* sessions between them.
+    "A ile B arasında X oturum var" always means the number of sessions between them is X.
+    If X=2, the sessions are (1, 4), (2, 5), or (3, 6).
+    If X=1, the sessions are (1, 3), (2, 4), (3, 5), or (4, 6).
+
+    Let me double check the G=1, M=3, K=4, B=6, A=5, N=2 sequence.
+    Is there any other way to arrange N, A, B in slots 2, 5, 6?
+    If B=6:
+    - A=5, N=2 (Works: 1 < 2 < 5)
+    - A=2, N=5 (Does not work: 5 is not between 1 and 2)
+    If B=5:
+    - A=2, N=6 (Does not work: 6 is not between 1 and 2)
+    - A=6, N=2 (Does not work: A must be < B)
+    If B=2:
+    - A=5, N=6 (Does not work: A must be < B)
+    - A=6, N=5 (Does not work: A must be < B)
+
+    Actually, let me re-check A < B.
+    If B=5, K=4, A must be < 5.
+    If A=2, then N must be between 1 and 2 (No).
+    If A=3, but M is 3.
+    If A=1, but G is 1.
+    If B=6, K=4, A must be < 6.
+    A could be 2 or 5.
+    If A=2, N must be between 1 and 2 (No).
+    If A=5, N must be between 1 and 5 (Slot 2).
+
+    Wait, let me re-check if A could be 2 and N could be something else.
+    If A=2, N must be between G(1) and A(2). No.
+    If A=5, N must be between G(1) and A(5). N could be 2, 3, or 4.
+    But 3 is Mert and 4 is Kaan.
+    So N must be 2.
+
+    Wait, let me re-check the M and K slots.
+    If G=1, M=3, K=4.
+    Could N be 2 and A be 5? Yes, that's what I found.
+    Could N be 3? No, Mert is 3.
+    Could N be 4? No, Kaan is 4.
+    Could N be 2 and A be 6?
+    If A=6, then B must be > A, so B > 6, which is impossible.
+
+    So the only solution is G=1, N=2, M=3, K=4, A=5, B=6.
+    The person in the 6th session is Burak.
+
+    One more look at "Kaan ve Ayşe, ikisi de Burak'tan önce sunum yapıyor."
+    It means K < B and A < B.
+    My solution: 4 < 6 and 5 < 6. (Correct).
+
+    One more look at "Mert, Kaan'dan önce sunum yapıyor."
+    It means M < K.
+    My solution: 3 < 4. (Correct).
+
+    One more look at "Nihan, Gül ile Ayşe arasında bir oturumda sunum yapıyor."
+    It means G < N < A or A < N < G.
+    My solution: 1 < 2 < 5. (Correct).
+
+    One more look at "Kaan ile Gül arasında tam olarak iki oturum var."
+    It means |K-G| = 3.
+    My solution: |4-1| = 3. (Correct).
+
+    One more look at "Mert ile Gül arasında tam olarak bir oturum var."
+    It means |M-G| = 2.
+    My solution: |3-1| = 2. (Correct).
+
+    Everything seems perfectly in order.

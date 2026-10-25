@@ -1,0 +1,104 @@
+*   Identify products with "Satılan adet" (Sold quantity) $\ge 150$.
+    *   Calculate the profit margin for these specific products using the formula: $\text{Profit Margin} = \frac{\text{Sales Price} - \text{Unit Cost}}{\text{Sales Price}}$.
+    *   Find the product with the highest profit margin among them.
+
+    | Ürün | Birim maliyet (TL) | Satış fiyatı (TL) | Satılan adet |
+    | :--- | :--- | :--- | :--- |
+    | Etiket rulosu | 334 | 384 | 49 |
+    | A4 kağıt | 105 | 185 | 333 |
+    | Poşet rulosu | 362 | 772 | 55 |
+    | Zımba teli | 75 | 140 | 220 |
+    | Toner | 375 | 569 | 73 |
+    | Kargo poşeti | 365 | 619 | 341 |
+    | Palet bandı | 534 | 594 | 206 |
+    | Dosya klasörü | 330 | 389 | 227 |
+
+    *   A4 kağıt (333)
+    *   Zımba teli (220)
+    *   Kargo poşeti (341)
+    *   Palet bandı (206)
+    *   Dosya klasörü (227)
+
+        *   Profit Margin = $(185 - 105) / 185 = 80 / 185$
+        *   $80 / 185 \approx 0.4324$ (or $43.24\%$)
+
+        *   Profit Margin = $(140 - 75) / 140 = 65 / 140$
+        *   $65 / 140 \approx 0.4643$ (or $46.43\%$)
+
+        *   Profit Margin = $(619 - 365) / 619 = 254 / 619$
+        *   $254 / 619 \approx 0.4103$ (or $41.03\%$)
+
+        *   Profit Margin = $(594 - 534) / 594 = 60 / 594$
+        *   $60 / 594 \approx 0.1010$ (or $10.10\%$)
+
+        *   Profit Margin = $(389 - 330) / 389 = 59 / 389$
+        *   $59 / 389 \approx 0.1517$ (or $15.17\%$)
+
+    *   A4 kağıt: 0.4324
+    *   Zımba teli: 0.4643
+    *   Kargo poşeti: 0.4103
+    *   Palet bandı: 0.1010
+    *   Dosya klasörü: 0.1517
+
+    The highest margin is 0.4643, which belongs to "Zımba teli".
+
+    *   A4 kağıt: 80/185 = 16/37 ≈ 0.432
+    *   Zımba teli: 65/140 = 13/28 ≈ 0.464
+    *   Kargo poşeti: 254/619 ≈ 0.410
+    *   Palet bandı: 60/594 = 10/99 ≈ 0.101
+    *   Dosya klasörü: 59/389 ≈ 0.152
+
+    Comparison: 13/28 vs 16/37
+    13 * 37 = 481
+    16 * 28 = 448
+    Since 481 > 448, 13/28 > 16/37. So Zımba teli is higher.
+
+    Let's check Kargo poşeti: 254/619 vs 13/28
+    13 * 619 = 8047
+    254 * 28 = 7112
+    8047 > 7112, so Zımba teli is higher.
+
+    The question asks: "kâr marjı en yüksek ürün hangisidir?" (Which product has the highest profit margin?)
+    Answer: Zımba teli.
+
+    *   Identify products with sales $\ge 150$: A4 kağıt, Zımba teli, Kargo poşeti, Palet bandı, Dosya klasörü.
+    *   Calculate margins for those:
+        *   A4 kağıt: (185-105)/185 = 80/185 ≈ 0,432
+        *   Zımba teli: (140-75)/140 = 65/140 ≈ 0,464
+        *   Kargo poşeti: (619-365)/619 = 254/619 ≈ 0,410
+        *   Palet bandı: (594-534)/594 = 60/594 ≈ 0,101
+        *   Dosya klasörü: (389-330)/389 = 59/389 ≈ 0,152
+    *   The highest is Zımba teli.
+
+    "Yalnızca satılan adedi 150 ya da daha fazla olan ürünler arasında kâr marjı en yüksek ürün hangisidir?"
+    The question asks for the product name.
+
+    Wait, let me double check the calculation of Zımba teli once more.
+    Maliyet: 75, Satış: 140.
+    Kâr: 140 - 75 = 65.
+    Kâr marjı: 65 / 140.
+    65/140 = 13/28.
+    13 ÷ 28 = 0.4642857...
+
+    A4 kağıt:
+    Maliyet: 105, Satış: 185.
+    Kâr: 185 - 105 = 80.
+    Kâr marjı: 80 / 185 = 16/37.
+    16 ÷ 37 = 0.4324324...
+
+    Kargo poşeti:
+    Maliyet: 365, Satış: 619.
+    Kâr: 619 - 365 = 254.
+    Kâr marjı: 254 / 619 = 0.410339...
+
+    Palet bandı:
+    Maliyet: 534, Satış: 594.
+    Kâr: 60.
+    Kâr marjı: 60 / 594 = 10/99 = 0.10101...
+
+    Dosya klasörü:
+    Maliyet: 330, Satış: 389.
+    Kâr: 59.
+    Kâr marjı: 59 / 389 = 0.15167...
+
+    The highest is definitely Zımba teli.

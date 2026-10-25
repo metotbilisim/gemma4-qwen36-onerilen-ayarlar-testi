@@ -1,0 +1,1179 @@
+Here's a thinking process that leads to the solution:
+
+1.  **Understand the Goal:** The objective is to calculate the total duration (in minutes) during which at least *two* people are working simultaneously within an workshop setting, considering their specific work schedules and lunch breaks.
+
+2.  **Analyze the Input Data:**
+
+    *   **Cemre (C):**
+        *   Work Interval: 07:00 - 15:00
+        *   Break Interval: 12:45 - 13:30
+        *   Effective Working Times for C:
+            *   07:00 - 12:45
+            *   13:30 - 15:00
+
+    *   **Burak (B):**
+        *   Work Interval: 08:30 - 17:30
+        *   Break Interval: 14:15 - 15:00
+        *   Effective Working Times for B:
+            *   08:30 - 14:15
+            *   15:00 - 17:30
+
+    *   **Fatih (F):**
+        *   Work Interval: 11:00 - 20:00
+        *   Break Interval: 15:30 - 16:00
+        *   Effective Working Times for F:
+            *   11:00 - 15:30
+            *   16:00 - 20:00
+
+    *   **Condition:** "Mola sırasında kişi çalışıyor sayılmaz" (During break, a person is not considered working).
+    *   **Target:** Calculate total minutes where count(working people) $\ge$ 2.
+
+3.  **Methodology:** Timeline Analysis / Venn Diagram approach. I need to look at specific time segments defined by the start and end points of all work periods and break periods to identify intervals where everyone is free or breaks occur.
+
+    *   *Key Time Points (sorted):*
+        07:00, 08:30, 11:00, 12:45, 13:30, 14:15, 15:00, 15:30, 16:00, 17:30, 20:00.
+
+    *   Let's break the day down into small intervals based on these points and count how many people are working in each interval.
+
+4.  **Step-by-Step Interval Analysis:**
+
+    **Interval 1: 07:00 - 08:30**
+    *   C: Working (Starts 07:00)
+    *   B: Not working (Starts 08:30)
+    *   F: Not working (Starts 11:00)
+    *   Count: 1.
+    *   **Relevance for "At least 2": NO.**
+
+    **Interval 2: 08:30 - 11:00**
+    *   C: Working
+    *   B: Working (Starts 08:30)
+    *   F: Not working (Starts 11:00)
+    *   Count: 2.
+    *   **Relevance for "At least 2": YES.**
+    *   Duration: 2 hours 30 mins = 150 minutes.
+
+    **Interval 3: 11:00 - 12:45**
+    *   C: Working
+    *   B: Working
+    *   F: Working (Starts 11:00)
+    *   Count: 3.
+    *   **Relevance for "At least 2": YES.**
+    *   Duration: 1 hour 45 mins = 105 minutes.
+
+    **Interval 4: 12:45 - 13:30** (Cemre's Break)
+    *   C: BREAKING (Not working)
+    *   B: Working
+    *   F: Working
+    *   Count: 2 (B and F).
+    *   **Relevance for "At least 2": YES.**
+    *   Duration: 45 minutes.
+
+    **Interval 5: 13:30 - 14:15**
+    *   C: Working (Break ends)
+    *   B: Working
+    *   F: Working
+    *   Count: 3.
+    *   **Relevance for "At least 2": YES.**
+    *   Duration: 45 minutes.
+
+    **Interval 6: 14:15 - 15:00** (Burak's Break)
+    *   C: Working
+    *   B: BREAKING (Not working)
+    *   F: Working
+    *   Count: 2 (C and F).
+    *   **Relevance for "At least 2": YES.**
+    *   Duration: 45 minutes.
+
+    **Interval 7: 15:00 - 15:30** (Both B and C finished? Wait, check times)
+    *   C: Ends work at 15:00. So C is NOT working.
+    *   B: Break ends at 15:00. Starts working again after 15:00. So B IS working.
+    *   F: Working (until 15:30).
+    *   *Correction check:*
+        *   C's work ends at 15:00.
+        *   B's break ends at 15:00.
+        *   F is working until 15:30.
+    *   Count in interval (15:00, 15:30):
+        *   C: 0
+        *   B: 1
+        *   F: 1
+        *   Total: 2.
+    *   **Relevance for "At least 2": YES.**
+    *   Duration: 30 minutes.
+
+    **Interval 8: 15:30 - 16:00** (Fatih's Break)
+    *   C: Finished work at 15:00. Status: Not working.
+    *   B: Working (Starts 15:00).
+    *   F: BREAKING (Starts 15:30, ends 16:00).
+    *   Count in interval (15:30, 16:00):
+        *   C: 0
+        *   B: 1
+        *   F: 0
+        *   Total: 1.
+    *   **Relevance for "At least 2": NO.**
+
+    **Interval 9: 16:00 - 17:30** (Fatih back, Burak still working)
+    *   C: Finished.
+    *   B: Working (Until 17:30).
+    *   F: Working (Back from break 16:00 until 20:00).
+    *   Count in interval (16:00, 17:30):
+        *   C: 0
+        *   B: 1
+        *   F: 1
+        *   Total: 2.
+    *   **Relevance for "At least 2": YES.**
+    *   Duration: 1 hour 30 mins = 90 minutes.
+
+    **Interval 10: 17:30 - 20:00** (Burak finished)
+    *   C: Finished.
+    *   B: Finished at 17:30.
+    *   F: Working until 20:00.
+    *   Count: 1.
+    *   **Relevance for "At least 2": NO.**
+
+5.  **Summation of Valid Intervals:**
+
+    Let's re-verify the specific overlaps carefully. It is easy to make a mistake with boundary conditions (like who finishes exactly when someone else starts).
+
+    *List of people working at time $t$:*
+
+    *   **07:00 - 08:30**: C only. (Count 1) -> Skip.
+    *   **08:30 - 11:00**: C, B. (Count 2) -> **Keep**. (Duration: 150 min)
+    *   **11:00 - 12:45**: C, B, F. (Count 3) -> **Keep**. (Duration: 105 min)
+    *   **12:45 - 13:30**: Break for C. Remaining: B, F. (Count 2) -> **Keep**. (Duration: 45 min)
+    *   **13:30 - 14:15**: C is back. B, F are there. (Count 3) -> **Keep**. (Duration: 45 min)
+    *   **14:15 - 15:00**: Break for B. Remaining: C, F. (Count 2) -> **Keep**. (Duration: 45 min)
+    *   **15:00 - 15:30**:
+        *   C stops at 15:00.
+        *   B starts working at 15:00 (break ends).
+        *   F is working.
+        *   People: B, F. (Count 2) -> **Keep**. (Duration: 30 min)
+    *   **15:30 - 16:00**: Break for F.
+        *   C finished.
+        *   B is working.
+        *   F is on break.
+        *   People: B only. (Count 1) -> Skip.
+    *   **16:00 - 17:30**:
+        *   C finished.
+        *   B is working.
+        *   F is back from break.
+        *   People: B, F. (Count 2) -> **Keep**. (Duration: 90 min)
+    *   **17:30 - 20:00**: B stops. C finished. F working alone. (Count 1) -> Skip.
+
+6.  **Calculation of Total Minutes:**
+
+    1.  08:30 - 11:00 = 2h 30m = 150
+    2.  11:00 - 12:45 = 1h 45m = 105
+    3.  12:45 - 13:30 = 45m = 45 (Overlap of B & F while C is on break)
+    4.  13:30 - 14:15 = 45m = 45 (All three working)
+    5.  14:15 - 15:00 = 45m = 45 (Overlap of C & F while B is on break)
+    6.  15:00 - 15:30 = 30m = 30 (B resumes work, C leaves, F stays -> B+F)
+    7.  16:00 - 17:30 = 1h 30m = 90 (F resumes, B still there -> B+F)
+
+    *Wait, let's double check Interval 6 (15:00-15:30).*
+    Cemre works 07:00 - 15:00. At 15:00 she stops. So for the minute interval starting exactly at 15:00, is she working? Usually, in these problems, if work ends at T, they are not working *after* T. If work starts at T, they are working *after* T.
+    Burak break ends 15:00. So at 15:00 he starts working.
+    Fatih is working (11:00-15:30).
+    So strictly speaking, at time $t > 15:00$ (infinitesimally), Cemre is gone, Burak is present, Fatih is present. Count = 2.
+    Duration calculation: 15:30 - 15:00 = 30 mins. Correct.
+
+    *Double check Interval 8 (15:30-16:00).*
+    Cemre: Left at 15:00. Count = 0.
+    Burak: Working (15:00 - 17:30). Count = 1.
+    Fatih: Break 15:30 - 16:00. Count = 0.
+    Total count = 1. Correct to exclude.
+
+    *Double check Interval 9 (16:00-17:30).*
+    Cemre: Left. Count = 0.
+    Burak: Working (ends 17:30). Count = 1.
+    Fatih: Back from break at 16:00. Count = 1.
+    Total count = 2. Correct to include.
+
+    *Summing up:*
+    150 + 105 + 45 + 45 + 45 + 30 + 90
+
+    Let's group them:
+    Block 1 (C+B before F arrives): 08:30 - 11:00 = 150 min.
+    Block 2 (All three, with breaks interspersed): 11:00 - 15:00.
+    Total time from 11:00 to 15:00 is 4 hours = 240 mins.
+    Within this block, who leaves?
+    - Cemre leaves for break 12:45-13:30 (45 mins). But B and F are still there. So overlap count goes 3->2. Still valid (>=2).
+    - Burak leaves for break 14:15-15:00 (45 mins). C and F are there. Overlap count goes 3->2. Still valid (>=2).
+    - Fatih is present the whole time here (until 15:30).
+    So, the entire block from 11:00 to 15:00 has at least 2 people?
+    Let's verify minimums in that block.
+    - 11:00-12:45: 3 people. OK.
+    - 12:45-13:30: C on break. B, F working. (2 people). OK.
+    - 13:30-14:15: 3 people. OK.
+    - 14:15-15:00: B on break. C, F working. (2 people). OK.
+    So yes, from 11:00 to 15:00, the condition "at least 2 people" holds true continuously.
+    Duration: 4 hours = 240 minutes.
+
+    Block 3 (After 15:00):
+    At 15:00, Cemre finishes.
+    Burak resumes work. Fatih is working.
+    Overlap of B & F continues until...
+    - Fatih goes on break at 15:30.
+    - So 15:00 to 15:30 (B+F) = 30 mins. Condition met.
+    At 15:30, Fatih takes a break.
+    - Cemre is gone.
+    - Burak is working.
+    - Fatih on break.
+    Only 1 person (Burak). Condition fails.
+    Duration of fail: 15:30 to 16:00 = 30 mins.
+
+    At 16:00, Fatih returns. Burak is still working.
+    - B & F overlap continues until...
+    - Burak finishes at 17:30.
+    Duration: 16:00 to 17:30 = 1 hour 30 mins = 90 mins. Condition met.
+
+    At 17:30, Burak leaves. Fatih is alone until 20:00.
+    Condition fails.
+
+    **Recalculating Total:**
+    1.  Start overlap (C+B): 08:30 to 11:00. (150 min).
+    2.  Continuous high overlap (All or pairs): 11:00 to 15:00. (240 min).
+    3.  Post-Cemre pair (B+F): 15:00 to 15:30. (30 min).
+    4.  Gap (Only B): 15:30 to 16:00. (Excluded).
+    5.  End pair (B+F): 16:00 to 17:30. (90 min).
+
+    **Sum:**
+    150 + 240 + 30 + 90
+
+    Calculation:
+    150 + 240 = 390
+    390 + 30 = 420
+    420 + 90 = 510
+
+    **Let's double check the boundaries carefully.**
+    Is it possible I missed an overlap or included a non-overlap?
+
+    Let's draw a timeline grid.
+    People: C, B, F
+    Status 1 if working, 0 if not.
+    We need sum of (Status C + Status B + Status F) >= 2.
+
+    **Time Segments:**
+    1.  **07:00 - 08:30**
+        *   C: 1
+        *   B: 0
+        *   F: 0
+        *   Sum: 1. (Ignore)
+
+    2.  **08:30 - 11:00**
+        *   C: 1 (Break starts 12:45)
+        *   B: 1 (Work starts 08:30)
+        *   F: 0 (Work starts 11:00)
+        *   Sum: 2. **Include**.
+        *   Duration: 150 min.
+
+    3.  **11:00 - 12:45**
+        *   C: 1
+        *   B: 1
+        *   F: 1 (Work starts 11:00)
+        *   Sum: 3. **Include**.
+        *   Duration: 105 min.
+
+    4.  **12:45 - 13:30**
+        *   C: 0 (Break 12:45-13:30)
+        *   B: 1
+        *   F: 1
+        *   Sum: 2. **Include**.
+        *   Duration: 45 min.
+
+    5.  **13:30 - 14:15**
+        *   C: 1 (Break ends)
+        *   B: 1
+        *   F: 1
+        *   Sum: 3. **Include**.
+        *   Duration: 45 min.
+
+    6.  **14:15 - 15:00**
+        *   C: 1 (Work ends 15:00)
+        *   B: 0 (Break 14:15-15:00)
+        *   F: 1 (Work ends 15:30)
+        *   Sum: 2. **Include**.
+        *   Duration: 45 min.
+
+    7.  **15:00 - 15:30**
+        *   C: 0 (Work ended at 15:00)
+        *   B: 1 (Break ends 15:00, Work resumes)
+        *   F: 1 (Work ends 15:30)
+        *   Sum: 2. **Include**.
+        *   Duration: 30 min.
+
+    8.  **15:30 - 16:00**
+        *   C: 0
+        *   B: 1 (Work ends 17:30)
+        *   F: 0 (Break 15:30-16:00)
+        *   Sum: 1. **Exclude**.
+        *   Duration: 30 min.
+
+    9.  **16:00 - 17:30**
+        *   C: 0
+        *   B: 1 (Work ends 17:30)
+        *   F: 1 (Break ends 16:00, Work continues to 20:00)
+        *   Sum: 2. **Include**.
+        *   Duration: 90 min.
+
+    10. **17:30 - 20:00**
+        *   C: 0
+        *   B: 0 (Work ended at 17:30)
+        *   F: 1
+        *   Sum: 1. **Exclude**.
+
+    **Total Sum Calculation:**
+    Segment 2: 150
+    Segment 3: 105
+    Segment 4: 45
+    Segment 5: 45
+    Segment 6: 45
+    Segment 7: 30
+    Segment 9: 90
+
+    Sum = 150 + 105 + 45 + 45 + 45 + 30 + 90
+    Group by tens/hundreds to be safe:
+    150
+    105 -> 255
+    45 -> 300
+    45 -> 345
+    45 -> 390
+    30 -> 420
+    90 -> 510
+
+    Result: 510 minutes.
+
+    **Let's check alternative calculation method (Total Overlap - Overlaps of singletons? No, that's complex).**
+    Let's check the complement. When is *less than 2* people working? (i.e., 0 or 1 person).
+    Total span of interest: First person starts 07:00, Last person leaves 20:00. Total span = 13 hours = 780 minutes.
+
+    **Time with < 2 people (0 or 1 person):**
+
+    *   07:00 - 08:30 (C only): 90 mins.
+    *   15:30 - 16:00 (B only): 30 mins.
+    *   17:30 - 20:00 (F only): 150 mins.
+
+    Are there any gaps with 0 people?
+    C leaves at 15:00. B starts at 08:30. F starts at 11:00. No gap with 0 people.
+    So, we just subtract the single-person intervals from total span?
+    Wait, "Total Span" might not be the right frame if there are gaps where *nobody* is working. But here, there is always someone working between 07:00 and 20:00 except maybe at boundaries?
+    - 07:00 C starts.
+    - 08:30 B joins.
+    - 11:00 F joins.
+    - ... overlaps everywhere until ...
+    - 15:00 C leaves (B, F remain).
+    - 15:30 F breaks (B remains).
+    - 16:00 F returns (B, F remain).
+    - 17:30 B leaves (F remains).
+    - 20:00 F leaves.
+    There are no gaps with 0 people in the main flow, but let's check exact minutes.
+
+    Let's verify the "1 person" periods again.
+    1.  Start of day until B arrives.
+        Time: 07:00 to 08:30. Duration: 90 mins.
+    2.  During Fatih's break (when Cemre is already gone).
+        Time: 15:30 to 16:00. Duration: 30 mins.
+        Check status: C left at 15:00. B working until 17:30. F on break 15:30-16:00. Yes, only B is there.
+    3.  End of day after Burak leaves.
+        Time: 17:30 to 20:00. Duration: 150 mins.
+
+    Are there any other times with < 2 people?
+    Let's check the transitions.
+    - At 12:45, C goes on break. B and F are working. (Count 2). OK.
+    - At 13:30, C returns. (Count 3). OK.
+    - At 14:15, B goes on break. C and F are working. (Count 2). OK.
+    - At 15:00, B's break ends, C leaves. B starts. F is there. (Count 2). OK.
+    - At 15:30, F breaks. B is there. C left long ago. (Count 1). Excluded.
+    - At 16:00, F returns. B is there. (Count 2). OK.
+    - At 17:30, B leaves. F is there. (Count 1). Excluded.
+
+    So the periods with < 2 people are exactly:
+    1. 07:00 - 08:30 (90 min)
+    2. 15:30 - 16:00 (30 min)
+    3. 17:30 - 20:00 (150 min)
+
+    Total time where work is happening or not?
+    The question asks for "total duration". It doesn't restrict the universe to "when at least one person is working". However, if 0 people are working, it's definitely less than 2. But in this scenario, 0 people never work simultaneously (the shop is never empty based on the shifts provided).
+    Total range covered by any worker: 07:00 to 20:00 = 13 hours = 780 minutes.
+    Time with < 2 workers = 90 + 30 + 150 = 270 minutes.
+    Time with >= 2 workers = Total Range - Time with < 2 workers?
+    Wait. Is the "Total Range" the right denominator?
+    If there was a gap where *nobody* worked, say from 12:00 to 13:00 (impossible here but hypothetical), that time would count towards "< 2 people".
+    Since 0 < 2, gaps would be subtracted.
+    Here, is the set of times "At least 2 working" = Total Time Universe - "Less than 2 working"?
+    The universe could be defined as the timeline from 07:00 to 20:00 (since outside this, count is 0).
+    So yes.
+    Total time window: 07:00 to 20:00 = 13 hours = 780 minutes.
+    Subtract single-person periods:
+    - 07:00-08:30 (90)
+    - 15:30-16:00 (30)
+    - 17:30-20:00 (150)
+    Sum of subtrahends = 270.
+    Result = 780 - 270 = 510 minutes.
+
+    Let's check if there is any overlap in the subtraction intervals or weird boundary logic.
+    Intervals: [07:00, 08:30), [15:30, 16:00), [17:30, 20:00].
+    These are disjoint.
+    Sum is correct.
+
+    **Let's double check the "Cemre leaves at 15:00" and "Burak resumes at 15:00" transition.**
+    Interval [14:15, 15:00]: C working (until 15:00), B break, F working.
+    Count = 2. Included.
+    Point 15:00.
+    Instantaneous change?
+    At 15:00 exactly, Cemre's shift ends. Burak's break ends.
+    Usually, time is continuous. The interval [14:15, 15:00] has length 45.
+    The next interval [15:00, 15:30] has length 30.
+    Is there a gap or double counting? No.
+    Does the count jump?
+    Just before 15:00 (e.g. 14:59): C is working. B is on break. F is working. Count = 2.
+    At 15:00: Cemre status changes to "Not Working". Burak status changes to "Working". Fatih status remains "Working".
+    Just after 15:00 (e.g. 15:01): C=0, B=1, F=1. Count = 2.
+    So the count stays at 2 across the transition 15:00.
+    Wait, if C leaves and B starts *exactly* at 15:00, is there a moment where neither is working? Or both?
+    In continuous time probability/measurement problems, single points have measure zero (duration 0). So even if there was a swap of 1 person leaving and 1 person entering simultaneously resulting in count dropping to 1 or staying at 2 for an instant, it doesn't affect the duration sum.
+    However, let's check counts:
+    Before 15:00: C(1) + B(0) + F(1) = 2.
+    After 15:00: C(0) + B(1) + F(1) = 2.
+    It stays at 2. So no gap created by the swap.
+
+    **Let's check the transition at 15:30.**
+    Just before 15:30 (e.g. 15:29): C=0, B=1, F=1. Count = 2.
+    At 15:30: F goes on break.
+    Just after 15:30 (e.g. 15:31): C=0, B=1, F=0. Count = 1.
+    Drop from 2 to 1. Interval [15:00, 15:30] counted. Correct.
+
+    **Let's check transition at 16:00.**
+    Just before 16:00 (e.g. 15:59): C=0, B=1, F=0. Count = 1.
+    At 16:00: F comes back.
+    Just after 16:00 (e.g. 16:01): C=0, B=1, F=1. Count = 2.
+    Rise from 1 to 2. Interval [15:30, 16:00] excluded. Correct.
+
+    **Let's check transition at 17:30.**
+    Just before 17:30 (e.g. 17:29): C=0, B=1, F=1. Count = 2.
+    At 17:30: B finishes work.
+    Just after 17:30 (e.g. 17:31): C=0, B=0, F=1. Count = 1.
+    Drop from 2 to 1. Interval [16:00, 17:30] counted. Correct.
+
+    **Let's check transition at 12:45 (C break).**
+    Before 12:45: C=1, B=1, F=1. Count = 3.
+    At 12:45: C goes on break.
+    After 12:45: C=0, B=1, F=1. Count = 2.
+    No drop below 2. Correct.
+
+    **Let's check transition at 13:30 (C end break).**
+    Before 13:30: Count 2.
+    At 13:30: C returns.
+    After 13:30: Count 3.
+    No change in validity (>=2). Correct.
+
+    **Let's check transition at 14:15 (B break).**
+    Before 14:15: Count 3.
+    At 14:15: B goes on break.
+    After 14:15: C=1, B=0, F=1. Count = 2.
+    No drop below 2. Correct.
+
+    **Let's check transition at 15:00 (B end break).**
+    Before 15:00: Count 2.
+    At 15:00: B returns, C leaves.
+    After 15:00: C=0, B=1, F=1. Count = 2.
+    No change in validity. Correct.
+
+    **Calculations Check:**
+    1.  07:00 - 08:30 (Single) -> Exclude. (90m)
+    2.  08:30 - 11:00 (Double: C, B) -> Include. (150m)
+    3.  11:00 - 12:45 (Triple: C, B, F) -> Include. (105m)
+    4.  12:45 - 13:30 (Double: B, F) -> Include. (45m)
+    5.  13:30 - 14:15 (Triple: C, B, F) -> Include. (45m)
+    6.  14:15 - 15:00 (Double: C, F) -> Include. (45m)
+    7.  15:00 - 15:30 (Double: B, F) -> Include. (30m)
+    8.  15:30 - 16:00 (Single: B) -> Exclude. (30m)
+    9.  16:00 - 17:30 (Double: B, F) -> Include. (90m)
+    10. 17:30 - 20:00 (Single: F) -> Exclude. (150m)
+
+    **Summing Included Durations:**
+    150 + 105 + 45 + 45 + 45 + 30 + 90
+    = 255 + 45 + 45 + 45 + 30 + 90
+    = 300 + 45 + 45 + 30 + 90
+    = 345 + 45 + 30 + 90
+    = 390 + 30 + 90
+    = 420 + 90
+    = 510.
+
+    **Checking arithmetic:**
+    150 + 105 = 255
+    45 * 3 (Intervals 4, 5, 6) = 135
+    255 + 135 = 390.
+    Interval 7: 30.
+    390 + 30 = 420.
+    Interval 9: 90.
+    420 + 90 = 510.
+
+    Arithmetic holds up.
+
+    **Checking logic for "Fatih: 11:00 to 20:00, Break 15:30-16:00"**
+    Working blocks: 11:00-15:30, 16:00-20:00.
+    In interval 15:00-15:30 (Interval 7 in my list):
+    C is finished (ends 15:00).
+    B is working (break ends 15:00, works until 17:30).
+    F is working (until 15:30).
+    Active workers: B, F. Count = 2.
+    My list included this (Interval 7). Correct.
+
+    In interval 15:30-16:00 (Interval 8):
+    C finished.
+    B working.
+    F on break.
+    Active workers: B. Count = 1.
+    My list excluded this. Correct.
+
+    **Checking logic for "Burak: 08:30 to 17:30, Break 14:15-15:00"**
+    Working blocks: 08:30-14:15, 15:00-17:30.
+    My intervals respected these boundaries.
+
+    **Checking logic for "Cemre: 07:00 to 15:00, Break 12:45-13:30"**
+    Working blocks: 07:00-12:45, 13:30-15:00.
+    My intervals respected these boundaries.
+
+    **Potential Pitfall: "07:00 ile 15:00 arasında" (Between 07:00 and 15:00)**
+    In Turkish (and math generally), time intervals [Start, End] or (Start, End).
+    Duration is End - Start.
+    If work is 07:00 to 15:00, duration is 8 hours.
+    Break 12:45 to 13:30, duration 45 mins.
+    Net work = 8h - 45m = 7h 15m.
+    This matches my discrete block calculation.
+
+    **Let's re-read carefully to ensure no misinterpretation of "Mola sırasında kişi çalışıyor sayılmaz" (During break, person is not considered working).**
+    Handled correctly.
+    **"Aynı anda en az iki kişinin çalışıyor olduğu toplam süre" (Total duration at least two people are working simultaneously).**
+    Handled correctly.
+
+    **Calculations Check 3 (Summing durations of overlaps):**
+    Let's calculate the overlap of every pair and then account for triple overlap? No, that's messy (Inclusion-Exclusion Principle on time sets is tricky because it's time-based measure).
+    Easier: $T(Count \ge 2) = T(C \cap B) + T(C \cap F) + T(B \cap F) - 2 \times T(C \cap B \cap F)$?
+    Formula for measure of union is $A+B+C - (AB+BC+CA) + ABC$.
+    We want measure of $\{t : \sum I_i(t) \ge 2\}$.
+    This is not directly the union.
+    It is $T(C \cap B) + T(C \cap F) + T(B \cap F)$ ... wait.
+    If all 3 are working, they contribute to 3 pairwise intersections. We want to count that time once.
+    So: $\mu(\{x : \sum \mathbb{1}_{A_i}(x) \ge 2\}) = \mu(C \cap B) + \mu(C \cap F) + \mu(B \cap F) - 2\mu(C \cap B \cap F)$?
+    Let's check.
+    If $t$ is in exactly 2 sets (say C, B), sum = 1. Contribution to formula: $1 + 0 + 0 - 0 = 1$. Correct.
+    If $t$ is in all 3 sets (C, B, F), sum = 3. Contribution to formula: $1 + 1 + 1 - 2(1) = 1$. Correct.
+    So yes, Sum of Pairwise Intersections minus 2 * Triple Intersection works.
+
+    **Let's calculate pairwise overlaps.**
+
+    **Pair 1: Cemre (C) & Burak (B)**
+    C: [07:00, 12:45] $\cup$ [13:30, 15:00]
+    B: [08:30, 14:15] $\cup$ [15:00, 17:30]
+    Overlap C & B:
+    1. [08:30, 12:45] (Start B, End C-break) -> Length: 4h 15m = 255 min.
+    2. [13:30, 14:15] (C resumes, B continues until his break) -> Length: 45 min.
+    3. [15:00, 15:00]? No. C ends at 15:00. B resumes at 15:00. Intersection is empty or point. Measure 0.
+    Wait, C's second block ends at 15:00. B's second block starts at 15:00. They touch but don't overlap in duration.
+    So Total $T(C \cap B) = 255 + 45 = 300$ minutes.
+
+    **Pair 2: Cemre (C) & Fatih (F)**
+    C: [07:00, 12:45] $\cup$ [13:30, 15:00]
+    F: [11:00, 15:30] $\cup$ [16:00, 20:00]
+    Overlap C & F:
+    1. Intersection of [07:00-12:45] and [11:00-15:30].
+       Start: max(07:00, 11:00) = 11:00.
+       End: min(12:45, 15:30) = 12:45.
+       Duration: 1h 45m = 105 min.
+    2. Intersection of [13:30-15:00] and [11:00-15:30].
+       Start: max(13:30, 11:00) = 13:30.
+       End: min(15:00, 15:30) = 15:00.
+       Duration: 1h 30m = 90 min.
+    3. Intersection of [13:30-15:00] and [16:00-20:00].
+       C is finished (ends 15:00). No overlap.
+    Total $T(C \cap F) = 105 + 90 = 195$ minutes.
+
+    **Pair 3: Burak (B) & Fatih (F)**
+    B: [08:30, 14:15] $\cup$ [15:00, 17:30]
+    F: [11:00, 15:30] $\cup$ [16:00, 20:00]
+    Overlap B & F:
+    1. [08:30-14:15] vs [11:00-15:30].
+       Start: 11:00.
+       End: 14:15.
+       Duration: 3h 15m = 195 min.
+    2. [08:30-14:15] vs [16:00-20:00]. No overlap.
+    3. [15:00-17:30] vs [11:00-15:30].
+       Start: 15:00.
+       End: 15:30.
+       Duration: 30 min.
+    4. [15:00-17:30] vs [16:00-20:00].
+       Start: 16:00.
+       End: 17:30.
+       Duration: 1h 30m = 90 min.
+    Total $T(B \cap F) = 195 + 30 + 90 = 315$ minutes.
+
+    **Pairwise Sum:**
+    $\mu(C \cap B) + \mu(C \cap F) + \mu(B \cap F)$
+    $= 300 + 195 + 315$
+    $300 + 195 = 495$
+    $495 + 315 = 810$ minutes.
+
+    **Triple Intersection: C $\cap$ B $\cap$ F**
+    Need times where all 3 are working.
+    C blocks: [07:00-12:45], [13:30-15:00]
+    B blocks: [08:30-14:15], [15:00-17:30]
+    F blocks: [11:00-15:30], [16:00-20:00]
+
+    Let's look at C's first block [07:00-12:45]:
+    - Overlap with B [08:30-14:15] is [08:30-12:45].
+    - Overlap of that with F [11:00-15:30] is [11:00-12:45].
+    Duration: 11:00 to 12:45 = 105 mins.
+
+    Let's look at C's second block [13:30-15:00]:
+    - Overlap with B [08:30-14:15] is [13:30-14:15]. (Note: B takes break 14:15-15:00).
+    - Overlap of that with F [11:00-15:30] is [13:30-14:15]. (F is working).
+    Duration: 13:30 to 14:15 = 45 mins.
+
+    Any other overlaps?
+    B's second block starts at 15:00. C's second block ends at 15:00. No triple overlap possible there.
+    F's second block starts at 16:00. C is gone. No triple overlap.
+
+    Total Triple Intersection $\mu(C \cap B \cap F) = 105 + 45 = 150$ minutes.
+
+    **Applying Formula:**
+    Result = Pairwise Sum - 2 * Triple Sum
+    $= 810 - 2(150)$
+    $= 810 - 300$
+    $= 510$ minutes.
+
+    Both methods (Interval Analysis and Inclusion-Exclusion adaptation) yield 510 minutes.
+
+    **Checking the question details one last time.**
+    "Cemre: 07:00 ile 15:00 ... molası 12:45 ile 13:30" -> Work: 7-12.45, 13.30-15. (8h - 45m = 7h 15m).
+    "Burak: 08:30 ile 17:30 ... molası 14:15 ile 15:00" -> Work: 8.30-14.15, 15-17.30 (9h - 45m = 8h 15m).
+    "Fatih: 11:00 ile 20:00 ... molası 15:30 ile 16:00" -> Work: 11-15.30, 16-20 (9h - 30m = 8h 30m).
+
+    Overlaps check again mentally.
+    1. **C+B** (Before F): 08:30 to 11:00? No, C is working 08:30-12:45. B is 08:30-14:15.
+       C and B overlap: 08:30 to 12:45 (C leaves for break) AND 13:30 to 14:15 (B leaves for break).
+       Wait, C breaks 12:45-13:30.
+       So C+B overlap is [08:30-12:45] + [13:30-14:15].
+       Lengths: 4h15m (255) + 45m = 300. Correct.
+
+    2. **C+F** (Before B involved?): C working 07-12:45, 13:30-15. F working 11-15:30.
+       Overlap 1: 11:00 to 12:45 (C breaks). Length 1h 45m (105).
+       Overlap 2: 13:30 to 15:00 (C finishes). Length 1h 30m (90).
+       Total 195. Correct.
+
+    3. **B+F**: B working 8.30-14.15, 15-17.30. F working 11-15.30, 16-20.
+       Overlap 1: 11:00 to 14:15 (B breaks). Length 3h 15m (195).
+       Overlap 2: 15:00 to 15:30 (F breaks). Length 30m.
+       Overlap 3: 16:00 to 17:30 (B finishes). Length 1h 30m (90).
+       Total 315. Correct.
+
+    Sum Pairwise = 300 + 195 + 315 = 810.
+    Triple Overlap (C+B+F):
+    Where are all three working?
+    C is available [07:00-12:45] and [13:30-15:00].
+    F is available [11:00-15:30].
+    Intersection of C & F first: [11:00-12:45] and [13:30-15:00].
+    Now intersect with B [08:30-14:15] and [15:00-17:30].
+    Sub-interval 1: [11:00-12:45] inside B's [08:30-14:15]? Yes. Result: [11:00-12:45]. (105m).
+    Sub-interval 2: [13:30-15:00] inside B?
+       B is available [08:30-14:15] -> overlap [13:30-14:15]. (45m).
+       B is available [15:00-17:30] -> overlap with [13:30-15:00] is just point 15:00. No duration.
+    Total Triple = 105 + 45 = 150. Correct.
+
+    Formula: $300 + 195 + 315 - 2(150) = 810 - 300 = 510$.
+
+    Everything seems consistent.
+
+    **Final Answer Formulation:**
+    The question asks for the total duration in minutes.
+    Calculated value: 510.
+    Format: `CEVAP: 510`.
+
+    **Double check constraints/edge cases.**
+    "Mola sırasında kişi çalışıyor sayılmaz" - handled.
+    "Aynı anda en az iki kişi" (At least two people at the same time) - handled.
+    Time units - all in minutes, result in minutes.
+    Input times - standard HH:MM.
+
+    **One detail:** "Cemre: 07:00 ile 15:00 arasında çalışıyor". Does this mean strictly between? Usually implies inclusive [07:00, 15:00]. If exclusive, boundaries might shift, but duration of a single point is 0. Duration calculation remains valid.
+    "Molası 12:45 ile 13:30 arasında". Break duration is fixed at 45 mins regardless of open/closed brackets.
+
+    **Sanity Check on Intervals (Visual):**
+    C: [-------(break)--|]
+       7:00           15:00
+       |_________(C)_______|
+                |B(break)|
+             8:30         14:15     15:00     17:30
+             |________(B)___________|
+
+    F:          [-----break----]
+               11:00           15:30   16:00       20:00
+                |_______________(F)_______|
+
+    Timeline of "Count >= 2":
+    07:00-08:30: C (1) - No.
+    08:30-11:00: C, B (2) - **YES**. (Starts here).
+    11:00-12:45: C, B, F (3) - **YES**.
+    12:45-13:30: C(break), B, F (2) - **YES**.
+    13:30-14:15: C, B, F (3) - **YES**.
+    14:15-15:00: C, B(break), F (2) - **YES**.
+    15:00-15:30: C(end), B(resume), F (2) - **YES**.
+       *Wait, check C end vs B resume.*
+       C ends 15:00. B resumes 15:00.
+       If C is working *until* 15:00 and B starts *at* 15:00.
+       In the interval (14:15, 15:00), C=1, B=0, F=1 -> Sum 2.
+       At exactly 15:00?
+       If we consider discrete minutes or continuous flow?
+       If C stops working *at* 15:00, she is not working at 15:00:01.
+       If B starts working *at* 15:00, he is working at 15:00:01.
+       So for the interval 15:00 to 15:30, workers are {B, F}. Count = 2.
+       What about the instant 15:00? Measure 0. Doesn't matter.
+    15:30-16:00: C(end), B, F(break) -> Only B working (1). - **NO**.
+    16:00-17:30: C(end), B, F(resume) -> {B, F}. Count = 2. - **YES**.
+    17:30-20:00: C(end), B(end), F -> Only F (1). - **NO**.
+
+    Sum of YES intervals:
+    08:30 to 15:30 continuous?
+    Let's check the transition points again.
+    08:30: Yes.
+    11:00: No change in count (2->3). Still Yes.
+    12:45: No change in validity (3->2). Still Yes.
+    13:30: No change in validity (2->3). Still Yes.
+    14:15: No change in validity (3->2). Still Yes.
+    15:00: No change in validity (2->2). Still Yes.
+    15:30: Change 2->1. Stop counting.
+    So from 08:30 to 15:30, count is always >= 2?
+    Let's re-verify the "C ends / B starts" at 15:00.
+    Before 15:00 (e.g. 14:59): C(1) + B(0) + F(1) = 2.
+    After 15:00 (e.g. 15:01): C(0) + B(1) + F(1) = 2.
+    Yes. The count is stable at 2 across the boundary because one leaves and another enters exactly then.
+    So, we have a solid block of "At least 2" from 08:30 to 15:30?
+    Wait. 08:30 to 15:30 is 7 hours = 420 minutes.
+    Let's check if there are any holes in [08:30, 15:30].
+    - C breaks 12:45-13:30. B working. F working. Count 2. OK.
+    - B breaks 14:15-15:00. C working. F working. Count 2. OK.
+    - C finishes 15:00. B starts. F working. Count 2. OK.
+    So yes, 08:30 to 15:30 is a continuous block of validity.
+    Duration: 7 hours = 420 minutes.
+
+    Next valid block?
+    Starts at 16:00 (F returns).
+    Ends at 17:30 (B leaves).
+    Count is 2 (B+F).
+    Duration: 1h 30m = 90 minutes.
+
+    Total = 420 + 90 = 510 minutes.
+
+    Wait, did I miss anything?
+    Is there any gap between 15:00 and 15:30?
+    C leaves at 15:00. B starts at 15:00. F is working until 15:30.
+    Yes, overlap of B+F exists.
+    Is there any gap between 14:15 and 15:00 (B's break)?
+    C is working (until 15:00). B is on break. F is working (until 15:30).
+    Overlap C+F. Yes.
+
+    So the first block is indeed continuous from 08:30 to 15:30.
+    Start: 08:30 (B arrives, C is there). Count becomes 2.
+    End: 15:30 (F goes on break). Count drops to 1 (B remains, C gone).
+    Wait, at 15:30, F goes on break. Who is left?
+    C finished at 15:00.
+    B is working (break ended at 15:00).
+    So at 15:30, count drops from 2 to 1.
+    So the block [08:30, 15:30] is valid.
+    Duration = 15:30 - 08:30 = 7 hours = 420 minutes.
+
+    Second block starts at 16:00.
+    At 16:00, F returns from break. B is still working.
+    Count goes from 1 to 2.
+    Block [16:00, ...].
+    Ends when count drops below 2.
+    Burak finishes at 17:30.
+    So block ends at 17:30.
+    Duration = 17:30 - 16:00 = 1h 30m = 90 minutes.
+
+    Total = 420 + 90 = 510.
+
+    Wait, let's check the start time again.
+    08:30 B arrives. C is working. Count 2.
+    Before 08:30?
+    07:00 to 08:30. Only C is working. (F starts 11:00).
+    So yes, starts at 08:30.
+
+    Let's check the end of first block again.
+    15:30 F takes break.
+    Workers present: B (working), C (finished), F (break).
+    Only B is working. Count = 1.
+    So valid period ends at 15:30.
+
+    Let's check the gap 15:30 - 16:00.
+    F on break. B working. C finished.
+    Count 1. Correct to exclude.
+
+    Let's check 16:00 start.
+    F returns. B working.
+    Count 2. Valid.
+
+    Let's check end of second block.
+    17:30 B finishes.
+    Workers present: F (working until 20:00). C finished. B finished.
+    Only F. Count 1.
+    Valid period ends at 17:30.
+
+    So the logic holds perfectly.
+    Block 1: 08:30 to 15:30. Duration 420 min.
+    Block 2: 16:00 to 17:30. Duration 90 min.
+    Total: 510 min.
+
+    Let's double check the "B resumes at 15:00" logic.
+    Burak's break is 14:15 - 15:00.
+    So at 15:00 he starts working.
+    Cemre finishes work at 15:00.
+    If Cemre stops *at* 15:00 and Burak starts *at* 15:00, is there any moment where neither is working in that specific slot?
+    In continuous time, no (measure 0).
+    However, if we think of minutes as discrete units... usually these problems imply continuous time or standard duration subtraction.
+    Even if there was a gap of 1 minute due to bad scheduling logic (e.g. C leaves at 14:59, B starts 15:01), the problem statement gives exact timestamps, implying precise boundaries.
+    Standard interpretation: $T_{overlap} = \text{max}(0, \min(end_1, end_2) - \max(start_1, start_2))$.
+    Interval C: [07:00, 15:00] (minus break).
+    Interval B: [08:30, 14:15] U [15:00, 17:30].
+    Intersection of C and "B working"? No, we just need count >= 2.
+    My block analysis is robust.
+
+    One check: "Cemre: 07:00 ile 15:00 arasında çalışıyor".
+    If she works 07:00 to 15:00, that's an 8 hour shift.
+    Break 12:45 to 13:30.
+    So effectively working:
+    07:00 - 12:45 (5h 45m)
+    13:30 - 15:00 (1h 30m)
+    Total 7h 15m.
+
+    Burak: 08:30 to 17:30. 9 hours.
+    Break 14:15 to 15:00.
+    Working:
+    08:30 - 14:15 (5h 45m)
+    15:00 - 17:30 (2h 30m)
+    Total 8h 15m.
+
+    Fatih: 11:00 to 20:00. 9 hours.
+    Break 15:30 to 16:00.
+    Working:
+    11:00 - 15:30 (4h 30m)
+    16:00 - 20:00 (4h 00m)
+    Total 8h 30m.
+
+    My block calculation:
+    Block 1: 08:30 to 15:30 (420 min).
+    During this time, are we sure count >= 2 always?
+    - 08:30-11:00: C, B. (C working, B working). Yes.
+    - 11:00-12:45: C, B, F. Yes.
+    - 12:45-13:30: C on break. B, F working?
+      B work time 08:30-14:15. So yes, B is working.
+      F work time 11:00-15:30. So yes, F is working.
+      So count 2. Yes.
+    - 13:30-14:15: C back. B working. F working. Count 3. Yes.
+    - 14:15-15:00: B on break. C working (until 15:00). F working (until 15:30). Count 2. Yes.
+    - 15:00-15:30: C finished. B resumes work (break ends 15:00). F working (until 15:30). Count 2. Yes.
+    So yes, 08:30 to 15:30 is valid.
+
+    Block 2: 16:00 to 17:30 (90 min).
+    - 16:00-17:30.
+    C finished (ends 15:00).
+    B working (ends 17:30).
+    F working (resumes 16:00, ends 20:00).
+    Count 2. Yes.
+
+    Result 420 + 90 = 510.
+
+    Wait, is there any other period?
+    Before 08:30? Only C. (Count 1).
+    After 17:30? Only F. (Count 1).
+    Between 15:30 and 16:00? B only. (Count 1).
+
+    Everything looks solid.
+
+    **Final Verification of Question Text for "Traps"**
+    - "Aynı gün içinde" (Within the same day) - Yes, all times are within one day range (07:00 to 20:00). No AM/PM confusion or date rollover.
+    - "Mola sırasında kişi çalışıyor sayılmaz" - Handled.
+    - "En az iki kişi" (At least two) - Handled.
+    - "Toplam süre kaç dakikadır?" - Answer in minutes.
+
+    **Calculation re-verification:**
+    Block 1: 08:30 -> 15:30.
+    15:30 - 08:30 = 7:00 hours.
+    7 * 60 = 420 minutes.
+
+    Block 2: 16:00 -> 17:30.
+    17:30 - 16:00 = 1:30 hours.
+    1.5 * 60 = 90 minutes.
+
+    Total = 420 + 90 = 510.
+
+    Let's check the subtraction method again to be absolutely sure.
+    Total timeline considered: 07:00 to 20:00 (780 mins).
+    Intervals with < 2 workers:
+    1. 07:00 - 08:30 (90 mins). Workers: C.
+    2. 15:30 - 16:00 (30 mins). Workers: B. (C gone, F break).
+    3. 17:30 - 20:00 (150 mins). Workers: F. (C gone, B gone).
+
+    Are there any other intervals?
+    Check transitions again.
+    - 12:45: C breaks. Workers B, F. (Count 2). OK.
+    - 13:30: C returns. Workers C, B, F. (Count 3). OK.
+    - 14:15: B breaks. Workers C, F. (Count 2). OK.
+    - 15:00: B returns, C leaves. Workers B, F. (Count 2). OK.
+
+    Wait, check 15:00 again carefully.
+    At 14:59: C(1), B(0), F(1) -> 2.
+    At 15:00: C leaves (becomes 0). B enters (becomes 1). F stays (1).
+    Sum is continuous?
+    Limit from left: 1+0+1 = 2.
+    Limit from right: 0+1+1 = 2.
+    Yes. No drop below 2.
+
+    Check 15:30 again.
+    At 15:29: B(1), F(1). (C is 0). Sum 2.
+    At 15:30: F goes on break. F becomes 0.
+    Sum becomes 1+0 = 1.
+    Drop below 2. Interval [15:30, 16:00] excluded.
+
+    Check 16:00 again.
+    At 15:59: B(1), F(0). Sum 1.
+    At 16:00: F returns. F becomes 1.
+    Sum becomes 2.
+    Interval starts being valid.
+
+    Check 17:30 again.
+    At 17:29: B(1), F(1). Sum 2.
+    At 17:30: B finishes. B becomes 0.
+    Sum becomes 1.
+    Drop below 2.
+
+    So the excluded intervals are strictly [07:00, 08:30], [15:30, 16:00], [17:30, 20:00].
+    Lengths: 90, 30, 150. Sum = 270.
+    Total span of "activity existence" (union of all workers' presence) might be different?
+    Union of work times (including breaks as presence?): No, the question defines working time strictly excluding breaks.
+    But we are looking at a timeline from start of first shift to end of last shift.
+    Is it possible that there is a gap where *nobody* is present (working or not)?
+    07:00 Start C.
+    20:00 End F.
+    Are there gaps in presence?
+    C leaves 15:00. B arrives (after break) 15:00. F is there. No gap.
+    Actually, even if B wasn't there, F is there.
+    Wait, F works 11:00-20:00. So F is present almost the whole time except his break.
+    C is present 07:00-15:00.
+    B is present 08:30-17:30.
+    Union of presence (ignoring break status for a moment):
+    [07:00, 20:00]. Continuous.
+    So Total Time = 13 hours = 780 minutes.
+    Minus single-person times = 510.
+
+    Is it possible that "Total Time" should be restricted to times when *someone* is working?
+    If at some point count=0, does that matter?
+    If count=0, then count < 2, so it would be excluded anyway.
+    So $T(\ge 2) = T_{total} - T(< 2)$ holds regardless of whether count reaches 0 or not, as long as $T_{total}$ covers the domain of interest. Since the universe of time is infinite, we must bound it. Bounding by [07:00, 20:00] is logical because outside this range count is 0 (<2).
+    So subtraction method is robust.
+
+    Calculation:
+    Total = 13 * 60 = 780.
+    Excluded = 90 (start) + 30 (gap) + 150 (end) = 270.
+    780 - 270 = 510.
+
+    Wait, "gap" at 15:30-16:00 is just single person B.
+    Is there any time where count is 0?
+    No, because F covers 11:00-20:00 (with a small break), C covers 07-15, B covers 8.30-17.30.
+    Overlaps ensure full coverage.
+    Earliest person to leave is C at 15:00. But B and F are there.
+    Later, B leaves 17:30. But F is there until 20:00.
+    So count is never 0 in [07:00, 20:00].
+
+    Final check of the math.
+    13 hours = 780 mins.
+    07:00 to 08:30 = 1.5h = 90m.
+    15:30 to 16:00 = 0.5h = 30m.
+    17:30 to 20:00 = 2.5h = 150m.
+    Sum excluded = 90 + 30 + 150 = 270.
+    780 - 270 = 510.
+
+    Wait, did I miss any exclusion periods?
+    Let's check "C break" (12:45-13:30).
+    Workers: B, F. Count 2. Included.
+    "B break" (14:15-15:00).
+    Workers: C, F. Count 2. Included.
+    "F break" (15:30-16:00).
+    Workers: B. Count 1. Excluded. (Included in my subtraction list).
+
+    Wait, is there any time where *nobody* is working? No.
+    Is there any time where count < 2 that I missed?
+    - Before 08:30: C only. (Excluded).
+    - After 17:30: F only. (Excluded).
+    - During F's break (15:30-16:00): B only. (Excluded).
+
+    Wait, check the transition at 15:00 again for "B break" end.
+    Burak's break ends 15:00.
+    Cemre's work ends 15:00.
+    Fatih is working.
+    So at 15:00 exactly, if we treat it as a point, who is working?
+    Technically undefined or depends on convention. But duration of point is 0.
+    However, look at the intervals *around* 15:00.
+    (14:15, 15:00): C=1, B=0, F=1 -> Sum 2.
+    (15:00, 15:30): C=0, B=1, F=1 -> Sum 2.
+    So the sum stays at 2. No exclusion needed around 15:00.
+
+    Check transition at 14:15 (B break start).
+    Before: C=1, B=1, F=1 -> Sum 3.
+    After: C=1, B=0, F=1 -> Sum 2.
+    Still >= 2. No exclusion.
+
+    Check transition at 12:45 (C break start).
+    Before: C=1, B=1, F=1 -> Sum 3.
+    After: C=0, B=1, F=1 -> Sum 2.
+    Still >= 2. No exclusion.
+
+    Check transition at 11:00 (F start).
+    Before: C=1, B=1 -> Sum 2.
+    After: C=1, B=1, F=1 -> Sum 3.
+    Always >= 2.
+
+    Check transition at 08:30 (B start).
+    Before: C=1 -> Sum 1.
+    After: C=1, B=1 -> Sum 2.
+    Here count crosses threshold. Excluded before, Included after. Correct.
+
+    So the logic holds up perfectly.
+    Result 510.
+
+    One final check on arithmetic for durations.
+    07:00 to 08:30 = 1 hr 30 min = 90 min. Correct.
+    15:30 to 16:00 = 30 min. Correct.
+    17:30 to 20:00 = 2 hr 30 min = 150 min. Correct.
+    Total span 07:00 to 20:00.
+    20 - 7 = 13 hours.
+    13 * 60 = 780. Correct.
+    780 - (90 + 30 + 150) = 780 - 270 = 510. Correct.
+
+    Alternative calculation:
+    Sum of valid blocks.
+    Block 1: 08:30 to 15:30.
+    15:30 - 08:30 = 7 hours = 420 min.
+    Block 2: 16:00 to 17:30.
+    17:30 - 16:00 = 1.5 hours = 90 min.
+    Total 510.
+
+    Wait, is Block 1 really continuous 08:30 to 15:30?
+    Let's re-verify the "C finishes at 15:00" and "B resumes at 15:00".
+    If C finishes *exactly* at 15:00, she is not working in (15:00, 15:01).
+    If B resumes *exactly* at 15:00, he is working in (15:00, 15:01).
+    Fatih is working in (15:00, 15:30).
+    So in the interval (15:00, 15:30), workers are B and F. Count = 2.
+    In the interval (14:15, 15:00), workers are C and F. Count = 2.
+    Are these intervals contiguous? Yes.
+    Is there a gap at 15:00? No.
+    So yes, it is continuous.
+
+    Wait, what if "Cemre: ... çalışıyor" implies she works *until* 15:00 inclusive?
+    And Burak starts *at* 15:00.
+    Usually intervals are half-open [start, end).
+    [07:00, 15:00) for Cemre.
+    [15:00, 17:30] for Burak's second shift? Or [15:00, 17:30)?
+    If [07:00, 15:00) and [15:00, ...), they don't overlap at 15:00.
+    But measure of a point is 0. So it doesn't affect duration sum.
+
+    However, consider the phrasing "07:00 ile 15:00 arasında". In Turkish "arasında" can be inclusive or exclusive depending on context, but for time durations in problems, it implies the span.
+    Duration = 8 hours.
+    If it was exclusive of endpoints, duration is still effectively the same for continuous integration.
+    If discrete minutes (e.g. minute by minute counting), boundaries matter.
+    "Kaç dakikadır" usually implies continuous time duration unless specified as "how many full minutes" or integer minutes count. Given the decimal-like precision of breaks (12:45, 13:30), it's treated as a timeline.
+
+    Let's assume standard continuous interpretation.
+    Result 510.
+
+    Let's double check if I missed any "break" logic for Fatih affecting the 15:00-15:30 block.
+    Fatih break: 15:30 - 16:00.
+    So in 15:00-15:30, Fatih is working.
+    Yes.
+
+    Let's double check Burak's break logic for 14:15-15:00 block.
+    Burak break: 14:15 - 15:00.
+    So in 14:15-15:00, Burak is NOT working.
+    Who else is working?
+    Cemre (until 15:00). Yes.
+    Fatih (until 15:30). Yes.
+    So count = 2.
+    Yes.
+
+    Let's double check Cemre's break logic for 12:45-13:30 block.
+    Cemre break: 12:45 - 13:30.
+    She is NOT working.
+    Who else?
+    Burak (until 14:15). Yes.
+    Fatih (until 15:30). Yes.
+    Count = 2.
+    Yes.
+
+    Everything seems consistent.
+
+    **Final check of the question's "Hesap kuralı" (Calculation Rule) note.**
+    "Bu soru için tanımlanan hesap kuralını kullan."
+    There is no specific rule defined in the prompt text other than the standard interpretation of time and breaks ("Mola sırasında kişi çalışıyor sayılmaz"). Sometimes these prompts come from a system where there's a hidden rule, but usually, if not provided, it refers to standard arithmetic or logic. Since I don't see an external link or previous context, I must assume standard logic.
+    Wait, "Bu soru için tanımlanan hesap kuralını kullan" might be a boilerplate instruction meaning "Use the rules defined in the problem statement".
+    Rules defined:
+    1. Work times given.
+    2. Breaks given.
+    3. Break time = not working.
+    4. Target: Time with >= 2 people working.
+
+    Okay, I'm confident.
+
+    **Recap of steps for solution text:**
+    1. Define work intervals for each person excluding breaks.
+    2. Identify time intervals where the number of active workers is $\ge 2$.
+    3. Sum the durations of these intervals.
+
+    **Person Intervals (Working):**
+    - Cemre: [07:00, 12:45], [13:30, 15:00]
+    - Burak: [08:30, 14:15], [15:00, 17:30]
+    - Fatih: [11:00, 15:30], [16:00, 20:00]
+
+    **Timeline Analysis:**
+    - 07:00–08:30: Only Cemre. (Count: 1) -> Exclude.
+    - 08:30–11:00: Cemre, Burak. (Count: 2) -> Include. Duration: 150 min.
+    - 11:00–12:45: Cemre, Burak, Fatih. (Count: 3) -> Include. Duration: 105 min.
+    - 12:45–13:30: Cemre(Break), Burak, Fatih. (Count: 2) -> Include. Duration: 45 min.
+    - 13:30–14:15: Cemre, Burak, Fatih. (Count: 3) -> Include. Duration: 45 min.
+    - 14:15–15:00: Cemre, Burak(Break), Fatih. (Count: 2) -> Include. Duration: 45 min.
+    - 15:00–15:30: Cemre(Finish), Burak(Start), Fatih. (Count: 2) -> Include. Duration: 30 min.
+      *Note: At 15:00, Cemre stops and Burak starts. Fatih is present. Overlap B+F exists.*
+    - 15:30–16:00: Cemre(Finish), Burak, Fatih(Break). (Count: 1) -> Exclude. Duration: 30 min.
+    - 16:00–17:30: Cemre(Finish), Burak, Fatih(Start). (Count: 2) -> Include. Duration: 90 min.
+    - 17:30–20:00: Cemre(Finish), Burak(Finish), Fatih. (Count: 1) -> Exclude. Duration: 150 min.
+
+    **Sum of Included Durations:**
+    150 + 105 + 45 + 45 + 45 + 30 + 90 = 510.
+
+    Wait, in my previous "Block" calculation, I combined 11:00-12:45, 12:45-13:30, 13:30-14:15, 14:15-15:00, 15:00-15:30 into one block from 11:00 to 15:30?
+    Let's check the start of that combined block.
+    The "valid" part started at 08:30 (C+B).
+    Then at 11:00 F joined (Count 3).
+    So from 08:30 onwards, count was always $\ge 2$.
+    Block starts 08:30.
+    When does it end?
+    At 15:30, Fatih breaks.
+    Who is left? B is working (break ended at 15:00). C finished at 15:00. F on break.
+    So only B. Count 1.
+    So block ends at 15:30.
+    Duration 08:30 to 15:30 = 7 hours = 420 minutes.
+    Next block starts 16:00 (F returns). Ends 17:30 (B leaves).
+    Duration 90 minutes.
+    Total 510.
+
+    Wait, did I sum the small intervals correctly in the first pass?
+    150 (08:30-11:00) + 105 (11:00-12:45) + 45 (12:45-13:30) + 45 (13:30-14:15) + 45 (14:15-15:00) + 30 (15:00-15:30).
+    Sum = 150 + 105 + 45 + 45 + 45 + 30.
+    150 + 105 = 255.
+    45*3 = 135.
+    255 + 135 = 390.
+    390 + 30 = 420.
+    Matches the block calculation (08:30 to 15:30).
+
+    Okay, consistency confirmed.
+
+    **Final Answer:** 510.

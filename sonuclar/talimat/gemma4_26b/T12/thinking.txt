@@ -1,0 +1,221 @@
+
+*   Customer complaint: Two separate charges of 149 TL each on April 3rd and April 17th.
+*   Sender: Akın Yayıncılık.
+*   Requirement 1: Exactly 3 paragraphs.
+*   Requirement 2: Leave an empty line between paragraphs.
+*   Requirement 3: NO commas (`,`) allowed in the entire text.
+*   Requirement 4: Must include the two dates (3 Nisan and 17 Nisan) and the amount (149 TL).
+
+    *   *Paragraph 1: Acknowledge the issue and express regret.*
+        Sayın müşterimiz yaşadığınız sorun için üzgünüz. 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki işlemler incelenmektedir.
+        (Check commas: none. Dates/amount present.)
+
+    *   *Paragraph 2: Explain the investigation/action being taken.*
+        Muhasebe departmanımız sistem kayıtlarını kontrol ediyor. Hatalı çekim yapılmışsa iade süreci hemen başlatılacaktır.
+        (Check commas: none.)
+
+    *   *Paragraph 3: Closing/Contact info.*
+        Anlayışınız için teşekkür ederiz. Konu çözüldüğünde size tekrar bilgi vereceğiz.
+        (Check commas: none.)
+
+    *   *Drafting Paragraph 1:*
+        Sayın abonemiz yaşadığınız aksaklık sebebiyle çok üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir.
+        (Check: No commas. Dates: 3 Nisan, 17 Nisan. Amount: 149 TL. Good.)
+
+    *   *Drafting Paragraph 2:*
+        İlgili departmanımız hemen inceleme başlatmış durumdadır. Yanlışlıkla gerçekleşen fazla ödemenin iadesi için gerekli adımlar hızla atılacaktır.
+        (Check: No commas. Good.)
+
+    *   *Drafting Paragraph 3:*
+        Süreci yakından takip ediyoruz. Sabrınız ve anlayışınız için Akın Yayıncılık olarak teşekkürlerimizi sunarız.
+        (Check: No commas. Good.)
+
+    *   *Paragraph 1:*
+        Sayın abonemiz yaşadığınız aksaklık sebebiyle çok üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir.
+
+    *   *Paragraph 2:*
+        İlgili departmanımız hemen inceleme başlatmış durumdadır. Yanlışlıkla gerçekleşen fazla ödemenin iadesi için gerekli adımlar hızla atılacaktır.
+
+    *   *Paragraph 3:*
+        Süreci yakından takip ediyoruz. Sabrınız ve anlayışınız için Akın Yayıncılık olarak teşekkürlerimizi sunarız.
+
+    *   *Wait, let's re-read constraints.*
+        - "İki tarih ve tutar cevapta geçsin." -> Done (3 Nisan, 17 Nisan, 149 TL).
+        - "Cevap tam olarak 3 paragraf olsun" -> Done.
+        - "(paragraflar arasında boş satır bırak)" -> Done.
+        - "metinde hiç virgül kullanılmasın" -> Let's check carefully.
+
+    *   *Check Paragraph 1:* "Sayın abonemiz yaşadığınız aksaklık sebebiyle çok üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir." (Zero commas).
+    *   *Check Paragraph 2:* "İlgili departmanımız hemen inceleme başlatmış durumdadır. Yanlışlıkla gerçekleşen fazla ödemenin iadesi için gerekli adımlar hızla atılacaktır." (Zero commas).
+    *   *Check Paragraph 3:* "Süreci yakından takip ediyoruz. Sabrınız ve anlayışınız için Akın Yayıncılık olarak teşekkürlerimizi sunarız." (Zero commas).
+
+    *   *Wait, I should ensure the grammar is correct without commas.*
+        "Sayın abonemiz yaşadığınız aksaklık sebebiyle çok üzgünüz." (Grammatically okay without comma after 'abonemiz', though a comma is usually there, I must omit it per instructions).
+        "Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir." (Perfect).
+
+    "Sayın abonemiz yaşadığınız aksaklık sebebiyle çok üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir.
+
+    İlgili departmanımız hemen inceleme başlatmış durumdadır. Yanlışlıkla gerçekleşen fazla ödemenin iadesi için gerekli adımlar hızla atılacaktır.
+
+    Süreci yakından takip ediyoruz. Sabrınız ve anlayışınız için Akın Yayıncılık olarak teşekkürlerimizi sunarız."
+
+    *Critique:*
+    1. 3 paragraphs? Yes.
+    2. Blank line between? Yes.
+    3. No commas? Yes.
+    4. 3 Nisan and 17 Nisan included? Yes.
+    5. 149 TL included? Yes.
+    6. From Akın Yayıncılık? Yes.
+
+    *Refining for natural tone without commas:*
+    "Sayın abonemiz yaşadığınız sorun nedeniyle üzgünüz. Kayıtlarımıza göre 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki ödemeler incelenmektedir."
+    "Muhasebe birimimiz durumu hemen kontrol ediyor. Hatalı işlem tespit edildiği an iade süreci başlatılacaktır."
+    "Konu hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık adına teşekkür ederiz."
+
+    Let's re-verify the "No commas" rule.
+    "Sayın abonemiz yaşadığınız sorun nedeniyle üzgünüz. Kayıtlarımıza göre 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki ödemeler incelenmektedir." -> No commas.
+    "Muhasebe birimimiz durumu hemen kontrol ediyor. Hatalı işlem tespit edildiği an iade süreci başlatılacaktır." -> No commas.
+    "Konu hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık adına teşekkür ederiz." -> No commas.
+
+    *Let's double check the prompt requirements again.*
+    - "İki tarih ve tutar cevapta geçsin." -> 3 Nisan, 17 Nisan, 149 TL. Yes.
+    - "Cevap tam olarak 3 paragraf olsun" -> Yes.
+    - "(paragraflar arasında boş satır bırak)" -> Yes.
+    - "metinde hiç virgül kullanılmasın" -> Yes.
+
+    Wait, I can make it more professional.
+
+    P1: Sayın abonemiz yaşadığınız aksaklık için üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki iki işlem de tespit edilmiştir.
+
+    P2: İlgili birimimiz konuyla ilgili inceleme başlatmıştır. Hatalı çekim yapılmışsa iadeniz en kısa sürede gerçekleştirilecektir.
+
+    P3: Gelişmeler hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz.
+
+    *Check for commas one last time:*
+    Sayın abonemiz yaşadığınız aksaklık için üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki iki işlem de tespit edilmiştir.
+    (Zero commas)
+    İlgili birimimiz konuyla ilgili inceleme başlatmıştır. Hatalı çekim yapılmışsa iadeniz en kısa sürede gerçekleştirilecektir.
+    (Zero commas)
+    Gelişmeler hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz.
+    (Zero commas)
+
+    Looks solid.
+
+    *Double checking the amounts:*
+    Customer said "her biri 149 TL" (each is 149 TL).
+    I wrote "149 TL tutarındaki iki işlem" (two transactions of 149 TL amount). This covers it.
+
+    *Final check on names/dates:*
+    3 Nisan, 17 Nisan, 149 TL, Akın Yayıncılık.
+
+    Everything is correct.
+
+    One minor thing: In Turkish, after "Sayın abonemiz" a comma is standard. But the prompt explicitly forbids commas. So I will leave it out.
+
+    *Final Text Construction:*
+    Sayın abonemiz yaşadığınız aksaklık için üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki iki işlem de tespit edilmiştir.
+
+    İlgili birimimiz konuyla ilgili inceleme başlatmıştır. Hatalı çekim yapılmışsa iadeniz en kısa sürede gerçekleştirilecektir.
+
+    Gelişmeler hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz.
+
+    *Wait, "149 TL" - should I write "149 TL tutarındaki her iki işlem" to be safer?*
+    Yes.
+
+    *Let's re-verify text for any hidden commas (like in decimal points or something? No, 149 is integer).*
+
+    Let's do one more pass.
+    Para 1: Sayın abonemiz yaşadığınız aksaklık için üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir.
+    Para 2: Teknik ekiplerimiz durumu kontrol ediyor. Yanlış yapılan tahsilat için iade işlemleri hemen başlatılacaktır.
+    Para 3: Konuyla ilgili sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz.
+
+    Check for commas:
+    Sayın abonemiz yaşadığınız aksaklık için üzgünüz. (None)
+    Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir. (None)
+    Teknik ekiplerimiz durumu kontrol ediyor. (None)
+    Yanlış yapılan tahsilat için iade işlemleri hemen başlatılacaktır. (None)
+    Konuyla ilgili sizi bilgilendireceğiz. (None)
+    Sabrınız için Akın Yayıncılık olarak teşekkür ederiz. (None)
+
+    Dates: 3 Nisan, 17 Nisan.
+    Amount: 149 TL.
+    Company: Akın Yayıncılık.
+    Structure: 3 paragraphs, empty lines.
+    Constraint: No commas.
+
+    The text is ready.
+
+    *Self-Correction during final look:* "Yanlış yapılan tahsilat" is better than "Hatalı çekim".
+    "Sayın abonemiz yaşadığınız aksaklık için üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir."
+
+    "İlgili birimimiz durumu incelemeye almıştır. Yanlış yapılan tahsilat için iade işlemleri hemen başlatılacaktır."
+
+    "Konu hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz."
+
+    Check commas again:
+    - Sayın abonemiz yaşadığınız aksaklık için üzgünüz. (No)
+    - Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir. (No)
+    - İlgili birimimiz durumu incelemeye almıştır. (No)
+    - Yanlış yapılan tahsilat için iade işlemleri hemen başlatılacaktır. (No)
+    - Konu hakkında sizi bilgilendireceğiz. (No)
+    - Sabrınız için Akın Yayıncılık olarak teşekkür ederiz. (No)
+
+    Done.
+
+    *Wait, the prompt says:* "İki tarih ve tutar cevapta geçsin."
+    I have 3 Nisan, 17 Nisan, and 149 TL.
+    Everything matches.
+
+    *One last check of the prompt:* "Cevap tam olarak 3 paragraf olsun (paragraflar arasında boş satır bırak) ve metinde hiç virgül kullanılmasın."
+    "İki tarih ve tutar cevapta geçsin."
+    "Akın Yayıncılık adına cevap yaz."
+
+    Final Polish:
+    Sayın abonemiz yaşadığınız aksaklık için çok üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de tespit edilmiştir.
+
+    İlgili birimimiz durumu incelemeye almıştır. Hatalı yapılan tahsilat için iade işlemleri hemen başlatılacaktır.
+
+    Konu hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz.
+
+    (Checks: No commas. 3 paras. Dates/Amount/Company included.)
+
+    Wait, is there a comma in "Akın Yayıncılık adına" if I were to sign it? I won't sign it as a separate line to avoid punctuation issues or extra paragraphs. I will integrate the name into the text as requested.
+
+    Wait, let's look at "149 TL". Is there a comma in a number like "1.000"? No, but here it is "149". No comma.
+
+    Final Final Text:
+    Sayın abonemiz yaşadığınız aksaklık için çok üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir.
+
+    İlgili birimimiz durumu hemen incelemeye almıştır. Hatalı yapılan tahsilat için iade işlemleri en kısa sürede başlatılacaktır.
+
+    Konu hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz.
+
+    Let's do a character scan for commas:
+    'Sayın abonemiz yaşadığınız aksaklık için çok üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir.' -> None.
+    'İlgili birimimiz durumu hemen incelemeye almıştır. Hatalı yapılan tahsilat için iade işlemleri en kısa sürede başlatılacaktır.' -> None.
+    'Konu hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz.' -> None.
+
+    One last check: "İki tarih ve tutar cevapta geçsin."
+    Dates: 3 Nisan, 17 Nisan.
+    Amount: 149 TL.
+    The prompt asks for "the two dates and the amount". It doesn't say "the dates and the amounts (plural)". It says "tutar" (singular/amount). Since 149 TL is the amount for both, writing it once is correct, or twice. Writing it once as "149 TL tutarındaki her iki işlem" is most natural.
+
+    Final verification:
+    3 paras? Yes.
+    Space between? Yes.
+    No commas? Yes.
+    Dates/Amount present? Yes.
+    Akın Yayıncılık mentioned? Yes.
+
+    *Actually*, I'll check if "149 TL" can be interpreted as needing a comma if it were decimals. It's not.
+
+    One tiny detail: "Sayın abonemiz" usually needs a comma or nothing. Without a comma, it's slightly non-standard but strictly follows the constraint.
+
+    Let's go.
+
+    *Text:*
+    Sayın abonemiz yaşadığınız aksaklık için çok üzgünüz. Kayıtlarımızda 3 Nisan ve 17 Nisan tarihlerinde yapılan 149 TL tutarındaki her iki işlem de görülmektedir.
+
+    İlgili birimimiz durumu hemen incelemeye almıştır. Hatalı yapılan tahsilat için iade işlemleri en kısa sürede başlatılacaktır.
+
+    Konu hakkında sizi bilgilendireceğiz. Sabrınız için Akın Yayıncılık olarak teşekkür ederiz.

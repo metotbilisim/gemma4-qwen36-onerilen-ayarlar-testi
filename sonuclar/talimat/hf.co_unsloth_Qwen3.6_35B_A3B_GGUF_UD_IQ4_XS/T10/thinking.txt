@@ -1,0 +1,140 @@
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Context:** Online store customer notification about a system upgrade/maintenance at night.
+   - **Requirements:**
+     - Detail the work in exactly 3 bullet points.
+     - Each bullet must start on a new line with a bullet marker (-, *, •, or 1.).
+     - Do NOT use the words "sorun" (problem) or "bakım" (maintenance) or their inflected forms.
+     - Include specific details: starts Saturday at 23:00, ends Sunday at 02:00.
+   - **Language:** Turkish.
+
+2.  **Deconstruct Constraints:**
+   - Exactly 3 bullet points for details.
+   - Each bullet on a new line, starting with allowed markers.
+   - Forbidden words: "sorun", "bakım" (and variants like sorunsuz, bakımsız, bakımın, bakımını, sorunlar, etc.)
+   - Must include: Cumartesi günü saat 23:00'te başlayacak, Pazar günü saat 02:00'de bitecek.
+   - Tone: Professional, customer-facing, clear notification.
+
+3.  **Brainstorming & Drafting (Mental Refinement):**
+   - *Opening:* Dear valued customers, / Değerli müşterilerimiz, / Online mağazamızı tercih ettiğiniz için teşekkür ederiz... Let's keep it simple and professional.
+   - *Core Message:* We are conducting a system update/improvement to enhance your shopping experience.
+   - *Schedule:* Cumartesi günü saat 23:00'te başlayacak, Pazar günü saat 02:00'de bitecek. (Must be included exactly or naturally integrated)
+   - *Bullet Points (exactly 3, covering details):* Need to describe the work without using forbidden words. Could cover: system upgrade/performance improvement, security enhancements, checkout/process optimization. Let's frame them as technical/service improvements.
+     - • Altyapı performansının artırılması ve yeni özelliklerin entegrasyonu sağlanacak.
+     - • Müşteri verilerinin korunması amacıyla güvenlik protokolleri güncellenecek.
+     - • Ödeme alma ve sipariş takip süreçlerinin daha hızlı işleyebilmesi için altyapı yenilemeleri tamamlanacak.
+   - *Check constraints:* Exactly 3 bullets? Yes. Each starts with a bullet marker on a new line? Yes. Forbidden words used? Let's check: "sorun", "bakım" - not used. Variants? None. Schedule included? Need to explicitly state it. I'll add the schedule right before or after the bullets. The prompt says "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat; her madde ayrı satırda ve bir madde işaretiyle... başlasın." So the 3 bullets should contain the details. I'll integrate the timing into the intro or bullets, but the prompt says "Şu bilgiler geçsin: çalışma Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek." I'll make sure it's clearly stated.
+   - Let's structure it carefully.
+
+   Draft:
+   Değerli Müşterilerimiz,
+   Deneyiminizi geliştirmek amacıyla gerçekleştireceğimiz teknik güncellemelerimize hazırlanıyoruz. Sistemde yapılacak iyileştirmeler sayesinde alışveriş süreciniz daha verimli ve hızlı hale gelecektir. Çalışma Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:02’de bitecek. (Wait, prompt says 02:00, not 02:02. I'll correct that.)
+   Let's stick exactly to the prompt: "Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek."
+
+   Now, the 3 bullets detailing the work:
+   • Altyapı performansının artırılması ve yeni arayüz özelliklerinin devreye alınması sağlanacak.
+   • Hesap güvenliğini pekiştirmek amacıyla şifreleme protokolleri yükseltilecek.
+   • Ödeme işlemlerinin kesintisiz şekilde tamamlanabilmesi için ödeme altyapısı yenilenecek.
+
+   Check constraints:
+   - Online store customer notification? Yes.
+   - Exactly 3 bullets for details? Yes.
+   - Each bullet on new line starting with allowed marker? Yes.
+   - No "sorun" or "bakım" (or inflected forms)? Checked. None used.
+   - Schedule included? Yes.
+   - Language: Turkish.
+
+   Let's verify the exact wording requirement for schedule: "Çalışma Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek." I'll include it exactly as requested or naturally in the text. The prompt says "Şu bilgiler geçsin:", so I'll make sure those exact details are present.
+
+   One thing: The prompt says "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat". So the bullets themselves should contain the details. I can include the timing in the bullets or right before. To be safe, I'll put the timing in the intro and keep the bullets for the work details, or incorporate timing into one bullet? The prompt says "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat; her madde ayrı satırda ve bir madde işaretiyle... başlasın." It doesn't strictly forbid putting timing elsewhere, but to be precise, I'll make sure the 3 bullets cover the details (timing + technical aspects) or just keep timing in intro and bullets as technical details. Actually, it's safer to put the timing in the bullets or clearly state it alongside the 3 bullets. I'll adjust to ensure the 3 bullets are the only detailed points, and include the schedule naturally.
+
+   Let's draft carefully:
+
+   Değerli Müşterilerimiz,
+   Hizmet kalitemizi artırmak adına sistem güncellemesi gerçekleştireceğiz. Bu süreçte mağazamız geçici olarak erişime kapalı olacaktır. Çalışma Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek.
+
+   • Altyapı performansının artırılması ve yeni özelliklerin entegrasyonu tamamlanacak.
+   • Veri koruma protokolleri güncellenerek hesap güvenliliği pekiştirilecek.
+   • Ödeme ve sipariş takip süreçlerinin daha hızlı işleyebilmesi için yazılım yenilemeleri yapılacak.
+
+   Deneyiminiz için teşekkür eder, iyi alışverişler dileriz.
+   [Mağaza Adı] Ekibi
+
+   Check constraints again:
+   - Online store customer notification? Yes.
+   - Details in exactly 3 bullets? Yes.
+   - Each bullet on new line, starts with allowed marker? Yes (•).
+   - No "sorun" or "bakım" (inflected forms included)? Checked. None.
+   - Schedule info included exactly? "Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek." -> Yes, it's in the text.
+   - Language: Turkish.
+   - Tone: Professional.
+
+   One minor thing: The prompt says "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat". This could mean the bullets themselves should contain the details about the work. I've done that. The timing is in the paragraph above, which is fine, but to be strictly compliant, I could embed the timing into one of the bullets or keep it as is. The prompt doesn't forbid other text. It just says the details should be explained in exactly 3 bullet points. I'll keep it as is, it's clear and professional.
+
+   Let's verify forbidden words again: "sorun", "bakım" + inflections (bakımlı, bakımsız, sorumlu? No, specifically sorun/bakım). I used: güncelleme, iyileştirme, yenileme, altyapı, güvenlik, ödeme. All safe.
+
+   Check bullet markers: • is allowed. Each on new line. Exactly 3.
+   Check timing: Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek. -> Matches exactly.
+   All constraints met.
+
+   I will produce the final response now. I'll make sure formatting is exact.
+   One thing: The prompt says "her madde ayrı satırda ve bir madde işaretiyle (-, *, • ya da 1.) başlasın." So I'll use one of those markers consistently.
+   I'll use "- " as it's standard.
+   Let's draft it out carefully.
+
+   Text:
+   Değerli Müşterilerimiz,
+   Alışveriş deneyiminizi geliştirmek amacıyla sistem güncellemesi gerçekleştireceğiz. Bu süreçte mağazamız geçici olarak hizmet vermeyecektir. Çalışma Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek.
+
+   - Altyapı performansının artırılması ve yeni özelliklerin devreye alınması sağlanacak.
+   - Hesap güvenliğini pekiştirmek amacıyla veri koruma protokolleri yükseltilecek.
+   - Ödeme alma ve sipariş takibi işlemlerinin daha hızlı tamamlanabilmesi için yazılım yenilemeleri yapılacak.
+
+   Hizmetimizden memnun kalmak için çalışıyoruz. İyi alışverişler dileriz.
+   [Mağaza Adı] Ekibi
+
+   Checks:
+   - Online store notification? Yes.
+   - Exactly 3 bullets for details? Yes.
+   - Each bullet new line, starts with allowed marker? Yes (-).
+   - No "sorun" or "bakım"? Checked. None.
+   - Schedule included? Yes, exactly as requested.
+   - Turkish? Yes.
+   All good. I'll output this.✅
+   One minor adjustment: I'll make sure the bullet points are strictly the only list, and they contain the work details. The prompt says "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat". So the bullets should cover the work details. They do. The timing is stated right before, which is fine. To be ultra-safe, I could put the timing inside one bullet, but it's not required. I'll leave it as is because it's natural and meets all constraints.
+   Final check of the prompt: "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat; her madde ayrı satırda ve bir madde işaretiyle (-, *, • ya da 1.) başlasın." -> This means the 3 bullets ARE the details. I'll keep them focused on technical improvements.
+   All constraints satisfied. Output matches response. 
+   Proceeds. 
+   Output generation. 
+   [Self-Correction/Refinement during thought]
+   Wait, let's verify if "gece yapılacak sistem çalışmasını duyuran bir metin yaz" implies I should avoid words like "bakım" and "sorun" entirely, which I did. 
+   The prompt says: "Çalışmanın ayrıntılarını tam olarak 3 maddeyle anlat". So the bullets should contain the details. I'll make sure the bullets themselves are the only detailed part. 
+   I'll adjust slightly to ensure the timing is also clearly part of the structure if needed, but it's fine as is. Actually, putting the timing in the bullets might be safer to strictly satisfy "ayrıntılarını tam olarak 3 maddeyle anlat". But the prompt says "Şu bilgiler geçsin: çalışma Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:02'...", wait, it says 02:00. I'll keep it in the main text for readability, which is standard for such notices. The constraint doesn't forbid other text. 
+   I think it's solid. I'll generate it. 
+   Output matches the drafted text.✅
+   Final Text:
+   Değerli Müşterilerimiz,
+   Deneyiminizi geliştirmek amacıyla sistem güncellemesi gerçekleştireceğiz. Bu süreçte mağazamız geçici olarak erişime kapalı olacaktır. Çalışma Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek.
+
+   • Altyapı performansının artırılması ve yeni özelliklerin entegrasyonu tamamlanacak.
+   • Veri koruma protokolleri güncellenerek hesap güvenliliği pekiştirilecek.
+   • Ödeme ve sipariş takip süreçlerinin daha hızlı işleyebilmesi için yazılım yenilemeleri yapılacak.
+
+   Hizmet kalitemizi artırmak için çalışıyoruz. İyi alışverişler dileriz.
+   [Mağaza Adı] Ekibi
+
+   Checks: 
+   - 3 bullets? Yes.
+   - New line each? Yes.
+   - Starts with allowed marker? Yes (•).
+   - No "sorun"/"bakım"? Checked. None.
+   - Schedule exact? Yes.
+   - Tone/Context correct? Yes.
+   Ready.✅
+   Output matches response. 
+   [Proceeds] 
+   *(Self-Correction/Verification during drafting)*: I notice I used "•" which is allowed. The prompt says "-, *, • ya da 1." so it's fine. I'll stick with "- " for maximum compatibility across markdown renderers, but • is fine too. I'll use "- " to be safe. Actually, the prompt allows any of them. I'll use "- ".
+   Final check of the exact phrase: "Çalışma Cumartesi günü saat 23:00’te başlayacak, Pazar günü saat 02:00’de bitecek." -> Matches exactly.
+   All good. Output matches. 
+   [Output Generation] -> *Proceeds*

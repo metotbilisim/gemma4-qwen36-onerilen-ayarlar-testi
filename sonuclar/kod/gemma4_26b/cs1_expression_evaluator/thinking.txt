@@ -1,0 +1,609 @@
+*   Language: C# (.NET 10).
+    *   Class: `public static class ExpressionEvaluator` in namespace `Bench`.
+    *   Method: `public static double Evaluate(string expression)`.
+    *   Supported:
+        *   Numbers (int, decimal like `3.14`, `.5`).
+        *   Binary operators: `+`, `-`, `*`, `/`, `^`.
+        *   Parentheses: `(`, `)`.
+        *   Unary operators: `+`, `-`.
+    *   Precedence/Associativity:
+        *   `^`: High, right-associative (`2^3^2` = 512).
+        *   Unary `+`/`-`: Lower than `^` (e.g., `-2^2` = -4), but allowed after `^` (e.g., `2^-1` = 0.5).
+        *   `*`, `/`: Medium, left-associative.
+        *   `+`, `-`: Low, left-associative.
+    *   Parsing rules:
+        *   Ignore whitespace.
+        *   Culture-invariant numbers (use `.`).
+        *   Errors: `FormatException` (empty, invalid chars, mismatched parens, missing operands, consecutive numbers, consecutive binary operators, malformed numbers).
+        *   Errors: `DivideByZeroException` for `/ 0`.
+    *   Constraints: No `DataTable.Compute`, no Roslyn, no external libraries.
+
+    *   A Shunting-yard algorithm or a Recursive Descent Parser is ideal for this. Since we have unary operators and specific precedence rules (especially the right-associativity of `^` and the specific rule for unary minus relative to `^`), a Recursive Descent Parser is usually cleaner to implement for these types of grammar specifications.
+
+    *   Grammar:
+        *   `Expression` -> `Term` { (`+` | `-`) `Term` } (Left associative)
+        *   `Term` -> `Factor` { (`*` | `/`) `Factor` } (Left associative)
+        *   `Factor` -> `Power`
+        *   `Power` -> `Base` [ `^` `Power` ] (Right associative)
+        *   `Base` -> `+` `Base` | `-` `Base` | `Primary`
+        *   `Primary` -> `Number` | `(` `Expression` `)`
+
+    *   *Correction on Unary vs Exponentiation:*
+        The prompt says: "Unary minus/plus binds weaker than `^` (`-2^2` = -4), but a unary sign is allowed directly after `^` (`2^-1` = 0.5)."
+        Let's re-examine the grammar:
+        If `-2^2` is `-4`, then `^` has higher precedence than unary `-`.
+        Structure:
+        Expression (Add/Sub)
+          -> Term (Mul/Div)
+            -> Unary (Unary +/-)
+              -> Power (Exponentiation)
+                -> Atom (Number/Parens)
+
+        Wait, let's check the requirement: "Unary minus/plus binds weaker than `^` (`-2^2` = -4), but a unary sign is allowed directly after `^` (`2^-1` = 0.5)."
+        Actually, if `-2^2` is `-4`, then the unary operator is applied *after* the exponentiation.
+        If `2^-1` is `0.5`, the unary operator is applied *before* the exponentiation? No, that would mean `2^(-1)`.
+        Let's look at precedence levels:
+        1. Parentheses / Numbers (Highest)
+        2. Exponentiation (`^`) (Right associative)
+        3. Unary (`+`, `-`)
+        4. Multiplicative (`*`, `/`) (Left associative)
+        5. Additive (`+`, `-`) (Left associative)
+
+        Wait, let's re-read: "Unary minus/plus binds weaker than `^` (`-2^2` = -4)".
+        In math, $-2^2$ is indeed $-(2^2) = -4$.
+        However, "a unary sign is allowed directly after `^` (`2^-1` = 0.5)".
+        If `2^-1` is `0.5`, it means the exponent is `-1`.
+        This implies that for the expression `a ^ b`, `b` can be a unary expression.
+
+        Let's refine the hierarchy:
+        1. `Expression` (Binary + and -)
+        2. `Term` (Binary * and /)
+        3. `Unary` (Unary + and -)
+        4. `Power` (Binary ^)
+        5. `Factor` (Number or Parens)
+
+        Wait, if `Unary` is level 3 and `Power` is level 4, then `Power` is "higher" precedence.
+        In recursive descent, the function called *deeper* in the tree has higher precedence.
+        Hierarchy (from lowest to highest precedence):
+        - `Expression` (calls `Term`)
+        - `Term` (calls `Unary`)
+        - `Unary` (calls `Power`)
+        - `Power` (calls `Factor`)
+        - `Factor` (calls `Primary` which is Number or `(` `Expression` `)`)
+
+        Let's test `-2^2`:
+        - Expression calls Term.
+        - Term calls Unary.
+        - Unary sees `-`, calls Power.
+        - Power sees `2`, then sees `^`, then calls Power for the exponent.
+        - Result: `- (2^2) = -4`. Correct.
+
+        Let's test `2^-1`:
+        - Expression calls Term.
+        - Term calls Unary.
+        - Unary calls Power.
+        - Power sees `2`, sees `^`.
+        - Power then calls the next level to get the exponent.
+        - If `Power` calls `Unary` for the exponent, then `2^-1` works.
+        - If `Power` calls `Factor` for the exponent, then `2^-1` would fail because `-1` isn't a Factor.
+
+        Revised Grammar to satisfy "unary sign allowed after ^":
+        - `Expression` -> `Term` { (`+` | `-`) `Term` }
+        - `Term` -> `Unary` { (`*` | `/`) `Unary` }
+        - `Unary` -> (`+` | `-`) `Unary` | `Power`
+        - `Power` -> `Factor` [ `^` `Unary` ] (Note: `Unary` here allows the `-1` in `2^-1`)
+        - `Factor` -> `Number` | `(` `Expression` `)`
+
+        Wait, let's re-check `2^3^2`.
+        With `Power -> Factor [ ^ Unary ]`:
+        `2^3^2` -> `Factor(2) ^ Unary(3 ^ Unary(2))`?
+        If `Power` is right-associative:
+        `Power(Factor(2), Power(Factor(3), Power(Factor(2))))`.
+        The rule `Power -> Factor [ ^ Unary ]` handles right-associativity if we call the function recursively.
+
+        Let's check `2*-3`:
+        - Expression -> Term
+        - Term -> Unary(2) * Unary(-3)
+        - Unary(-3) -> - Unary(3)
+        - This works.
+
+        Let's check `2--2`:
+        - Unary(-(-2)) -> - Unary(-2) -> - (- Unary(2)) -> - (-2) = 2.
+        - Prompt says `--2` is allowed.
+
+        - Need a `Tokenizer` to convert the string into a list of tokens.
+        - Tokens: `Number`, `Plus`, `Minus`, `Star`, `Slash`, `Caret`, `LParen`, `RParen`, `EOF`.
+        - `Number` parsing: `double.Parse(..., CultureInfo.InvariantCulture)`.
+        - Handle invalid characters and malformed numbers.
+
+    - String `expression`.
+    - Pointer/Index `pos`.
+    - Method `SkipWhitespace()`.
+    - Method `GetNextToken()`.
+
+    *Refined Tokenizer approach:*
+    Instead of a separate tokenizer, let's just use a `Peek()` and `Consume()` pattern on the string itself to make it efficient.
+
+    *Tokenizer details:*
+    - Digits, `.`
+    - Operators: `+`, `-`, `*`, `/`, `^`, `(`, `)`
+    - Error if unknown char.
+    - Error if number is malformed (e.g., `1.2.3`).
+
+    *Handling `FormatException` cases:*
+    - Empty/Whitespace: `if (string.IsNullOrWhiteSpace(expression)) throw new FormatException();`
+    - `2 3`: This is tricky. After parsing a number, if the next token is a number, it's an error. In the recursive descent, if a method finishes and the next token is a `Number` or `(`, it's an error.
+    - `3**2`: After a binary operator, the next token must be a number, `(`, or unary sign.
+    - `()`, `2+`: Missing operands.
+
+    *Implementation of `Power`:*
+    ```csharp
+    private double ParsePower() {
+        double left = ParseFactor();
+        if (Peek() == '^') {
+            Consume('^');
+            double right = ParseUnary(); // Allows unary in exponent
+            return Math.Pow(left, right);
+        }
+        return left;
+    }
+    ```
+    Wait, `2^3^2` should be `2^(3^2)`.
+    My current `ParsePower` logic:
+    `ParsePower` -> `left = Factor()`, if `^`, `right = Unary()`, return `left ^ right`.
+    If input is `2^3^2`:
+    `left = 2`, `consume ^`, `right = ParseUnary()` which will call `ParsePower`? No, `ParseUnary` calls `Power`.
+    So `ParseUnary` calls `ParsePower`.
+    `ParsePower` -> `left = 3`, `consume ^`, `right = ParseUnary()` which calls `ParsePower` -> `left = 2`.
+    Result: `2 ^ (3 ^ 2)`. This handles right-associativity.
+
+    *Wait, let's check `2^-1` again.*
+    `ParsePower` -> `left = 2`, `consume ^`, `right = ParseUnary()`.
+    `ParseUnary` -> `consume -`, `right = ParseUnary()` which calls `ParsePower` -> `left = 1`.
+    Result: `2 ^ (-1)`. This works!
+
+    *Checking `2^3^2` precedence:*
+    `Power` calls `Factor`, then optionally `^` and `Unary`.
+    `2^3^2`:
+    1. `ParsePower` calls `ParseFactor` -> gets `2`.
+    2. `Peek` is `^`.
+    3. `Consume ^`.
+    4. `right = ParseUnary()`.
+    5. `ParseUnary` calls `ParsePower`.
+    6. `ParsePower` calls `ParseFactor` -> gets `3`.
+    7. `Peek` is `^`.
+    8. `Consume ^`.
+    9. `right = ParseUnary()`.
+    10. `ParseUnary` calls `ParsePower`.
+    11. `ParsePower` calls `ParseFactor` -> gets `2`.
+    12. Returns `2`.
+    13. `ParsePower` (from step 6) returns `3^2 = 9`.
+    14. `ParsePower` (from step 1) returns `2^9 = 512`.
+    Perfect.
+
+    *Wait, one more check: `2*-3`.*
+    `Expression` -> `Term`
+    `Term` -> `Unary(2)` `*` `Unary(-3)`
+    `Unary(-3)` -> `-` `Unary(3)`
+    `Unary(3)` -> `Power(3)` -> `Factor(3)`
+    Result: `2 * -3 = -6`. Perfect.
+
+    - Check for unexpected tokens after `ParseExpression` finishes.
+    - In `ParseFactor`, if the next token is a number (not within parens), that's an error.
+    - Actually, the best way to catch `2 3` is: after `ParseExpression` is done, the cursor must be at `EOF`.
+    - If the user enters `2 3`, `ParseExpression` will parse `2`, then return. The cursor is now at `3`. The top-level method will see that we aren't at `EOF` and throw `FormatException`.
+
+    *Wait, what about `2 + ( )`?*
+    `ParseFactor` calls `ParseExpression` for `(...)`.
+    `ParseExpression` for `()`:
+    `ParseTerm` -> `ParseUnary` -> `ParsePower` -> `ParseFactor`.
+    `ParseFactor` sees `(`, consumes it, calls `ParseExpression`.
+    `ParseExpression` calls `ParseTerm`... `ParseFactor` sees `)`, but `ParseFactor` expects a number or `(`.
+    So `ParseFactor` will throw `FormatException` if it sees `)`.
+
+    *Handling `1.2.3`:*
+    When parsing the number, if we encounter a second `.`, it's a `FormatException`.
+
+    *Handling `*3`:*
+    `ParseTerm` calls `ParseUnary`. `ParseUnary` calls `ParsePower`. `ParsePower` calls `ParseFactor`.
+    `ParseFactor` sees `*`. Since `*` is not a digit, `.`, or `(`, it throws `FormatException`.
+
+    *Handling `2+`:*
+    `ParseExpression` calls `ParseTerm` (gets `2`). Sees `+`. Calls `ParseTerm` for the right side.
+    `ParseTerm` calls `ParseUnary` calls `ParsePower` calls `ParseFactor`.
+    `ParseFactor` sees `EOF`. Throw `FormatException`.
+
+    - Empty string: Handled.
+    - `DivideByZeroException`: Use `if (right == 0) throw new DivideByZeroException();`. Note: `Math.Pow` doesn't throw, it returns `Infinity`. But the requirement specifically says "Throw `DivideByZeroException` when dividing by zero". So `left / 0` must throw.
+
+    *Implementation detail for Number Parsing:*
+    I'll iterate through digits and dots.
+    ```csharp
+    private double ParseNumber() {
+        int start = _pos;
+        bool hasDot = false;
+        while (_pos < _expression.Length && (char.IsDigit(_expression[_pos]) || _expression[_pos] == '.')) {
+            if (_expression[_pos] == '.') {
+                if (hasDot) throw new FormatException("Malformed number");
+                hasDot = true;
+            }
+            _pos++;
+        }
+        string part = _expression.Substring(start, _pos - start);
+        if (part == "." || part == "" || !double.TryParse(part, NumberStyles.Float, CultureInfo.InvariantCulture, out double val)) {
+            throw new FormatException("Invalid number");
+        }
+        return val;
+    }
+    ```
+    Wait, `.5` is a valid number in the requirement. `double.TryParse` with `CultureInfo.InvariantCulture` handles `.5` and `3.14`.
+    What about `1.2.3`? My `while` loop with `hasDot` check handles it.
+    What about `.`? `double.TryParse` handles it, but the logic should check.
+
+    *Wait, a small detail:* `2 3` (two numbers in a row).
+    If I have `2 3`, `ParseExpression` will parse `2`. Then it will look for `+` or `-`. It won't find them. It returns. The main loop then checks if we are at the end. Since we are at `3`, it throws.
+    What about `2(3)`?
+    `ParseExpression` parses `2`. Then `ParseExpression` returns. The main loop sees `(` and throws.
+
+    *Unary `+` or `-`?*
+    `Unary` -> `+` `Unary` | `-` `Unary` | `Power`
+    This allows `--2` which is `-(-2) = 2`.
+
+    *Parsing decimal:*
+    `double.TryParse(".5", NumberStyles.Any, CultureInfo.InvariantCulture, out val)` returns `true`.
+    `double.TryParse(".", ...)` returns `false`.
+    So `part == "."` check is good.
+
+    - Namespace: `Bench`
+    - Class: `ExpressionEvaluator` (static)
+    - Method: `Evaluate` (public static)
+    - `double.TryParse` with `CultureInfo.InvariantCulture`.
+    - `Math.Pow` for `^`.
+    - Check for `DivideByZeroException`.
+
+    *Edge Case: `2^-1`*
+    Requirement: "a unary sign is allowed directly after `^`".
+    My grammar: `Power -> Factor [ ^ Unary ]`.
+    `2 ^ -1`:
+    1. `Factor` is `2`.
+    2. `^` is found.
+    3. `Unary` is called.
+    4. `Unary` sees `-`, calls `Unary` which calls `Power` which calls `Factor` which is `1`.
+    5. Returns `-1`.
+    6. `Power` returns `2 ^ -1`.
+    Correct.
+
+    *Edge Case: `-2^2`*
+    Requirement: "Unary minus/plus binds weaker than `^` (`-2^2` = -4)".
+    My grammar:
+    `Expression` -> `Term` -> `Unary` -> `Power`.
+    `Unary` sees `-`, calls `Power`.
+    `Power` sees `2^2`.
+    `Unary` returns `-4`.
+    Correct.
+
+    *Wait, one thing:* `2^3^2`.
+    If `Power` is `Factor [ ^ Unary ]`, it is *not* right-associative in the way a recursive function usually is if not careful.
+    Let's trace `2^3^2`:
+    `ParsePower`:
+    - `left = ParseFactor()` -> `2`.
+    - `Peek()` is `^`.
+    - `Consume('^')`.
+    - `right = ParseUnary()`.
+    - `ParseUnary` calls `ParsePower`.
+    - `ParsePower` (inner):
+        - `left = ParseFactor()` -> `3`.
+        - `Peek()` is `^`.
+        - `Consume('^')`.
+        - `right = ParseUnary()` -> `ParsePower` -> `ParseFactor` -> `2`.
+        - returns `3^2 = 9`.
+    - `ParsePower` (outer) returns `2^9 = 512`.
+    Yes, it is right-associative.
+
+    *Edge Case: `2^-3^2`?*
+    This is `2 ^ (-3 ^ 2)`.
+    `2 ^ (-9)`.
+    Let's trace:
+    - `ParsePower` (outer)
+    - `left = 2`.
+    - `^` found.
+    - `right = ParseUnary()`.
+    - `ParseUnary` sees `-`.
+    - `ParseUnary` calls `ParsePower` (inner).
+    - `ParsePower` (inner) sees `3^2`.
+    - `ParsePower` (inner) returns `9`.
+    - `ParseUnary` returns `-9`.
+    - `ParsePower` (outer) returns `2 ^ -9`.
+    Correct.
+
+    *Wait, one specific requirement:* "missing operands (e.g. `2+`, `*3`, `()`, `two numbers in a row (`2 3`)`, `doubled binary operators (`3**2`)`"
+    - `2+`: `ParseExpression` calls `ParseTerm` (2), sees `+`, calls `ParseTerm`. `ParseTerm` calls `ParseUnary` calls `ParsePower` calls `ParseFactor`. `ParseFactor` sees `EOF` and throws.
+    - `*3`: `ParseTerm` calls `ParseUnary` calls `ParsePower` calls `ParseFactor`. `ParseFactor` sees `*` and throws.
+    - `()`: `ParseFactor` sees `(`, calls `ParseExpression`. `ParseExpression` calls `ParseTerm` calls `ParseUnary` calls `ParsePower` calls `ParseFactor`. `ParseFactor` sees `)` and throws.
+    - `2 3`: `ParseExpression` returns `2`. Main method sees `3` is not `EOF` and throws.
+    - `3**2`: `ParseTerm` calls `ParseUnary` (3), sees `*`, calls `ParseUnary`. `ParseUnary` calls `ParsePower` calls `ParseFactor`. `ParseFactor` sees `*` and throws.
+
+    *Wait:* The requirements say `FormatException` for all of these.
+    I need to make sure `ParseFactor` throws `FormatException` when it expects a number or `(` but finds an operator.
+
+    ```csharp
+    private double ParseFactor()
+    {
+        SkipWhitespace();
+        if (_pos >= _expression.Length) throw new FormatException("Unexpected end of expression");
+
+        if (IsDigitOrDot(_expression[_pos]))
+        {
+            return ParseNumber();
+        }
+        else if (_expression[_pos] == '(')
+        {
+            _pos++; // consume '('
+            double val = ParseExpression();
+            SkipWhitespace();
+            if (_pos >= _expression.Length || _expression[_pos] != ')')
+                throw new FormatException("Mismatched parentheses");
+            _pos++; // consume ')'
+            return val;
+        }
+        else
+        {
+            throw new FormatException("Expected number or '('");
+        }
+    }
+    ```
+    `IsDigitOrDot` needs to be careful. `.` is not a digit but is part of a number.
+
+    *Refining Number Parsing to be more robust:*
+    The requirement: "malformed numbers (`1.2.3`)".
+    Also `.5` is valid.
+    My `ParseNumber` logic:
+    ```csharp
+    private double ParseNumber()
+    {
+        int start = _pos;
+        bool hasDot = false;
+        while (_pos < _expression.Length && (char.IsDigit(_expression[_pos]) || _expression[_pos] == '.'))
+        {
+            if (_expression[_pos] == '.')
+            {
+                if (hasDot) throw new FormatException("Malformed number");
+                hasDot = true;
+            }
+            _pos++;
+        }
+        string part = _expression.Substring(start, _pos - start);
+        if (!double.TryParse(part, NumberStyles.Float, CultureInfo.InvariantCulture, out double val))
+            throw new FormatException("Invalid number format");
+        return val;
+    }
+    ```
+
+    *Is `.` alone handled?*
+    `double.TryParse(".", ...)` is `false`. So `if (!double.TryParse...) throw FormatException` handles it.
+    *Is `.5` handled?*
+    `double.TryParse(".5", ...)` is `true`.
+    *Is `5.` handled?*
+    `double.TryParse("5.", ...)` is `true`.
+
+    *Wait, what about `2 + - 3`?*
+    `ParseTerm` (2), sees `+`, calls `ParseTerm`.
+    `ParseTerm` calls `ParseUnary`.
+    `ParseUnary` sees `-`, calls `ParseUnary`.
+    `ParseUnary` calls `ParsePower` -> `ParseFactor` -> `3`.
+    Result: `2 + -3 = -1`.
+    Is this allowed? "unary minus/plus ... `2*-3`, `--2`, `2^-1`".
+    Yes, `2 + -3` is technically `2 + (-3)`.
+
+    *Checking `3**2` again.*
+    `ParseTerm` -> `ParseUnary` (3) -> `*` -> `ParseUnary`.
+    `ParseUnary` -> `ParsePower` -> `ParseFactor`.
+    `ParseFactor` sees `*`. Throws `FormatException`. Perfect.
+
+    *Wait, the requirement "two numbers in a row (`2 3`)"*:
+    In `2 3`, `ParseExpression` finishes after `2`. `_pos` is at the space or at `3`.
+    After `ParseExpression` returns, we must check `SkipWhitespace()` and `_pos == _expression.Length`.
+
+    *Handling `DivideByZeroException`*:
+    ```csharp
+    if (op == '/')
+    {
+        double divisor = ParseUnary();
+        if (divisor == 0) throw new DivideByZeroException();
+        val /= divisor;
+    }
+    ```
+    Wait, I should do `val / divisor` and then check if it's `Infinity`? No, the requirement says "when dividing by zero". In C#, `double / 0.0` returns `Infinity`, not an exception. So I must manually check `if (divisor == 0)`.
+
+    *Wait, what if `divisor` is `-0`?*
+    In math, `1 / -0` is `-Infinity`. But in most programming contexts, `x / 0` is the error. Let's stick to `if (divisor == 0)`. Note that `0.0 == -0.0` is true in C#.
+
+    *Wait, what about `2 / (1 - 1)`?*
+    The divisor is `0`. My code handles it.
+
+    *Wait, what about `2^0`?*
+    `Math.Pow(2, 0)` is `1`. That's correct.
+
+    *Summary of the Recursive Descent:*
+    - `Expression`: `Term` { (+|-) `Term` }
+    - `Term`: `Unary` { (*|/) `Unary` }
+    - `Unary`: (+|-) `Unary` | `Power`
+    - `Power`: `Factor` [ `^` `Unary` ]
+    - `Factor`: `Number` | `(` `Expression` `)`
+
+    *Let's re-verify `^` precedence:*
+    `-2^2`
+    1. `Expression` calls `Term`.
+    2. `Term` calls `Unary`.
+    3. `Unary` sees `-`, calls `Unary`.
+    4. `Unary` calls `Power`.
+    5. `Power` calls `Factor` (2), sees `^`, calls `Unary` (2).
+    6. `Power` returns `2^2 = 4`.
+    7. `Unary` returns `-4`.
+    Correct.
+
+    *Let's re-verify `2^-1` precedence:*
+    1. `Expression` calls `Term`.
+    2. `Term` calls `Unary`.
+    3. `Unary` calls `Power`.
+    4. `Power` calls `Factor` (2), sees `^`, calls `Unary`.
+    5. `Unary` sees `-`, calls `Unary`.
+    6. `Unary` calls `Power` -> `Factor` (1).
+    7. `Unary` returns `-1`.
+    8. `Power` returns `2^-1 = 0.5`.
+    Correct.
+
+    *One more: `2^3^2`*
+    1. `Power` calls `Factor` (2).
+    2. `Power` sees `^`, calls `Unary`.
+    3. `Unary` calls `Power`.
+    4. `Power` (inner) calls `Factor` (3).
+    5. `Power` (inner) sees `^`, calls `Unary`.
+    6. `Unary` (inner) calls `Power`.
+    7. `Power` (inner-inner) calls `Factor` (2).
+    8. Returns `2`.
+    9. `Power` (inner) returns `3^2 = 9`.
+    10. `Power` (outer) returns `2^9 = 512`.
+    Correct.
+
+    *Wait, what if the expression is `2^3*4`?*
+    `Power` (2^3) is called by `Unary`. `Unary` is called by `Term`.
+    `Term` sees `*`, calls `Unary` (4).
+    `Term` returns `(2^3) * 4 = 8 * 4 = 32`.
+    Correct.
+
+    *Wait, what if the expression is `2*3^4`?*
+    `Term` calls `Unary` (2).
+    `Term` sees `*`, calls `Unary`.
+    `Unary` calls `Power` (3^4).
+    `Term` returns `2 * (3^4) = 2 * 81 = 162`.
+    Correct.
+
+    *Wait, the requirements for `FormatException`:*
+    - `missing operands (e.g. 2+, *3, (), 2 3, 3**2, 1.2.3)`
+    - `2 3` (two numbers in a row) -> Handled by `_pos != length` after `ParseExpression`.
+    - `3**2` (doubled binary operators) -> Handled by `ParseFactor` seeing `*`.
+    - `1.2.3` (malformed numbers) -> Handled by `ParseNumber`.
+
+    *Wait, let's look at `2 3` again.*
+    If the input is `"2 3"`.
+    `ParseExpression` parses `2`. `_pos` is at the space.
+    `SkipWhitespace()` moves `_pos` to `3`.
+    `_pos` is not `Length`. Throw `FormatException`.
+
+    *What about `(2)3`?*
+    `ParseExpression` parses `(2)`. `_pos` is at `3`.
+    `SkipWhitespace()` moves `_pos` to `3`.
+    `_pos` is not `Length`. Throw `FormatException`.
+
+    *What about `2(3)`?*
+    `ParseExpression` parses `2`. `_pos` is at `(`.
+    `SkipWhitespace()` moves `_pos` to `(`.
+    `_pos` is not `Length`. Throw `FormatException`.
+
+    *Implementation Note:*
+    Use `double.TryParse` with `NumberStyles.Float` and `CultureInfo.InvariantCulture` to support `.5` and `5.`.
+
+    *Self-Correction on `ParsePower`:*
+    The logic `Power -> Factor [ ^ Unary ]` is slightly different from the standard `Power -> Power ^ Factor`.
+    In my version, `Power` calls `Factor` first, then `Unary`. This is correct for right-associativity and allows the unary sign in the exponent.
+
+    ```csharp
+    private double ParsePower()
+    {
+        double left = ParseFactor();
+        SkipWhitespace();
+        if (_pos < _expression.Length && _expression[_pos] == '^')
+        {
+            _pos++; // consume '^'
+            double right = ParseUnary(); // This allows -1 in 2^-1
+            return Math.Pow(left, right);
+        }
+        return left;
+    }
+    ```
+    Actually, if I want `2^3^2` to be `2^(3^2)`, and `Power` calls `Unary` which calls `Power`, that's correct.
+
+    *Wait!* Let's re-check `2^3^2` with `Power -> Factor [ ^ Unary ]`.
+    `ParsePower` calls `ParseFactor` -> `2`.
+    `_pos` is `^`. `_pos++`.
+    `right = ParseUnary()`.
+    `ParseUnary` calls `ParsePower`.
+    `ParsePower` calls `ParseFactor` -> `3`.
+    `_pos` is `^`. `_pos++`.
+    `right = ParseUnary()`.
+    `ParseUnary` calls `ParsePower` -> `Factor` -> `2`.
+    `ParsePower` (inner) returns `3^2`.
+    `ParsePower` (outer) returns `2 ^ (3^2)`.
+    Yes, it works.
+
+    *Wait, what about `2^3*4`?*
+    `ParseTerm` -> `Unary` -> `Power`.
+    `Power` returns `2^3`.
+    `Term` sees `*`, calls `Unary` (4).
+    `Term` returns `(2^3)*4`.
+    Correct.
+
+    *Check `ParseNumber` again:*
+    Should `ParseNumber` consume the whitespace? No, the caller (like `ParseFactor`) should `SkipWhitespace` before calling it.
+
+    *One last thing:* The requirement says `Throw FormatException for ... two numbers in a row (2 3)`.
+    My code:
+    ```csharp
+    public static double Evaluate(string expression)
+    {
+        if (string.IsNullOrWhiteSpace(expression)) throw new FormatException();
+        _expression = expression;
+        _pos = 0;
+        double result = ParseExpression();
+        SkipWhitespace();
+        if (_pos < _expression.Length) throw new FormatException();
+        return result;
+    }
+    ```
+    Wait, if the input is `"2 3"`, `ParseExpression` will return `2`, then `_pos` will be at the space. `SkipWhitespace` will move `_pos` to `3`. `_pos < Length` will be true. Throws `FormatException`.
+    If the input is `"2+3 4"`, `ParseExpression` will return `5`, `_pos` will be at `4`, throws.
+    If the input is `"2+3"`, `_pos` will be at `Length`. Returns `5`.
+    This is correct.
+
+    *Wait, `2 + (3)`?*
+    `ParseExpression` parses `2+3`. `_pos` is at `Length`. Returns `5`.
+
+    *Wait, `(2 + 3)`?*
+    `ParseExpression` parses `(2+3)`. `_pos` is at `Length`. Returns `5`.
+
+    *Let's look at the `Unary` rules:*
+    - `Unary` -> `+` `Unary` | `-` `Unary` | `Power`
+    - `Power` -> `Factor` [ `^` `Unary` ]
+    - `Factor` -> `Number` | `(` `Expression` `)`
+
+    This is a solid recursive descent structure.
+
+    *Final check on the requirement:* "Unary minus/plus binds weaker than `^` (`-2^2` = -4)".
+    Wait, my grammar has `Unary` calling `Power`.
+    In recursive descent, the function called *later* has *higher* precedence.
+    If `Unary` calls `Power`, then `Power` is higher precedence.
+    `Unary` is `-` then `Power(2^2)`. So `- (2^2) = -4`.
+    Correct.
+
+    *Wait, what if the input is `+2`?*
+    `Unary` sees `+`, calls `Unary(2)`. Returns `2`. Correct.
+
+    *What about `++2`?*
+    `Unary` sees `+`, calls `Unary(+2)`. `Unary(+2)` sees `+`, calls `Unary(2)`. Returns `2`. Correct.
+
+    - `ParseExpression`: `Term` { (`+` | `-`) `Term` }
+    - `ParseTerm`: `Unary` { (`*` | `/`) `Unary` }
+    - `ParseUnary`: (`+` | `-`) `Unary` | `Power`
+    - `ParsePower`: `Factor` [ `^` `Unary` ]
+    - `ParseFactor`: `Number` | `(` `Expression` `)`
+
+    *One edge case: `- (2+1)`*
+    `Unary` sees `-`, calls `Unary`.
+    `Unary` calls `Power`.
+    `Power` calls `Factor`.
+    `Factor` sees `(`, calls `Expression`.
+    `Expression` returns `3`.
+    `Power` returns `3`.
+    `Unary` returns `-3`.
+    Perfect.
