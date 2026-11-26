@@ -6,7 +6,9 @@ Bu depo, `gemma4:26b` ile `hf.co/unsloth/Qwen3.6-35B-A3B-GGUF:UD-IQ4_XS` modelle
 
 ## Blog yazısı
 
-[Gemma 4 ve Qwen3.6: Önerilen Ayarlarla Benchmark](https://www.metotbilisim.com/gemma-4-qwen3-6-onerilen-ayarlar-testi/)
+[Gemma 4 ve Qwen3.6: Önerilen Ayarlarla Benchmark](https://www.metotbilisim.com/gemma-4-qwen3-6-onerilen-ayarlarla-benchmark/)
+
+Diğer testlerimiz ve yöntemimiz: [Yerel Yapay Zeka Testleri](https://www.metotbilisim.com/yerel-yapay-zeka-testleri/)
 
 ## Gemma 4 kayıtları nereden geliyor?
 
